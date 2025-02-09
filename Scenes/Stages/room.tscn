@@ -1,0 +1,746 @@
+[gd_scene load_steps=73 format=3 uid="uid://dpptp4pcbdk4m"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/room.gd" id="1_h1msy"]
+[ext_resource type="PackedScene" uid="uid://cgqpj8agtgvq8" path="res://OldMan.tscn" id="1_ktbtg"]
+[ext_resource type="Texture2D" uid="uid://b848ckbsqy1bq" path="res://Assets/Images/Postenobg.png" id="1_o5shf"]
+[ext_resource type="Script" path="res://Assets/Scripts/old_man_char.gd" id="3_ni5k8"]
+[ext_resource type="Texture2D" uid="uid://co2sr2be7w38q" path="res://Assets/Images/skada.png" id="3_vxrli"]
+[ext_resource type="Texture2D" uid="uid://bks80nk20gx02" path="res://Assets/Images/60s_wallpaper.jpg" id="3_wssqe"]
+[ext_resource type="Script" path="res://Assets/Scripts/camera_2d.gd" id="4_kl6ap"]
+[ext_resource type="Script" path="res://Assets/Scripts/hit_marker.gd" id="4_r713j"]
+[ext_resource type="Texture2D" uid="uid://bh5ugjkr8p120" path="res://Assets/Images/book.png" id="6_6d42e"]
+[ext_resource type="PackedScene" uid="uid://bwwaepeq7v28a" path="res://Scenes/quadro_pombo.tscn" id="9_53vs6"]
+[ext_resource type="Texture2D" uid="uid://c8fs5v3dsbbi1" path="res://Assets/Images/Cabeceira.png" id="9_o16m6"]
+[ext_resource type="PackedScene" uid="uid://btsfhqfo5t12s" path="res://Scenes/generic_item.tscn" id="9_rqwgg"]
+[ext_resource type="PackedScene" uid="uid://iwu37tot0443" path="res://quadro.tscn" id="11_6ug3t"]
+[ext_resource type="Texture2D" uid="uid://dng8lul1c48gk" path="res://Assets/Images/switchzoado.png" id="11_n6u3n"]
+[ext_resource type="Texture2D" uid="uid://d2oh0joxccovm" path="res://Assets/Images/doorFront.png" id="12_4w8xd"]
+[ext_resource type="Texture2D" uid="uid://d26uspan7ojy5" path="res://Assets/Images/bookshelve.png" id="12_hnqea"]
+[ext_resource type="PackedScene" uid="uid://sqfwx7nkl5d7" path="res://cafeteira.tscn" id="14_a6qrn"]
+[ext_resource type="PackedScene" uid="uid://n758tkgbuyac" path="res://PcShop.tscn" id="15_c3fcc"]
+[ext_resource type="PackedScene" uid="uid://cny626vhx5bje" path="res://Scenes/box.tscn" id="23_6ky7u"]
+[ext_resource type="FontFile" uid="uid://d4exem1lhy0cg" path="res://Assets/Kumar_One,Lilita_One/Lilita_One/LilitaOne-Regular.ttf" id="24_hde51"]
+[ext_resource type="Script" path="res://Scenes/Stages/ui_canvas_layer.gd" id="24_k77dm"]
+[ext_resource type="AudioStream" uid="uid://dm7bbburr548w" path="res://Assets/Images/TrapMoskitao.mp3" id="26_5mjnb"]
+[ext_resource type="Script" path="res://Scenes/Stages/boombox.gd" id="26_m15bd"]
+[ext_resource type="PackedScene" uid="uid://c7d3buqbvcuwx" path="res://Scenes/Almofada.tscn" id="26_mnank"]
+[ext_resource type="Texture2D" uid="uid://yut6yd8sr3rs" path="res://Assets/Images/boombox.png" id="27_g7hca"]
+[ext_resource type="AudioStream" uid="uid://ch436ha1hbdi" path="res://Assets/Sound/paaa.wav" id="30_20r0s"]
+
+[sub_resource type="Gradient" id="Gradient_4tof4"]
+offsets = PackedFloat32Array(0, 0.987578)
+colors = PackedColorArray(0, 0, 0.129412, 1, 0.207843, 0, 0.309804, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_st06e"]
+gradient = SubResource("Gradient_4tof4")
+fill_to = Vector2(0.591111, 1)
+
+[sub_resource type="Gradient" id="Gradient_l74hc"]
+offsets = PackedFloat32Array(0.701863, 1)
+colors = PackedColorArray(1, 1, 1, 0, 0.443137, 0.564706, 0.564706, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_s4k3n"]
+frequency = 0.0145
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_burie"]
+width = 64
+color_ramp = SubResource("Gradient_l74hc")
+noise = SubResource("FastNoiseLite_s4k3n")
+
+[sub_resource type="Gradient" id="Gradient_fk2ap"]
+colors = PackedColorArray(0.159476, 0.0705146, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_6dis6"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_pf8b7"]
+width = 18
+height = 256
+generate_mipmaps = false
+normalize = false
+color_ramp = SubResource("Gradient_fk2ap")
+noise = SubResource("FastNoiseLite_6dis6")
+
+[sub_resource type="Gradient" id="Gradient_ou40w"]
+offsets = PackedFloat32Array(0.599174, 1)
+colors = PackedColorArray(0, 0, 0.239216, 1, 0.386053, 0.392555, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_0kkj1"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_0lpsq"]
+width = 16
+height = 64
+generate_mipmaps = false
+normalize = false
+color_ramp = SubResource("Gradient_ou40w")
+noise = SubResource("FastNoiseLite_0kkj1")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_66gmb"]
+size = Vector2(2135, 211)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_87qyn"]
+size = Vector2(169.75, 371)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s7450"]
+size = Vector2(54.875, 390)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oraca"]
+size = Vector2(2081, 146)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0xs6l"]
+size = Vector2(105, 755)
+
+[sub_resource type="Animation" id="Animation_2xoyg"]
+resource_name = "stairFalling"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7nnf7"]
+_data = {
+"stairFalling": SubResource("Animation_2xoyg")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_do0lj"]
+size = Vector2(118, 19)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ttptc"]
+size = Vector2(246.295, 377.647)
+
+[sub_resource type="Animation" id="Animation_8xa8k"]
+resource_name = "Booming"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("B1:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.853221, 0.853221), Vector2(0.863, 0.863), Vector2(0.853221, 0.853221)]
+}
+
+[sub_resource type="Animation" id="Animation_41hac"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("B1:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.853221, 0.853221)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mcjci"]
+_data = {
+"Booming": SubResource("Animation_8xa8k"),
+"RESET": SubResource("Animation_41hac")
+}
+
+[sub_resource type="Gradient" id="Gradient_0dkyn"]
+colors = PackedColorArray(0, 0, 0, 1, 0.0296289, 0.0273197, 0, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_mdhok"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_fa51q"]
+height = 128
+generate_mipmaps = false
+normalize = false
+color_ramp = SubResource("Gradient_0dkyn")
+noise = SubResource("FastNoiseLite_mdhok")
+
+[sub_resource type="Gradient" id="Gradient_ehyqr"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_cs27i"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_rjqns"]
+height = 128
+generate_mipmaps = false
+normalize = false
+color_ramp = SubResource("Gradient_ehyqr")
+noise = SubResource("FastNoiseLite_cs27i")
+
+[sub_resource type="Gradient" id="Gradient_i2heb"]
+colors = PackedColorArray(0, 0, 0, 1, 0.0296289, 0.0273197, 0, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_bpyox"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_r86jj"]
+height = 128
+generate_mipmaps = false
+normalize = false
+color_ramp = SubResource("Gradient_i2heb")
+noise = SubResource("FastNoiseLite_bpyox")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ata6j"]
+size = Vector2(506.75, 89)
+
+[sub_resource type="Gradient" id="Gradient_0c4ow"]
+colors = PackedColorArray(0.304728, 0.28098, 0.253382, 1, 0.304728, 0.28098, 0.253382, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_rkvge"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_yt43p"]
+height = 128
+color_ramp = SubResource("Gradient_0c4ow")
+noise = SubResource("FastNoiseLite_rkvge")
+
+[sub_resource type="Gradient" id="Gradient_l55wd"]
+colors = PackedColorArray(0.646328, 0.612007, 0.572268, 1, 0.646328, 0.612007, 0.572268, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_47tmj"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_kgxyh"]
+height = 128
+color_ramp = SubResource("Gradient_l55wd")
+noise = SubResource("FastNoiseLite_47tmj")
+
+[sub_resource type="Gradient" id="Gradient_7tmyi"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.859877, 0.871878, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_slfk7"]
+gradient = SubResource("Gradient_7tmyi")
+
+[sub_resource type="Gradient" id="Gradient_0l2v1"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.366343, 0.175028, 0.999953, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_uamn1"]
+gradient = SubResource("Gradient_0l2v1")
+
+[sub_resource type="LabelSettings" id="LabelSettings_uylbh"]
+font = ExtResource("24_hde51")
+font_size = 128
+font_color = Color(0, 0, 0.0392157, 1)
+outline_size = 34
+shadow_size = 118
+shadow_color = Color(0, 0, 0, 0.235294)
+
+[sub_resource type="LabelSettings" id="LabelSettings_skbvq"]
+font = ExtResource("24_hde51")
+font_size = 128
+font_color = Color(0.492981, 0, 0.0405629, 1)
+outline_size = 34
+shadow_size = 118
+shadow_color = Color(0, 0, 0, 0.235294)
+
+[sub_resource type="LabelSettings" id="LabelSettings_0k0fs"]
+font = ExtResource("24_hde51")
+font_size = 128
+font_color = Color(0, 0.160784, 0.0862745, 1)
+outline_size = 34
+shadow_size = 118
+shadow_color = Color(0, 0, 0, 0.235294)
+
+[node name="Room" type="Node2D"]
+script = ExtResource("1_h1msy")
+
+[node name="Postenobg" type="Sprite2D" parent="."]
+self_modulate = Color(0, 0, 0, 1)
+position = Vector2(1395, 205)
+scale = Vector2(2.45472, 2.45472)
+texture = ExtResource("1_o5shf")
+metadata/_edit_group_ = true
+
+[node name="Polygon2D" type="Polygon2D" parent="Postenobg"]
+clip_children = 1
+position = Vector2(-515.333, -104.696)
+scale = Vector2(0.407378, 0.407378)
+polygon = PackedVector2Array(945, 769, 1467, 759, 1381, 438, 1338, 344, 1296, 337, 1264, 324, 1228, 330, 1169, 364, 1130, 434)
+
+[node name="Postenobg2" type="Sprite2D" parent="Postenobg/Polygon2D"]
+self_modulate = Color(0.94073, 0.844503, 0.595004, 1)
+position = Vector2(1265, 257)
+scale = Vector2(2.45472, 2.45472)
+texture = ExtResource("1_o5shf")
+
+[node name="ColorRect" type="ColorRect" parent="Postenobg"]
+offset_left = -119.0
+offset_top = 197.0
+offset_right = -62.0
+offset_bottom = 298.0
+scale = Vector2(3.6724, 1)
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Postenobg"]
+offset_left = -119.0
+offset_top = 194.0
+offset_right = -114.0
+offset_bottom = 298.0
+scale = Vector2(3.6724, 1)
+color = Color(0, 0, 0, 1)
+
+[node name="Polygon2D2" type="Polygon2D" parent="Postenobg"]
+clip_children = 2
+position = Vector2(-515.333, -104.696)
+scale = Vector2(0.407378, 0.407378)
+color = Color(0.830374, 0.487285, 0, 0.486275)
+polygon = PackedVector2Array(849, 948, 1541, 986, 1256, 377, 1224, 358, 1185, 377, 1139, 460)
+
+[node name="Postenobg2" type="Sprite2D" parent="Postenobg/Polygon2D2"]
+modulate = Color(0.975796, 0.889603, 0.383041, 1)
+self_modulate = Color(0.94073, 0.844503, 0.595004, 1)
+position = Vector2(1265, 257)
+scale = Vector2(2.45472, 2.45472)
+texture = ExtResource("1_o5shf")
+
+[node name="TextureRect2" type="TextureRect" parent="Postenobg"]
+show_behind_parent = true
+offset_left = -276.61
+offset_top = -129.546
+offset_right = 235.39
+offset_bottom = 382.454
+texture = SubResource("GradientTexture2D_st06e")
+
+[node name="TextureRect" type="TextureRect" parent="Postenobg"]
+show_behind_parent = true
+offset_left = -276.61
+offset_top = -129.546
+offset_right = 235.39
+offset_bottom = 382.454
+texture = SubResource("NoiseTexture2D_burie")
+
+[node name="Skada" type="Polygon2D" parent="Postenobg"]
+modulate = Color(0.276604, 0.159615, 0.276931, 1)
+position = Vector2(20.7763, -125.065)
+texture = ExtResource("3_vxrli")
+polygon = PackedVector2Array(-36.2567, 631.029, -36.2567, 82.2904, -173.136, 125.88, -171.506, 235.872, -361.752, 244.834, -317.755, 639.991)
+uv = PackedVector2Array(599.469, 859.613, 599.469, -137.502, 344.083, -134.541, 353.706, 141.572, 8.01024, 157.857, 87.9571, 875.898)
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+self_modulate = Color(0.472403, 0.372755, 0.185772, 1)
+offset_left = -1234.0
+offset_top = 13.0
+offset_right = 7657.0
+offset_bottom = 2007.0
+scale = Vector2(0.234165, 0.308111)
+texture = ExtResource("3_wssqe")
+stretch_mode = 1
+
+[node name="AreaCena" type="StaticBody2D" parent="."]
+collision_layer = 162
+collision_mask = 162
+
+[node name="TextureRect" type="TextureRect" parent="AreaCena"]
+offset_left = -1769.0
+offset_top = 625.0
+offset_right = 879.0
+offset_bottom = 881.0
+texture = SubResource("NoiseTexture2D_pf8b7")
+
+[node name="TextureRect" type="TextureRect" parent="AreaCena/TextureRect"]
+visible = false
+layout_mode = 0
+offset_left = 958.0
+offset_top = -450.0
+offset_right = 1351.0
+offset_bottom = -194.0
+scale = Vector2(0.863913, 0.863913)
+texture = SubResource("NoiseTexture2D_0lpsq")
+
+[node name="Switchzoado" type="Sprite2D" parent="AreaCena"]
+position = Vector2(-756, 436)
+scale = Vector2(0.201015, 0.201015)
+texture = ExtResource("11_n6u3n")
+
+[node name="ColorRect" type="ColorRect" parent="AreaCena/Switchzoado"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+top_level = true
+offset_left = -27.0
+offset_top = -90.0
+offset_right = 1347.0
+offset_bottom = 778.0
+color = Color(0, 0, 0, 1)
+
+[node name="Bookshelve" type="Sprite2D" parent="AreaCena"]
+position = Vector2(-17.0001, 496)
+scale = Vector2(0.483316, 0.483316)
+texture = ExtResource("12_hnqea")
+
+[node name="Book" type="Sprite2D" parent="AreaCena/Bookshelve"]
+position = Vector2(-24.9383, 98.1949)
+rotation = -0.0332982
+scale = Vector2(0.301886, 0.301886)
+texture = ExtResource("6_6d42e")
+
+[node name="ChaoCol" type="CollisionShape2D" parent="AreaCena"]
+position = Vector2(-220.5, 736.5)
+shape = SubResource("RectangleShape2D_66gmb")
+
+[node name="JanelaDown" type="CollisionShape2D" parent="AreaCena"]
+position = Vector2(933.125, 657.5)
+shape = SubResource("RectangleShape2D_87qyn")
+
+[node name="JanelaUp" type="CollisionShape2D" parent="AreaCena"]
+position = Vector2(878.563, 22)
+shape = SubResource("RectangleShape2D_s7450")
+
+[node name="TetoCol" type="CollisionShape2D" parent="AreaCena"]
+position = Vector2(-195.5, -75)
+shape = SubResource("RectangleShape2D_oraca")
+
+[node name="LeftWall" type="CollisionShape2D" parent="AreaCena"]
+position = Vector2(-1287, 326)
+shape = SubResource("RectangleShape2D_0xs6l")
+
+[node name="Quadro" type="Node2D" parent="AreaCena"]
+position = Vector2(-652, 304)
+scale = Vector2(0.630693, 0.630693)
+
+[node name="Cabeceira" type="Node2D" parent="AreaCena"]
+position = Vector2(-308, -7)
+metadata/_edit_group_ = true
+
+[node name="Polygon2D" type="Polygon2D" parent="AreaCena/Cabeceira"]
+texture = ExtResource("9_o16m6")
+polygon = PackedVector2Array(30, 624, 31, 530, 12, 529, 12, 519, 28, 505, 135, 506, 164, 506, 163, 531, 143, 543, 141, 630, 27, 629)
+uv = PackedVector2Array(20.3665, 249.667, 21.3665, 155.667, 2.36646, 154.667, 2.36646, 144.667, 111.366, 144.667, 126.366, 133.667, 154.366, 131.667, 153.366, 156.667, 133.366, 168.667, 131.366, 255.667, 17.3665, 254.667)
+
+[node name="Cabeceira2" type="Sprite2D" parent="AreaCena/Cabeceira"]
+visible = false
+position = Vector2(91, 505)
+scale = Vector2(0.968159, 0.968159)
+texture = ExtResource("9_o16m6")
+
+[node name="Polygon2D2" type="Polygon2D" parent="AreaCena/Cabeceira"]
+texture = ExtResource("9_o16m6")
+polygon = PackedVector2Array(124, 513, 111, 504, 111, 445, 143, 440, 118, 393, 90, 393, 71, 441, 104, 444, 103, 505, 89, 513, 100, 518, 115, 518)
+uv = PackedVector2Array(115.728, 132.496, 102.728, 123.496, 102.728, 64.4958, 134.728, 59.4958, 109.728, 12.4958, 81.7282, 12.4958, 62.7282, 60.4958, 95.7282, 63.4958, 94.7282, 124.496, 80.7282, 132.496, 91.7282, 137.496, 106.728, 137.496)
+
+[node name="Polygon2D3" type="Polygon2D" parent="AreaCena/Cabeceira"]
+texture = ExtResource("9_o16m6")
+polygon = PackedVector2Array(61, 517, 69, 509, 60, 508, 64, 483, 69, 495, 86, 473, 84, 444, 42, 438, 7, 463, 24, 490, 28, 507, 21, 509, 26, 518, 43, 521)
+uv = PackedVector2Array(51.0444, 140.801, 59.0444, 132.801, 50.0444, 131.801, 54.0444, 106.801, 59.0444, 118.801, 76.0444, 96.8008, 74.0444, 67.8008, 32.0444, 61.8008, -2.9556, 86.8008, 14.0444, 113.801, 18.0444, 130.801, 11.0444, 132.801, 16.0444, 141.801, 33.0444, 144.801)
+
+[node name="QuadroPombo" parent="AreaCena/Cabeceira" instance=ExtResource("9_53vs6")]
+position = Vector2(-182, 292)
+
+[node name="Quadro2" parent="AreaCena" instance=ExtResource("11_6ug3t")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AreaCena"]
+libraries = {
+"": SubResource("AnimationLibrary_7nnf7")
+}
+
+[node name="DoorFront" type="Sprite2D" parent="AreaCena"]
+position = Vector2(-1023, 422)
+scale = Vector2(0.840544, 0.840544)
+texture = ExtResource("12_4w8xd")
+
+[node name="Cafeteira" parent="." instance=ExtResource("14_a6qrn")]
+position = Vector2(-756, 536)
+metadata/_edit_lock_ = true
+
+[node name="TablePc" parent="." instance=ExtResource("15_c3fcc")]
+
+[node name="PrateleiraBoomBox" type="StaticBody2D" parent="."]
+position = Vector2(170, 500)
+collision_layer = 2
+collision_mask = 2
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PrateleiraBoomBox"]
+position = Vector2(2, -0.5)
+shape = SubResource("RectangleShape2D_do0lj")
+
+[node name="Polygon2D" type="Polygon2D" parent="PrateleiraBoomBox"]
+texture = ExtResource("9_o16m6")
+polygon = PackedVector2Array(-74, -10, -57, 11, -21, 18, 33, 19, 61, 12, 74, -10, 48, -13, -28, -12)
+uv = PackedVector2Array(10.0698, 144.574, 22.0698, 160.574, 61.0698, 163.574, 111.07, 163.574, 140.07, 161.574, 152.07, 143.574, 127.07, 141.574, 50.0698, 141.574)
+
+[node name="Boombox" type="CharacterBody2D" parent="." node_paths=PackedStringArray("player")]
+position = Vector2(161, 460)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("26_m15bd")
+player = NodePath("../OldMan")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boombox"]
+position = Vector2(12, -18)
+rotation = 1.57079
+scale = Vector2(0.365419, 0.365419)
+shape = SubResource("RectangleShape2D_ttptc")
+
+[node name="R1" type="RayCast2D" parent="Boombox/CollisionShape2D"]
+position = Vector2(73.8863, 235.347)
+rotation = -1.57079
+scale = Vector2(2.73659, 2.73659)
+target_position = Vector2(169, 6.99997)
+hit_from_inside = true
+collide_with_areas = true
+
+[node name="TrapMoskitao" type="AudioStreamPlayer2D" parent="Boombox"]
+position = Vector2(-8, 8)
+stream = ExtResource("26_5mjnb")
+autoplay = true
+
+[node name="B5" type="Polygon2D" parent="Boombox"]
+scale = Vector2(0.853221, 0.853221)
+texture = ExtResource("27_g7hca")
+polygon = PackedVector2Array(-76, 31, -71, -75, -8, -79, 91, -76, 100, -71, 102, -10, 96, 31, 0, 34, -14, 37)
+uv = PackedVector2Array(12.1034, 382.389, 4.79449, 13.1091, 237.372, 11.9265, 589.555, 4.95592, 593.448, 28.8231, 597.238, 220.301, 600.216, 370.749, 265.264, 384.22, 231.071, 384.896)
+
+[node name="B4" type="Polygon2D" parent="Boombox"]
+visible = false
+scale = Vector2(0.853221, 0.853221)
+texture = ExtResource("27_g7hca")
+polygon = PackedVector2Array(-76, 31, -63.2895, -69.1497, -8, -79, 82.042, -70.3217, 98.4504, -64.4616, 105.483, -9.37625, 96, 31, 1.17203, 28.1287, -14, 37)
+uv = PackedVector2Array(12.1034, 382.389, 4.79449, 13.1091, 237.372, 11.9265, 589.555, 4.95592, 593.448, 28.8231, 597.238, 220.301, 600.216, 370.749, 265.264, 384.22, 231.071, 384.896)
+
+[node name="B3" type="Polygon2D" parent="Boombox"]
+visible = false
+scale = Vector2(0.853221, 0.853221)
+color = Color(0.947199, 0.947199, 0.947199, 1)
+texture = ExtResource("27_g7hca")
+polygon = PackedVector2Array(-76, 31, -69.1497, -86.7301, 4.68812, -56.2574, 76.1819, -56.2574, 100.794, -49.2252, 118.375, -4.68811, 96, 31, 0, 34, -14, 37)
+uv = PackedVector2Array(12.1034, 382.389, 4.79449, 13.1091, 237.372, 11.9265, 589.555, 4.95592, 593.448, 28.8231, 597.238, 220.301, 600.216, 370.749, 265.264, 384.22, 231.071, 384.896)
+
+[node name="B2" type="Polygon2D" parent="Boombox"]
+visible = false
+scale = Vector2(0.853221, 0.853221)
+color = Color(0.808998, 0.808998, 0.808998, 1)
+texture = ExtResource("27_g7hca")
+polygon = PackedVector2Array(-76, 31, -71, -75, 9.37623, -50.3972, 91, -76, 117.203, -77.3539, 102, -10, 94.9343, 41.021, 2.34406, 9.37622, -14, 37)
+uv = PackedVector2Array(12.1034, 382.389, 4.79449, 13.1091, 237.372, 11.9265, 589.555, 4.95592, 593.448, 28.8231, 597.238, 220.301, 600.216, 370.749, 265.264, 384.22, 231.071, 384.896)
+
+[node name="B1" type="Polygon2D" parent="Boombox"]
+visible = false
+modulate = Color(0.31802, 0.31802, 0.31802, 1)
+scale = Vector2(0.853221, 0.853221)
+texture = ExtResource("27_g7hca")
+polygon = PackedVector2Array(-76, 31, -39.849, 12.8923, 21.0965, -24.6126, 41.021, -22.2686, 50.3972, -2.34406, 93.7623, 31.6448, 52.7413, 35.1608, 22.2686, 37.5049, -14, 37)
+uv = PackedVector2Array(12.1034, 382.389, 4.79449, 13.1091, 237.372, 11.9265, 589.555, 4.95592, 593.448, 28.8231, 597.238, 220.301, 600.216, 370.749, 265.264, 384.22, 231.071, 384.896)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Boombox"]
+libraries = {
+"": SubResource("AnimationLibrary_mcjci")
+}
+autoplay = "Booming"
+
+[node name="Pa" type="AudioStreamPlayer2D" parent="Boombox"]
+stream = ExtResource("30_20r0s")
+
+[node name="OldMan" parent="." node_paths=PackedStringArray("hitMarker") groups=["player"] instance=ExtResource("1_ktbtg")]
+position = Vector2(-572, -112)
+scale = Vector2(0.8, 0.8)
+collision_layer = 33
+collision_mask = 33
+script = ExtResource("3_ni5k8")
+hitMarker = NodePath("../HitMarker")
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+offset_left = 848.0
+offset_top = -89.0
+offset_right = 1573.0
+offset_bottom = 771.0
+rotation = 0.00212556
+scale = Vector2(0.0797912, 0.36)
+texture = SubResource("NoiseTexture2D_fa51q")
+
+[node name="TextureRect7" type="TextureRect" parent="."]
+offset_left = 874.0
+offset_top = 127.0
+offset_right = 1599.0
+offset_bottom = 987.0
+rotation = -1.13385
+scale = Vector2(0.0435485, 0.212646)
+texture = SubResource("NoiseTexture2D_fa51q")
+
+[node name="TextureRect4" type="TextureRect" parent="."]
+offset_left = 848.0
+offset_top = 471.0
+offset_right = 1573.0
+offset_bottom = 1613.0
+rotation = 0.00212556
+scale = Vector2(0.0797912, 0.36)
+texture = SubResource("NoiseTexture2D_fa51q")
+
+[node name="TextureRect5" type="TextureRect" parent="."]
+offset_left = 877.0
+offset_top = -173.0
+offset_right = 3166.0
+offset_bottom = 1947.0
+rotation = 1.57079
+scale = Vector2(0.0800007, 1.28)
+texture = SubResource("NoiseTexture2D_rjqns")
+
+[node name="TextureRect6" type="TextureRect" parent="."]
+offset_left = -1229.0
+offset_top = -49.0
+offset_right = 22113.0
+offset_bottom = 577.0
+rotation = 1.57079
+scale = Vector2(0.0400012, 1.28)
+texture = SubResource("NoiseTexture2D_r86jj")
+
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("followNode")]
+position = Vector2(389, 275)
+zoom = Vector2(16.29, 11.645)
+limit_right = 1650
+script = ExtResource("4_kl6ap")
+followNode = NodePath("../OldMan")
+
+[node name="ColorRect" type="ColorRect" parent="Camera2D"]
+visible = false
+top_level = true
+offset_left = -1107.0
+offset_top = -354.0
+offset_right = 267.0
+offset_bottom = 514.0
+scale = Vector2(2.08123, 2.08123)
+color = Color(0, 0, 0, 1)
+
+[node name="HitMarker" type="Node2D" parent="."]
+modulate = Color(0.913725, 0.415686, 0.615686, 1)
+position = Vector2(845, 346)
+rotation = 0.803837
+script = ExtResource("4_r713j")
+
+[node name="ColorRect" type="ColorRect" parent="HitMarker"]
+offset_left = -2.95636
+offset_top = 8.50531
+offset_right = 37.0436
+offset_bottom = 48.5053
+scale = Vector2(0.08, 0.479999)
+
+[node name="ColorRect3" type="ColorRect" parent="HitMarker"]
+offset_left = -2.95636
+offset_top = 8.50531
+offset_right = 37.0436
+offset_bottom = 48.5053
+scale = Vector2(0.08, 0.479999)
+
+[node name="ColorRect2" type="ColorRect" parent="HitMarker"]
+offset_left = -2.16815
+offset_top = -25.456
+offset_right = 37.8318
+offset_bottom = 14.544
+scale = Vector2(0.08, 0.479999)
+
+[node name="ColorRect4" type="ColorRect" parent="HitMarker"]
+offset_left = -29.4888
+offset_top = -38.5681
+offset_right = 10.5112
+offset_bottom = 1.43188
+rotation = -1.57472
+scale = Vector2(0.08, 0.479999)
+pivot_offset = Vector2(19.117, 38.3134)
+
+[node name="ColorRect5" type="ColorRect" parent="HitMarker"]
+offset_left = 6.51123
+offset_top = -38.5682
+offset_right = 46.5112
+offset_bottom = 1.43182
+rotation = -1.57472
+scale = Vector2(0.08, 0.479999)
+pivot_offset = Vector2(19.117, 38.3134)
+
+[node name="Almofada3" parent="." instance=ExtResource("26_mnank")]
+
+[node name="Bed" type="StaticBody2D" parent="."]
+position = Vector2(-552, 587)
+collision_layer = 3
+collision_mask = 3
+
+[node name="bedCol" type="CollisionShape2D" parent="Bed"]
+position = Vector2(0, -2.5)
+shape = SubResource("RectangleShape2D_ata6j")
+
+[node name="Bed" type="TextureRect" parent="Bed"]
+offset_left = -257.0
+offset_top = -49.0
+offset_right = 255.0
+offset_bottom = 79.0
+scale = Vector2(1, 0.600001)
+texture = SubResource("NoiseTexture2D_yt43p")
+
+[node name="Bed4" type="TextureRect" parent="Bed"]
+offset_left = -257.0
+offset_top = -49.0
+offset_right = 255.0
+offset_bottom = 79.0
+scale = Vector2(1, 0.359999)
+texture = SubResource("NoiseTexture2D_kgxyh")
+
+[node name="Bed2" type="TextureRect" parent="Bed"]
+offset_left = -257.0
+offset_top = -54.0
+offset_right = 255.0
+offset_bottom = 74.0
+rotation = 0.0227771
+scale = Vector2(0.958191, 0.2)
+texture = SubResource("GradientTexture2D_slfk7")
+
+[node name="Bed3" type="TextureRect" parent="Bed"]
+offset_left = -257.0
+offset_top = -54.0
+offset_right = 255.0
+offset_bottom = 74.0
+scale = Vector2(1, 0.16)
+texture = SubResource("GradientTexture2D_uamn1")
+
+[node name="Polygon2D" type="Polygon2D" parent="Bed"]
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(198, 27, 204, 41, 213, 27)
+
+[node name="Polygon2D2" type="Polygon2D" parent="Bed"]
+position = Vector2(-415, 0)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(198, 27, 204, 41, 213, 27)
+
+[node name="GenericItem" parent="." instance=ExtResource("9_rqwgg")]
+position = Vector2(776, 554)
+
+[node name="Box" parent="." instance=ExtResource("23_6ky7u")]
+position = Vector2(-353, 413)
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Bounds" type="Line2D" parent="."]
+points = PackedVector2Array(-1234, -6, -1232, 626, 849, 631, 860, -4)
+closed = true
+
+[node name="UICanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("24_k77dm")
+
+[node name="HeartsAndKilled" type="Node2D" parent="UICanvasLayer"]
+metadata/_edit_lock_ = true
+
+[node name="HealthLabelBlack" type="Label" parent="UICanvasLayer/HeartsAndKilled"]
+visible = false
+offset_left = 34.0
+offset_top = 23.0
+offset_right = 1063.0
+offset_bottom = 171.0
+scale = Vector2(0.5, 0.5)
+text = "Health: S2 S2 S2 S2 S2"
+label_settings = SubResource("LabelSettings_uylbh")
+justification_flags = 160
+
+[node name="HealthLabel" type="Label" parent="UICanvasLayer/HeartsAndKilled"]
+offset_left = 34.0
+offset_top = 23.0
+offset_right = 1063.0
+offset_bottom = 171.0
+scale = Vector2(0.5, 0.5)
+text = "Health: S2 S2 S2 S2 S2"
+label_settings = SubResource("LabelSettings_skbvq")
+justification_flags = 160
+
+[node name="KilledLabel" type="Label" parent="UICanvasLayer/HeartsAndKilled"]
+offset_left = 34.0
+offset_top = 98.0
+offset_right = 647.0
+offset_bottom = 246.0
+scale = Vector2(0.5, 0.5)
+text = "killed: 0"
+label_settings = SubResource("LabelSettings_0k0fs")
+justification_flags = 160

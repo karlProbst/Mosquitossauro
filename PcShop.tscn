@@ -1,0 +1,110 @@
+[gd_scene load_steps=8 format=3 uid="uid://n758tkgbuyac"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/InteractibleControllerClass.gd" id="1_r5rwm"]
+[ext_resource type="Texture2D" uid="uid://bb0mrj7h2ve87" path="res://Assets/Images/tablezoda.png" id="2_5mouy"]
+[ext_resource type="Texture2D" uid="uid://bqan5mphxkbs0" path="res://Assets/Images/oldpc.png" id="3_1f4d1"]
+[ext_resource type="Texture2D" uid="uid://rlf3s52j3wa6" path="res://Assets/Images/BUY.png" id="4_eh2xs"]
+[ext_resource type="AudioStream" uid="uid://ch436ha1hbdi" path="res://Assets/Sound/paaa.wav" id="5_0ql1x"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_hah00"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8dh4s"]
+radius = 96.0052
+
+[node name="TablePc" type="Area2D"]
+position = Vector2(378, 506)
+metadata/_edit_group_ = true
+
+[node name="InteractibleClass" type="Node2D" parent="." node_paths=PackedStringArray("audio_player_node")]
+script = ExtResource("1_r5rwm")
+audio_player_node = NodePath("../AudioStreamPlayer2D")
+
+[node name="Tablezoda" type="Sprite2D" parent="."]
+position = Vector2(38, 59)
+rotation = -0.0336048
+scale = Vector2(0.459598, 0.459598)
+texture = ExtResource("2_5mouy")
+
+[node name="Highlight" type="Node2D" parent="."]
+
+[node name="Oldpc2" type="Sprite2D" parent="Highlight"]
+modulate = Color(0.972549, 0, 1, 1)
+position = Vector2(37, -74)
+scale = Vector2(0.31905, 0.31905)
+texture = ExtResource("3_1f4d1")
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Highlight"]
+custom_minimum_size = Vector2(700, 500)
+offset_left = -46.0
+offset_top = -198.0
+offset_right = 104.0
+offset_bottom = -98.0
+scale = Vector2(0.23, 0.23)
+theme_override_font_sizes/normal_font_size = 70
+text = "press ' Y '
+TO SURF THE WEB"
+tab_size = 6
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Highlight"]
+modulate = Color(1, 0, 0.447059, 1)
+custom_minimum_size = Vector2(700, 500)
+offset_left = -44.0
+offset_top = -198.0
+offset_right = 106.0
+offset_bottom = -98.0
+scale = Vector2(0.23, 0.23)
+theme_override_font_sizes/normal_font_size = 70
+text = "press ' Y '
+TO SURF THE WEB"
+tab_size = 6
+
+[node name="Oldpc" type="Sprite2D" parent="."]
+position = Vector2(36, -71)
+scale = Vector2(0.293499, 0.293499)
+texture = ExtResource("3_1f4d1")
+
+[node name="Scene" type="Polygon2D" parent="."]
+color = Color(0, 0, 0, 1)
+texture = SubResource("ViewportTexture_hah00")
+polygon = PackedVector2Array(-14, -95, -14, -117, -13, -130, -11, -132, 11, -133, 37, -131, 39, -129, 39, -95, 37, -93, 16, -93, -12, -94)
+
+[node name="PC" type="Node2D" parent="."]
+position = Vector2(-12, -136)
+
+[node name="Polygon2D3" type="Polygon2D" parent="PC"]
+modulate = Color(0.871979, 1, 0.789519, 1)
+texture = ExtResource("3_1f4d1")
+polygon = PackedVector2Array(-2, 41, -5, 44, 54, 44, 54, 1, -4, 0, -5, 44, -2, 41, -1, 5, 1, 4, 50, 4, 51, 5, 52, 41, 50, 43)
+uv = PackedVector2Array(72.291, 174.174, 62.0205, 184.445, 264.006, 184.445, 264.006, 37.2346, 65.444, 33.8111, 62.0205, 184.445, 72.291, 174.174, 75.7144, 50.9286, 82.5614, 47.5051, 250.313, 47.5051, 253.736, 50.9286, 257.16, 174.174, 250.313, 181.021)
+
+[node name="Polygon2D" type="Polygon2D" parent="PC"]
+position = Vector2(12, 136.311)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-14, -95, -14, -117, -13, -130, -11, -132, 11, -133, 37, -131, 39, -129, 39, -95, 37, -93, 16, -93, -12, -94)
+
+[node name="Buy" type="Sprite2D" parent="PC"]
+modulate = Color(0, 1, 0.2, 1)
+position = Vector2(25, 24.3115)
+scale = Vector2(0.0355191, 0.0355191)
+texture = ExtResource("4_eh2xs")
+
+[node name="BuyRaquete" type="Node2D" parent="PC"]
+position = Vector2(13, 11)
+
+[node name="BuySpray" type="Node2D" parent="PC"]
+position = Vector2(24, 26)
+
+[node name="BuyAwp" type="Node2D" parent="PC"]
+position = Vector2(13, 39)
+
+[node name="Polygon2D2" type="Polygon2D" parent="PC"]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+rotation = 0.00805785
+stream = ExtResource("5_0ql1x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(34, -62)
+shape = SubResource("CircleShape2D_8dh4s")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

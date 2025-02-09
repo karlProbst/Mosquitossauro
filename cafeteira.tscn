@@ -1,0 +1,73 @@
+[gd_scene load_steps=5 format=3 uid="uid://sqfwx7nkl5d7"]
+
+[ext_resource type="Script" path="res://cafeteira.gd" id="1_q05sb"]
+[ext_resource type="Texture2D" uid="uid://l6v5qqwn5kpk" path="res://Assets/Images/CoofeMaker.png" id="1_yjhbg"]
+[ext_resource type="AudioStream" uid="uid://c4w66706hsfve" path="res://Assets/Sound/tiririCafe.mp3" id="3_le3q7"]
+[ext_resource type="AudioStream" uid="uid://ch436ha1hbdi" path="res://Assets/Sound/paaa.wav" id="4_p2da4"]
+
+[node name="Cafeteira" type="Node2D"]
+script = ExtResource("1_q05sb")
+
+[node name="Highlight" type="Node2D" parent="."]
+scale = Vector2(1.035, 1.035)
+skew = 0.010472
+
+[node name="Polygon2D2" type="Polygon2D" parent="Highlight"]
+modulate = Color(0, 0, 1, 0.682353)
+position = Vector2(2.10438, 16.426)
+scale = Vector2(1.041, 1.126)
+skew = -0.0226893
+texture = ExtResource("1_yjhbg")
+polygon = PackedVector2Array(-50, -76, -80, -97, -82, -162, -77, -211, 6, -228, 84, -211, 91, -149, 87, -94, 53, -70, 24.1221, -69.5251, -11.1695, -67.8085)
+uv = PackedVector2Array(67.6987, 259.078, 18.5443, 224.669, 15.2673, 118.168, 23.4597, 37.8829, 159.453, 10.0287, 287.255, 37.8829, 298.724, 139.469, 292.17, 229.585, 236.462, 268.908, 189.146, 269.686, 131.322, 272.499)
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Highlight"]
+custom_minimum_size = Vector2(500, 500)
+offset_left = -107.761
+offset_top = -339.149
+offset_right = 392.239
+offset_bottom = 160.851
+scale = Vector2(0.58, 0.58)
+theme_override_font_sizes/normal_font_size = 50
+text = "Press ENTER
+FOR CAFFEINE ☕
+(psst... only $20)\"
+"
+tab_size = 6
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Highlight"]
+modulate = Color(0, 0, 0.8, 1)
+custom_minimum_size = Vector2(500, 500)
+offset_left = -105.761
+offset_top = -339.149
+offset_right = 394.239
+offset_bottom = 160.851
+scale = Vector2(0.58, 0.58)
+theme_override_font_sizes/normal_font_size = 50
+text = "Press ENTER
+FOR CAFFEINE ☕
+(psst... only $20)\"
+"
+tab_size = 6
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+texture = ExtResource("1_yjhbg")
+polygon = PackedVector2Array(-50, -76, -80, -97, -82, -162, -77, -211, 6, -228, 84, -211, 91, -149, 87, -94, 53, -70, 54, -16, 56, -4, 49, 1, 25, 1, -43, 1, -58, -4, -47, -24, -44, -57)
+uv = PackedVector2Array(32.5337, 289.821, 8.13968, 260.548, 5.70027, 128.82, 13.0185, 1.97122, 166.701, 1.97122, 300.868, 1.97122, 305.747, 143.457, 295.989, 270.305, 286.231, 294.699, 281.353, 445.942, 293.55, 489.852, 276.474, 504.488, 208.171, 502.048, 52.0489, 504.488, 15.4579, 492.291, 42.2913, 443.503, 39.8519, 326.412)
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(-88, -70)
+target_position = Vector2(188, -13)
+collision_mask = 3
+collide_with_areas = true
+
+[node name="TiririCafe" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-1, -95)
+stream = ExtResource("3_le3q7")
+volume_db = -1.726
+pitch_scale = 0.9
+
+[node name="Paaa" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_p2da4")
+volume_db = -5.895
+pitch_scale = 0.94

@@ -1,0 +1,73 @@
+[gd_scene load_steps=8 format=3 uid="uid://bwwaepeq7v28a"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/InteractibleControllerClass.gd" id="1_ncd64"]
+[ext_resource type="Texture2D" uid="uid://b6l283pmcd38b" path="res://Assets/Images/POMBO.png" id="2_cg3ow"]
+[ext_resource type="Texture2D" uid="uid://dwlgkqshpo8xi" path="res://Assets/Images/frame1.png" id="3_w3y31"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tgf1h"]
+radius = 95.2575
+
+[sub_resource type="Animation" id="Animation_82q3s"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Quadro1:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_3ion0"]
+resource_name = "takeDamage"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Quadro1:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.342085, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lnewd"]
+_data = {
+"RESET": SubResource("Animation_82q3s"),
+"takeDamage": SubResource("Animation_3ion0")
+}
+
+[node name="QuadroPombo" type="Area2D"]
+
+[node name="InteractibleControllerClass" type="Node" parent="."]
+script = ExtResource("1_ncd64")
+health = 12
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_tgf1h")
+
+[node name="Quadro1" type="Sprite2D" parent="."]
+position = Vector2(1, -74)
+scale = Vector2(0.262584, 0.262584)
+texture = ExtResource("2_cg3ow")
+offset = Vector2(-11.4249, 285.623)
+
+[node name="Frame1" type="Sprite2D" parent="Quadro1"]
+position = Vector2(-7.61661, 270.39)
+scale = Vector2(0.865632, 0.865632)
+texture = ExtResource("3_w3y31")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_lnewd")
+}
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

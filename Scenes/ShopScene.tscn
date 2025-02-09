@@ -1,0 +1,51 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0tolonetrx5o"]
+
+[ext_resource type="Texture2D" uid="uid://bqan5mphxkbs0" path="res://Assets/Images/oldpc.png" id="1_8rrea"]
+[ext_resource type="Texture2D" uid="uid://rlf3s52j3wa6" path="res://Assets/Images/BUY.png" id="1_m8svc"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TablePc" type="Node2D" parent="."]
+modulate = Color(0.588564, 1, 0.283843, 1)
+position = Vector2(12, 136)
+
+[node name="Oldpc" type="Sprite2D" parent="TablePc"]
+position = Vector2(36, -71)
+scale = Vector2(0.293499, 0.293499)
+texture = ExtResource("1_8rrea")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(12, 136.311)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-14, -95, -14, -117, -13, -130, -11, -132, 11, -133, 37, -131, 39, -129, 39, -95, 37, -93, 16, -93, -12, -94)
+
+[node name="Buy" type="Sprite2D" parent="."]
+modulate = Color(0, 1, 0.2, 1)
+position = Vector2(25, 24.3115)
+scale = Vector2(0.0355191, 0.0355191)
+texture = ExtResource("1_m8svc")
+
+[node name="BuyRaquete" type="Button" parent="."]
+offset_left = 7.00001
+offset_top = 7.3115
+offset_right = 15.0
+offset_bottom = 15.3115
+scale = Vector2(1.40001, 0.92)
+
+[node name="BuySpray" type="Button" parent="."]
+offset_left = 26.0
+offset_top = 23.3115
+offset_right = 34.0
+offset_bottom = 31.3115
+scale = Vector2(1.40001, 0.92)
+
+[node name="BuyAwp" type="Button" parent="."]
+offset_left = 7.00001
+offset_top = 35.3115
+offset_right = 15.0
+offset_bottom = 43.3115
+scale = Vector2(1.40001, 0.92)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(24, 19)
+zoom = Vector2(16, 12)

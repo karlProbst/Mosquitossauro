@@ -1,0 +1,117 @@
+[gd_scene load_steps=16 format=3 uid="uid://bq1ka1x26bwu4"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/player.gd" id="1_oswph"]
+[ext_resource type="Texture2D" uid="uid://cxwr8dhkhq7ul" path="res://Assets/Images/insetisida.png" id="2_5mc1p"]
+[ext_resource type="Texture2D" uid="uid://dhpykvpyl76ba" path="res://Assets/Images/Mosquitolhos.png" id="5_luugw"]
+
+[sub_resource type="Gradient" id="Gradient_60dp1"]
+offsets = PackedFloat32Array(0.363636, 1)
+colors = PackedColorArray(0, 0, 0.27451, 1, 0.0869225, 3.99485e-06, 0.422108, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_i3k5o"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_dvrgv"]
+color_ramp = SubResource("Gradient_60dp1")
+noise = SubResource("FastNoiseLite_i3k5o")
+
+[sub_resource type="Gradient" id="Gradient_mtbji"]
+offsets = PackedFloat32Array(0.363636, 0.896104, 0.987013)
+colors = PackedColorArray(1, 1, 0.901961, 1, 1, 1, 0.858824, 1, 0.430696, 0.415222, 0, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_c47xv"]
+frequency = 0.1428
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_sgtjk"]
+color_ramp = SubResource("Gradient_mtbji")
+noise = SubResource("FastNoiseLite_c47xv")
+
+[sub_resource type="Gradient" id="Gradient_2iygu"]
+offsets = PackedFloat32Array(0.0779221, 0.980519, 1)
+colors = PackedColorArray(0, 0.278431, 0, 1, 0, 0.145098, 0, 1, 0, 0.512947, 0.00489596, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_awrpc"]
+noise_type = 3
+frequency = 0.0344
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_k7at4"]
+height = 256
+color_ramp = SubResource("Gradient_2iygu")
+noise = SubResource("FastNoiseLite_awrpc")
+
+[sub_resource type="Gradient" id="Gradient_d1ukq"]
+offsets = PackedFloat32Array(0.363636, 0.896104, 0.987013)
+colors = PackedColorArray(1, 1, 0.901961, 1, 1, 1, 0.858824, 1, 0.430696, 0.415222, 0, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_k7ena"]
+frequency = 0.1428
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_pae72"]
+width = 64
+height = 64
+color_ramp = SubResource("Gradient_d1ukq")
+noise = SubResource("FastNoiseLite_k7ena")
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 643.0
+texture = SubResource("NoiseTexture2D_dvrgv")
+
+[node name="ParedeFrente" type="TextureRect" parent="."]
+offset_left = -339.0
+offset_right = 179.0
+offset_bottom = 643.0
+texture = SubResource("NoiseTexture2D_sgtjk")
+
+[node name="Grass" type="TextureRect" parent="."]
+offset_left = 180.0
+offset_top = 342.0
+offset_right = 1168.0
+offset_bottom = 644.0
+texture = SubResource("NoiseTexture2D_k7at4")
+
+[node name="CasaFront" type="Node2D" parent="."]
+position = Vector2(408, 389)
+rotation = 1.5708
+skew = -0.785398
+
+[node name="TextureRect3" type="TextureRect" parent="CasaFront"]
+self_modulate = Color(0.641934, 0.641934, 0.641934, 1)
+offset_left = -723.0
+offset_top = -78.0
+offset_right = 25.0
+offset_bottom = 325.0
+texture = SubResource("NoiseTexture2D_pae72")
+
+[node name="TextureRect4" type="TextureRect" parent="CasaFront"]
+modulate = Color(0.289995, 0.264286, 0.147689, 1)
+self_modulate = Color(0.641934, 0.641934, 0.641934, 1)
+offset_left = -278.0
+offset_top = -36.7695
+offset_right = -94.0
+offset_bottom = 249.231
+texture = SubResource("NoiseTexture2D_pae72")
+
+[node name="Path" type="Line2D" parent="."]
+position = Vector2(236, 465)
+points = PackedVector2Array(197, -200, -2, 2)
+
+[node name="Player" type="Node2D" parent="." node_paths=PackedStringArray("line_path")]
+position = Vector2(232, 466)
+script = ExtResource("1_oswph")
+line_path = NodePath("../Path")
+
+[node name="Insetisida" type="Sprite2D" parent="Player"]
+position = Vector2(32, -11)
+rotation = 3.14159
+scale = Vector2(1, -1)
+texture = ExtResource("2_5mc1p")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Polygon2D" type="Polygon2D" parent="Node2D"]
+position = Vector2(190, -156)
+texture = ExtResource("5_luugw")
+polygon = PackedVector2Array(158, 320, 215, 485, 373, 499, 406, 254, 261, 191)
+uv = PackedVector2Array(241.094, 182.52, 344.731, 272.229, 413.998, 191.418, 364.268, 103.502, 266.583, 105.278)

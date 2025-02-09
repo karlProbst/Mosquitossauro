@@ -1,0 +1,160 @@
+[gd_scene load_steps=15 format=3 uid="uid://iwu37tot0443"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/Quadro.gd" id="1_knufi"]
+[ext_resource type="Texture2D" uid="uid://dm0eao8ct2m7e" path="res://Assets/Images/quadro1.png" id="1_pequp"]
+[ext_resource type="Texture2D" uid="uid://wwreq37lxor6" path="res://Assets/Images/Rope.png" id="2_uhflx"]
+[ext_resource type="Script" path="res://Assets/Scripts/InteractibleControllerClass.gd" id="4_p2wed"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gd051"]
+radius = 68.593
+
+[sub_resource type="Animation" id="Animation_jo204"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Quadro1:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.129871]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Quadro1:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.217227, 0.235833)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Quadro1:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_bv31j"]
+resource_name = "destroy2"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Quadro1:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.217227, 0.235833), Vector2(2.387, 2.596)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Quadro1:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_tornw"]
+resource_name = "takeDamage"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Quadro1:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.129871, -0.403171, 0.129871]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w74vb"]
+_data = {
+"RESET": SubResource("Animation_jo204"),
+"destroy2": SubResource("Animation_bv31j"),
+"takeDamage": SubResource("Animation_tornw")
+}
+
+[sub_resource type="Gradient" id="Gradient_uxilb"]
+offsets = PackedFloat32Array(0, 0.699405, 1)
+colors = PackedColorArray(1, 0, 0, 1, 1, 0.698039, 0, 0.901961, 1, 1, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_rh3lq"]
+gradient = SubResource("Gradient_uxilb")
+
+[sub_resource type="Curve" id="Curve_q2p8v"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.0686813, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.154584), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_du6qr"]
+curve = SubResource("Curve_q2p8v")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0lid0"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 98, 0)
+scale_min = 20.0
+scale_max = 70.0
+scale_curve = SubResource("CurveTexture_du6qr")
+color_ramp = SubResource("GradientTexture1D_rh3lq")
+
+[node name="Quadro2" type="Area2D"]
+position = Vector2(560, 360)
+rotation = -0.134103
+script = ExtResource("1_knufi")
+
+[node name="InteractibleControllerClass" type="Node" parent="."]
+script = ExtResource("4_p2wed")
+
+[node name="Quadro1" type="Sprite2D" parent="."]
+position = Vector2(-0.334634, -48.8812)
+rotation = 0.129871
+scale = Vector2(0.217227, 0.235833)
+texture = ExtResource("1_pequp")
+offset = Vector2(19.0806, 243.142)
+
+[node name="Moldura" type="Sprite2D" parent="Quadro1"]
+position = Vector2(19.4272, 243.723)
+scale = Vector2(1.48307, 1.36606)
+texture = ExtResource("2_uhflx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2.32804, 9.77652)
+shape = SubResource("CircleShape2D_gd051")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_w74vb")
+}
+speed_scale = 1.337
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_0lid0")
+one_shot = true
+speed_scale = 2.8
+explosiveness = 0.61
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

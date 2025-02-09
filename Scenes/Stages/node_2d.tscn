@@ -1,0 +1,99 @@
+[gd_scene load_steps=5 format=3 uid="uid://b0xyn4e4j3mqt"]
+
+[ext_resource type="Texture2D" uid="uid://cxwr8dhkhq7ul" path="res://Assets/Images/insetisida.png" id="1_e7b2b"]
+[ext_resource type="Texture2D" uid="uid://bnytwl0hjoplv" path="res://Assets/Images/braco.png" id="2_482wh"]
+
+[sub_resource type="SkeletonModification2DCCDIK" id="SkeletonModification2DCCDIK_2j2l5"]
+target_nodepath = NodePath("../IK Targets/MaoRTarget")
+tip_nodepath = NodePath("MuqueR/BracoR/MaoR")
+ccdik_data_chain_length = 3
+joint_data/0/bone_index = 0
+joint_data/0/bone2d_node = NodePath("MuqueR")
+joint_data/0/rotate_from_joint = false
+joint_data/0/enable_constraint = false
+joint_data/0/editor_draw_gizmo = true
+joint_data/1/bone_index = 1
+joint_data/1/bone2d_node = NodePath("MuqueR/BracoR")
+joint_data/1/rotate_from_joint = false
+joint_data/1/enable_constraint = true
+joint_data/1/constraint_angle_min = 3.396
+joint_data/1/constraint_angle_max = 176.604
+joint_data/1/constraint_angle_invert = false
+joint_data/1/constraint_in_localspace = true
+joint_data/1/editor_draw_gizmo = true
+joint_data/2/bone_index = 2
+joint_data/2/bone2d_node = NodePath("MuqueR/BracoR/MaoR")
+joint_data/2/rotate_from_joint = false
+joint_data/2/enable_constraint = false
+joint_data/2/editor_draw_gizmo = true
+
+[sub_resource type="SkeletonModificationStack2D" id="SkeletonModificationStack2D_vtj8d"]
+enabled = true
+modification_count = 1
+modifications/0 = SubResource("SkeletonModification2DCCDIK_2j2l5")
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Skeleton2D" type="Skeleton2D" parent="."]
+position = Vector2(-2, 1)
+rotation = 0.0465846
+modification_stack = SubResource("SkeletonModificationStack2D_vtj8d")
+
+[node name="MuqueR" type="Bone2D" parent="Skeleton2D"]
+rest = Transform2D(1, 0, 0, 1, 0, 0)
+metadata/_local_pose_override_enabled_ = true
+
+[node name="BracoR" type="Bone2D" parent="Skeleton2D/MuqueR"]
+position = Vector2(-91.1341, -0.756909)
+rest = Transform2D(1, 0, 0, 1, -100, 0)
+metadata/_local_pose_override_enabled_ = true
+
+[node name="MaoR" type="Bone2D" parent="Skeleton2D/MuqueR/BracoR"]
+position = Vector2(-90.0886, 0.195438)
+rest = Transform2D(1, 0, 0, 1, -114, 0)
+metadata/_local_pose_override_enabled_ = true
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Skeleton2D/MuqueR/BracoR/MaoR"]
+remote_path = NodePath("../../../../../Body/Mao")
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Skeleton2D/MuqueR/BracoR"]
+remote_path = NodePath("../../../../Body/Braco")
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Skeleton2D/MuqueR"]
+remote_path = NodePath("../../../Body/Muque")
+
+[node name="Body" type="Node2D" parent="."]
+
+[node name="Mao" type="Node2D" parent="Body"]
+position = Vector2(-183.154, -1.55146)
+rotation = 0.240575
+scale = Vector2(0.999995, 0.999995)
+
+[node name="Insetisida" type="Sprite2D" parent="Body/Mao"]
+texture = ExtResource("1_e7b2b")
+offset = Vector2(-29, -11)
+
+[node name="Muque" type="Node2D" parent="Body"]
+position = Vector2(-2, 1)
+rotation = -0.0184789
+
+[node name="muque" type="Sprite2D" parent="Body/Muque"]
+scale = Vector2(6.76, 1)
+texture = ExtResource("2_482wh")
+offset = Vector2(-6.21387, 0)
+
+[node name="Braco" type="Node2D" parent="Body"]
+position = Vector2(-93.1325, 1.92708)
+rotation = 0.0407925
+scale = Vector2(1.00001, 1.00001)
+
+[node name="braco" type="Sprite2D" parent="Body/Braco"]
+scale = Vector2(6.92, 1)
+texture = ExtResource("2_482wh")
+offset = Vector2(-6.21387, 0)
+
+[node name="IK Targets" type="Node2D" parent="."]
+
+[node name="MaoRTarget" type="Node2D" parent="IK Targets"]
+position = Vector2(-286, -2.99999)
+rotation = 2.82419

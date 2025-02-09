@@ -1,0 +1,181 @@
+[gd_scene load_steps=7 format=3 uid="uid://b37chjpguawsl"]
+
+[ext_resource type="Texture2D" uid="uid://b3mpfqpvpu047" path="res://Assets/Images/manpinting.png" id="1_08cvv"]
+[ext_resource type="Texture2D" uid="uid://cxwr8dhkhq7ul" path="res://Assets/Images/insetisida.png" id="2_e8mhr"]
+
+[sub_resource type="SkeletonModification2DCCDIK" id="SkeletonModification2DCCDIK_repwr"]
+target_nodepath = NodePath("../Targets/MaoTarget")
+tip_nodepath = NodePath("Hip/Muque/Braco/Mao/finger")
+ccdik_data_chain_length = 3
+joint_data/0/bone_index = 2
+joint_data/0/bone2d_node = NodePath("Hip/Muque/Braco")
+joint_data/0/rotate_from_joint = false
+joint_data/0/enable_constraint = true
+joint_data/0/constraint_angle_min = -113.295
+joint_data/0/constraint_angle_max = -303.781
+joint_data/0/constraint_angle_invert = false
+joint_data/0/constraint_in_localspace = true
+joint_data/0/editor_draw_gizmo = true
+joint_data/1/bone_index = 1
+joint_data/1/bone2d_node = NodePath("Hip/Muque")
+joint_data/1/rotate_from_joint = false
+joint_data/1/enable_constraint = true
+joint_data/1/constraint_angle_min = 50.0
+joint_data/1/constraint_angle_max = -30.0
+joint_data/1/constraint_angle_invert = true
+joint_data/1/constraint_in_localspace = false
+joint_data/1/editor_draw_gizmo = true
+joint_data/2/bone_index = 3
+joint_data/2/bone2d_node = NodePath("Hip/Muque/Braco/Mao")
+joint_data/2/rotate_from_joint = false
+joint_data/2/enable_constraint = false
+joint_data/2/editor_draw_gizmo = true
+
+[sub_resource type="SkeletonModification2DLookAt" id="SkeletonModification2DLookAt_upofi"]
+bone_index = 3
+bone2d_node = NodePath("Hip/Muque/Braco/Mao")
+target_nodepath = NodePath("../Targets/MaoTarget")
+enable_constraint = true
+constraint_angle_min = -72.661
+constraint_angle_max = 102.386
+constraint_angle_invert = true
+constraint_in_localspace = true
+additional_rotation = 7.2
+
+[sub_resource type="SkeletonModification2DLookAt" id="SkeletonModification2DLookAt_sx5en"]
+bone_index = 5
+bone2d_node = NodePath("Hip/Cabeca")
+target_nodepath = NodePath("../Targets/MaoTarget")
+
+[sub_resource type="SkeletonModificationStack2D" id="SkeletonModificationStack2D_0u3bn"]
+enabled = true
+modification_count = 3
+modifications/0 = SubResource("SkeletonModification2DCCDIK_repwr")
+modifications/1 = SubResource("SkeletonModification2DLookAt_upofi")
+modifications/2 = SubResource("SkeletonModification2DLookAt_sx5en")
+
+[node name="Man" type="Node2D"]
+rotation = -0.0371727
+
+[node name="Body" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Cabeca" type="Polygon2D" parent="Body"]
+position = Vector2(8.33667, -252.934)
+rotation = 0.278229
+scale = Vector2(0.999999, 0.999999)
+offset = Vector2(-13, 257)
+texture = ExtResource("1_08cvv")
+polygon = PackedVector2Array(-24, -256, 1.66273, -242.018, 29.3199, -242.314, 41.6894, -262.189, 87, -346, 82, -420, -3, -436, -92.3793, -363.04, -74, -264)
+uv = PackedVector2Array(431.021, 168.902, 448.431, 160.636, 470.705, 156.586, 495.004, 152.03, 542.021, 78.9022, 537.021, 4.90222, 452.021, -11.0978, 355.021, 52.9022, 381.021, 160.902)
+
+[node name="Chest" type="Polygon2D" parent="Body"]
+rotation = 0.00923699
+scale = Vector2(1, 1)
+offset = Vector2(-1, 9)
+texture = ExtResource("1_08cvv")
+polygon = PackedVector2Array(-105, -1, -61, -238, -30, -257, 18, -274, 52, -274, 80, -271, 168, 1, -2, 27)
+uv = PackedVector2Array(347.301, 425.778, 452.657, 276.197, 419.301, 169.778, 467.301, 153.778, 501.301, 153.778, 529.301, 156.778, 617.301, 428.778, 447.301, 454.778)
+
+[node name="braco" type="Polygon2D" parent="Body"]
+position = Vector2(-145.359, -149.006)
+rotation = 0.909326
+scale = Vector2(0.99991, 0.99991)
+offset = Vector2(142, 162)
+texture = ExtResource("1_08cvv")
+polygon = PackedVector2Array(-313, -163, -244, -120, -159, -126, -114, -148, -117, -177, -144, -217, -302, -221, -327, -196)
+uv = PackedVector2Array(136.966, 267.113, 205.966, 310.113, 290.966, 304.113, 335.966, 282.113, 332.966, 253.113, 305.966, 213.113, 147.966, 209.113, 122.966, 234.113)
+
+[node name="Muque" type="Polygon2D" parent="Body"]
+position = Vector2(-19.2165, -193.185)
+rotation = -0.0718807
+scale = Vector2(0.999926, 0.999926)
+offset = Vector2(18, 195)
+texture = ExtResource("1_08cvv")
+polygon = PackedVector2Array(-150, -131, -78, -130, -68, -131, -33, -140, -5, -156, 6, -181, 6, -209, -3, -230, -19, -245, -33, -244, -159, -198, -172, -172, -168, -152)
+uv = PackedVector2Array(297.393, 298.291, 358.976, 304.743, 379.393, 298.291, 414.393, 289.291, 442.393, 273.291, 453.393, 248.291, 453.393, 220.291, 444.393, 199.291, 428.393, 184.291, 414.393, 185.291, 288.393, 231.291, 275.393, 257.291, 279.393, 277.291)
+
+[node name="Mao" type="Polygon2D" parent="Body"]
+position = Vector2(-220.676, -310.867)
+rotation = 2.6807
+scale = Vector2(0.999936, 0.999936)
+offset = Vector2(323, 206)
+texture = ExtResource("1_08cvv")
+polygon = PackedVector2Array(-331, -185, -315, -192, -305, -206, -305, -218, -313, -231, -433, -261, -434, -215, -370, -178)
+uv = PackedVector2Array(123.138, 244.715, 139.138, 237.715, 149.138, 223.715, 149.138, 211.715, 141.138, 198.715, 21.1381, 168.715, 20.1381, 214.715, 84.1381, 251.715)
+
+[node name="Insetisida" type="Sprite2D" parent="Body/Mao"]
+position = Vector2(-107.501, -40.7637)
+rotation = -0.00280536
+scale = Vector2(1.36732, 1.09501)
+texture = ExtResource("2_e8mhr")
+
+[node name="Skeleton2D" type="Skeleton2D" parent="."]
+modification_stack = SubResource("SkeletonModificationStack2D_0u3bn")
+
+[node name="Hip" type="Bone2D" parent="Skeleton2D"]
+rotation = 0.00923699
+scale = Vector2(1, 1)
+rest = Transform2D(1, 0, 0, 1, 0, 0)
+
+[node name="Muque" type="Bone2D" parent="Skeleton2D/Hip"]
+position = Vector2(-21, -193)
+rotation = 0.011353
+scale = Vector2(0.999928, 0.999928)
+rest = Transform2D(0.999864, 0.011352, -0.011352, 0.999864, -21, -193)
+metadata/_local_pose_override_enabled_ = true
+
+[node name="Braco" type="Bone2D" parent="Skeleton2D/Hip/Muque"]
+position = Vector2(-128.999, 35.0083)
+rotation = 0.0614109
+scale = Vector2(0.999984, 0.999984)
+rest = Transform2D(0.998099, 0.0613714, -0.0613714, 0.998099, -128.999, 35.0083)
+metadata/_local_pose_override_enabled_ = true
+
+[node name="Mao" type="Bone2D" parent="Skeleton2D/Hip/Muque/Braco"]
+position = Vector2(-174.005, -39.9995)
+rotation = 0.0942021
+scale = Vector2(1.00003, 1.00003)
+rest = Transform2D(0.995592, 0.0940653, -0.0940653, 0.995592, -174.005, -39.9995)
+auto_calculate_length_and_angle = false
+length = 45.653
+bone_angle = -188.394
+metadata/_local_pose_override_enabled_ = true
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Skeleton2D/Hip/Muque/Braco/Mao"]
+remote_path = NodePath("../../../../../../Body/Mao")
+
+[node name="finger" type="Bone2D" parent="Skeleton2D/Hip/Muque/Braco/Mao"]
+position = Vector2(-82.2385, -18.5932)
+rest = Transform2D(1, 0, 0, 1, -82.2385, -18.5932)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Skeleton2D/Hip/Muque/Braco"]
+remote_path = NodePath("../../../../../Body/braco")
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Skeleton2D/Hip/Muque"]
+remote_path = NodePath("../../../../Body/Muque")
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Skeleton2D/Hip"]
+remote_path = NodePath("../../../Body/Chest")
+
+[node name="Cabeca" type="Bone2D" parent="Skeleton2D/Hip"]
+position = Vector2(6, -253)
+rotation = -0.0783248
+rest = Transform2D(0.993569, -0.11323, 0.11323, 0.993569, 17, -253)
+auto_calculate_length_and_angle = false
+length = 93.837
+bone_angle = 196.0
+metadata/_local_pose_override_enabled_ = true
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Skeleton2D/Hip/Cabeca"]
+remote_path = NodePath("../../../../Body/Cabeca")
+
+[node name="Bone2D" type="Bone2D" parent="Skeleton2D/Hip/Cabeca"]
+position = Vector2(-69.861, -93.5117)
+rest = Transform2D(1, 0, 0, 1, -69.861, -93.5117)
+
+[node name="Targets" type="Node2D" parent="."]
+
+[node name="MaoTarget" type="Node2D" parent="Targets"]
+position = Vector2(-165, -361)

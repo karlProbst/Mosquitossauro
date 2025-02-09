@@ -1,0 +1,894 @@
+[gd_scene load_steps=31 format=3 uid="uid://schs3mf4jo17"]
+
+[ext_resource type="Texture2D" uid="uid://bks80nk20gx02" path="res://Assets/Images/60s_wallpaper.jpg" id="1_eowge"]
+[ext_resource type="Script" path="res://Assets/Scripts/light_scene.gd" id="1_y1oby"]
+[ext_resource type="Texture2D" uid="uid://s8lquyphw24a" path="res://Assets/Images/OldMan.png" id="2_4tnmu"]
+[ext_resource type="Texture2D" uid="uid://cuyd6tuulyq3g" path="res://Assets/Images/Almofada.png" id="3_1lra6"]
+[ext_resource type="Texture2D" uid="uid://dhpykvpyl76ba" path="res://Assets/Images/Mosquitolhos.png" id="4_80bie"]
+[ext_resource type="Texture2D" uid="uid://c8fs5v3dsbbi1" path="res://Assets/Images/Cabeceira.png" id="4_dcb6p"]
+
+[sub_resource type="SkeletonModification2DCCDIK" id="SkeletonModification2DCCDIK_23n7y"]
+target_nodepath = NodePath("../RHand")
+tip_nodepath = NodePath("Hip/Neck/ArmR/ArmEndR/HandR")
+ccdik_data_chain_length = 2
+joint_data/0/bone_index = 3
+joint_data/0/bone2d_node = NodePath("Hip/Neck/ArmR")
+joint_data/0/rotate_from_joint = false
+joint_data/0/enable_constraint = true
+joint_data/0/constraint_angle_min = -88.909
+joint_data/0/constraint_angle_max = -1.0
+joint_data/0/constraint_angle_invert = false
+joint_data/0/constraint_in_localspace = true
+joint_data/0/editor_draw_gizmo = true
+joint_data/1/bone_index = 4
+joint_data/1/bone2d_node = NodePath("Hip/Neck/ArmR/ArmEndR")
+joint_data/1/rotate_from_joint = false
+joint_data/1/enable_constraint = true
+joint_data/1/constraint_angle_min = -62.19
+joint_data/1/constraint_angle_max = -13.234
+joint_data/1/constraint_angle_invert = false
+joint_data/1/constraint_in_localspace = true
+joint_data/1/editor_draw_gizmo = true
+
+[sub_resource type="SkeletonModification2DLookAt" id="SkeletonModification2DLookAt_2horq"]
+bone_index = 5
+bone2d_node = NodePath("Hip/Neck/ArmR/ArmEndR/HandR")
+target_nodepath = NodePath("../RHand")
+enable_constraint = true
+constraint_angle_min = 258.684
+constraint_angle_max = 360.0
+constraint_angle_invert = false
+constraint_in_localspace = true
+
+[sub_resource type="SkeletonModification2DCCDIK" id="SkeletonModification2DCCDIK_voup2"]
+target_nodepath = NodePath("../LHand")
+tip_nodepath = NodePath("Hip/Neck/ArmL/ArmEndL/HandL")
+ccdik_data_chain_length = 2
+joint_data/0/bone_index = 6
+joint_data/0/bone2d_node = NodePath("Hip/Neck/ArmL")
+joint_data/0/rotate_from_joint = false
+joint_data/0/enable_constraint = false
+joint_data/0/editor_draw_gizmo = false
+joint_data/1/bone_index = 7
+joint_data/1/bone2d_node = NodePath("Hip/Neck/ArmL/ArmEndL")
+joint_data/1/rotate_from_joint = false
+joint_data/1/enable_constraint = true
+joint_data/1/constraint_angle_min = 157.282
+joint_data/1/constraint_angle_max = 1.0
+joint_data/1/constraint_angle_invert = false
+joint_data/1/constraint_in_localspace = true
+joint_data/1/editor_draw_gizmo = true
+
+[sub_resource type="SkeletonModification2DLookAt" id="SkeletonModification2DLookAt_x76c6"]
+bone_index = 2
+bone2d_node = NodePath("Hip/Neck/Head")
+target_nodepath = NodePath("../RHand")
+enable_constraint = true
+constraint_angle_min = -42.936
+constraint_angle_max = -0.1
+constraint_angle_invert = false
+constraint_in_localspace = true
+
+[sub_resource type="SkeletonModification2DCCDIK" id="SkeletonModification2DCCDIK_ysp04"]
+target_nodepath = NodePath("../Targets/FeetR")
+tip_nodepath = NodePath("Hip/LegR/LegEndR/ShoeR")
+ccdik_data_chain_length = 2
+joint_data/0/bone_index = 9
+joint_data/0/bone2d_node = NodePath("Hip/LegR")
+joint_data/0/rotate_from_joint = false
+joint_data/0/enable_constraint = true
+joint_data/0/constraint_angle_min = -283.107
+joint_data/0/constraint_angle_max = -65.923
+joint_data/0/constraint_angle_invert = true
+joint_data/0/constraint_in_localspace = true
+joint_data/0/editor_draw_gizmo = true
+joint_data/1/bone_index = 10
+joint_data/1/bone2d_node = NodePath("Hip/LegR/LegEndR")
+joint_data/1/rotate_from_joint = false
+joint_data/1/enable_constraint = true
+joint_data/1/constraint_angle_min = 126.893
+joint_data/1/constraint_angle_max = -0.1
+joint_data/1/constraint_angle_invert = true
+joint_data/1/constraint_in_localspace = true
+joint_data/1/editor_draw_gizmo = true
+
+[sub_resource type="SkeletonModification2DCCDIK" id="SkeletonModification2DCCDIK_yrdkx"]
+target_nodepath = NodePath("../Targets/FeetL")
+tip_nodepath = NodePath("Hip/LegL/LegEndL/ShoeL")
+ccdik_data_chain_length = 2
+joint_data/0/bone_index = 12
+joint_data/0/bone2d_node = NodePath("Hip/LegL")
+joint_data/0/rotate_from_joint = false
+joint_data/0/enable_constraint = true
+joint_data/0/constraint_angle_min = 5.506
+joint_data/0/constraint_angle_max = -101.031
+joint_data/0/constraint_angle_invert = true
+joint_data/0/constraint_in_localspace = true
+joint_data/0/editor_draw_gizmo = true
+joint_data/1/bone_index = 13
+joint_data/1/bone2d_node = NodePath("Hip/LegL/LegEndL")
+joint_data/1/rotate_from_joint = false
+joint_data/1/enable_constraint = true
+joint_data/1/constraint_angle_min = 3.495
+joint_data/1/constraint_angle_max = 122.33
+joint_data/1/constraint_angle_invert = false
+joint_data/1/constraint_in_localspace = true
+joint_data/1/editor_draw_gizmo = true
+
+[sub_resource type="SkeletonModificationStack2D" id="SkeletonModificationStack2D_yhfaq"]
+enabled = true
+modification_count = 6
+modifications/0 = SubResource("SkeletonModification2DCCDIK_23n7y")
+modifications/1 = SubResource("SkeletonModification2DLookAt_2horq")
+modifications/2 = SubResource("SkeletonModification2DCCDIK_voup2")
+modifications/3 = SubResource("SkeletonModification2DLookAt_x76c6")
+modifications/4 = SubResource("SkeletonModification2DCCDIK_ysp04")
+modifications/5 = SubResource("SkeletonModification2DCCDIK_yrdkx")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iwjy0"]
+size = Vector2(506.75, 89)
+
+[sub_resource type="Gradient" id="Gradient_qpc4w"]
+colors = PackedColorArray(0.304728, 0.28098, 0.253382, 1, 0.304728, 0.28098, 0.253382, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_pg3hk"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_umru1"]
+height = 128
+color_ramp = SubResource("Gradient_qpc4w")
+noise = SubResource("FastNoiseLite_pg3hk")
+
+[sub_resource type="Gradient" id="Gradient_ywrpo"]
+colors = PackedColorArray(0.646328, 0.612007, 0.572268, 1, 0.646328, 0.612007, 0.572268, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_pvxy6"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_uj6kg"]
+height = 128
+color_ramp = SubResource("Gradient_ywrpo")
+noise = SubResource("FastNoiseLite_pvxy6")
+
+[sub_resource type="Gradient" id="Gradient_rufah"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.859877, 0.871878, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qu84a"]
+gradient = SubResource("Gradient_rufah")
+
+[sub_resource type="Gradient" id="Gradient_ibgb1"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.366343, 0.175028, 0.999953, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_c2yp6"]
+gradient = SubResource("Gradient_ibgb1")
+
+[sub_resource type="Gradient" id="Gradient_4u1fa"]
+colors = PackedColorArray(0, 0, 0, 1, 0.0296289, 0.0273197, 0, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_21vn3"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_a1nuu"]
+height = 128
+generate_mipmaps = false
+normalize = false
+color_ramp = SubResource("Gradient_4u1fa")
+noise = SubResource("FastNoiseLite_21vn3")
+
+[sub_resource type="Animation" id="Animation_rjrv0"]
+resource_name = "LightsOn"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2.36667, 2.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.65098), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("60sWallpaper:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.0605303, 0.0605303, 0.0605303, 1), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Cabeceira:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.259294, 0.259294, 0.259294, 1), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Mosquitolhos:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"changeSceneToRoom"
+}]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("OldMan/Skeleton2D/Hip:rotation")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.966667, 1.23333, 1.63333, 2.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [-1.47902, -0.18675, -0.18675, 2.43124]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("OldMan/Skeleton2D/Hip:position")
+tracks/6/interp = 2
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(1.8, 2, 2.26667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-13.5894, 11.6592), Vector2(-13.5894, 11.6592), Vector2(87.1673, -197.411)]
+}
+
+[sub_resource type="Animation" id="Animation_j2sfq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.65098)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("60sWallpaper:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.0605303, 0.0605303, 0.0605303, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Cabeceira:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.259294, 0.259294, 0.259294, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Mosquitolhos:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("OldMan/Skeleton2D/Hip:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-1.47902]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("OldMan/Skeleton2D/Hip:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-13.5894, 11.6592)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_d5ad2"]
+_data = {
+"LightsOn": SubResource("Animation_rjrv0"),
+"RESET": SubResource("Animation_j2sfq")
+}
+
+[node name="LightRoomScene" type="Node2D"]
+script = ExtResource("1_y1oby")
+
+[node name="60sWallpaper" type="Sprite2D" parent="."]
+modulate = Color(0.0605303, 0.0605303, 0.0605303, 1)
+position = Vector2(602, 301)
+scale = Vector2(0.396996, 0.396996)
+texture = ExtResource("1_eowge")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(338.041, 521.514)
+scale = Vector2(0.396996, 0.396996)
+zoom = Vector2(9, 9)
+
+[node name="ColorRect" type="ColorRect" parent="Camera2D"]
+modulate = Color(1, 1, 1, 0.65098)
+top_level = true
+offset_left = -30.0
+offset_top = -88.0
+offset_right = 1344.0
+offset_bottom = 780.0
+color = Color(0, 0, 0, 1)
+
+[node name="OldMan" type="CharacterBody2D" parent="."]
+position = Vector2(214, 357)
+scale = Vector2(0.396996, 0.396996)
+
+[node name="Skeleton2D" type="Skeleton2D" parent="OldMan"]
+position = Vector2(268, 409)
+modification_stack = SubResource("SkeletonModificationStack2D_yhfaq")
+
+[node name="Hip" type="Bone2D" parent="OldMan/Skeleton2D"]
+position = Vector2(-13.5894, 11.6592)
+rotation = -1.47902
+scale = Vector2(0.999972, 0.999972)
+rest = Transform2D(0.963894, 0.266277, -0.266277, 0.963894, -21, -6.99997)
+
+[node name="Neck" type="Bone2D" parent="OldMan/Skeleton2D/Hip"]
+position = Vector2(15.0003, -120.001)
+rotation = -0.00404448
+rest = Transform2D(0.999992, -0.00404447, 0.00404447, 0.999992, 15.0003, -120.001)
+
+[node name="Head" type="Bone2D" parent="OldMan/Skeleton2D/Hip/Neck"]
+position = Vector2(-0.999451, 1.00121)
+rotation = -0.00174553
+scale = Vector2(0.999978, 0.999978)
+rest = Transform2D(0.998104, -0.0612076, 0.0612076, 0.998104, -0.999451, 1.00121)
+metadata/_local_pose_override_enabled_ = true
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="OldMan/Skeleton2D/Hip/Neck/Head"]
+position = Vector2(-1, 8)
+remote_path = NodePath("../../../../../Body/Head")
+
+[node name="ArmR" type="Bone2D" parent="OldMan/Skeleton2D/Hip/Neck"]
+z_index = 10
+z_as_relative = false
+position = Vector2(-28.4762, 18.8038)
+rotation = -1.03134
+scale = Vector2(1.00005, 1.00005)
+rest = Transform2D(0.0190413, -0.999869, 0.999869, 0.0190413, -28.4761, 18.8039)
+metadata/_local_pose_override_enabled_ = true
+
+[node name="ArmEndR" type="Bone2D" parent="OldMan/Skeleton2D/Hip/Neck/ArmR"]
+position = Vector2(-37.0001, 58.9999)
+rotation = -0.634478
+rest = Transform2D(0.805379, -0.59276, 0.59276, 0.805379, -37, 59)
+metadata/_local_pose_override_enabled_ = true
+
+[node name="HandR" type="Bone2D" parent="OldMan/Skeleton2D/Hip/Neck/ArmR/ArmEndR"]
+position = Vector2(-13.9998, 63.0003)
+scale = Vector2(0.999997, 0.999997)
+rest = Transform2D(0.999998, 1.78814e-07, -1.78814e-07, 0.999998, -13.9999, 63.0001)
+auto_calculate_length_and_angle = false
+length = 2.0
+bone_angle = 90.0
+metadata/_local_pose_override_enabled_ = true
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="OldMan/Skeleton2D/Hip/Neck/ArmR/ArmEndR/HandR"]
+remote_path = NodePath("../../../../../../../Body/HandR")
+
+[node name="RayCast2D" type="RayCast2D" parent="OldMan/Skeleton2D/Hip/Neck/ArmR/ArmEndR/HandR"]
+target_position = Vector2(-13.9102, 45.7748)
+collision_mask = 6
+hit_from_inside = true
+collide_with_areas = true
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="OldMan/Skeleton2D/Hip/Neck/ArmR/ArmEndR"]
+remote_path = NodePath("../../../../../../Body/ArmEndR")
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="OldMan/Skeleton2D/Hip/Neck/ArmR"]
+remote_path = NodePath("../../../../../Body/ArmR")
+
+[node name="ArmL" type="Bone2D" parent="OldMan/Skeleton2D/Hip/Neck"]
+position = Vector2(-27.689, 21.6991)
+rotation = -1.11581
+scale = Vector2(0.999884, 0.999884)
+rest = Transform2D(0.724005, -0.689781, 0.689781, 0.724005, -25.4967, 22.139)
+auto_calculate_length_and_angle = false
+length = 55.0887
+bone_angle = 74.1948
+metadata/_local_pose_override_enabled_ = true
+
+[node name="ArmEndL" type="Bone2D" parent="OldMan/Skeleton2D/Hip/Neck/ArmL"]
+position = Vector2(-25.8051, 39.486)
+rotation = 1.98055
+scale = Vector2(0.999994, 0.999994)
+rest = Transform2D(-0.261248, 0.965272, -0.965272, -0.261248, 15.0044, 53.006)
+metadata/_local_pose_override_enabled_ = true
+
+[node name="HandL" type="Bone2D" parent="OldMan/Skeleton2D/Hip/Neck/ArmL/ArmEndL"]
+position = Vector2(41, 7.00001)
+rest = Transform2D(1, 0, 0, 1, 41, 7.00001)
+auto_calculate_length_and_angle = false
+length = 38.239
+bone_angle = 20.87
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="OldMan/Skeleton2D/Hip/Neck/ArmL/ArmEndL/HandL"]
+remote_path = NodePath("../../../../../../../Body/HandL")
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="OldMan/Skeleton2D/Hip/Neck/ArmL/ArmEndL"]
+remote_path = NodePath("../../../../../../Body/ArmEndL")
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="OldMan/Skeleton2D/Hip/Neck/ArmL"]
+remote_path = NodePath("../../../../../Body/ArmL")
+
+[node name="LegR" type="Bone2D" parent="OldMan/Skeleton2D/Hip"]
+position = Vector2(-16, 9)
+rotation = -0.134788
+scale = Vector2(0.999999, 0.999999)
+rest = Transform2D(0.990929, -0.13438, 0.13438, 0.990929, -16, 9)
+metadata/_local_pose_override_enabled_ = true
+
+[node name="LegEndR" type="Bone2D" parent="OldMan/Skeleton2D/Hip/LegR"]
+position = Vector2(46.9999, 95.0002)
+rotation = -0.00174553
+scale = Vector2(0.999998, 0.999998)
+rest = Transform2D(0.999997, -0.00174552, 0.00174552, 0.999997, 46.9999, 95.0001)
+metadata/_local_pose_override_enabled_ = true
+
+[node name="ShoeR" type="Bone2D" parent="OldMan/Skeleton2D/Hip/LegR/LegEndR"]
+position = Vector2(40, 83)
+rotation = -0.25466
+rest = Transform2D(0.967749, -0.251916, 0.251916, 0.967749, 40, 83)
+auto_calculate_length_and_angle = false
+length = 64.185
+bone_angle = 0.0
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="OldMan/Skeleton2D/Hip/LegR/LegEndR/ShoeR"]
+remote_path = NodePath("../../../../../../Body/FeetR")
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="OldMan/Skeleton2D/Hip/LegR/LegEndR"]
+remote_path = NodePath("../../../../../Body/LegEndR")
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="OldMan/Skeleton2D/Hip/LegR"]
+remote_path = NodePath("../../../../Body/LegR")
+
+[node name="LegL" type="Bone2D" parent="OldMan/Skeleton2D/Hip"]
+position = Vector2(12, 16)
+rotation = -1.76332
+scale = Vector2(1, 1)
+rest = Transform2D(0.442328, -0.896853, 0.896853, 0.442328, 12, 16)
+metadata/_local_pose_override_enabled_ = true
+
+[node name="LegEndL" type="Bone2D" parent="OldMan/Skeleton2D/Hip/LegL"]
+position = Vector2(-32, 91)
+rotation = 0.0609993
+scale = Vector2(1, 1)
+rest = Transform2D(0.99814, 0.0609614, -0.0609614, 0.99814, -32, 91)
+metadata/_local_pose_override_enabled_ = true
+
+[node name="ShoeL" type="Bone2D" parent="OldMan/Skeleton2D/Hip/LegL/LegEndL"]
+position = Vector2(-26, 74)
+rotation = 0.105723
+rest = Transform2D(0.994417, 0.105526, -0.105526, 0.994417, -26, 74)
+auto_calculate_length_and_angle = false
+length = 64.185
+bone_angle = 0.0
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="OldMan/Skeleton2D/Hip/LegL/LegEndL/ShoeL"]
+remote_path = NodePath("../../../../../../Body/FeetL")
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="OldMan/Skeleton2D/Hip/LegL/LegEndL"]
+remote_path = NodePath("../../../../../Body/LegEndL")
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="OldMan/Skeleton2D/Hip/LegL"]
+remote_path = NodePath("../../../../Body/LegL")
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="OldMan/Skeleton2D/Hip"]
+remote_path = NodePath("../../../Body/Chest")
+
+[node name="Body" type="Node2D" parent="OldMan"]
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="ArmL" type="Polygon2D" parent="OldMan/Body"]
+position = Vector2(155.482, 424.208)
+rotation = -2.32301
+scale = Vector2(0.999833, 0.999833)
+offset = Vector2(-242.437, -303.264)
+texture = ExtResource("2_4tnmu")
+polygon = PackedVector2Array(227, 355, 255, 309, 255, 291, 236, 285, 206, 336, 212, 355)
+uv = PackedVector2Array(72.1679, 159.801, 100.168, 113.801, 100.168, 95.8011, 81.1679, 89.8011, 51.1679, 140.801, 57.1679, 159.801)
+
+[node name="ArmEndL" type="Polygon2D" parent="OldMan/Body"]
+position = Vector2(201.936, 416.072)
+rotation = -0.342472
+scale = Vector2(0.999826, 0.999826)
+offset = Vector2(-290, -361)
+texture = ExtResource("2_4tnmu")
+polygon = PackedVector2Array(330, 355, 304, 351, 287, 351, 278, 359, 290, 374, 335, 378, 340, 365)
+uv = PackedVector2Array(181.273, 158.18, 147.615, 145.165, 144.615, 155.165, 144.615, 164.165, 150.615, 176.165, 180.304, 175.817, 183.405, 167.871)
+
+[node name="Head" type="Polygon2D" parent="OldMan/Body"]
+position = Vector2(145.087, 397.492)
+rotation = -1.48481
+scale = Vector2(0.999949, 0.999949)
+offset = Vector2(-274, -285)
+texture = ExtResource("2_4tnmu")
+polygon = PackedVector2Array(260, 265, 265, 288, 274, 291, 288, 282, 290, 277, 305, 273, 320, 224, 270, 207, 250, 242)
+uv = PackedVector2Array(106.827, 63.7184, 116.827, 72.7184, 127.827, 79.7184, 134.827, 80.7184, 136.827, 75.7184, 151.827, 71.7184, 166.827, 22.7184, 116.827, 5.71837, 96.8269, 40.7184)
+
+[node name="LegL" type="Polygon2D" parent="OldMan/Body"]
+position = Vector2(271.443, 410.176)
+rotation = -1.72019
+scale = Vector2(0.999971, 0.999971)
+offset = Vector2(-271, -435)
+texture = ExtResource("2_4tnmu")
+polygon = PackedVector2Array(247, 442, 229, 496, 232, 528, 247, 542, 268, 530, 274, 507, 293, 431, 269, 417)
+uv = PackedVector2Array(83.3596, 257.683, 74.3596, 300.683, 72.5014, 340.255, 92.6744, 345.183, 117.36, 322.683, 112.36, 309.683, 102.36, 285.683, 94.3596, 269.683)
+
+[node name="LegEndL" type="Polygon2D" parent="OldMan/Body"]
+position = Vector2(366.189, 428.276)
+rotation = -1.65919
+scale = Vector2(0.999971, 0.999971)
+offset = Vector2(-243, -521)
+texture = ExtResource("2_4tnmu")
+polygon = PackedVector2Array(240, 504, 223, 515, 203, 592, 210, 598, 227, 595, 236, 588, 263, 536, 255, 512)
+uv = PackedVector2Array(85.932, 302.732, 68.932, 313.732, 48.932, 390.732, 55.932, 396.732, 72.932, 393.732, 81.932, 386.732, 108.932, 334.732, 100.932, 310.732)
+
+[node name="FeetL" type="Polygon2D" parent="OldMan/Body"]
+position = Vector2(442.193, 447.641)
+rotation = -1.55346
+scale = Vector2(0.999971, 0.999971)
+offset = Vector2(-220, -595)
+texture = ExtResource("2_4tnmu")
+polygon = PackedVector2Array(269, 603, 237, 594, 225, 588, 213, 588, 200, 597, 198, 614, 270, 616)
+uv = PackedVector2Array(112.26, 403.157, 80.2603, 394.157, 68.2603, 388.157, 56.2603, 388.157, 43.2603, 397.157, 41.2603, 414.157, 113.26, 416.157)
+
+[node name="Chest" type="Polygon2D" parent="OldMan/Body"]
+position = Vector2(254.411, 420.659)
+rotation = -1.47902
+scale = Vector2(0.999972, 0.999972)
+offset = Vector2(-266, -400)
+texture = ExtResource("2_4tnmu")
+polygon = PackedVector2Array(230, 409, 259, 419, 286, 418, 298, 411, 303, 382, 300, 367, 300, 339, 295, 285, 283, 284, 256, 262, 237, 286, 235, 299, 235, 314, 232, 350)
+uv = PackedVector2Array(74.4672, 217.871, 105.434, 230.589, 130.317, 225.613, 143.036, 220.083, 153.504, 178.061, 143.504, 166.061, 144.504, 137.061, 139.504, 83.0609, 127.504, 82.0609, 100.504, 60.0609, 81.5044, 84.0609, 98.5044, 86.0609, 108.504, 119.061, 76.5044, 148.061)
+
+[node name="HandL" type="Polygon2D" parent="OldMan/Body"]
+position = Vector2(242.899, 408.898)
+rotation = -0.342472
+scale = Vector2(0.999826, 0.999826)
+offset = Vector2(-339, -371)
+texture = ExtResource("2_4tnmu")
+polygon = PackedVector2Array(338, 378, 359, 389, 367, 371, 348, 360, 337, 364, 333, 370)
+uv = PackedVector2Array(182.615, 177.824, 203.615, 188.824, 211.615, 170.824, 192.615, 159.824, 181.615, 163.824, 177.615, 169.824)
+
+[node name="LegR" type="Polygon2D" parent="OldMan/Body"]
+position = Vector2(261.906, 437.416)
+rotation = -1.03788
+scale = Vector2(0.999971, 0.999971)
+offset = Vector2(-250, -419)
+texture = ExtResource("2_4tnmu")
+polygon = PackedVector2Array(232, 435, 244, 450, 273, 518, 297, 526, 313, 512, 312, 491, 285, 420, 261, 408, 231, 413)
+uv = PackedVector2Array(77.168, 234.824, 89.168, 249.824, 118.168, 317.824, 142.168, 325.824, 158.168, 311.824, 157.168, 290.824, 130.168, 219.824, 103.168, 219.824, 76.168, 212.824)
+
+[node name="LegEndR" type="Polygon2D" parent="OldMan/Body"]
+position = Vector2(367.607, 445.199)
+rotation = -1.03962
+scale = Vector2(0.999968, 0.999968)
+offset = Vector2(-293, -505)
+texture = ExtResource("2_4tnmu")
+polygon = PackedVector2Array(289, 553, 321, 601, 333, 600, 344, 592, 344, 577, 315, 498, 286, 491, 275, 504, 271, 522)
+uv = PackedVector2Array(135.113, 354.492, 167.113, 402.492, 179.113, 401.492, 190.113, 393.492, 190.113, 378.492, 161.113, 299.492, 132.113, 292.492, 121.113, 305.492, 117.113, 323.492)
+
+[node name="ArmR" type="Polygon2D" parent="OldMan/Body"]
+position = Vector2(152.529, 424.739)
+rotation = -2.57337
+scale = Vector2(1.00002, 1.00002)
+offset = Vector2(-246, -299)
+texture = ExtResource("2_4tnmu")
+polygon = PackedVector2Array(230, 294, 244, 282, 259, 294, 250, 318, 225, 366, 214, 368, 204, 357, 201, 347)
+uv = PackedVector2Array(74.615, 96.0362, 88.615, 84.0362, 103.615, 96.0362, 94.615, 120.036, 69.615, 168.036, 58.615, 170.036, 48.615, 159.036, 45.615, 149.036)
+
+[node name="ArmEndR" type="Polygon2D" parent="OldMan/Body"]
+position = Vector2(215.465, 394.92)
+rotation = -2.80435
+scale = Vector2(1.00002, 1.00002)
+offset = Vector2(-213, -355)
+texture = ExtResource("2_4tnmu")
+polygon = PackedVector2Array(196, 349, 215, 342, 224, 347, 225, 369, 209, 414, 196, 422, 187, 416)
+uv = PackedVector2Array(38.9561, 148.271, 57.9561, 141.271, 66.9561, 146.271, 67.9561, 168.271, 51.9561, 213.271, 38.9561, 221.271, 29.9561, 215.271)
+
+[node name="HandR" type="Polygon2D" parent="OldMan/Body"]
+position = Vector2(249.523, 340.099)
+rotation = -2.80435
+scale = Vector2(1.00002, 1.00002)
+offset = Vector2(-199, -419)
+texture = ExtResource("2_4tnmu")
+polygon = PackedVector2Array(186, 418, 196, 411, 204, 415, 207, 424, 208, 446, 200, 441, 192, 449, 176, 435)
+uv = PackedVector2Array(31.7209, 218.377, 41.7209, 211.377, 49.7209, 215.377, 52.7209, 224.377, 53.7209, 246.377, 45.7209, 241.377, 37.7209, 249.377, 21.7209, 235.377)
+
+[node name="FeetR" type="Polygon2D" parent="OldMan/Body"]
+position = Vector2(459.43, 452.753)
+rotation = -1.29428
+scale = Vector2(0.999968, 0.999968)
+offset = Vector2(-337, -593)
+texture = ExtResource("2_4tnmu")
+polygon = PackedVector2Array(321, 607, 328, 625, 392, 599, 383, 586, 353, 590, 335, 587, 323, 595)
+uv = PackedVector2Array(165.24, 407.157, 172.24, 425.157, 236.24, 399.157, 227.24, 386.157, 197.24, 390.157, 179.24, 387.157, 167.24, 395.157)
+
+[node name="LHand" type="Node2D" parent="OldMan"]
+position = Vector2(288, 401)
+
+[node name="RHand" type="Node2D" parent="OldMan"]
+position = Vector2(307.308, 289.675)
+rotation = -2.99301
+
+[node name="Targets" type="Node2D" parent="OldMan"]
+position = Vector2(252, 497)
+
+[node name="TargetHead" type="Node2D" parent="OldMan/Targets"]
+position = Vector2(151.027, -229.995)
+rotation = -2.99301
+
+[node name="FeetR" type="Node2D" parent="OldMan/Targets"]
+position = Vector2(410.475, -28.4813)
+
+[node name="FeetL" type="Node2D" parent="OldMan/Targets"]
+position = Vector2(572.475, 34.5187)
+
+[node name="Bed" type="StaticBody2D" parent="."]
+position = Vector2(343.202, 555.259)
+scale = Vector2(0.396996, 0.396996)
+collision_layer = 3
+collision_mask = 3
+
+[node name="bedCol" type="CollisionShape2D" parent="Bed"]
+visible = false
+position = Vector2(0, -2.5)
+shape = SubResource("RectangleShape2D_iwjy0")
+
+[node name="Bed" type="TextureRect" parent="Bed"]
+offset_left = -257.0
+offset_top = -49.0
+offset_right = 255.0
+offset_bottom = 79.0
+scale = Vector2(1, 0.600001)
+texture = SubResource("NoiseTexture2D_umru1")
+
+[node name="Bed4" type="TextureRect" parent="Bed"]
+offset_left = -257.0
+offset_top = -49.0
+offset_right = 255.0
+offset_bottom = 79.0
+scale = Vector2(1, 0.359999)
+texture = SubResource("NoiseTexture2D_uj6kg")
+
+[node name="Bed2" type="TextureRect" parent="Bed"]
+offset_left = -257.0
+offset_top = -54.0
+offset_right = 255.0
+offset_bottom = 74.0
+rotation = 0.0227771
+scale = Vector2(0.958191, 0.2)
+texture = SubResource("GradientTexture2D_qu84a")
+
+[node name="Bed3" type="TextureRect" parent="Bed"]
+offset_left = -257.0
+offset_top = -54.0
+offset_right = 255.0
+offset_bottom = 74.0
+scale = Vector2(1, 0.16)
+texture = SubResource("GradientTexture2D_c2yp6")
+
+[node name="Polygon2D" type="Polygon2D" parent="Bed"]
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(198, 27, 204, 41, 213, 27)
+
+[node name="Polygon2D2" type="Polygon2D" parent="Bed"]
+position = Vector2(-415, 0)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(198, 27, 204, 41, 213, 27)
+
+[node name="Polygon2D3" type="Polygon2D" parent="Bed"]
+color = Color(0.352941, 0.231373, 1, 1)
+polygon = PackedVector2Array(153.145, -51.0299, 57.4265, -93.8514, -68.5194, -116.522, -93.7086, -78.7379, -149.125, -51.0299, -149.125, 6.90527, -20.66, -20.8029, 140.551, -25.8407)
+
+[node name="Mosquitolhos" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(369, 528)
+scale = Vector2(0.148486, 0.148486)
+texture = ExtResource("4_80bie")
+
+[node name="Polygon2D" type="Polygon2D" parent="Mosquitolhos"]
+position = Vector2(-181.836, -80.8159)
+texture = ExtResource("4_80bie")
+polygon = PackedVector2Array(-39, 14, 15, 6, 14, -27, -25, -54, -59, -19)
+uv = PackedVector2Array(220.18, 120.822, 274.18, 112.822, 273.18, 79.8217, 234.18, 52.8217, 200.18, 87.8217)
+
+[node name="Polygon2D" type="Polygon2D" parent="Mosquitolhos/Polygon2D"]
+position = Vector2(-67.3466, -6.73469)
+texture = ExtResource("4_80bie")
+polygon = PackedVector2Array(-39, 14, 15, 6, 14, -27, -25, -54, -59, -19)
+uv = PackedVector2Array(220.18, 120.822, 274.18, 112.822, 273.18, 79.8217, 234.18, 52.8217, 200.18, 87.8217)
+
+[node name="Polygon2D2" type="Polygon2D" parent="Mosquitolhos"]
+position = Vector2(-303.059, -67.3466)
+texture = ExtResource("4_80bie")
+polygon = PackedVector2Array(-39, 14, 15, 6, 14, -27, -25, -54, -59, -19)
+uv = PackedVector2Array(220.18, 120.822, 274.18, 112.822, 273.18, 79.8217, 234.18, 52.8217, 200.18, 87.8217)
+
+[node name="Polygon2D" type="Polygon2D" parent="Mosquitolhos/Polygon2D2"]
+position = Vector2(-47.1423, 6.73459)
+texture = ExtResource("4_80bie")
+polygon = PackedVector2Array(-39, 14, 15, 6, 14, -27, -25, -54, -59, -19)
+uv = PackedVector2Array(220.18, 120.822, 274.18, 112.822, 273.18, 79.8217, 234.18, 52.8217, 200.18, 87.8217)
+
+[node name="Polygon2D3" type="Polygon2D" parent="Mosquitolhos"]
+position = Vector2(-102.632, -6.61199)
+texture = ExtResource("4_80bie")
+polygon = PackedVector2Array(-39, 14, 15, 6, 14, -27, -25, -54, -59, -19)
+uv = PackedVector2Array(220.18, 120.822, 274.18, 112.822, 273.18, 79.8217, 234.18, 52.8217, 200.18, 87.8217)
+
+[node name="Polygon2D" type="Polygon2D" parent="Mosquitolhos/Polygon2D3"]
+position = Vector2(-67.3466, -6.73469)
+texture = ExtResource("4_80bie")
+polygon = PackedVector2Array(-39, 14, 15, 6, 14, -27, -25, -54, -59, -19)
+uv = PackedVector2Array(220.18, 120.822, 274.18, 112.822, 273.18, 79.8217, 234.18, 52.8217, 200.18, 87.8217)
+
+[node name="Polygon2D4" type="Polygon2D" parent="Mosquitolhos"]
+position = Vector2(-223.855, 6.85731)
+texture = ExtResource("4_80bie")
+polygon = PackedVector2Array(-39, 14, 15, 6, 14, -27, -25, -54, -59, -19)
+uv = PackedVector2Array(220.18, 120.822, 274.18, 112.822, 273.18, 79.8217, 234.18, 52.8217, 200.18, 87.8217)
+
+[node name="Polygon2D" type="Polygon2D" parent="Mosquitolhos/Polygon2D4"]
+position = Vector2(-67.3466, -6.73469)
+texture = ExtResource("4_80bie")
+polygon = PackedVector2Array(-39, 14, 15, 6, 14, -27, -25, -54, -59, -19)
+uv = PackedVector2Array(220.18, 120.822, 274.18, 112.822, 273.18, 79.8217, 234.18, 52.8217, 200.18, 87.8217)
+
+[node name="Polygon2D5" type="Polygon2D" parent="Mosquitolhos"]
+position = Vector2(-383.875, -6.73475)
+rotation = 0.442579
+texture = ExtResource("4_80bie")
+polygon = PackedVector2Array(-39, 14, 15, 6, 14, -27, -25, -54, -59, -19)
+uv = PackedVector2Array(220.18, 120.822, 274.18, 112.822, 273.18, 79.8217, 234.18, 52.8217, 200.18, 87.8217)
+
+[node name="Polygon2D7" type="Polygon2D" parent="Mosquitolhos"]
+position = Vector2(-641.156, -73.948)
+rotation = 0.447551
+texture = ExtResource("4_80bie")
+polygon = PackedVector2Array(-39, 14, 15, 6, 14, -27, -25, -54, -59, -19)
+uv = PackedVector2Array(220.18, 120.822, 274.18, 112.822, 273.18, 79.8217, 234.18, 52.8217, 200.18, 87.8217)
+
+[node name="Polygon2D" type="Polygon2D" parent="Mosquitolhos/Polygon2D7"]
+position = Vector2(-67.3466, -6.73469)
+texture = ExtResource("4_80bie")
+polygon = PackedVector2Array(-39, 14, 15, 6, 14, -27, -25, -54, -59, -19)
+uv = PackedVector2Array(220.18, 120.822, 274.18, 112.822, 273.18, 79.8217, 234.18, 52.8217, 200.18, 87.8217)
+
+[node name="Polygon2D8" type="Polygon2D" parent="Mosquitolhos"]
+position = Vector2(-762.38, -60.4787)
+rotation = 0.447551
+texture = ExtResource("4_80bie")
+polygon = PackedVector2Array(-39, 14, 15, 6, 14, -27, -25, -54, -59, -19)
+uv = PackedVector2Array(220.18, 120.822, 274.18, 112.822, 273.18, 79.8217, 234.18, 52.8217, 200.18, 87.8217)
+
+[node name="Polygon2D" type="Polygon2D" parent="Mosquitolhos/Polygon2D8"]
+position = Vector2(-67.3466, -6.73469)
+texture = ExtResource("4_80bie")
+polygon = PackedVector2Array(-39, 14, 15, 6, 14, -27, -25, -54, -59, -19)
+uv = PackedVector2Array(220.18, 120.822, 274.18, 112.822, 273.18, 79.8217, 234.18, 52.8217, 200.18, 87.8217)
+
+[node name="Almofada" type="Sprite2D" parent="."]
+position = Vector2(257, 526)
+rotation = 0.651868
+scale = Vector2(0.0960396, 0.0960396)
+texture = ExtResource("3_1lra6")
+
+[node name="Cabeceira" type="Sprite2D" parent="."]
+modulate = Color(0.259294, 0.259294, 0.259294, 1)
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(287, 528)
+scale = Vector2(0.536707, 0.536707)
+texture = ExtResource("4_dcb6p")
+
+[node name="Cabeceira" type="Node2D" parent="Cabeceira"]
+
+[node name="Polygon2D" type="Polygon2D" parent="Cabeceira/Cabeceira"]
+position = Vector2(-92.7078, -502.93)
+texture = ExtResource("4_dcb6p")
+polygon = PackedVector2Array(30, 624, 31, 530, 12, 529, 12, 519, 28, 505, 135, 506, 164, 506, 163, 531, 143, 543, 141, 630, 27, 629)
+uv = PackedVector2Array(20.3665, 249.667, 21.3665, 155.667, 2.36646, 154.667, 2.36646, 144.667, 111.366, 144.667, 126.366, 133.667, 154.366, 131.667, 153.366, 156.667, 133.366, 168.667, 131.366, 255.667, 17.3665, 254.667)
+
+[node name="Cabeceira2" type="Sprite2D" parent="Cabeceira/Cabeceira"]
+visible = false
+position = Vector2(91, 505)
+scale = Vector2(0.968159, 0.968159)
+texture = ExtResource("4_dcb6p")
+
+[node name="Polygon2D2" type="Polygon2D" parent="Cabeceira/Cabeceira"]
+position = Vector2(-92.7078, -502.93)
+texture = ExtResource("4_dcb6p")
+polygon = PackedVector2Array(124, 513, 111, 504, 111, 445, 143, 440, 118, 393, 90, 393, 71, 441, 104, 444, 103, 505, 89, 513, 100, 518, 115, 518)
+uv = PackedVector2Array(115.728, 132.496, 102.728, 123.496, 102.728, 64.4958, 134.728, 59.4958, 109.728, 12.4958, 81.7282, 12.4958, 62.7282, 60.4958, 95.7282, 63.4958, 94.7282, 124.496, 80.7282, 132.496, 91.7282, 137.496, 106.728, 137.496)
+
+[node name="Line2D" type="Line2D" parent="Cabeceira"]
+show_behind_parent = true
+position = Vector2(-78.2549, -1088.12)
+rotation = 1.57079
+scale = Vector2(0.0745308, 2.38491)
+points = PackedVector2Array(13724.6, -45.3098, 14199.6, -45.3097)
+width = 1.0
+
+[node name="Button" type="Button" parent="Cabeceira"]
+offset_left = 26.085
+offset_top = -63.3492
+offset_right = 34.085
+offset_bottom = -55.3492
+scale = Vector2(1, 4.72643)
+
+[node name="TextureRect6" type="TextureRect" parent="."]
+offset_left = 240.0
+offset_top = -56.0
+offset_right = 23582.0
+offset_bottom = 570.0
+rotation = 1.57079
+scale = Vector2(0.0400012, 1.28)
+texture = SubResource("NoiseTexture2D_a1nuu")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_d5ad2")
+}
+
+[connection signal="button_down" from="Cabeceira/Button" to="." method="_on_button_button_down"]
