@@ -28,6 +28,7 @@ var blood = preload("res://Scenes/Blood.tscn")
 var hitted: float = 0.0
 var hittedPos:Vector2 = Vector2.ZERO
 func _ready() -> void:
+	GlobalSingleton.player=self
 	updateItemOnHand(currentItem)
 	originalhiprot=$Skeleton2D/Hip.rotation_degrees
 	$Skeleton2D/Hip.rotation_degrees=-135
@@ -157,11 +158,11 @@ func _process(delta: float) -> void:
 	if chutando>0:
 		chutando-=delta*5
 	else:
-		$AreaChute.set_collision_layer_value(1,0)
+		$AreaChute.set_collision_layer_value(4,0)
 		chutando=0
 	if chutando>1.0:
 		if topada<=0:
-			$AreaChute.set_collision_layer_value(1,1)
+			$AreaChute.set_collision_layer_value(4,1)
 			$Targets/FeetR.position.x = -30
 			$Targets/FeetR.position.y = 100
 			$Targets/FeetL.position.x = 165
@@ -214,13 +215,13 @@ func _process(delta: float) -> void:
 	#HANDLE ITEMS
 	
 	if  currentItem=="raquete" and Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-		if weightRot<13:
-			weightRot+=delta*5
+		if weightRot<12:
+			weightRot+=delta*4.5
 		if weightRot>1 and Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
 			var raquetePos = $Body/HandR/Raquete.global_position
 			var mousePos = get_global_mouse_position()
 			var newVector = mousePos-raquetePos
-			currentItem=throwItem(currentItem,newVector*weightRot/2)
+			currentItem=throwItem(currentItem,newVector*weightRot/4.2)
 			locklmouse=true
 			
 		$Body/HandR/Raquete.rotation_degrees+=weightRot
@@ -313,7 +314,7 @@ func updateItemOnHand(item):
 			# Handle unknown items
 
 	
-func gotHit(damage:int = 1, pos:Vector2=position):
+func gotHit(_damage:int = 1, pos:Vector2=position):
 	hitted = 0.3
 	$LHand.global_position = pos
 	var bloodcena = spawner.Instantiate(blood,pos,get_parent())

@@ -1,6 +1,5 @@
-[gd_scene load_steps=15 format=3 uid="uid://iwu37tot0443"]
+[gd_scene load_steps=14 format=3 uid="uid://iwu37tot0443"]
 
-[ext_resource type="Script" path="res://Assets/Scripts/Quadro.gd" id="1_knufi"]
 [ext_resource type="Texture2D" uid="uid://dm0eao8ct2m7e" path="res://Assets/Images/quadro1.png" id="1_pequp"]
 [ext_resource type="Texture2D" uid="uid://wwreq37lxor6" path="res://Assets/Images/Rope.png" id="2_uhflx"]
 [ext_resource type="Script" path="res://Assets/Scripts/InteractibleControllerClass.gd" id="4_p2wed"]
@@ -121,7 +120,8 @@ color_ramp = SubResource("GradientTexture1D_rh3lq")
 [node name="Quadro2" type="Area2D"]
 position = Vector2(560, 360)
 rotation = -0.134103
-script = ExtResource("1_knufi")
+collision_layer = 8
+collision_mask = 8
 
 [node name="InteractibleControllerClass" type="Node" parent="."]
 script = ExtResource("4_p2wed")

@@ -5,7 +5,8 @@ var mosquitoskilled = 0
 var spawner=Spawner.new()
 var arrayOfMosquitos=[]
 func _ready() -> void:
-	spawnMosquito(10)
+	spawnMosquito(15)
+	
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

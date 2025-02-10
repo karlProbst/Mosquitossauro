@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bk6gbxkv6slga" path="res://Assets/Images/Raqueteleletrica.png" id="3_1q0dw"]
 [ext_resource type="Texture2D" uid="uid://bxxvrx14bs383" path="res://Assets/Images/sbp.png" id="3_wuep8"]
 
-[sub_resource type="SkeletonModification2DCCDIK" id="SkeletonModification2DCCDIK_ut1qy"]
+[sub_resource type="SkeletonModification2DCCDIK" id="SkeletonModification2DCCDIK_spsep"]
 target_nodepath = NodePath("../RHand")
 tip_nodepath = NodePath("Hip/Neck/ArmR/ArmEndR/HandR")
 ccdik_data_chain_length = 2
@@ -12,7 +12,7 @@ joint_data/0/bone_index = 3
 joint_data/0/bone2d_node = NodePath("Hip/Neck/ArmR")
 joint_data/0/rotate_from_joint = false
 joint_data/0/enable_constraint = true
-joint_data/0/constraint_angle_min = -124.203
+joint_data/0/constraint_angle_min = -124.0
 joint_data/0/constraint_angle_max = -1.0
 joint_data/0/constraint_angle_invert = false
 joint_data/0/constraint_in_localspace = true
@@ -21,21 +21,16 @@ joint_data/1/bone_index = 4
 joint_data/1/bone2d_node = NodePath("Hip/Neck/ArmR/ArmEndR")
 joint_data/1/rotate_from_joint = false
 joint_data/1/enable_constraint = true
-joint_data/1/constraint_angle_min = -62.19
-joint_data/1/constraint_angle_max = -13.234
+joint_data/1/constraint_angle_min = -62.0
+joint_data/1/constraint_angle_max = -13.0
 joint_data/1/constraint_angle_invert = false
 joint_data/1/constraint_in_localspace = true
 joint_data/1/editor_draw_gizmo = true
 
-[sub_resource type="SkeletonModification2DLookAt" id="SkeletonModification2DLookAt_cq5a5"]
+[sub_resource type="SkeletonModification2DLookAt" id="SkeletonModification2DLookAt_cqylu"]
 bone_index = 5
 bone2d_node = NodePath("Hip/Neck/ArmR/ArmEndR/HandR")
 target_nodepath = NodePath("../RHand")
-enable_constraint = true
-constraint_angle_min = 138.684
-constraint_angle_max = 360.0
-constraint_angle_invert = false
-constraint_in_localspace = true
 
 [sub_resource type="SkeletonModification2DCCDIK" id="SkeletonModification2DCCDIK_23x13"]
 target_nodepath = NodePath("../LHand")
@@ -115,8 +110,8 @@ joint_data/1/editor_draw_gizmo = true
 [sub_resource type="SkeletonModificationStack2D" id="SkeletonModificationStack2D_hgx07"]
 enabled = true
 modification_count = 6
-modifications/0 = SubResource("SkeletonModification2DCCDIK_ut1qy")
-modifications/1 = SubResource("SkeletonModification2DLookAt_cq5a5")
+modifications/0 = SubResource("SkeletonModification2DCCDIK_spsep")
+modifications/1 = SubResource("SkeletonModification2DLookAt_cqylu")
 modifications/2 = SubResource("SkeletonModification2DCCDIK_23x13")
 modifications/3 = SubResource("SkeletonModification2DLookAt_ghaed")
 modifications/4 = SubResource("SkeletonModification2DCCDIK_ardia")
@@ -239,8 +234,8 @@ radius = 31.0
 height = 179.687
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h4slm"]
-radius = 82.4507
-height = 202.461
+radius = 63.0311
+height = 244.341
 
 [node name="OldMan" type="CharacterBody2D"]
 
@@ -257,14 +252,13 @@ rest = Transform2D(0.963894, 0.266277, -0.266277, 0.963894, -21, -6.99997)
 [node name="Neck" type="Bone2D" parent="Skeleton2D/Hip"]
 position = Vector2(15.0003, -120.001)
 rotation = -0.00404448
-scale = Vector2(1, 1)
 rest = Transform2D(0.999992, -0.00404447, 0.00404447, 0.999992, 15.0003, -120.001)
 
 [node name="Head" type="Bone2D" parent="Skeleton2D/Hip/Neck"]
-position = Vector2(-0.999359, 1.00137)
-rotation = -0.00174552
-scale = Vector2(0.999979, 0.999979)
-rest = Transform2D(0.999978, -0.00174549, 0.00174549, 0.999978, -0.999359, 1.00137)
+position = Vector2(-1.00024, 1.00154)
+rotation = -0.17849
+scale = Vector2(0.999972, 0.999972)
+rest = Transform2D(0.984085, -0.177539, 0.177539, 0.984085, -1.00024, 1.00154)
 auto_calculate_length_and_angle = false
 length = 16.0
 bone_angle = -3.50921
@@ -278,24 +272,24 @@ remote_path = NodePath("../../../../../Body/Head")
 position = Vector2(-28.4761, 18.8039)
 rotation = -0.0174535
 scale = Vector2(1.00005, 1.00005)
-rest = Transform2D(0.146975, -0.98918, 0.98918, 0.146975, -28.4761, 18.8039)
+rest = Transform2D(0.999898, -0.0174535, 0.0174535, 0.999898, -28.4761, 18.8039)
 metadata/_local_pose_override_enabled_ = true
 
 [node name="ArmEndR" type="Bone2D" parent="Skeleton2D/Hip/Neck/ArmR"]
 position = Vector2(-37, 59)
 rotation = -0.230977
-scale = Vector2(1, 1)
-rest = Transform2D(0.602994, -0.797732, 0.797732, 0.602994, -37.0008, 59.0002)
+rest = Transform2D(0.973443, -0.228929, 0.228929, 0.973443, -37, 59)
 metadata/_local_pose_override_enabled_ = true
 
 [node name="HandR" type="Bone2D" parent="Skeleton2D/Hip/Neck/ArmR/ArmEndR"]
 position = Vector2(-13.9999, 63)
 rotation = 2.42049
 scale = Vector2(0.999998, 0.999998)
-rest = Transform2D(-0.751078, 0.66021, -0.66021, -0.751078, -13.9999, 63)
+rest = Transform2D(-0.751077, 0.660212, -0.660212, -0.751077, -13.9999, 63)
 auto_calculate_length_and_angle = false
 length = 2.0
 bone_angle = 90.0
+metadata/_local_pose_override_enabled_ = true
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Skeleton2D/Hip/Neck/ArmR/ArmEndR/HandR"]
 remote_path = NodePath("../../../../../../../Body/HandR")
@@ -316,7 +310,7 @@ remote_path = NodePath("../../../../../Body/ArmR")
 position = Vector2(-25.4967, 22.1389)
 rotation = 1.14454
 scale = Vector2(0.999986, 0.999986)
-rest = Transform2D(0.56486, 0.825151, -0.825151, 0.56486, -25.4967, 22.1389)
+rest = Transform2D(0.413459, 0.910507, -0.910507, 0.413459, -25.4967, 22.1389)
 auto_calculate_length_and_angle = false
 length = 55.0887
 bone_angle = 74.1948
@@ -325,8 +319,7 @@ metadata/_local_pose_override_enabled_ = true
 [node name="ArmEndL" type="Bone2D" parent="Skeleton2D/Hip/Neck/ArmL"]
 position = Vector2(-24.4495, 36.9361)
 rotation = 1.98642
-scale = Vector2(1, 1)
-rest = Transform2D(0.800717, 0.599046, -0.599046, 0.800717, -24.451, 36.9371)
+rest = Transform2D(-0.403761, 0.914865, -0.914865, -0.403761, -24.4495, 36.9361)
 metadata/_local_pose_override_enabled_ = true
 
 [node name="HandL" type="Bone2D" parent="Skeleton2D/Hip/Neck/ArmL/ArmEndL"]
@@ -348,21 +341,19 @@ remote_path = NodePath("../../../../../Body/ArmL")
 [node name="LegR" type="Bone2D" parent="Skeleton2D/Hip"]
 position = Vector2(-16, 9)
 rotation = -0.134788
-scale = Vector2(1, 1)
-rest = Transform2D(0.959067, 0.283206, -0.283206, 0.959067, -16, 9)
+rest = Transform2D(0.99093, -0.13438, 0.13438, 0.99093, -16, 9)
 metadata/_local_pose_override_enabled_ = true
 
 [node name="LegEndR" type="Bone2D" parent="Skeleton2D/Hip/LegR"]
 position = Vector2(47, 95)
 rotation = -0.00174552
 scale = Vector2(0.999999, 0.999999)
-rest = Transform2D(0.508834, 0.860859, -0.860859, 0.508834, 46.9999, 94.9999)
+rest = Transform2D(0.999997, -0.00174552, 0.00174552, 0.999997, 47, 95)
 metadata/_local_pose_override_enabled_ = true
 
 [node name="ShoeR" type="Bone2D" parent="Skeleton2D/Hip/LegR/LegEndR"]
 position = Vector2(40, 83)
 rotation = -0.25466
-scale = Vector2(1, 1)
 rest = Transform2D(0.967749, -0.251916, 0.251916, 0.967749, 40, 83)
 auto_calculate_length_and_angle = false
 length = 64.185
@@ -380,21 +371,19 @@ remote_path = NodePath("../../../../Body/LegR")
 [node name="LegL" type="Bone2D" parent="Skeleton2D/Hip"]
 position = Vector2(12, 16)
 rotation = -2.03285
-scale = Vector2(1, 1)
-rest = Transform2D(0.16585, -0.98616, 0.98616, 0.16585, 12, 16)
+rest = Transform2D(-0.445787, -0.895139, 0.895139, -0.445787, 12, 16)
 metadata/_local_pose_override_enabled_ = true
 
 [node name="LegEndL" type="Bone2D" parent="Skeleton2D/Hip/LegL"]
 position = Vector2(-32, 91)
 rotation = 0.0609992
 scale = Vector2(1, 1)
-rest = Transform2D(0.546434, 0.837498, -0.837498, 0.546434, -32.0003, 90.9997)
+rest = Transform2D(0.99814, 0.0609614, -0.0609614, 0.99814, -32, 91)
 metadata/_local_pose_override_enabled_ = true
 
 [node name="ShoeL" type="Bone2D" parent="Skeleton2D/Hip/LegL/LegEndL"]
 position = Vector2(-26, 74)
 rotation = 0.105723
-scale = Vector2(1, 1)
 rest = Transform2D(0.994417, 0.105526, -0.105526, 0.994417, -26, 74)
 auto_calculate_length_and_angle = false
 length = 64.185
@@ -418,26 +407,26 @@ metadata/_edit_group_ = true
 
 [node name="ArmL" type="Polygon2D" parent="Body"]
 position = Vector2(263, 305)
-rotation = 1.236
-scale = Vector2(0.999968, 0.999968)
+rotation = 0.222193
+scale = Vector2(0.99997, 0.99997)
 offset = Vector2(-242.437, -303.264)
 texture = ExtResource("1_21wkb")
 polygon = PackedVector2Array(227, 355, 255, 309, 255, 291, 236, 285, 206, 336, 212, 355)
 uv = PackedVector2Array(72.1679, 159.801, 100.168, 113.801, 100.168, 95.8011, 81.1679, 89.8011, 51.1679, 140.801, 57.1679, 159.801)
 
 [node name="ArmEndL" type="Polygon2D" parent="Body"]
-position = Vector2(220.081, 294.043)
-rotation = 1.8783
-scale = Vector2(0.99997, 0.99997)
+position = Vector2(231.013, 335.639)
+rotation = 2.96728
+scale = Vector2(0.999974, 0.999974)
 offset = Vector2(-290, -361)
 texture = ExtResource("1_21wkb")
 polygon = PackedVector2Array(330, 355, 304, 351, 287, 351, 278, 359, 290, 374, 335, 378, 340, 365)
 uv = PackedVector2Array(181.273, 158.18, 147.615, 145.165, 144.615, 155.165, 144.615, 164.165, 150.615, 176.165, 180.304, 175.817, 183.405, 167.871)
 
 [node name="Head" type="Polygon2D" parent="Body"]
-position = Vector2(289.134, 298.493)
-rotation = 0.263739
-scale = Vector2(0.999977, 0.999977)
+position = Vector2(292.04, 299.091)
+rotation = -0.106526
+scale = Vector2(0.999969, 0.999969)
 offset = Vector2(-274, -285)
 texture = ExtResource("1_21wkb")
 polygon = PackedVector2Array(260, 265, 265, 288, 274, 291, 288, 282, 290, 277, 305, 273, 320, 224, 270, 207, 250, 242)
@@ -445,26 +434,26 @@ uv = PackedVector2Array(106.827, 63.7184, 116.827, 72.7184, 127.827, 79.7184, 13
 
 [node name="LegL" type="Polygon2D" parent="Body"]
 position = Vector2(254.306, 420.618)
-rotation = -1.13465
-scale = Vector2(1.00001, 1.00001)
+rotation = -0.843075
+scale = Vector2(0.999997, 0.999997)
 offset = Vector2(-271, -435)
 texture = ExtResource("1_21wkb")
 polygon = PackedVector2Array(247, 442, 229, 496, 232, 528, 247, 542, 268, 530, 274, 507, 293, 431, 269, 417)
 uv = PackedVector2Array(83.3596, 257.683, 74.3596, 300.683, 72.5014, 340.255, 92.6744, 345.183, 117.36, 322.683, 112.36, 309.683, 102.36, 285.683, 94.3596, 269.683)
 
 [node name="LegEndL" type="Polygon2D" parent="Body"]
-position = Vector2(323.269, 488.066)
-rotation = -0.141955
-scale = Vector2(1, 1)
+position = Vector2(300.97, 505.042)
+rotation = -0.782075
+scale = Vector2(0.999997, 0.999997)
 offset = Vector2(-243, -521)
 texture = ExtResource("1_21wkb")
 polygon = PackedVector2Array(240, 504, 223, 515, 203, 592, 210, 598, 227, 595, 236, 588, 263, 536, 255, 512)
 uv = PackedVector2Array(85.932, 302.732, 68.932, 313.732, 48.932, 390.732, 55.932, 396.732, 72.932, 393.732, 81.932, 386.732, 108.932, 334.732, 100.932, 310.732)
 
 [node name="FeetL" type="Polygon2D" parent="Body"]
-position = Vector2(308, 565)
-rotation = -0.0362325
-scale = Vector2(1, 1)
+position = Vector2(334.676, 575.865)
+rotation = -0.676352
+scale = Vector2(0.999997, 0.999997)
 offset = Vector2(-220, -595)
 texture = ExtResource("1_21wkb")
 polygon = PackedVector2Array(269, 603, 237, 594, 225, 588, 213, 588, 200, 597, 198, 614, 270, 616)
@@ -487,9 +476,9 @@ polygon = PackedVector2Array(230, 409, 259, 419, 286, 418, 298, 411, 303, 382, 3
 uv = PackedVector2Array(74.4672, 217.871, 105.434, 230.589, 130.317, 225.613, 143.036, 220.083, 153.504, 178.061, 143.504, 166.061, 144.504, 137.061, 139.504, 83.0609, 127.504, 82.0609, 100.504, 60.0609, 81.5044, 84.0609, 98.5044, 86.0609, 108.504, 119.061, 76.5044, 148.061)
 
 [node name="HandL" type="Polygon2D" parent="Body"]
-position = Vector2(201, 331)
-rotation = 1.8783
-scale = Vector2(0.99997, 0.99997)
+position = Vector2(189.422, 335.856)
+rotation = 2.96728
+scale = Vector2(0.999974, 0.999974)
 offset = Vector2(-339, -371)
 texture = ExtResource("1_21wkb")
 polygon = PackedVector2Array(338, 378, 359, 389, 367, 371, 348, 360, 337, 364, 333, 370)
@@ -497,17 +486,17 @@ uv = PackedVector2Array(182.615, 177.824, 203.615, 188.824, 211.615, 170.824, 19
 
 [node name="LegR" type="Polygon2D" parent="Body"]
 position = Vector2(229.181, 406.415)
-rotation = 0.556662
-scale = Vector2(1.00001, 1.00001)
+rotation = 0.134742
+scale = Vector2(0.999997, 0.999997)
 offset = Vector2(-250, -419)
 texture = ExtResource("1_21wkb")
 polygon = PackedVector2Array(232, 435, 244, 450, 273, 518, 297, 526, 313, 512, 312, 491, 285, 420, 261, 408, 231, 413)
 uv = PackedVector2Array(77.168, 234.824, 89.168, 249.824, 118.168, 317.824, 142.168, 325.824, 158.168, 311.824, 157.168, 290.824, 130.168, 219.824, 103.168, 219.824, 76.168, 212.824)
 
 [node name="LegEndR" type="Polygon2D" parent="Body"]
-position = Vector2(218.892, 511.905)
-rotation = 1.59363
-scale = Vector2(1, 1)
+position = Vector2(262.993, 506.867)
+rotation = 0.132996
+scale = Vector2(0.999995, 0.999995)
 offset = Vector2(-293, -505)
 texture = ExtResource("1_21wkb")
 polygon = PackedVector2Array(289, 553, 321, 601, 333, 600, 344, 592, 344, 577, 315, 498, 286, 491, 275, 504, 271, 522)
@@ -515,26 +504,26 @@ uv = PackedVector2Array(135.113, 354.492, 167.113, 402.492, 179.113, 401.492, 19
 
 [node name="ArmR" type="Polygon2D" parent="Body"]
 position = Vector2(261, 301)
-rotation = -1.15781
-scale = Vector2(1.00004, 1.00004)
+rotation = -1.41236
+scale = Vector2(1.00005, 1.00005)
 offset = Vector2(-246, -299)
 texture = ExtResource("1_21wkb")
 polygon = PackedVector2Array(230, 294, 244, 282, 259, 294, 250, 318, 225, 366, 214, 368, 204, 357, 201, 347)
 uv = PackedVector2Array(74.615, 96.0362, 88.615, 84.0362, 103.615, 96.0362, 94.615, 120.036, 69.615, 168.036, 58.615, 170.036, 48.615, 159.036, 45.615, 149.036)
 
 [node name="ArmEndR" type="Polygon2D" parent="Body"]
-position = Vector2(300.191, 358.571)
-rotation = -2.08135
-scale = Vector2(1.00003, 1.00003)
+position = Vector2(313.426, 346.847)
+rotation = -1.63926
+scale = Vector2(1.00004, 1.00004)
 offset = Vector2(-213, -355)
 texture = ExtResource("1_21wkb")
 polygon = PackedVector2Array(196, 349, 215, 342, 224, 347, 225, 369, 209, 414, 196, 422, 187, 416)
 uv = PackedVector2Array(38.9561, 148.271, 57.9561, 141.271, 66.9561, 146.271, 67.9561, 168.271, 51.9561, 213.271, 38.9561, 221.271, 29.9561, 215.271)
 
 [node name="HandR" type="Polygon2D" parent="Body"]
-position = Vector2(362, 340)
-rotation = 0.339146
-scale = Vector2(1.00002, 1.00002)
+position = Vector2(377.239, 356.505)
+rotation = -1.1253
+scale = Vector2(1.00003, 1.00003)
 offset = Vector2(-199, -419)
 texture = ExtResource("1_21wkb")
 polygon = PackedVector2Array(186, 418, 196, 411, 204, 415, 207, 424, 208, 446, 200, 441, 192, 449, 176, 435)
@@ -552,8 +541,8 @@ offset = Vector2(148.753, -147.14)
 position = Vector2(217.403, -257.496)
 rotation = -0.940348
 scale = Vector2(3.0208, 3.0208)
-collision_layer = 2
-collision_mask = 2
+collision_layer = 8
+collision_mask = 8
 monitoring = false
 monitorable = false
 
@@ -590,8 +579,8 @@ target_position = Vector2(-139.794, 391.732)
 
 [node name="VenenoArea" type="Area2D" parent="Body/HandR/Sbp/Spray" groups=["veneno"]]
 position = Vector2(-30.7665, 81.3802)
-collision_layer = 2
-collision_mask = 2
+collision_layer = 8
+collision_mask = 8
 monitoring = false
 monitorable = false
 
@@ -602,9 +591,9 @@ shape = SubResource("CapsuleShape2D_rs54l")
 debug_color = Color(0, 0.649316, 0.148707, 0.42)
 
 [node name="FeetR" type="Polygon2D" parent="Body"]
-position = Vector2(135, 550)
-rotation = 1.33897
-scale = Vector2(1, 1)
+position = Vector2(291.634, 594.438)
+rotation = -0.121664
+scale = Vector2(0.999995, 0.999995)
 offset = Vector2(-337, -593)
 texture = ExtResource("1_21wkb")
 polygon = PackedVector2Array(321, 607, 328, 625, 392, 599, 383, 586, 353, 590, 335, 587, 323, 595)
@@ -614,14 +603,14 @@ uv = PackedVector2Array(165.24, 407.157, 172.24, 425.157, 236.24, 399.157, 227.2
 position = Vector2(201, 331)
 
 [node name="RHand" type="Node2D" parent="."]
-position = Vector2(362, 340)
+position = Vector2(550, 439)
 rotation = -2.99301
 
 [node name="Targets" type="Node2D" parent="."]
 position = Vector2(252, 497)
 
 [node name="TargetHead" type="Node2D" parent="Targets"]
-position = Vector2(272, -200)
+position = Vector2(495, -283)
 rotation = -2.99301
 
 [node name="FeetR" type="Node2D" parent="Targets"]
@@ -656,8 +645,10 @@ rotation = 0.263868
 shape = SubResource("CapsuleShape2D_3ixwq")
 
 [node name="AreaChute" type="Area2D" parent="." groups=["chute"]]
+collision_layer = 0
+collision_mask = 0
 
 [node name="CChute" type="CollisionShape2D" parent="AreaChute" groups=["chute"]]
-position = Vector2(361, 486)
-rotation = -2.29554
+position = Vector2(311, 520)
+rotation = -2.02039
 shape = SubResource("CapsuleShape2D_h4slm")

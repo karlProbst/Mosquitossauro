@@ -140,43 +140,6 @@ _data = {
 "RESET": SubResource("Animation_41hac")
 }
 
-[sub_resource type="Gradient" id="Gradient_0dkyn"]
-colors = PackedColorArray(0, 0, 0, 1, 0.0296289, 0.0273197, 0, 1)
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_mdhok"]
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_fa51q"]
-height = 128
-generate_mipmaps = false
-normalize = false
-color_ramp = SubResource("Gradient_0dkyn")
-noise = SubResource("FastNoiseLite_mdhok")
-
-[sub_resource type="Gradient" id="Gradient_ehyqr"]
-offsets = PackedFloat32Array(0)
-colors = PackedColorArray(0, 0, 0, 1)
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_cs27i"]
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_rjqns"]
-height = 128
-generate_mipmaps = false
-normalize = false
-color_ramp = SubResource("Gradient_ehyqr")
-noise = SubResource("FastNoiseLite_cs27i")
-
-[sub_resource type="Gradient" id="Gradient_i2heb"]
-colors = PackedColorArray(0, 0, 0, 1, 0.0296289, 0.0273197, 0, 1)
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_bpyox"]
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_r86jj"]
-height = 128
-generate_mipmaps = false
-normalize = false
-color_ramp = SubResource("Gradient_i2heb")
-noise = SubResource("FastNoiseLite_bpyox")
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ata6j"]
 size = Vector2(506.75, 89)
 
@@ -237,6 +200,43 @@ font_color = Color(0, 0.160784, 0.0862745, 1)
 outline_size = 34
 shadow_size = 118
 shadow_color = Color(0, 0, 0, 0.235294)
+
+[sub_resource type="Gradient" id="Gradient_0dkyn"]
+colors = PackedColorArray(0, 0, 0, 1, 0.0296289, 0.0273197, 0, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_mdhok"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_fa51q"]
+height = 128
+generate_mipmaps = false
+normalize = false
+color_ramp = SubResource("Gradient_0dkyn")
+noise = SubResource("FastNoiseLite_mdhok")
+
+[sub_resource type="Gradient" id="Gradient_ehyqr"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_cs27i"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_rjqns"]
+height = 128
+generate_mipmaps = false
+normalize = false
+color_ramp = SubResource("Gradient_ehyqr")
+noise = SubResource("FastNoiseLite_cs27i")
+
+[sub_resource type="Gradient" id="Gradient_i2heb"]
+colors = PackedColorArray(0, 0, 0, 1, 0.0296289, 0.0273197, 0, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_bpyox"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_r86jj"]
+height = 128
+generate_mipmaps = false
+normalize = false
+color_ramp = SubResource("Gradient_i2heb")
+noise = SubResource("FastNoiseLite_bpyox")
 
 [node name="Room" type="Node2D"]
 script = ExtResource("1_h1msy")
@@ -324,8 +324,8 @@ texture = ExtResource("3_wssqe")
 stretch_mode = 1
 
 [node name="AreaCena" type="StaticBody2D" parent="."]
-collision_layer = 162
-collision_mask = 162
+collision_layer = 3
+collision_mask = 3
 
 [node name="TextureRect" type="TextureRect" parent="AreaCena"]
 offset_left = -1769.0
@@ -394,6 +394,9 @@ shape = SubResource("RectangleShape2D_0xs6l")
 position = Vector2(-652, 304)
 scale = Vector2(0.630693, 0.630693)
 
+[node name="QuadroPombo" parent="AreaCena" instance=ExtResource("9_53vs6")]
+position = Vector2(-490, 285)
+
 [node name="Cabeceira" type="Node2D" parent="AreaCena"]
 position = Vector2(-308, -7)
 metadata/_edit_group_ = true
@@ -419,10 +422,7 @@ texture = ExtResource("9_o16m6")
 polygon = PackedVector2Array(61, 517, 69, 509, 60, 508, 64, 483, 69, 495, 86, 473, 84, 444, 42, 438, 7, 463, 24, 490, 28, 507, 21, 509, 26, 518, 43, 521)
 uv = PackedVector2Array(51.0444, 140.801, 59.0444, 132.801, 50.0444, 131.801, 54.0444, 106.801, 59.0444, 118.801, 76.0444, 96.8008, 74.0444, 67.8008, 32.0444, 61.8008, -2.9556, 86.8008, 14.0444, 113.801, 18.0444, 130.801, 11.0444, 132.801, 16.0444, 141.801, 33.0444, 144.801)
 
-[node name="QuadroPombo" parent="AreaCena/Cabeceira" instance=ExtResource("9_53vs6")]
-position = Vector2(-182, 292)
-
-[node name="Quadro2" parent="AreaCena" instance=ExtResource("11_6ug3t")]
+[node name="QuadroStock" parent="AreaCena" instance=ExtResource("11_6ug3t")]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AreaCena"]
 libraries = {
@@ -528,6 +528,8 @@ autoplay = "Booming"
 [node name="Pa" type="AudioStreamPlayer2D" parent="Boombox"]
 stream = ExtResource("30_20r0s")
 
+[node name="Almofada3" parent="." instance=ExtResource("26_mnank")]
+
 [node name="OldMan" parent="." node_paths=PackedStringArray("hitMarker") groups=["player"] instance=ExtResource("1_ktbtg")]
 position = Vector2(-572, -112)
 scale = Vector2(0.8, 0.8)
@@ -535,51 +537,6 @@ collision_layer = 33
 collision_mask = 33
 script = ExtResource("3_ni5k8")
 hitMarker = NodePath("../HitMarker")
-
-[node name="TextureRect3" type="TextureRect" parent="."]
-offset_left = 848.0
-offset_top = -89.0
-offset_right = 1573.0
-offset_bottom = 771.0
-rotation = 0.00212556
-scale = Vector2(0.0797912, 0.36)
-texture = SubResource("NoiseTexture2D_fa51q")
-
-[node name="TextureRect7" type="TextureRect" parent="."]
-offset_left = 874.0
-offset_top = 127.0
-offset_right = 1599.0
-offset_bottom = 987.0
-rotation = -1.13385
-scale = Vector2(0.0435485, 0.212646)
-texture = SubResource("NoiseTexture2D_fa51q")
-
-[node name="TextureRect4" type="TextureRect" parent="."]
-offset_left = 848.0
-offset_top = 471.0
-offset_right = 1573.0
-offset_bottom = 1613.0
-rotation = 0.00212556
-scale = Vector2(0.0797912, 0.36)
-texture = SubResource("NoiseTexture2D_fa51q")
-
-[node name="TextureRect5" type="TextureRect" parent="."]
-offset_left = 877.0
-offset_top = -173.0
-offset_right = 3166.0
-offset_bottom = 1947.0
-rotation = 1.57079
-scale = Vector2(0.0800007, 1.28)
-texture = SubResource("NoiseTexture2D_rjqns")
-
-[node name="TextureRect6" type="TextureRect" parent="."]
-offset_left = -1229.0
-offset_top = -49.0
-offset_right = 22113.0
-offset_bottom = 577.0
-rotation = 1.57079
-scale = Vector2(0.0400012, 1.28)
-texture = SubResource("NoiseTexture2D_r86jj")
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("followNode")]
 position = Vector2(389, 275)
@@ -642,8 +599,6 @@ offset_bottom = 1.43182
 rotation = -1.57472
 scale = Vector2(0.08, 0.479999)
 pivot_offset = Vector2(19.117, 38.3134)
-
-[node name="Almofada3" parent="." instance=ExtResource("26_mnank")]
 
 [node name="Bed" type="StaticBody2D" parent="."]
 position = Vector2(-552, 587)
@@ -744,3 +699,50 @@ scale = Vector2(0.5, 0.5)
 text = "killed: 0"
 label_settings = SubResource("LabelSettings_0k0fs")
 justification_flags = 160
+
+[node name="Foreground" type="Node2D" parent="."]
+
+[node name="TextureRect3" type="TextureRect" parent="Foreground"]
+offset_left = 848.0
+offset_top = -89.0
+offset_right = 1573.0
+offset_bottom = 771.0
+rotation = 0.00212556
+scale = Vector2(0.0797912, 0.36)
+texture = SubResource("NoiseTexture2D_fa51q")
+
+[node name="TextureRect7" type="TextureRect" parent="Foreground"]
+offset_left = 874.0
+offset_top = 127.0
+offset_right = 1599.0
+offset_bottom = 987.0
+rotation = -1.13385
+scale = Vector2(0.0435485, 0.212646)
+texture = SubResource("NoiseTexture2D_fa51q")
+
+[node name="TextureRect4" type="TextureRect" parent="Foreground"]
+offset_left = 848.0
+offset_top = 471.0
+offset_right = 1573.0
+offset_bottom = 1613.0
+rotation = 0.00212556
+scale = Vector2(0.0797912, 0.36)
+texture = SubResource("NoiseTexture2D_fa51q")
+
+[node name="TextureRect5" type="TextureRect" parent="Foreground"]
+offset_left = 877.0
+offset_top = -173.0
+offset_right = 3166.0
+offset_bottom = 1947.0
+rotation = 1.57079
+scale = Vector2(0.0800007, 1.28)
+texture = SubResource("NoiseTexture2D_rjqns")
+
+[node name="TextureRect6" type="TextureRect" parent="Foreground"]
+offset_left = -1229.0
+offset_top = -49.0
+offset_right = 22113.0
+offset_bottom = 577.0
+rotation = 1.57079
+scale = Vector2(0.0400012, 1.28)
+texture = SubResource("NoiseTexture2D_r86jj")

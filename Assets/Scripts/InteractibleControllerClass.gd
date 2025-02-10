@@ -7,28 +7,30 @@ class_name InteractibleControllerClass
 
 var defaultKickSound = preload("res://Assets/Sound/paaa.wav")
 @export var health:int=2
-
+signal destroyed
 func _on_area_entered(area: Node) -> void:
 	if area.is_in_group("chute"):
 		takeDamage()
 
 func _ready() -> void:
-	#if get_parent().has_method("_on_area_entered"):
-	#	get_parent().connect("area_entered", Callable(get_parent(), "_on_area_entered"))
-	#else:
-	#	get_parent().connect("area_entered", Callable(self, "_on_area_entered"))
-		
-		
-	if not audio_player_node:
+	if get_parent().has_signal("area_entered"):
+		if get_parent().has_method("_on_area_entered"):
+			if not get_parent().is_connected("area_entered",Callable(get_parent(), "_on_area_entered")):
+				get_parent().connect("area_entered", Callable(get_parent(), "_on_area_entered"))
+		elif get_parent().has_signal("area_entered"):
+				get_parent().connect("area_entered", Callable(self, "_on_area_entered"))
+
 		audio_player_node = get_parent().get_node_or_null("AudioStreamPlayer2D")
 	if not animation_player_node:
 		animation_player_node = get_parent().get_node_or_null("AnimationPlayer")
 		
-func takeDamage(damage:int=1,customSound:AudioStream = defaultKickSound,anim:String = "takeDamage") -> void:
-	
-	if health>0:
-		playSound(customSound)
+func takeDamage(damage:int=1,_anim:String = "takeDamage") -> void:
+	if health==-1:
 		removeHealth(damage)
+	if health>0:
+		playSound()
+		removeHealth(damage)
+	if health>0:
 		playAnimation()
 		
 func playAnimation(animStr:String="takeDamage"):
@@ -39,19 +41,21 @@ func playAnimation(animStr:String="takeDamage"):
 
 
 #TODO: TIPAR CUSTOMSOUND
-func playSound(customSound:AudioStream)-> void:
+func playSound(customSound=null)-> void:
 	if audio_player_node:
-		if customSound:
+		if customSound and customSound is AudioStream:
 			audio_player_node.stream = customSound
-		else:
+		elif audio_player_node.stream == null:
 			audio_player_node.stream = defaultKickSound
 		audio_player_node.play()
 	else:
 		print_debug("Warning: AudioStreamPlayer2D not found!")
 
 func removeNode():
-
-	if not get_parent().has_method("destroy"):
+	var animPlayer = get_parent().get_node_or_null("AnimationPlayer")
+	if animPlayer and animPlayer.has_animation("destroy"):
+		playAnimation("destroy")
+	elif not get_parent().has_method("destroy"):
 		get_parent().visible=false
 		#Checks if audio is playing and waits it to finish before deleting. 
 		if audio_player_node and audio_player_node.playing:
@@ -60,13 +64,11 @@ func removeNode():
 		else:
 			get_parent().queue_free()
 	else:
-		var animPlayer = get_parent().get_node("AnimationPlayer")
-		if animPlayer and animPlayer.has_animation("destroy"):
-			animPlayer.play("destroy")
-		get_parent().destroy()
+		get_parent().queue_free()
 func removeHealth(damage:int=1):
 	health-=damage
 	if health<=0:
+		emit_signal("destroyed")
 		health=0
 		if get_parent().has_method("cairNoChao"):
 			get_parent().cairNoChao()

@@ -3,12 +3,16 @@ extends Node
 var health
 var killed
 var dead
+var player:Node2D
 func _ready():
 	
 	health = 10
 	killed = 0
 	dead = false	
-	
+func getPlayer():
+	if player:
+		if player.has_method("updateItemOnHand"):
+			return player
 func remove_hearts(count:int)->void:
 	health-=count
 	if health<=0:

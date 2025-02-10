@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bwwaepeq7v28a"]
+[gd_scene load_steps=9 format=3 uid="uid://bwwaepeq7v28a"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/InteractibleControllerClass.gd" id="1_ncd64"]
 [ext_resource type="Texture2D" uid="uid://b6l283pmcd38b" path="res://Assets/Images/POMBO.png" id="2_cg3ow"]
@@ -21,6 +21,30 @@ tracks/0/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_3ion0"]
 resource_name = "takeDamage"
@@ -37,17 +61,49 @@ tracks/0/keys = {
 "values": [-0.342085, 0.0]
 }
 
+[sub_resource type="Animation" id="Animation_2dtq2"]
+resource_name = "destroy"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.833333, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, -6.28319, -12.2173]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1e-05, 1e-05)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lnewd"]
 _data = {
 "RESET": SubResource("Animation_82q3s"),
+"destroy": SubResource("Animation_2dtq2"),
 "takeDamage": SubResource("Animation_3ion0")
 }
 
 [node name="QuadroPombo" type="Area2D"]
+collision_layer = 8
+collision_mask = 8
 
-[node name="InteractibleControllerClass" type="Node" parent="."]
+[node name="InteractibleControllerClass" type="Node" parent="." node_paths=PackedStringArray("audio_player_node", "animation_player_node")]
 script = ExtResource("1_ncd64")
-health = 12
+audio_player_node = NodePath("../AudioStreamPlayer2D")
+animation_player_node = NodePath("../AnimationPlayer")
+health = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_tgf1h")

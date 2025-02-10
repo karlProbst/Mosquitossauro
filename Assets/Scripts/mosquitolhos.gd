@@ -170,7 +170,7 @@ func move_toward_target(delta: float) -> void:
 	
 
 func go_to_ceiling() -> void:
-	target_position = Vector2(randi_range(wallSpace.x,wallSpace.z), wallSpace.y+randi_range(0,50))  # Go to the ceiling
+	target_position = Vector2(randf_range(wallSpace.x,wallSpace.z), wallSpace.y+randf_range(0,50))  # Go to the ceiling
 	move_toward_target(get_process_delta_time())
 
 func go_to_rest() -> void:
@@ -178,11 +178,11 @@ func go_to_rest() -> void:
 	is_resting = true
 	 # Change to resting animation
 	target_position = Vector2(
-		randi_range(wallSpace.x,wallSpace.z),
-		randi_range(wallSpace.y,wallSpace.w)
+		randf_range(wallSpace.x,wallSpace.z),
+		randf_range(wallSpace.y,wallSpace.w)
 	)
 	inactivity_timer_max=randf_range(0.5, 3.0)
 
 
-func _on_area_entered(area: Area2D) -> void:
+func _on_area_entered(_area: Area2D) -> void:
 	pass # Replace with function body.

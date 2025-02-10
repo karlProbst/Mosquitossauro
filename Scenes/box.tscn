@@ -1,15 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://cny626vhx5bje"]
+[gd_scene load_steps=6 format=3 uid="uid://cny626vhx5bje"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/box.gd" id="1_r6rbe"]
 [ext_resource type="Texture2D" uid="uid://cf0aklrtqwh5p" path="res://Assets/Images/cardboardShipbox.png" id="2_0q53t"]
+[ext_resource type="Script" path="res://Assets/Scripts/InteractibleControllerClass.gd" id="2_4sb8q"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ocs8y"]
 friction = 0.81
 bounce = 0.26
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cv752"]
-radius = 24.5
-height = 163.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3xfp7"]
+size = Vector2(50, 155)
 
 [node name="Box" type="RigidBody2D"]
 collision_layer = 2
@@ -17,63 +17,57 @@ collision_mask = 2
 physics_material_override = SubResource("PhysicsMaterial_ocs8y")
 script = ExtResource("1_r6rbe")
 
-[node name="B6" type="Polygon2D" parent="."]
-texture = ExtResource("2_0q53t")
-polygon = PackedVector2Array(-73, 25, 74, 25, 75, -23, -73, -22)
-uv = PackedVector2Array(8.49657, 116.669, 216.764, 118.095, 215.337, 52.4768, 8.49657, 55.3298)
+[node name="InteractibleControllerClass" type="Node" parent="."]
+script = ExtResource("2_4sb8q")
+health = 5
 
-[node name="B5" type="Polygon2D" parent="."]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+position = Vector2(-0.499999, -8.10623e-06)
+rotation = 1.57079
+shape = SubResource("RectangleShape2D_3xfp7")
+
+[node name="HealthSprites" type="Node2D" parent="."]
+
+[node name="5" type="Polygon2D" parent="HealthSprites"]
+texture = ExtResource("2_0q53t")
+polygon = PackedVector2Array(-73, 25, 67, 26, 78, 18, 78, -19, 75, -23, -70, -26, -76, -20, -79, 19)
+uv = PackedVector2Array(11.3418, 113.416, 194, 114.72, 208.351, 104.283, 208.351, 56.0089, 204.437, 50.7901, 15.2559, 46.876, 7.42767, 54.7041, 3.51357, 105.587)
+
+[node name="4" type="Polygon2D" parent="HealthSprites"]
 visible = false
 texture = ExtResource("2_0q53t")
 polygon = PackedVector2Array(-66, 22, -43, 28, 67, 28, 73, 6, 76, -25, 25, -17, -61, -25, -77, -4)
 uv = PackedVector2Array(3.63249, 121.39, 108.262, 120.664, 217.444, 119.906, 217.444, 83.9141, 217.444, 51.6046, 108.266, 51.6046, 3.63249, 51.6046, 2.14769, 85.7551)
 
-[node name="B4" type="Polygon2D" parent="."]
+[node name="3" type="Polygon2D" parent="HealthSprites"]
 visible = false
 position = Vector2(0, -4)
 texture = ExtResource("2_0q53t")
 polygon = PackedVector2Array(-62, 28, -9, 34, 70, 21, 78, 1, 49, -19, 2, -11, -44, -14, -77, -1)
 uv = PackedVector2Array(3.63249, 121.39, 108.262, 120.664, 217.444, 119.906, 217.444, 83.9141, 217.444, 51.6046, 108.266, 51.6046, 3.63249, 51.6046, 2.14769, 85.7551)
 
-[node name="B3" type="Polygon2D" parent="."]
-visible = false
-position = Vector2(0, -4)
-texture = ExtResource("2_0q53t")
-polygon = PackedVector2Array(-62, 28, -9, 34, 67, 23, 75, -1, 45, -19, 25, -6, -34, -14, -72, -6)
-uv = PackedVector2Array(3.63249, 121.39, 108.262, 120.664, 217.444, 119.906, 217.444, 83.9141, 217.444, 51.6046, 108.266, 51.6046, 3.63249, 51.6046, 2.14769, 85.7551)
-
-[node name="B2" type="Polygon2D" parent="."]
+[node name="2" type="Polygon2D" parent="HealthSprites"]
 visible = false
 position = Vector2(0, -4)
 texture = ExtResource("2_0q53t")
 polygon = PackedVector2Array(-62, 28, -9, 34, 71, 16, 73, -11, 14, -23, 9, -6, -35, -18, -77, -1)
 uv = PackedVector2Array(3.63249, 121.39, 108.262, 120.664, 217.444, 119.906, 217.444, 83.9141, 217.444, 51.6046, 108.266, 51.6046, 3.63249, 51.6046, 2.14769, 85.7551)
 
-[node name="B1" type="Polygon2D" parent="."]
+[node name="1" type="Polygon2D" parent="HealthSprites"]
 visible = false
 position = Vector2(0, -4)
 texture = ExtResource("2_0q53t")
 polygon = PackedVector2Array(-50, 45, -9, 34, 59, 12, 78, -8, 15, -38, 2, 10, -29, 1, -73, -27)
 uv = PackedVector2Array(3.63249, 121.39, 108.262, 120.664, 217.444, 119.906, 217.444, 83.9141, 217.444, 51.6046, 108.266, 51.6046, 3.63249, 51.6046, 2.14769, 85.7551)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 0.5)
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-0.499999, -8.10623e-06)
 rotation = 1.57079
-shape = SubResource("CapsuleShape2D_cv752")
+shape = SubResource("RectangleShape2D_3xfp7")
 
-[node name="Node2D" type="Node2D" parent="."]
-position = Vector2(0.5, 0.5)
-
-[node name="Ray1" type="RayCast2D" parent="Node2D"]
-position = Vector2(-81.5, 22.5)
-target_position = Vector2(166, -50)
-hit_from_inside = true
-collide_with_areas = true
-collide_with_bodies = false
-
-[node name="Ray2" type="RayCast2D" parent="Node2D"]
-position = Vector2(-80.5, -25.5)
-target_position = Vector2(163, 52)
-hit_from_inside = true
-collide_with_areas = true
-collide_with_bodies = false
+[connection signal="destroyed" from="InteractibleControllerClass" to="." method="_on_interactible_controller_class_destroyed"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

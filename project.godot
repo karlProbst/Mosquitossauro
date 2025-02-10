@@ -10,7 +10,8 @@ config_version=5
 
 [application]
 
-config/name="MosquitoDefense"
+config/name="Mosquitossauro Rex"
+config/tags=PackedStringArray("2d", "platformer")
 run/main_scene="res://Scenes/Stages/IntroRoomSequence.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
@@ -98,6 +99,11 @@ mute={
 
 [layer_names]
 
+2d_render/layer_1="planoDoChaoETeto"
+2d_render/layer_11="ataque"
+2d_physics/layer_1="PlayerECenario"
+2d_physics/layer_2="CenarioSemPlayer"
+2d_physics/layer_4="ataques"
 2d_physics/layer_24="GAY"
 
 [rendering]

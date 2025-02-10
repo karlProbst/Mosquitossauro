@@ -37,7 +37,7 @@ var agressivness = 1.7-randf()
 var cellingRounds=0
 func _ready() -> void:
 	target_position = global_position  
-	scale.x-=randf()/4
+	scale.x=0.8+randf()
 	scale.y=scale.x
 func got_hit(damage):
 	gothit=gothit_max
