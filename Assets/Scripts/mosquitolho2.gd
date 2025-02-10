@@ -51,7 +51,9 @@ func got_hit(damage):
 func _process(delta: float) -> void:
 	
 	
-	
+	$Polygon2D.skew=velocity.x/(fly_speed*1.4)
+	$Polygon2D.scale.y=1+abs(velocity.y/(fly_speed*2.1))
+	$Polygon2D.scale.x=1-abs(velocity.y/(fly_speed*2.3))
 		
 	if health>0:
 		if $Rleft.is_colliding():

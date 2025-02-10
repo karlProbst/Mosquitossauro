@@ -629,8 +629,8 @@ metadata/_edit_group_ = true
 
 [node name="ArmL" type="Polygon2D" parent="OldMan/Body"]
 position = Vector2(323.44, 357.103)
-rotation = -0.256662
-scale = Vector2(0.999828, 0.999828)
+rotation = -0.256659
+scale = Vector2(0.999829, 0.999829)
 offset = Vector2(-242.437, -303.264)
 texture = ExtResource("2_4tnmu")
 polygon = PackedVector2Array(227, 355, 255, 309, 255, 291, 236, 285, 206, 336, 212, 355)
@@ -639,7 +639,7 @@ uv = PackedVector2Array(72.1679, 159.801, 100.168, 113.801, 100.168, 95.8011, 81
 [node name="ArmEndL" type="Polygon2D" parent="OldMan/Body"]
 position = Vector2(308.507, 401.839)
 rotation = 2.48843
-scale = Vector2(0.999822, 0.999822)
+scale = Vector2(0.999823, 0.999823)
 offset = Vector2(-290, -361)
 texture = ExtResource("2_4tnmu")
 polygon = PackedVector2Array(330, 355, 304, 351, 287, 351, 278, 359, 290, 374, 335, 378, 340, 365)
@@ -693,7 +693,7 @@ uv = PackedVector2Array(74.4672, 217.871, 105.434, 230.589, 130.317, 225.613, 14
 [node name="HandL" type="Polygon2D" parent="OldMan/Body"]
 position = Vector2(271.698, 421.192)
 rotation = 2.48843
-scale = Vector2(0.999822, 0.999822)
+scale = Vector2(0.999823, 0.999823)
 offset = Vector2(-339, -371)
 texture = ExtResource("2_4tnmu")
 polygon = PackedVector2Array(338, 378, 359, 389, 367, 371, 348, 360, 337, 364, 333, 370)
@@ -702,16 +702,16 @@ uv = PackedVector2Array(182.615, 177.824, 203.615, 188.824, 211.615, 170.824, 19
 [node name="LegR" type="Polygon2D" parent="OldMan/Body"]
 position = Vector2(235.26, 418.13)
 rotation = -0.216869
-scale = Vector2(0.99994, 0.99994)
+scale = Vector2(0.999939, 0.999939)
 offset = Vector2(-250, -419)
 texture = ExtResource("2_4tnmu")
 polygon = PackedVector2Array(232, 435, 244, 450, 273, 518, 297, 526, 313, 512, 312, 491, 285, 420, 261, 408, 231, 413)
 uv = PackedVector2Array(77.168, 234.824, 89.168, 249.824, 118.168, 317.824, 142.168, 325.824, 158.168, 311.824, 157.168, 290.824, 130.168, 219.824, 103.168, 219.824, 76.168, 212.824)
 
 [node name="LegEndR" type="Polygon2D" parent="OldMan/Body"]
-position = Vector2(301.597, 500.788)
+position = Vector2(301.596, 500.787)
 rotation = -0.218615
-scale = Vector2(0.999937, 0.999937)
+scale = Vector2(0.999935, 0.999935)
 offset = Vector2(-293, -505)
 texture = ExtResource("2_4tnmu")
 polygon = PackedVector2Array(289, 553, 321, 601, 333, 600, 344, 592, 344, 577, 315, 498, 286, 491, 275, 504, 271, 522)
@@ -747,7 +747,7 @@ uv = PackedVector2Array(31.7209, 218.377, 41.7209, 211.377, 49.7209, 215.377, 52
 [node name="FeetR" type="Polygon2D" parent="OldMan/Body"]
 position = Vector2(358.642, 573.132)
 rotation = -0.473275
-scale = Vector2(0.999937, 0.999937)
+scale = Vector2(0.999935, 0.999935)
 offset = Vector2(-337, -593)
 texture = ExtResource("2_4tnmu")
 polygon = PackedVector2Array(321, 607, 328, 625, 392, 599, 383, 586, 353, 590, 335, 587, 323, 595)
