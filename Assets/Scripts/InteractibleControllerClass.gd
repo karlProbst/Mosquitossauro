@@ -26,7 +26,8 @@ func _ready() -> void:
 		
 func takeDamage(damage:int=1,_anim:String = "takeDamage") -> void:
 	if health==-1:
-		removeHealth(damage)
+		playSound()
+		playAnimation()
 	if health>0:
 		playSound()
 		removeHealth(damage)

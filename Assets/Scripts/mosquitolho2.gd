@@ -1,6 +1,6 @@
 extends Node2D
 
-var fly_speed: float = 350.0  # Speed of mosquito flying
+var fly_speed: float = 450.0+randi_range(0,500) # Speed of mosquito flying
 
 @onready var player:Node2D = get_parent().get_node("OldMan")
 
@@ -33,8 +33,9 @@ var spawner = Spawner.new()
 var stuck=false
 var bytingMax=10.0
 var bytingCharge=4.0
-var agressivness = 1.7-randf()
+var agressivness = 1.61-randf()
 var cellingRounds=0
+var laserPointTo
 func _ready() -> void:
 	target_position = global_position  
 	scale.x=0.8+randf()
@@ -57,22 +58,22 @@ func _process(delta: float) -> void:
 			if velocity.x<0:
 				velocity.x*=-1.3
 				position.x+=1
-
+				byting=0
 		if $Rright.is_colliding():
 			if velocity.x>0:
 				velocity.x*=-1.3
 				position.x-=1
-
+				byting=0
 		if $Rup.is_colliding():
 			if velocity.y<0:
 				velocity.y*=-1.3
 				position.y+=1
-
+				byting=0
 		if $Rdown.is_colliding():
 			if velocity.y>0:
 				velocity.y*=-1.3
 				position.x-=5
-
+				byting=0
 	if health<=0:
 		
 		if not lockdead:
@@ -93,9 +94,7 @@ func _process(delta: float) -> void:
 		var col = ray.get_collider()
 		if col.is_in_group("chute"):
 			velocity=Vector2(10000,-10000)
-		if col.is_in_group("player") and health>0 and byting>0:
-			player.gotHit(1,position)
-		byting=0	
+		
 			
 		if col.is_in_group("almofada"):
 			velocity=col.linear_velocity
@@ -157,8 +156,8 @@ func _process(delta: float) -> void:
 			$RayLaser/Line2D.set_point_position(1, $RayLaser/Line2D.to_local(target_position))
 			rayLaser.target_position=rayLaser.to_local(target_position)
 			if rayLaser.is_colliding():
-				var pointTo= rayLaser.get_collision_point()
-				$RayLaser/Line2D.set_point_position(1, $RayLaser/Line2D.to_local(pointTo))
+				laserPointTo= rayLaser.get_collision_point()
+				$RayLaser/Line2D.set_point_position(1, $RayLaser/Line2D.to_local(laserPointTo))
 				
 		else:
 			$RayLaser.enabled=false
@@ -233,3 +232,9 @@ func go_wild() -> void:
 	var timeItTakes = distance/fly_speed
 	inactivity_timer_max=timeItTakes+randf()
 	inactivity_timer=inactivity_timer_max
+
+
+func _on_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player") and health>0 and byting>0:
+		player.gotHit(1,laserPointTo)
+		byting=0

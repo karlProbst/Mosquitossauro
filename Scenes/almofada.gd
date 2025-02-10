@@ -5,7 +5,7 @@ var player
 var lockchute = false
 func _ready() -> void:
 	player=GlobalSingleton.getPlayer()
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if player:
 		if player.chutando==0:
 			lockchute=false

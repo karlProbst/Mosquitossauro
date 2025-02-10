@@ -360,7 +360,7 @@ offset_bottom = 778.0
 color = Color(0, 0, 0, 1)
 
 [node name="Bookshelve" type="Sprite2D" parent="AreaCena"]
-position = Vector2(-17, 496)
+position = Vector2(-17.0001, 496)
 scale = Vector2(0.483316, 0.483316)
 texture = ExtResource("12_hnqea")
 
@@ -395,7 +395,7 @@ position = Vector2(-652, 304)
 scale = Vector2(0.630693, 0.630693)
 
 [node name="QuadroPombo" parent="AreaCena" instance=ExtResource("9_53vs6")]
-position = Vector2(-439, 422)
+position = Vector2(-490, 285)
 
 [node name="Cabeceira" type="Node2D" parent="AreaCena"]
 position = Vector2(-308, -7)
@@ -442,7 +442,7 @@ metadata/_edit_lock_ = true
 position = Vector2(335, 512)
 
 [node name="PrateleiraBoomBox" type="StaticBody2D" parent="."]
-position = Vector2(-1110, 495)
+position = Vector2(170, 500)
 collision_layer = 2
 collision_mask = 2
 metadata/_edit_group_ = true
@@ -457,9 +457,9 @@ polygon = PackedVector2Array(-74, -10, -57, 11, -21, 18, 33, 19, 61, 12, 74, -10
 uv = PackedVector2Array(10.0698, 144.574, 22.0698, 160.574, 61.0698, 163.574, 111.07, 163.574, 140.07, 161.574, 152.07, 143.574, 127.07, 141.574, 50.0698, 141.574)
 
 [node name="Boombox" type="CharacterBody2D" parent="." node_paths=PackedStringArray("player")]
-position = Vector2(-1119, 455)
-collision_layer = 10
-collision_mask = 10
+position = Vector2(161, 460)
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("26_m15bd")
 player = NodePath("../OldMan")
 metadata/_edit_group_ = true
@@ -481,7 +481,6 @@ collide_with_areas = true
 [node name="TrapMoskitao" type="AudioStreamPlayer2D" parent="Boombox"]
 position = Vector2(-8, 8)
 stream = ExtResource("26_5mjnb")
-volume_db = -4.522
 autoplay = true
 
 [node name="B5" type="Polygon2D" parent="Boombox"]
@@ -535,6 +534,8 @@ stream = ExtResource("30_20r0s")
 [node name="OldMan" parent="." node_paths=PackedStringArray("hitMarker") groups=["player"] instance=ExtResource("1_ktbtg")]
 position = Vector2(-572, -112)
 scale = Vector2(0.8, 0.8)
+collision_layer = 33
+collision_mask = 33
 script = ExtResource("3_ni5k8")
 hitMarker = NodePath("../HitMarker")
 
@@ -602,8 +603,8 @@ pivot_offset = Vector2(19.117, 38.3134)
 
 [node name="Bed" type="StaticBody2D" parent="."]
 position = Vector2(-552, 587)
-collision_layer = 0
-collision_mask = 0
+collision_layer = 3
+collision_mask = 3
 
 [node name="bedCol" type="CollisionShape2D" parent="Bed"]
 position = Vector2(0, -2.5)
@@ -653,8 +654,6 @@ polygon = PackedVector2Array(198, 27, 204, 41, 213, 27)
 
 [node name="GenericItem" parent="." instance=ExtResource("9_rqwgg")]
 position = Vector2(776, 554)
-collision_layer = 40
-collision_mask = 40
 
 [node name="Box" parent="." instance=ExtResource("23_6ky7u")]
 position = Vector2(-353, 413)
@@ -678,7 +677,7 @@ offset_top = 23.0
 offset_right = 1063.0
 offset_bottom = 171.0
 scale = Vector2(0.5, 0.5)
-text = "Health: s2"
+text = "Health: S2 S2 S2 S2 S2"
 label_settings = SubResource("LabelSettings_uylbh")
 justification_flags = 160
 
@@ -688,7 +687,7 @@ offset_top = 23.0
 offset_right = 1063.0
 offset_bottom = 171.0
 scale = Vector2(0.5, 0.5)
-text = "Health: s2"
+text = "Health: S2 S2 S2 S2 S2"
 label_settings = SubResource("LabelSettings_skbvq")
 justification_flags = 160
 

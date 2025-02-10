@@ -2,21 +2,28 @@ extends Node
 
 var health
 var killed
-var dead
+
 var player:Node2D
+var camera:Node
 func _ready():
 	
-	health = 10
+	health = 3
 	killed = 0
-	dead = false	
+		
 func getPlayer():
 	if player:
 		if player.has_method("updateItemOnHand"):
 			return player
+		
+func getCamera():
+	if camera:
+		if camera.has_method("_process"):
+			return camera
+		
 func remove_hearts(count:int)->void:
 	health-=count
 	if health<=0:
-		dead=true
+		deadPlayer()
 	var ui =  get_tree().root.get_node("Room/UICanvasLayer")
 	if ui:
 		ui.updateHealth(health)
@@ -32,5 +39,12 @@ func toggle_main_bus_mute():
 	AudioServer.set_bus_mute(0, not current_mute) 
 	
 func _unhandled_input(event):
+
 	if event.is_action_pressed("mute"):
 		toggle_main_bus_mute()
+
+func deadPlayer():
+	_ready()
+	player=null
+	get_tree().reload_current_scene()
+	

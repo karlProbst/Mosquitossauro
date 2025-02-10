@@ -238,6 +238,8 @@ radius = 63.0311
 height = 244.341
 
 [node name="OldMan" type="CharacterBody2D"]
+collision_layer = 33
+collision_mask = 33
 
 [node name="Skeleton2D" type="Skeleton2D" parent="."]
 position = Vector2(268, 409)

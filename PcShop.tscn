@@ -1,12 +1,13 @@
-[gd_scene load_steps=12 format=3 uid="uid://n758tkgbuyac"]
+[gd_scene load_steps=15 format=3 uid="uid://n758tkgbuyac"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/InteractibleControllerClass.gd" id="1_r5rwm"]
 [ext_resource type="Texture2D" uid="uid://bb0mrj7h2ve87" path="res://Assets/Images/tablezoda.png" id="2_5mouy"]
 [ext_resource type="Texture2D" uid="uid://bqan5mphxkbs0" path="res://Assets/Images/oldpc.png" id="3_1f4d1"]
 [ext_resource type="Texture2D" uid="uid://rlf3s52j3wa6" path="res://Assets/Images/BUY.png" id="4_eh2xs"]
 [ext_resource type="AudioStream" uid="uid://ch436ha1hbdi" path="res://Assets/Sound/paaa.wav" id="5_0ql1x"]
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_hah00"]
+[ext_resource type="Script" path="res://shop.gd" id="5_cwn2g"]
+[ext_resource type="Script" path="res://Assets/Scripts/ShopControllerClass.gd" id="6_02q87"]
+[ext_resource type="AudioStream" uid="uid://bdtr70pm0djwo" path="res://Assets/Sound/Dial Up Internet - Sound Effect (HD) 4.mp3" id="7_ljwv0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8dh4s"]
 radius = 96.0052
@@ -17,7 +18,7 @@ length = 0.35
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Oldpc:skew")
+tracks/0/path = NodePath("Shop/Oldpc:skew")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -29,14 +30,14 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Oldpc:position")
-tracks/1/interp = 2
+tracks/1/path = NodePath("Shop/Oldpc:position")
+tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.333333),
+"times": PackedFloat32Array(0, 0.35),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(43.775, -71), Vector2(36, -71)]
+"values": [Vector2(32, 49), Vector2(26, 49)]
 }
 
 [sub_resource type="Animation" id="Animation_7cixh"]
@@ -44,7 +45,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Oldpc:skew")
+tracks/0/path = NodePath("Shop/Oldpc:skew")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -56,14 +57,14 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Oldpc:position")
+tracks/1/path = NodePath("Shop/Oldpc:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(36, -71)]
+"values": [Vector2(24, 45)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_trg7s"]
@@ -71,6 +72,8 @@ _data = {
 "RESET": SubResource("Animation_7cixh"),
 "takeDamage": SubResource("Animation_3md8r")
 }
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_hah00"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_68hv6"]
 size = Vector2(327, 86)
@@ -108,7 +111,7 @@ offset_right = 644.0
 offset_bottom = 286.0
 scale = Vector2(0.23, 0.23)
 theme_override_font_sizes/normal_font_size = 70
-text = "press ' Y '
+text = "Press ' E '
 TO SURF THE WEB"
 tab_size = 6
 
@@ -121,59 +124,16 @@ offset_right = 646.0
 offset_bottom = 286.0
 scale = Vector2(0.23, 0.23)
 theme_override_font_sizes/normal_font_size = 70
-text = "press ' Y '
+text = "Press ' E '
 TO SURF THE WEB"
 tab_size = 6
-
-[node name="Oldpc" type="Sprite2D" parent="."]
-position = Vector2(36, -71)
-scale = Vector2(0.293499, 0.293499)
-texture = ExtResource("3_1f4d1")
-
-[node name="Scene" type="Polygon2D" parent="Oldpc"]
-position = Vector2(-122.658, 241.909)
-scale = Vector2(3.40717, 3.40717)
-color = Color(0, 0, 0, 1)
-texture = SubResource("ViewportTexture_hah00")
-polygon = PackedVector2Array(-14, -95, -14, -117, -13, -130, -11, -132, 11, -133, 37, -131, 39, -129, 39, -95, 37, -93, 16, -93, -12, -94)
-
-[node name="PC" type="Node2D" parent="Oldpc"]
-position = Vector2(-163.544, -221.466)
-scale = Vector2(3.40717, 3.40717)
-
-[node name="Polygon2D3" type="Polygon2D" parent="Oldpc/PC"]
-modulate = Color(0.871979, 1, 0.789519, 1)
-texture = ExtResource("3_1f4d1")
-polygon = PackedVector2Array(-2, 41, -5, 44, 54, 44, 54, 1, -4, 0, -5, 44, -2, 41, -1, 5, 1, 4, 50, 4, 51, 5, 52, 41, 50, 43)
-uv = PackedVector2Array(72.291, 174.174, 62.0205, 184.445, 264.006, 184.445, 264.006, 37.2346, 65.444, 33.8111, 62.0205, 184.445, 72.291, 174.174, 75.7144, 50.9286, 82.5614, 47.5051, 250.313, 47.5051, 253.736, 50.9286, 257.16, 174.174, 250.313, 181.021)
-
-[node name="Polygon2D" type="Polygon2D" parent="Oldpc/PC"]
-position = Vector2(12, 136.311)
-color = Color(0, 0, 0, 1)
-polygon = PackedVector2Array(-14, -95, -14, -117, -13, -130, -11, -132, 11, -133, 37, -131, 39, -129, 39, -95, 37, -93, 16, -93, -12, -94)
-
-[node name="Buy" type="Sprite2D" parent="Oldpc/PC"]
-modulate = Color(0, 1, 0.2, 1)
-position = Vector2(25, 24.3115)
-scale = Vector2(0.0355191, 0.0355191)
-texture = ExtResource("4_eh2xs")
-
-[node name="BuyRaquete" type="Node2D" parent="Oldpc/PC"]
-position = Vector2(13, 11)
-
-[node name="BuySpray" type="Node2D" parent="Oldpc/PC"]
-position = Vector2(24, 26)
-
-[node name="BuyAwp" type="Node2D" parent="Oldpc/PC"]
-position = Vector2(13, 39)
-
-[node name="Polygon2D2" type="Polygon2D" parent="Oldpc/PC"]
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 rotation = 0.00805785
 stream = ExtResource("5_0ql1x")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(34, -62)
 shape = SubResource("CircleShape2D_8dh4s")
 
@@ -182,10 +142,71 @@ libraries = {
 "": SubResource("AnimationLibrary_trg7s")
 }
 
+[node name="Shop" type="Node2D" parent="."]
+position = Vector2(10, -119)
+script = ExtResource("5_cwn2g")
+
+[node name="Oldpc" type="Sprite2D" parent="Shop"]
+position = Vector2(24, 45)
+scale = Vector2(0.293499, 0.293499)
+texture = ExtResource("3_1f4d1")
+
+[node name="Scene" type="Polygon2D" parent="Shop/Oldpc"]
+position = Vector2(-122.658, 241.909)
+scale = Vector2(3.40717, 3.40717)
+color = Color(0, 0, 0, 1)
+texture = SubResource("ViewportTexture_hah00")
+polygon = PackedVector2Array(-14, -95, -14, -117, -13, -130, -11, -132, 11, -133, 37, -131, 39, -129, 39, -95, 37, -93, 16, -93, -12, -94)
+
+[node name="BuyRaquete" type="Node2D" parent="Shop/Oldpc"]
+position = Vector2(-119.251, -183.987)
+scale = Vector2(3.40717, 3.40717)
+
+[node name="BuySpray" type="Node2D" parent="Shop/Oldpc"]
+position = Vector2(-81.772, -132.88)
+scale = Vector2(3.40717, 3.40717)
+
+[node name="BuyAwp" type="Node2D" parent="Shop/Oldpc"]
+position = Vector2(-119.251, -88.5863)
+scale = Vector2(3.40717, 3.40717)
+
+[node name="PC" type="Node2D" parent="Shop/Oldpc"]
+position = Vector2(-163.544, -221.466)
+scale = Vector2(3.40717, 3.40717)
+
+[node name="Polygon2D3" type="Polygon2D" parent="Shop/Oldpc/PC"]
+modulate = Color(0.871979, 1, 0.789519, 1)
+texture = ExtResource("3_1f4d1")
+polygon = PackedVector2Array(-2, 41, -5, 44, 54, 44, 54, 1, -4, 0, -5, 44, -2, 41, -1, 5, 1, 4, 50, 4, 51, 5, 52, 41, 50, 43)
+uv = PackedVector2Array(72.291, 174.174, 62.0205, 184.445, 264.006, 184.445, 264.006, 37.2346, 65.444, 33.8111, 62.0205, 184.445, 72.291, 174.174, 75.7144, 50.9286, 82.5614, 47.5051, 250.313, 47.5051, 253.736, 50.9286, 257.16, 174.174, 250.313, 181.021)
+
+[node name="Polygon2D" type="Polygon2D" parent="Shop/Oldpc/PC"]
+position = Vector2(12, 136.311)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-14, -95, -14, -117, -13, -130, -11, -132, 11, -133, 37, -131, 39, -129, 39, -95, 37, -93, 16, -93, -12, -94)
+
+[node name="Buy" type="Sprite2D" parent="Shop/Oldpc/PC"]
+modulate = Color(0, 1, 0.2, 1)
+position = Vector2(25, 24.3115)
+scale = Vector2(0.0355191, 0.0355191)
+texture = ExtResource("4_eh2xs")
+
+[node name="Polygon2D2" type="Polygon2D" parent="Shop/Oldpc/PC"]
+
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(31.5, 16)
 shape = SubResource("RectangleShape2D_68hv6")
+
+[node name="ShopControllerClass" type="Node" parent="Area2D" node_paths=PackedStringArray("intClass", "shopNode")]
+script = ExtResource("6_02q87")
+intClass = NodePath("../../InteractibleClass")
+shopNode = NodePath("../../Shop")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Area2D"]
+stream = ExtResource("7_ljwv0")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

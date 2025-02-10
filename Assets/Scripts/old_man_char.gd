@@ -46,8 +46,9 @@ func _process(delta: float) -> void:
 	$CShapeL.global_position=$Skeleton2D/Hip/LegL/LegEndL/ShoeL.global_position
 	$CShapeR.global_position=$Skeleton2D/Hip/LegR/LegEndR/ShoeR.global_position
 	# Update MaoTarget position to follow the mouse
+	MaoTarget.global_position = get_global_mouse_position()
 	if hitted<=0:
-		MaoTarget.global_position = get_global_mouse_position()
+		
 		$LHand.global_position.x = lerpf($LHand.global_position.x,get_global_mouse_position().x+0,delta*6)
 		$LHand.global_position.y = lerpf($LHand.global_position.y,get_global_mouse_position().y+50,delta*6)
 	else:
@@ -116,9 +117,9 @@ func _process(delta: float) -> void:
 		
 	
 	move_and_slide()
-	
+	#death
 	if position.y>5000:
-		get_tree().reload_current_scene()
+		GlobalSingleton.deadPlayer()
 	
 	
 
@@ -315,7 +316,7 @@ func updateItemOnHand(item):
 
 	
 func gotHit(_damage:int = 1, pos:Vector2=position):
-	hitted = 0.3
+	hitted = 0.9
 	$LHand.global_position = pos
 	var bloodcena = spawner.Instantiate(blood,pos,get_parent())
 	spawner.InjectArgs(bloodcena,{"emitting": "true"})

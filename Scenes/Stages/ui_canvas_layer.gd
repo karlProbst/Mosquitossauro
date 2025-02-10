@@ -4,8 +4,8 @@ var la = 0
 var lkilled=0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	updateHealth(10)
-	updateKilled(0)
+	updateHealth(GlobalSingleton.health)
+	updateKilled(GlobalSingleton.killed)
 func _process(delta: float) -> void:
 	if la>1.2:
 		la=1.2

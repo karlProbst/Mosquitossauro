@@ -46,21 +46,6 @@ tracks/2/keys = {
 "values": [Vector2(1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_3ion0"]
-resource_name = "takeDamage"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Quadro1:rotation")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [-0.342085, 0.0]
-}
-
 [sub_resource type="Animation" id="Animation_2dtq2"]
 resource_name = "destroy"
 tracks/0/type = "value"
@@ -88,6 +73,21 @@ tracks/1/keys = {
 "values": [Vector2(1, 1), Vector2(1e-05, 1e-05)]
 }
 
+[sub_resource type="Animation" id="Animation_3ion0"]
+resource_name = "takeDamage"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Quadro1:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.342085, 0.0]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lnewd"]
 _data = {
 "RESET": SubResource("Animation_82q3s"),
@@ -103,7 +103,7 @@ collision_mask = 8
 script = ExtResource("1_ncd64")
 audio_player_node = NodePath("../AudioStreamPlayer2D")
 animation_player_node = NodePath("../AnimationPlayer")
-health = 1
+health = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_tgf1h")
