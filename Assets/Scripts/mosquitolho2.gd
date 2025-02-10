@@ -235,6 +235,8 @@ func go_wild() -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
-	if body.is_in_group("player") and health>0 and byting>0:
-		player.gotHit(1,laserPointTo)
-		byting=0
+	if body:
+		if body.is_in_group("player") and health>0 and byting>0:
+			if player:
+				player.gotHit(1,laserPointTo)
+			byting=0

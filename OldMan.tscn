@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cgqpj8agtgvq8"]
+[gd_scene load_steps=26 format=3 uid="uid://cgqpj8agtgvq8"]
 
 [ext_resource type="Texture2D" uid="uid://s8lquyphw24a" path="res://Assets/Images/OldMan.png" id="1_21wkb"]
 [ext_resource type="Texture2D" uid="uid://bk6gbxkv6slga" path="res://Assets/Images/Raqueteleletrica.png" id="3_1q0dw"]
@@ -219,10 +219,14 @@ tracks/1/keys = {
 "values": [Vector2(-151, -22), Vector2(41, -2), Vector2(-151, -22)]
 }
 
+[sub_resource type="Animation" id="Animation_1hvt4"]
+resource_name = "dead"
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_empwl"]
 _data = {
 "RESET": SubResource("Animation_x142q"),
-"Run": SubResource("Animation_tqnv5")
+"Run": SubResource("Animation_tqnv5"),
+"dead": SubResource("Animation_1hvt4")
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cviee"]
@@ -408,54 +412,54 @@ metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
 
 [node name="ArmL" type="Polygon2D" parent="Body"]
-position = Vector2(263, 305)
-rotation = 0.222193
-scale = Vector2(0.99997, 0.99997)
+position = Vector2(263.002, 305)
+rotation = 0.222218
+scale = Vector2(0.999926, 0.999926)
 offset = Vector2(-242.437, -303.264)
 texture = ExtResource("1_21wkb")
 polygon = PackedVector2Array(227, 355, 255, 309, 255, 291, 236, 285, 206, 336, 212, 355)
 uv = PackedVector2Array(72.1679, 159.801, 100.168, 113.801, 100.168, 95.8011, 81.1679, 89.8011, 51.1679, 140.801, 57.1679, 159.801)
 
 [node name="ArmEndL" type="Polygon2D" parent="Body"]
-position = Vector2(231.013, 335.639)
-rotation = 2.96728
-scale = Vector2(0.999974, 0.999974)
+position = Vector2(231.016, 335.638)
+rotation = 2.96731
+scale = Vector2(0.999924, 0.999924)
 offset = Vector2(-290, -361)
 texture = ExtResource("1_21wkb")
 polygon = PackedVector2Array(330, 355, 304, 351, 287, 351, 278, 359, 290, 374, 335, 378, 340, 365)
 uv = PackedVector2Array(181.273, 158.18, 147.615, 145.165, 144.615, 155.165, 144.615, 164.165, 150.615, 176.165, 180.304, 175.817, 183.405, 167.871)
 
 [node name="Head" type="Polygon2D" parent="Body"]
-position = Vector2(292.04, 299.091)
-rotation = -0.106526
-scale = Vector2(0.999969, 0.999969)
+position = Vector2(292.04, 299.094)
+rotation = -0.106533
+scale = Vector2(0.999946, 0.999946)
 offset = Vector2(-274, -285)
 texture = ExtResource("1_21wkb")
 polygon = PackedVector2Array(260, 265, 265, 288, 274, 291, 288, 282, 290, 277, 305, 273, 320, 224, 270, 207, 250, 242)
 uv = PackedVector2Array(106.827, 63.7184, 116.827, 72.7184, 127.827, 79.7184, 134.827, 80.7184, 136.827, 75.7184, 151.827, 71.7184, 166.827, 22.7184, 116.827, 5.71837, 96.8269, 40.7184)
 
 [node name="LegL" type="Polygon2D" parent="Body"]
-position = Vector2(254.306, 420.618)
-rotation = -0.843075
-scale = Vector2(0.999997, 0.999997)
+position = Vector2(254.305, 420.617)
+rotation = -1.69308
+scale = Vector2(0.999966, 0.999966)
 offset = Vector2(-271, -435)
 texture = ExtResource("1_21wkb")
 polygon = PackedVector2Array(247, 442, 229, 496, 232, 528, 247, 542, 268, 530, 274, 507, 293, 431, 269, 417)
 uv = PackedVector2Array(83.3596, 257.683, 74.3596, 300.683, 72.5014, 340.255, 92.6744, 345.183, 117.36, 322.683, 112.36, 309.683, 102.36, 285.683, 94.3596, 269.683)
 
 [node name="LegEndL" type="Polygon2D" parent="Body"]
-position = Vector2(300.97, 505.042)
-rotation = -0.782075
-scale = Vector2(0.999997, 0.999997)
+position = Vector2(348.52, 441.278)
+rotation = -0.203347
+scale = Vector2(0.999952, 0.999952)
 offset = Vector2(-243, -521)
 texture = ExtResource("1_21wkb")
 polygon = PackedVector2Array(240, 504, 223, 515, 203, 592, 210, 598, 227, 595, 236, 588, 263, 536, 255, 512)
 uv = PackedVector2Array(85.932, 302.732, 68.932, 313.732, 48.932, 390.732, 55.932, 396.732, 72.932, 393.732, 81.932, 386.732, 108.932, 334.732, 100.932, 310.732)
 
 [node name="FeetL" type="Polygon2D" parent="Body"]
-position = Vector2(334.676, 575.865)
-rotation = -0.676352
-scale = Vector2(0.999997, 0.999997)
+position = Vector2(338, 519)
+rotation = -0.0976243
+scale = Vector2(0.999952, 0.999952)
 offset = Vector2(-220, -595)
 texture = ExtResource("1_21wkb")
 polygon = PackedVector2Array(269, 603, 237, 594, 225, 588, 213, 588, 200, 597, 198, 614, 270, 616)
@@ -478,27 +482,27 @@ polygon = PackedVector2Array(230, 409, 259, 419, 286, 418, 298, 411, 303, 382, 3
 uv = PackedVector2Array(74.4672, 217.871, 105.434, 230.589, 130.317, 225.613, 143.036, 220.083, 153.504, 178.061, 143.504, 166.061, 144.504, 137.061, 139.504, 83.0609, 127.504, 82.0609, 100.504, 60.0609, 81.5044, 84.0609, 98.5044, 86.0609, 108.504, 119.061, 76.5044, 148.061)
 
 [node name="HandL" type="Polygon2D" parent="Body"]
-position = Vector2(189.422, 335.856)
-rotation = 2.96728
-scale = Vector2(0.999974, 0.999974)
+position = Vector2(189.427, 335.853)
+rotation = 2.96731
+scale = Vector2(0.999924, 0.999924)
 offset = Vector2(-339, -371)
 texture = ExtResource("1_21wkb")
 polygon = PackedVector2Array(338, 378, 359, 389, 367, 371, 348, 360, 337, 364, 333, 370)
 uv = PackedVector2Array(182.615, 177.824, 203.615, 188.824, 211.615, 170.824, 192.615, 159.824, 181.615, 163.824, 177.615, 169.824)
 
 [node name="LegR" type="Polygon2D" parent="Body"]
-position = Vector2(229.181, 406.415)
-rotation = 0.134742
-scale = Vector2(0.999997, 0.999997)
+position = Vector2(229.181, 406.416)
+rotation = 0.854707
+scale = Vector2(0.999954, 0.999954)
 offset = Vector2(-250, -419)
 texture = ExtResource("1_21wkb")
 polygon = PackedVector2Array(232, 435, 244, 450, 273, 518, 297, 526, 313, 512, 312, 491, 285, 420, 261, 408, 231, 413)
 uv = PackedVector2Array(77.168, 234.824, 89.168, 249.824, 118.168, 317.824, 142.168, 325.824, 158.168, 311.824, 157.168, 290.824, 130.168, 219.824, 103.168, 219.824, 76.168, 212.824)
 
 [node name="LegEndR" type="Polygon2D" parent="Body"]
-position = Vector2(262.993, 506.867)
-rotation = 0.132996
-scale = Vector2(0.999995, 0.999995)
+position = Vector2(188.37, 504.232)
+rotation = 2.34275
+scale = Vector2(0.999945, 0.999945)
 offset = Vector2(-293, -505)
 texture = ExtResource("1_21wkb")
 polygon = PackedVector2Array(289, 553, 321, 601, 333, 600, 344, 592, 344, 577, 315, 498, 286, 491, 275, 504, 271, 522)
@@ -506,26 +510,26 @@ uv = PackedVector2Array(135.113, 354.492, 167.113, 402.492, 179.113, 401.492, 19
 
 [node name="ArmR" type="Polygon2D" parent="Body"]
 position = Vector2(261, 301)
-rotation = -1.41236
-scale = Vector2(1.00005, 1.00005)
+rotation = -1.41234
+scale = Vector2(1.00001, 1.00001)
 offset = Vector2(-246, -299)
 texture = ExtResource("1_21wkb")
 polygon = PackedVector2Array(230, 294, 244, 282, 259, 294, 250, 318, 225, 366, 214, 368, 204, 357, 201, 347)
 uv = PackedVector2Array(74.615, 96.0362, 88.615, 84.0362, 103.615, 96.0362, 94.615, 120.036, 69.615, 168.036, 58.615, 170.036, 48.615, 159.036, 45.615, 149.036)
 
 [node name="ArmEndR" type="Polygon2D" parent="Body"]
-position = Vector2(313.426, 346.847)
-rotation = -1.63926
-scale = Vector2(1.00004, 1.00004)
+position = Vector2(313.423, 346.845)
+rotation = -1.63923
+scale = Vector2(0.99999, 0.99999)
 offset = Vector2(-213, -355)
 texture = ExtResource("1_21wkb")
 polygon = PackedVector2Array(196, 349, 215, 342, 224, 347, 225, 369, 209, 414, 196, 422, 187, 416)
 uv = PackedVector2Array(38.9561, 148.271, 57.9561, 141.271, 66.9561, 146.271, 67.9561, 168.271, 51.9561, 213.271, 38.9561, 221.271, 29.9561, 215.271)
 
 [node name="HandR" type="Polygon2D" parent="Body"]
-position = Vector2(377.239, 356.505)
+position = Vector2(377.234, 356.502)
 rotation = -1.1253
-scale = Vector2(1.00003, 1.00003)
+scale = Vector2(0.999979, 0.999979)
 offset = Vector2(-199, -419)
 texture = ExtResource("1_21wkb")
 polygon = PackedVector2Array(186, 418, 196, 411, 204, 415, 207, 424, 208, 446, 200, 441, 192, 449, 176, 435)
@@ -593,9 +597,9 @@ shape = SubResource("CapsuleShape2D_rs54l")
 debug_color = Color(0, 0.649316, 0.148707, 0.42)
 
 [node name="FeetR" type="Polygon2D" parent="Body"]
-position = Vector2(291.634, 594.438)
-rotation = -0.121664
-scale = Vector2(0.999995, 0.999995)
+position = Vector2(101, 475)
+rotation = 2.08809
+scale = Vector2(0.999946, 0.999946)
 offset = Vector2(-337, -593)
 texture = ExtResource("1_21wkb")
 polygon = PackedVector2Array(321, 607, 328, 625, 392, 599, 383, 586, 353, 590, 335, 587, 323, 595)

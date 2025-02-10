@@ -1,0 +1,157 @@
+[gd_scene load_steps=20 format=3 uid="uid://ceb886glmyau8"]
+
+[ext_resource type="Texture2D" uid="uid://dng8lul1c48gk" path="res://Assets/Images/switchzoado.png" id="1_xuncx"]
+[ext_resource type="PackedScene" uid="uid://iwu37tot0443" path="res://quadro.tscn" id="6_rw101"]
+[ext_resource type="Texture2D" uid="uid://d2oh0joxccovm" path="res://Assets/Images/doorFront.png" id="7_3vgbp"]
+[ext_resource type="PackedScene" uid="uid://sqfwx7nkl5d7" path="res://cafeteira.tscn" id="8_orqjb"]
+[ext_resource type="PackedScene" uid="uid://cgqpj8agtgvq8" path="res://OldMan.tscn" id="9_ed1px"]
+[ext_resource type="Script" path="res://Assets/Scripts/old_man_char.gd" id="10_o4f74"]
+[ext_resource type="Script" path="res://Assets/Scripts/camera_2d.gd" id="11_m83qx"]
+
+[sub_resource type="Gradient" id="Gradient_fk2ap"]
+colors = PackedColorArray(0.159476, 0.0705146, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_6dis6"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_b5k0a"]
+width = 18
+height = 256
+generate_mipmaps = false
+normalize = false
+color_ramp = SubResource("Gradient_fk2ap")
+noise = SubResource("FastNoiseLite_6dis6")
+
+[sub_resource type="Gradient" id="Gradient_ou40w"]
+offsets = PackedFloat32Array(0.599174, 1)
+colors = PackedColorArray(0, 0, 0.239216, 1, 0.386053, 0.392555, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_0kkj1"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_8wdno"]
+width = 16
+height = 64
+generate_mipmaps = false
+normalize = false
+color_ramp = SubResource("Gradient_ou40w")
+noise = SubResource("FastNoiseLite_0kkj1")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8debv"]
+size = Vector2(3484, 211)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cthcq"]
+size = Vector2(169.75, 925)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fvwyt"]
+size = Vector2(3734, 146)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b15cm"]
+size = Vector2(105, 755)
+
+[sub_resource type="Animation" id="Animation_2xoyg"]
+resource_name = "stairFalling"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7nnf7"]
+_data = {
+"stairFalling": SubResource("Animation_2xoyg")
+}
+
+[node name="Node2D" type="Node2D"]
+
+[node name="AreaCena" type="StaticBody2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="TextureRect" type="TextureRect" parent="AreaCena"]
+offset_left = -1769.0
+offset_top = 625.0
+offset_right = 879.0
+offset_bottom = 881.0
+texture = SubResource("NoiseTexture2D_b5k0a")
+
+[node name="TextureRect" type="TextureRect" parent="AreaCena/TextureRect"]
+visible = false
+layout_mode = 0
+offset_left = 958.0
+offset_top = -450.0
+offset_right = 1351.0
+offset_bottom = -194.0
+scale = Vector2(0.863913, 0.863913)
+texture = SubResource("NoiseTexture2D_8wdno")
+
+[node name="Switchzoado" type="Sprite2D" parent="AreaCena"]
+position = Vector2(-756, 436)
+scale = Vector2(0.201015, 0.201015)
+texture = ExtResource("1_xuncx")
+
+[node name="ColorRect" type="ColorRect" parent="AreaCena/Switchzoado"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+top_level = true
+offset_left = -27.0
+offset_top = -90.0
+offset_right = 1347.0
+offset_bottom = 778.0
+color = Color(0, 0, 0, 1)
+
+[node name="ChaoCol" type="CollisionShape2D" parent="AreaCena"]
+position = Vector2(-895, 736.5)
+shape = SubResource("RectangleShape2D_8debv")
+
+[node name="JanelaDown" type="CollisionShape2D" parent="AreaCena"]
+position = Vector2(933.125, 380.5)
+shape = SubResource("RectangleShape2D_cthcq")
+
+[node name="TetoCol" type="CollisionShape2D" parent="AreaCena"]
+position = Vector2(-860, -75)
+shape = SubResource("RectangleShape2D_fvwyt")
+
+[node name="LeftWall" type="CollisionShape2D" parent="AreaCena"]
+position = Vector2(-2662, 312)
+shape = SubResource("RectangleShape2D_b15cm")
+
+[node name="Quadro" type="Node2D" parent="AreaCena"]
+position = Vector2(-652, 304)
+scale = Vector2(0.630693, 0.630693)
+
+[node name="QuadroStock" parent="AreaCena" instance=ExtResource("6_rw101")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AreaCena"]
+libraries = {
+"": SubResource("AnimationLibrary_7nnf7")
+}
+
+[node name="DoorFront" type="Sprite2D" parent="AreaCena"]
+position = Vector2(-2341, 417)
+scale = Vector2(0.840544, 0.840544)
+texture = ExtResource("7_3vgbp")
+
+[node name="Cafeteira" parent="." instance=ExtResource("8_orqjb")]
+position = Vector2(-756, 536)
+metadata/_edit_lock_ = true
+
+[node name="OldMan" parent="." groups=["player"] instance=ExtResource("9_ed1px")]
+position = Vector2(93.9999, -3.00001)
+scale = Vector2(0.8, 0.8)
+script = ExtResource("10_o4f74")
+
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("followNode")]
+position = Vector2(389, 275)
+zoom = Vector2(16.29, 11.645)
+limit_right = 1650
+script = ExtResource("11_m83qx")
+followNode = NodePath("../OldMan")
+
+[node name="ColorRect" type="ColorRect" parent="Camera2D"]
+visible = false
+top_level = true
+offset_left = -1107.0
+offset_top = -354.0
+offset_right = 267.0
+offset_bottom = 514.0
+scale = Vector2(2.08123, 2.08123)
+color = Color(0, 0, 0, 1)
+
+[node name="Bounds" type="Line2D" parent="."]
+points = PackedVector2Array(-2603, 4, -2613, 636, 849, 631, 860, -4)
+closed = true
+default_color = Color(0, 0, 0, 1)

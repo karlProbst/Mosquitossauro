@@ -23,7 +23,8 @@ func getCamera():
 func remove_hearts(count:int)->void:
 	health-=count
 	if health<=0:
-		deadPlayer()
+		health = 0
+		dyingPlayer()
 	var ui =  get_tree().root.get_node("Room/UICanvasLayer")
 	if ui:
 		ui.updateHealth(health)
@@ -42,7 +43,10 @@ func _unhandled_input(event):
 
 	if event.is_action_pressed("mute"):
 		toggle_main_bus_mute()
-
+func dyingPlayer():
+	player.dead=true
+	player.crouch=10
+	Engine.time_scale=0.1
 func deadPlayer():
 	_ready()
 	player=null

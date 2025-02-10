@@ -27,6 +27,8 @@ var locklmouse=false
 var blood = preload("res://Scenes/Blood.tscn")
 var hitted: float = 0.0
 var hittedPos:Vector2 = Vector2.ZERO
+var dead = false
+var deadtimer=0.5
 func _ready() -> void:
 	GlobalSingleton.player=self
 	updateItemOnHand(currentItem)
@@ -46,7 +48,12 @@ func _process(delta: float) -> void:
 	$CShapeL.global_position=$Skeleton2D/Hip/LegL/LegEndL/ShoeL.global_position
 	$CShapeR.global_position=$Skeleton2D/Hip/LegR/LegEndR/ShoeR.global_position
 	# Update MaoTarget position to follow the mouse
-	MaoTarget.global_position = get_global_mouse_position()
+	if not dead:
+		MaoTarget.global_position = get_global_mouse_position()
+	else:
+		deadtimer-=delta
+		if deadtimer<=0:
+			GlobalSingleton.deadPlayer()
 	if hitted<=0:
 		
 		$LHand.global_position.x = lerpf($LHand.global_position.x,get_global_mouse_position().x+0,delta*6)
@@ -120,7 +127,6 @@ func _process(delta: float) -> void:
 	#death
 	if position.y>5000:
 		GlobalSingleton.deadPlayer()
-	
 	
 
 	# Calculate positions of the feet

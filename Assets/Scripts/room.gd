@@ -5,15 +5,15 @@ var mosquitoskilled = 0
 var spawner=Spawner.new()
 var arrayOfMosquitos=[]
 var spawnedN:int=0
+var spawnTimer=5
 func _ready() -> void:
-	spawnMosquito(25)
+	spawnMosquito(5)
 	GlobalSingleton.player=$OldMan
 	GlobalSingleton.camera=$Camera2D
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	
 	if Input.is_action_pressed("spawnMosquitao"):
 		spawnMosquito(1)
 func killMosquito():
