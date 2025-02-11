@@ -13,10 +13,10 @@ var feet_r_pos=Vector2.ZERO
 var feet_l_pos=Vector2.ZERO
 var floorbuffer = 0.0
 var input_direction: Vector2 = Vector2.ZERO
-var crouch=0
+var crouch:float=0.0
 var kickoff=0
 var chutando:float=0.0
-var currentItem:String="raquete"
+var currentItem:String="spray"
 var initialtimesplit=1.5
 var weightRot=0
 @onready var genericItemScene:PackedScene=preload("res://Scenes/generic_item.tscn")
@@ -37,7 +37,12 @@ func _ready() -> void:
 	Engine.time_scale=0.2
 	velocity.y=-400
 	velocity.x=150
+func rotate_with_offset(node,rotation_angle: float, pivot_offset: Vector2):
+	var rotated_offset = pivot_offset.rotated(rotation_angle)
+	node.position = rotated_offset+Vector2(239.705,398.253)
+	node.rotation =  rotation_angle
 func _process(delta: float) -> void:
+	rotate_with_offset($CollisionChest,$Skeleton2D/Hip.rotation,Vector2(0,-60))
 	if initialtimesplit>0:
 		$Skeleton2D/Hip.rotation_degrees=lerp($Skeleton2D/Hip.rotation_degrees,originalhiprot,delta*3.5)
 		initialtimesplit-=delta
@@ -165,6 +170,7 @@ func _process(delta: float) -> void:
 	if chutando>0:
 		chutando-=delta*5
 	else:
+		
 		$AreaChute.set_collision_layer_value(4,0)
 		chutando=0
 	if chutando>1.0:
@@ -188,8 +194,12 @@ func _process(delta: float) -> void:
 		$Targets/FeetR.position.y = lerp($Targets/FeetR.position.y, 100.0, d20)
 		$Targets/FeetL.position.x = lerp($Targets/FeetL.position.x, 20.0, d20)
 		$Targets/FeetL.position.y = lerp($Targets/FeetL.position.y,100.0, d20)
+	if crouch<=0:
+		$Skeleton2D/Hip.rotation_degrees = lerp($Skeleton2D/Hip.rotation_degrees,originalhiprot,d20*7)
 	if chutando==0:
 		if crouch>0:
+			#TODO HITAR CABECA INDO DE COSTA
+			$Skeleton2D/Hip.rotation_degrees = lerp($Skeleton2D/Hip.rotation_degrees,-80.0,d20*3)
 			$Targets/FeetR.position.x = lerp($Targets/FeetR.position.x, -100.0, d20)
 			$Targets/FeetR.position.y = lerp($Targets/FeetR.position.y, -crouch, d20)
 			$Targets/FeetL.position.x = lerp($Targets/FeetL.position.x, -30.0, d20)
@@ -205,6 +215,7 @@ func _process(delta: float) -> void:
 					$Targets/FeetR.position.x+=kickoff*15
 					$Targets/FeetR.position.y-=kickoff*20
 			elif velocity.y>-50:
+				
 				var anim_speed = clamp(abs(velocity.x) / 200, 0.1, 0.5)
 			
 				feet_r_pos = Vector2(cos(time), sin(time)+2) * feet_distance
@@ -214,7 +225,7 @@ func _process(delta: float) -> void:
 				$Targets/FeetR.position.y = lerp($Targets/FeetR.position.y, feet_r_pos.y, anim_speed)
 				$Targets/FeetL.position.x = lerp($Targets/FeetL.position.x, feet_l_pos.x, anim_speed)
 				$Targets/FeetL.position.y = lerp($Targets/FeetL.position.y, feet_l_pos.y, anim_speed)
-
+	
 	#HANDLE RAYCAST OF RHAND
 	
 

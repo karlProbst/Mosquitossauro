@@ -6,7 +6,7 @@ var fly_speed: float = 450.0+randi_range(0,500) # Speed of mosquito flying
 
 
 var velocity = Vector2.ZERO
-var wallSpace:Vector4 = Vector4(-1229+50,-6,849-50,626)
+var wallSpace:Vector4 = Vector4(-1229,-6,849-50,626)
 # Internal variables
 var time_passed: float = 0.0
 
@@ -33,25 +33,36 @@ var spawner = Spawner.new()
 var stuck=false
 var bytingMax=10.0
 var bytingCharge=4.0
-var agressivness = 1.61-randf()
+var agressivness = 1.0-randf_range(0.01,0.2)
 var cellingRounds=0
 var laserPointTo
+var laserPointToPlayer
+var deadTimer:float=0
+
+signal justDied
+
 func _ready() -> void:
+	var bounds = get_parent().get_node_or_null("Bounds")
+	if bounds:
+		wallSpace.x=bounds.get_point_position(0).x
+		wallSpace.y=bounds.get_point_position(0).y
+		wallSpace.z=bounds.get_point_position(2).x
+		wallSpace.w=bounds.get_point_position(2).y
 	target_position = global_position  
-	scale.x=0.8+randf()
+	scale.x=0.65+randf()
 	scale.y=scale.x
 func got_hit(damage):
 	gothit=gothit_max
 	health-=damage
 	velocity += (global_position - player.global_position).normalized()*100
-	rotation+=30
+	rotation_degrees+=90
 	player.hitTest(position)
 	if health<0:
 		health=0
 func _process(delta: float) -> void:
 	
 	
-	$Polygon2D.skew=velocity.x/(fly_speed*1.4)
+	$Polygon2D.skew=velocity.x/(fly_speed*1.3)
 	$Polygon2D.scale.y=1+abs(velocity.y/(fly_speed*2.1))
 	$Polygon2D.scale.x=1-abs(velocity.y/(fly_speed*2.3))
 		
@@ -89,50 +100,43 @@ func _process(delta: float) -> void:
 			else:
 				position.y+=delta*100
 			
-	var ray = $RayCast2D
-	ray.force_raycast_update()
-	if ray.is_colliding():
-	
-		var col = ray.get_collider()
-		if col.is_in_group("chute"):
-			velocity=Vector2(10000,-10000)
-		
-			
-		if col.is_in_group("almofada"):
-			velocity=col.linear_velocity
-		if col.is_in_group("almofada") and position.y<wallSpace.y+50:
-			got_hit(20)
-			stuck=true
-			position.y=wallSpace.y
-		if col.is_in_group("raquete"):
-			$Polygon2D.modulate = Color(0, 0, 0, 1) 
-			if health>0:
-				var novacena = spawner.Instantiate(cena,global_position,get_parent())
-				spawner.InjectArgs(novacena,{"emitting": "true"})
-			
-			if gothit<=0:
-				got_hit(20)
-			
-			
-				
-		if col.is_in_group("veneno"):
-			
-			if gothit<=0:
-				got_hit(1) 
-	if gothit>0:
-		gothit-=delta	
-	
 	
 	#SE TIVER VIVO
+
 	if health>0:
-		if rotation>0:
+		if rotation>0 and gothit<=0:
 			rotation=lerpf(rotation,0,delta*10)
+		var ray = $RayCast2D
+		ray.force_raycast_update()
+		if ray.is_colliding():
+	
+			var col = ray.get_collider()
+			if col.is_in_group("chute"):
+				velocity=Vector2(10000,-10000)
+			
+				
+			if col.is_in_group("almofada"):
+				velocity=col.linear_velocity
+			if col.is_in_group("almofada") and position.y<wallSpace.y+50:
+				got_hit(20)
+				stuck=true
+				position.y=wallSpace.y
+			if col.is_in_group("raquete"):
+				$Polygon2D.modulate = Color(0, 0, 0, 1) 
+				if health>0:
+					var novacena = spawner.Instantiate(cena,global_position,get_parent())
+					spawner.InjectArgs(novacena,{"emitting": "true"})	
+					got_hit(20)	
+			if col.is_in_group("veneno"):			
+				if gothit<=0:
+					byting=0
+					got_hit(1) 
+		if gothit>0:
+			gothit-=delta	
+			
 		if  gothit<=0:
 			move_toward_target(delta)
-		
-	
 
-		
 		if inactivity_timer<=0 and byting<=0:
 			var rand=randf()
 			
@@ -158,6 +162,8 @@ func _process(delta: float) -> void:
 			$RayLaser/Line2D.set_point_position(1, $RayLaser/Line2D.to_local(target_position))
 			rayLaser.target_position=rayLaser.to_local(target_position)
 			if rayLaser.is_colliding():
+				if rayLaser.get_collider().is_in_group("player"):
+					laserPointToPlayer= rayLaser.get_collision_point()
 				laserPointTo= rayLaser.get_collision_point()
 				$RayLaser/Line2D.set_point_position(1, $RayLaser/Line2D.to_local(laserPointTo))
 				
@@ -171,6 +177,11 @@ func _process(delta: float) -> void:
 		$RayLaser.enabled=false
 		$RayLaser/Line2D.set_point_position(1,Vector2.ZERO)
 		byting=0
+		deadTimer+=delta
+		
+		if deadTimer>=30:
+			queue_free()
+			emit_signal("justDied")
 		
 	velocity.x=clampf(velocity.x,-fly_speed*1.5,fly_speed*1.5)
 	velocity.y=clampf(velocity.y,-fly_speed*1.5,fly_speed*1.5)	
@@ -240,5 +251,7 @@ func _on_body_entered(body: Node2D) -> void:
 	if body:
 		if body.is_in_group("player") and health>0 and byting>0:
 			if player:
-				player.gotHit(1,laserPointTo)
+				player.gotHit(1,laserPointToPlayer)
 			byting=0
+		if health<=0:
+			deadTimer+=30.0	

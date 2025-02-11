@@ -1,39 +1,23 @@
-[gd_scene load_steps=20 format=3 uid="uid://ceb886glmyau8"]
+[gd_scene load_steps=34 format=3 uid="uid://ceb886glmyau8"]
 
+[ext_resource type="Texture2D" uid="uid://dimte65nrgafy" path="res://Assets/Images/kithcenmarmoretile.png" id="1_awwhe"]
+[ext_resource type="Texture2D" uid="uid://1m7phuoqd1m4" path="res://Assets/Images/kitchenwallpaper.jpeg" id="1_giqto"]
 [ext_resource type="Texture2D" uid="uid://dng8lul1c48gk" path="res://Assets/Images/switchzoado.png" id="1_xuncx"]
+[ext_resource type="Texture2D" uid="uid://b32l0ctjgoy3r" path="res://Assets/Images/kitentiletile.png" id="2_87hvn"]
+[ext_resource type="Texture2D" uid="uid://d3rjkl01dogsr" path="res://Assets/Images/pipes-and-plumbing_2_-removebg-preview.png" id="2_vso0h"]
+[ext_resource type="Texture2D" uid="uid://dk3pcan4igj3v" path="res://Assets/Images/paredekitchen.png" id="4_8py2i"]
 [ext_resource type="PackedScene" uid="uid://iwu37tot0443" path="res://quadro.tscn" id="6_rw101"]
 [ext_resource type="Texture2D" uid="uid://d2oh0joxccovm" path="res://Assets/Images/doorFront.png" id="7_3vgbp"]
+[ext_resource type="Texture2D" uid="uid://cy8m43nmjra3f" path="res://Assets/Images/hanging-copper-utensils-stockcake-removebg-preview.png" id="8_8k214"]
 [ext_resource type="PackedScene" uid="uid://sqfwx7nkl5d7" path="res://cafeteira.tscn" id="8_orqjb"]
 [ext_resource type="PackedScene" uid="uid://cgqpj8agtgvq8" path="res://OldMan.tscn" id="9_ed1px"]
+[ext_resource type="Texture2D" uid="uid://5mfs7rm3l0ty" path="res://Assets/Images/kitchentile.png" id="9_ka66d"]
+[ext_resource type="Texture2D" uid="uid://bjydkehggqmet" path="res://Assets/Images/geladeira.png" id="10_hjs40"]
 [ext_resource type="Script" path="res://Assets/Scripts/old_man_char.gd" id="10_o4f74"]
+[ext_resource type="Texture2D" uid="uid://bnw28eigxolv1" path="res://Assets/Images/microondas.png" id="10_ttrcj"]
 [ext_resource type="Script" path="res://Assets/Scripts/camera_2d.gd" id="11_m83qx"]
-
-[sub_resource type="Gradient" id="Gradient_fk2ap"]
-colors = PackedColorArray(0.159476, 0.0705146, 0, 1, 0, 0, 0, 1)
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_6dis6"]
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_b5k0a"]
-width = 18
-height = 256
-generate_mipmaps = false
-normalize = false
-color_ramp = SubResource("Gradient_fk2ap")
-noise = SubResource("FastNoiseLite_6dis6")
-
-[sub_resource type="Gradient" id="Gradient_ou40w"]
-offsets = PackedFloat32Array(0.599174, 1)
-colors = PackedColorArray(0, 0, 0.239216, 1, 0.386053, 0.392555, 1, 1)
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_0kkj1"]
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_8wdno"]
-width = 16
-height = 64
-generate_mipmaps = false
-normalize = false
-color_ramp = SubResource("Gradient_ou40w")
-noise = SubResource("FastNoiseLite_0kkj1")
+[ext_resource type="Texture2D" uid="uid://clnvr1eygavlj" path="res://Assets/Images/armarinhossorange.png" id="15_i3vcr"]
+[ext_resource type="Texture2D" uid="uid://dhhi82sg8exxj" path="res://Assets/Images/aramarin.png" id="16_me4sj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8debv"]
 size = Vector2(3484, 211)
@@ -55,31 +39,89 @@ _data = {
 "stairFalling": SubResource("Animation_2xoyg")
 }
 
+[sub_resource type="Gradient" id="Gradient_0dkyn"]
+colors = PackedColorArray(0, 0, 0, 1, 0.0296289, 0.0273197, 0, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_mdhok"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_e0mek"]
+height = 128
+generate_mipmaps = false
+normalize = false
+color_ramp = SubResource("Gradient_0dkyn")
+noise = SubResource("FastNoiseLite_mdhok")
+
+[sub_resource type="Gradient" id="Gradient_ehyqr"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_cs27i"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_g0ydm"]
+height = 128
+generate_mipmaps = false
+normalize = false
+color_ramp = SubResource("Gradient_ehyqr")
+noise = SubResource("FastNoiseLite_cs27i")
+
+[sub_resource type="Gradient" id="Gradient_i2heb"]
+colors = PackedColorArray(0, 0, 0, 1, 0.0296289, 0.0273197, 0, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_bpyox"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_4hvhw"]
+height = 128
+generate_mipmaps = false
+normalize = false
+color_ramp = SubResource("Gradient_i2heb")
+noise = SubResource("FastNoiseLite_bpyox")
+
 [node name="Node2D" type="Node2D"]
 
+[node name="wallpaper3" type="TextureRect" parent="."]
+texture_repeat = 3
+offset_left = -2631.0
+offset_top = 12.0
+offset_right = 11273.0
+offset_bottom = 2476.0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_awwhe")
+expand_mode = 2
+stretch_mode = 1
+
+[node name="wallpaper" type="TextureRect" parent="."]
+texture_repeat = 3
+offset_left = 235.0
+offset_top = 14.0
+offset_right = 2663.0
+offset_bottom = 2442.0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_giqto")
+expand_mode = 2
+stretch_mode = 1
+
+[node name="wallpaper2" type="TextureRect" parent="."]
+texture_repeat = 3
+offset_left = -2599.0
+offset_top = 563.0
+offset_right = 5180.0
+offset_bottom = 730.0
+scale = Vector2(0.364319, 0.364319)
+texture = ExtResource("2_87hvn")
+expand_mode = 2
+stretch_mode = 1
+
 [node name="AreaCena" type="StaticBody2D" parent="."]
+modulate = Color(0.796078, 0.839216, 0.898039, 1)
 collision_layer = 3
 collision_mask = 3
 
-[node name="TextureRect" type="TextureRect" parent="AreaCena"]
-offset_left = -1769.0
-offset_top = 625.0
-offset_right = 879.0
-offset_bottom = 881.0
-texture = SubResource("NoiseTexture2D_b5k0a")
-
-[node name="TextureRect" type="TextureRect" parent="AreaCena/TextureRect"]
-visible = false
-layout_mode = 0
-offset_left = 958.0
-offset_top = -450.0
-offset_right = 1351.0
-offset_bottom = -194.0
-scale = Vector2(0.863913, 0.863913)
-texture = SubResource("NoiseTexture2D_8wdno")
+[node name="Pipes-and-plumbing2-removebg-preview" type="Sprite2D" parent="AreaCena"]
+position = Vector2(-374, 441)
+texture = ExtResource("2_vso0h")
 
 [node name="Switchzoado" type="Sprite2D" parent="AreaCena"]
-position = Vector2(-756, 436)
+position = Vector2(-745, 389)
 scale = Vector2(0.201015, 0.201015)
 texture = ExtResource("1_xuncx")
 
@@ -106,31 +148,95 @@ position = Vector2(-860, -75)
 shape = SubResource("RectangleShape2D_fvwyt")
 
 [node name="LeftWall" type="CollisionShape2D" parent="AreaCena"]
+visible = false
 position = Vector2(-2662, 312)
 shape = SubResource("RectangleShape2D_b15cm")
+
+[node name="Paredekitchen" type="Sprite2D" parent="AreaCena"]
+position = Vector2(-2685, 381.5)
+scale = Vector2(1.10169, 1.11429)
+texture = ExtResource("4_8py2i")
 
 [node name="Quadro" type="Node2D" parent="AreaCena"]
 position = Vector2(-652, 304)
 scale = Vector2(0.630693, 0.630693)
 
 [node name="QuadroStock" parent="AreaCena" instance=ExtResource("6_rw101")]
+position = Vector2(68, 558)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AreaCena"]
 libraries = {
 "": SubResource("AnimationLibrary_7nnf7")
 }
 
-[node name="DoorFront" type="Sprite2D" parent="AreaCena"]
-position = Vector2(-2341, 417)
+[node name="InanimatSprites" type="Node2D" parent="AreaCena"]
+
+[node name="Armarinhossorange" type="Sprite2D" parent="AreaCena/InanimatSprites"]
+position = Vector2(-1227, 104)
+scale = Vector2(0.355088, 0.355088)
+texture = ExtResource("15_i3vcr")
+
+[node name="DoorFront" type="Sprite2D" parent="AreaCena/InanimatSprites"]
+position = Vector2(-2366, 423)
 scale = Vector2(0.840544, 0.840544)
 texture = ExtResource("7_3vgbp")
 
+[node name="Hanging-copper-utensils-stockcake-removebg-preview" type="Sprite2D" parent="AreaCena/InanimatSprites"]
+position = Vector2(-940, 302)
+scale = Vector2(0.381391, 0.381391)
+texture = ExtResource("8_8k214")
+
+[node name="Geladeira" type="Sprite2D" parent="AreaCena/InanimatSprites"]
+position = Vector2(-1695, 456)
+scale = Vector2(0.424201, 0.424201)
+texture = ExtResource("10_hjs40")
+
+[node name="bancada" type="Polygon2D" parent="AreaCena/InanimatSprites"]
+position = Vector2(-231, 172)
+scale = Vector2(0.734604, 0.734604)
+texture = ExtResource("10_hjs40")
+polygon = PackedVector2Array(-1474, 617, -1474, 401, -1707, 404, -1703, 620)
+uv = PackedVector2Array(1029.16, 954.968, 1029.16, 548.391, 590.582, 554.038, 598.111, 960.615)
+
+[node name="bancada2" type="Polygon2D" parent="AreaCena/InanimatSprites"]
+position = Vector2(-66, 177)
+scale = Vector2(0.734604, 0.734604)
+texture = ExtResource("10_hjs40")
+polygon = PackedVector2Array(-1474, 617, -1474, 401, -1707, 404, -1703, 620)
+uv = PackedVector2Array(1029.16, 954.968, 1029.16, 548.391, 590.582, 554.038, 598.111, 960.615)
+
+[node name="bancada3" type="Polygon2D" parent="AreaCena/InanimatSprites"]
+position = Vector2(102, 175)
+scale = Vector2(0.734604, 0.734604)
+texture = ExtResource("10_hjs40")
+polygon = PackedVector2Array(-1474, 617, -1474, 401, -1707, 404, -1703, 620)
+uv = PackedVector2Array(1029.16, 954.968, 1029.16, 548.391, 590.582, 554.038, 598.111, 960.615)
+
+[node name="Microondas" type="Sprite2D" parent="."]
+position = Vector2(-1502, 410)
+scale = Vector2(0.197013, 0.197013)
+texture = ExtResource("10_ttrcj")
+
+[node name="TileBregaBule" type="Node2D" parent="."]
+position = Vector2(-889, 631)
+scale = Vector2(1, 1)
+skew = 0.785398
+
+[node name="TextureRect" type="TextureRect" parent="TileBregaBule"]
+texture_repeat = 3
+offset_left = -1733.0
+offset_top = -7.0
+offset_right = 9824.0
+offset_bottom = 580.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("9_ka66d")
+stretch_mode = 1
+
 [node name="Cafeteira" parent="." instance=ExtResource("8_orqjb")]
-position = Vector2(-756, 536)
-metadata/_edit_lock_ = true
+position = Vector2(722, 495)
 
 [node name="OldMan" parent="." groups=["player"] instance=ExtResource("9_ed1px")]
-position = Vector2(93.9999, -3.00001)
+position = Vector2(69, 146)
 scale = Vector2(0.8, 0.8)
 script = ExtResource("10_o4f74")
 
@@ -155,3 +261,47 @@ color = Color(0, 0, 0, 1)
 points = PackedVector2Array(-2603, 4, -2613, 636, 849, 631, 860, -4)
 closed = true
 default_color = Color(0, 0, 0, 1)
+
+[node name="Foreground" type="Node2D" parent="."]
+
+[node name="TextureRect3" type="TextureRect" parent="Foreground"]
+offset_left = 858.0
+offset_top = 11.0
+offset_right = 2955.0
+offset_bottom = 2444.0
+rotation = 0.00212556
+scale = Vector2(0.0797912, 0.36)
+texture = SubResource("NoiseTexture2D_e0mek")
+
+[node name="TextureRect5" type="TextureRect" parent="Foreground"]
+offset_left = 1034.0
+offset_top = -173.0
+offset_right = 3323.0
+offset_bottom = 2754.0
+rotation = 1.57079
+scale = Vector2(0.0800007, 1.28)
+texture = SubResource("NoiseTexture2D_g0ydm")
+
+[node name="TextureRect6" type="TextureRect" parent="Foreground"]
+z_index = -1
+offset_left = -2615.0
+offset_top = -168.0
+offset_right = 20727.0
+offset_bottom = 16.0
+rotation = 1.57079
+scale = Vector2(0.0400012, 1.28)
+texture = SubResource("NoiseTexture2D_4hvhw")
+
+[node name="TextureRect7" type="TextureRect" parent="Foreground"]
+z_index = -1
+offset_left = 995.0
+offset_top = 636.0
+offset_right = 7808.0
+offset_bottom = 3644.0
+rotation = 1.57079
+scale = Vector2(0.0400012, 1.28)
+texture = SubResource("NoiseTexture2D_4hvhw")
+
+[node name="Aramarin" type="Sprite2D" parent="."]
+position = Vector2(-690, 83)
+texture = ExtResource("16_me4sj")

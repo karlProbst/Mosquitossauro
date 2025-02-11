@@ -4,6 +4,7 @@ extends Camera2D
 @export var followNode2:Node2D
 var toPcView=0
 var posToGo:Vector2
+var toNextStage=false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	zoom.x=1.8
@@ -20,9 +21,13 @@ func _process(delta: float) -> void:
 			toPcView=0
 	if Input.is_action_pressed("ui_cancel"):
 		toPcView=0
-	if $ColorRect.modulate.a>0:
-		$ColorRect.modulate.a-=delta/1.2
-	
+		
+	if not toNextStage:
+		if $ColorRect.modulate.a>0:
+			$ColorRect.modulate.a-=delta/1.2
+	else:
+		if $ColorRect.modulate.a<100:
+			$ColorRect.modulate.a+=delta/1.2
 
 	if toPcView==1:
 		if get_parent().get_node("OldMan").modulate.a>0:

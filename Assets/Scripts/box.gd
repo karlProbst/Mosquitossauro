@@ -20,7 +20,9 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 			var player_velocity_x = player.velocity.x
 			var maxplayerspeed=player.max_speed.x 
 			var remapped_velocity_x = remap(player_velocity_x, -maxplayerspeed, maxplayerspeed, -0.8, 0.8)
-			apply_central_impulse(Vector2(remapped_velocity_x,-1)*1350)
+			apply_central_impulse(Vector2(remapped_velocity_x,-1)*350)
+			var rotation_impulse = player_velocity_x * 10  # Scale by X velocity (adjust multiplier for desired effect)
+			apply_torque_impulse(rotation_impulse)
 			lockchute=true
 
 func spawnItem():

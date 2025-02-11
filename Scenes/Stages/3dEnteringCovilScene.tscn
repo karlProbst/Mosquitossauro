@@ -1,7 +1,7 @@
 [gd_scene load_steps=18 format=3 uid="uid://byqkyy0fqa62w"]
 
-[ext_resource type="Material" uid="uid://6t326i8nndda" path="res://Resources/wallbregamaterial.tres" id="1_1kcr3"]
-[ext_resource type="Texture2D" uid="uid://cgtequ4u32pdl" path="res://Assets/Images/posteCapa.png" id="2_60cni"]
+[ext_resource type="Material" uid="uid://6t326i8nndda" path="res://Resources/wallbregamaterial.tres" id="1_u67um"]
+[ext_resource type="Texture2D" uid="uid://cgtequ4u32pdl" path="res://Assets/Images/posteCapa.png" id="2_4bvhg"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a8elf"]
 
@@ -10,11 +10,11 @@ material = SubResource("StandardMaterial3D_a8elf")
 size = Vector2(2, 10)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_a810h"]
-material = ExtResource("1_1kcr3")
+material = ExtResource("1_u67um")
 size = Vector2(4, 8)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_cjrqy"]
-material = ExtResource("1_1kcr3")
+material = ExtResource("1_u67um")
 size = Vector2(4, 10)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4jxqu"]
@@ -35,7 +35,7 @@ material = SubResource("StandardMaterial3D_b8etf")
 size = Vector2(4, 12)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nu31r"]
-albedo_texture = ExtResource("2_60cni")
+albedo_texture = ExtResource("2_4bvhg")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_8sb2w"]
 material = SubResource("StandardMaterial3D_nu31r")

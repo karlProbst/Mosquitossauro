@@ -5,7 +5,7 @@ var lockchute=false
 const friction=500
 
 const JUMP_VELOCITY = -400.0
-var item="spray"
+@export var item="spray"
 var highlight=0
 var highlightitem
 	

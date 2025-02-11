@@ -46,21 +46,6 @@ tracks/2/keys = {
 "values": [Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_tornw"]
-resource_name = "takeDamage"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Quadro1:rotation")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.129871, -0.403171, 0.129871]
-}
-
 [sub_resource type="Animation" id="Animation_bv31j"]
 resource_name = "destroy"
 length = 10.0
@@ -87,6 +72,21 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 0, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_tornw"]
+resource_name = "takeDamage"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Quadro1:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.129871, -0.403171, 0.129871]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_w74vb"]

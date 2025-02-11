@@ -7,9 +7,10 @@ var fallen=false
 func _process(delta: float) -> void:
 	if $RayCast2D.is_colliding():
 		var collider = $RayCast2D.get_collider()
-		if collider.is_in_group("chute"):
-			$Paaa.play()
-			sk+=0.12
+		if collider:
+			if collider.is_in_group("chute"):
+				$Paaa.play()
+				sk+=0.12
 	skew=sk/5
 	if skew>0.28:
 		fallen=true
