@@ -4,7 +4,6 @@
 resource_name = "Phaser"
 
 [resource]
-bus/0/mute = true
-bus/0/volume_db = 0.662756
+bus/0/volume_db = 0.267241
 bus/0/effect/0/effect = SubResource("AudioEffectPhaser_bve27")
 bus/0/effect/0/enabled = false

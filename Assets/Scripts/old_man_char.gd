@@ -16,7 +16,7 @@ var input_direction: Vector2 = Vector2.ZERO
 var crouch:float=0.0
 var kickoff=0
 var chutando:float=0.0
-var currentItem:String="spray"
+var currentItem:String="sandal"
 var initialtimesplit=1.5
 var weightRot=0
 @onready var genericItemScene:PackedScene=preload("res://Scenes/generic_item.tscn")
@@ -29,6 +29,8 @@ var hitted: float = 0.0
 var hittedPos:Vector2 = Vector2.ZERO
 var dead = false
 var deadtimer=0.5
+var bend_direction = 1
+
 func _ready() -> void:
 	GlobalSingleton.player=self
 	updateItemOnHand(currentItem)
@@ -75,18 +77,34 @@ func _process(delta: float) -> void:
 		kickoff+=1
 		
 
-		
-
+	if crouch==0:
+		bend_direction=1	
 	if Input.is_action_pressed("ui_left"):
 		input_direction.x -= 1
-	elif Input.is_action_pressed("ui_right"):
+		if crouch==0:
+			if abs(velocity.x)<50:
+				bend_direction=-1
+	if Input.is_action_pressed("ui_right"):
 		input_direction.x += 1
-		
+		if crouch==0:
+			if abs(velocity.x)<50:
+				bend_direction=1
+			else:
+				bend_direction=-1
+	if crouch!=0:
+		if Input.is_action_just_pressed("ui_left"):
+			if bend_direction>-1:
+				bend_direction-=1
+		if Input.is_action_just_pressed("ui_right"):
+			if bend_direction<1:
+				bend_direction+=1
+
 	if Input.is_action_just_pressed("ui_left"):
 		kickoff=-2
-	elif Input.is_action_just_pressed("ui_right"):
+	if Input.is_action_just_pressed("ui_right"):
 		kickoff=2
 	
+
 	# Normalize input direction to prevent faster diagonal movement
 	if input_direction.x != 0 and chutando==0:
 		
@@ -143,6 +161,8 @@ func _process(delta: float) -> void:
 		floorbuffer-=delta
 	if floorbuffer>0 and Input.is_action_pressed("ui_down"):
 		if crouch<0.2:
+			if abs(velocity.x)>60:
+				bend_direction=0
 			crouch=0.6
 		if crouch<0.8:
 			crouch+=delta*6
@@ -199,7 +219,8 @@ func _process(delta: float) -> void:
 	if chutando==0:
 		if crouch>0:
 			#TODO HITAR CABECA INDO DE COSTA
-			$Skeleton2D/Hip.rotation_degrees = lerp($Skeleton2D/Hip.rotation_degrees,-80.0,d20*3)
+			#BENDAR CROUCHADO
+			$Skeleton2D/Hip.rotation_degrees = lerp($Skeleton2D/Hip.rotation_degrees,80.0*(bend_direction+0.1),d20*3)
 			$Targets/FeetR.position.x = lerp($Targets/FeetR.position.x, -100.0, d20)
 			$Targets/FeetR.position.y = lerp($Targets/FeetR.position.y, -crouch, d20)
 			$Targets/FeetL.position.x = lerp($Targets/FeetL.position.x, -30.0, d20)
@@ -232,23 +253,54 @@ func _process(delta: float) -> void:
 				
 	#HANDLE ITEMS
 	
-	if  currentItem=="raquete" and Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-		if weightRot<12:
-			weightRot+=delta*4.5
-		if weightRot>1 and Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
-			var raquetePos = $Body/HandR/Raquete.global_position
-			var mousePos = get_global_mouse_position()
-			var newVector = mousePos-raquetePos
-			currentItem=throwItem(currentItem,newVector*weightRot/4.2)
-			locklmouse=true
-			
-		$Body/HandR/Raquete.rotation_degrees+=weightRot
-		if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
-			currentItem=throwItem(currentItem)
-	else:
-		weightRot=lerpf(weightRot,0,delta*30)
-		$Body/HandR/Raquete.rotation_degrees=lerpf($Body/HandR/Raquete.rotation_degrees,85,delta*5)
+	if  currentItem=="raquete":
+		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+			if weightRot<12:
+				weightRot+=delta*4.5
+			if weightRot>1 and Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
+				var raquetePos = $Body/HandR/Raquete.global_position
+				var mousePos = get_global_mouse_position()
+				var newVector = mousePos-raquetePos
+				currentItem=throwItem(currentItem,newVector*weightRot/4.2)
+				locklmouse=true
+				
+			$Body/HandR/Raquete.rotation_degrees+=weightRot
+			if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
+				currentItem=throwItem(currentItem)
+		else:
+			weightRot=lerpf(weightRot,0,delta*30)
+			$Body/HandR/Raquete.rotation_degrees=lerpf($Body/HandR/Raquete.rotation_degrees,85,delta*5)
+	
+	if  currentItem=="sandal":
 		
+		if weightRot<5:
+			$Body/HandR/Shoes/highlight.visible=false
+			$Body/HandR/Shoes/ShoesArea/CollisionShape2D.disabled=true
+
+			
+		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+			if weightRot==0:
+				weightRot=4
+			if weightRot<15:
+				weightRot+=delta*20
+			if weightRot>5:
+				$Body/HandR/Shoes/highlight.visible=true
+				$Body/HandR/Shoes/ShoesArea/CollisionShape2D.disabled=false
+		
+			if weightRot>1 and Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
+				var shoesPos = $Body/HandR/Shoes.global_position
+				var mousePos = get_global_mouse_position()
+				var newVector = mousePos-shoesPos
+				currentItem=throwItem(currentItem,newVector*weightRot/4.2)
+				locklmouse=true
+				
+			$Body/HandR/Shoes.rotation_degrees+=weightRot
+			if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
+				currentItem=throwItem(currentItem)
+		else:
+			weightRot=lerpf(weightRot,0,delta*30)
+			$Body/HandR/Shoes.rotation_degrees=lerpf($Body/HandR/Shoes.rotation_degrees,-150,delta*15)	
+	
 	if  currentItem=="spray":
 		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 			$Body/HandR/Sbp/Spray.emitting=true
@@ -273,7 +325,7 @@ func _process(delta: float) -> void:
 		
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT) and not Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		currentItem=throwItem(currentItem)
-	
+
 	if not Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		locklmouse=false
 func hitTest(pos):
@@ -286,8 +338,13 @@ func throwItem(item,vel:Vector2=Vector2.ZERO)->String:
 	match item:
 		"none":
 			print("No item is selected.")
+		"sandal":
+
+			var rInst = spawner.Instantiate(genericItemScene,$Skeleton2D/Hip/Neck/ArmR/ArmEndR/HandR.global_position,get_parent())
+			spawner.InjectArgs(rInst,{"velocity":vel,"item":item})
+			rInst.updateItem()
 		"spray":
-			print("Current item is a spray.")
+
 			var rInst = spawner.Instantiate(genericItemScene,$Skeleton2D/Hip/Neck/ArmR/ArmEndR/HandR.global_position,get_parent())
 			spawner.InjectArgs(rInst,{"velocity":vel,"item":item})
 			rInst.updateItem()
@@ -314,11 +371,14 @@ func updateItemOnHand(item):
 	var handnode=$Body/HandR
 	handnode.get_node("Sbp/Spray/VenenoArea/CollisionShape2D").disabled=true
 	handnode.get_node("Raquete/RaqueteArea/CollisionShape2D").disabled=true
+	handnode.get_node("Shoes/ShoesArea/CollisionShape2D").disabled=true
 	for c in handnode.get_children():
 		c.visible=false
 	match item:
 		"none":
 			pass
+		"sandal":
+			handnode.get_node("Shoes").visible=true
 		"spray":
 			handnode.get_node("Sbp").visible=true
 		"raquete":

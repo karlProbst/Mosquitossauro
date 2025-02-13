@@ -1,6 +1,6 @@
 extends Node2D
 
-var fly_speed: float = 450.0+randi_range(0,500) # Speed of mosquito flying
+var fly_speed: float = 450.0+randi_range(0,200) # Speed of mosquito flying
 
 @onready var player:Node2D = get_parent().get_node("OldMan")
 
@@ -40,21 +40,23 @@ var laserPointToPlayer
 var deadTimer:float=0
 
 signal justDied
-
-func _ready() -> void:
+func updateBounds():
 	var bounds = get_parent().get_node_or_null("Bounds")
 	if bounds:
 		wallSpace.x=bounds.get_point_position(0).x
 		wallSpace.y=bounds.get_point_position(0).y
 		wallSpace.z=bounds.get_point_position(2).x
 		wallSpace.w=bounds.get_point_position(2).y
+func _ready() -> void:
+	updateBounds()
 	target_position = global_position  
 	scale.x=0.65+randf()
 	scale.y=scale.x
 func got_hit(damage):
-	gothit=gothit_max
+	if gothit<=gothit_max:
+		gothit=gothit_max
 	health-=damage
-	velocity += (global_position - player.global_position).normalized()*100
+	velocity += (global_position - player.global_position).normalized()*200*damage
 	rotation_degrees+=90
 	player.hitTest(position)
 	if health<0:
@@ -67,26 +69,7 @@ func _process(delta: float) -> void:
 	$Polygon2D.scale.x=1-abs(velocity.y/(fly_speed*2.3))
 		
 	if health>0:
-		if $Rleft.is_colliding():
-			if velocity.x<0:
-				velocity.x*=-1.3
-				position.x+=1
-				byting=0
-		if $Rright.is_colliding():
-			if velocity.x>0:
-				velocity.x*=-1.3
-				position.x-=1
-				byting=0
-		if $Rup.is_colliding():
-			if velocity.y<0:
-				velocity.y*=-1.3
-				position.y+=1
-				byting=0
-		if $Rdown.is_colliding():
-			if velocity.y>0:
-				velocity.y*=-1.3
-				position.x-=5
-				byting=0
+		pass
 	if health<=0:
 		
 		if not lockdead:
@@ -112,12 +95,24 @@ func _process(delta: float) -> void:
 	
 			var col = ray.get_collider()
 			if col.is_in_group("chute"):
+				if gothit<=0:
+					byting=0
+					got_hit(1) 
 				velocity=Vector2(10000,-10000)
 			
-				
+			if col.is_in_group("shoe"):
+				byting=0
+				if gothit<=0:	
+					gothit=0.4
+					got_hit(2) 
+					velocity.x=800
+					velocity.y=300
 			if col.is_in_group("almofada"):
-				velocity=col.linear_velocity
-			if col.is_in_group("almofada") and position.y<wallSpace.y+50:
+				if col is RigidBody2D:
+					velocity=col.linear_velocity
+				if col is CharacterBody2D:
+					velocity=col.velocity
+			if col.is_in_group("almofada") and (position.y<wallSpace.y+50 or position.x<wallSpace.x+50 or position.x>wallSpace.z-50 or position.y>wallSpace.w-50):
 				got_hit(20)
 				stuck=true
 				position.y=wallSpace.y
@@ -134,8 +129,12 @@ func _process(delta: float) -> void:
 		if gothit>0:
 			gothit-=delta	
 			
-		if  gothit<=0:
-			move_toward_target(delta)
+		if gothit<=gothit_max and gothit>0:
+			velocity=Vector2.ZERO
+			velocity.x=clampf(velocity.x,-fly_speed*1.5,fly_speed*1.5)
+			velocity.y=clampf(velocity.y,-fly_speed*1.5,fly_speed*1.5)	
+		
+		move_toward_target(delta)
 
 		if inactivity_timer<=0 and byting<=0:
 			var rand=randf()
@@ -143,17 +142,20 @@ func _process(delta: float) -> void:
 			if rand<(0.1+(MAX_HEALTH-health)/10):
 				cellingRounds=20
 				
-			if rand>agressivness:
+			if rand>agressivness:	
 				if player:
-					go_byte()
-					cellingRounds=0
+					var distanceToPlayer = player.get_node("CollisionChest").global_position.distance_to(global_position)
+					if distanceToPlayer>300 and distanceToPlayer<1200:
+						go_byte()
+						cellingRounds=0
+				
 			elif byting<=0 and cellingRounds<=0:
 				go_wild()
 			if cellingRounds>0:
 				go_to_ceilling()
 				cellingRounds-=1
 				
-		if inactivity_timer>0:
+		if inactivity_timer>0 and gothit==0:
 			inactivity_timer-=delta
 		if byting>0:
 			$RayLaser.enabled=true
@@ -183,8 +185,7 @@ func _process(delta: float) -> void:
 			queue_free()
 			emit_signal("justDied")
 		
-	velocity.x=clampf(velocity.x,-fly_speed*1.5,fly_speed*1.5)
-	velocity.y=clampf(velocity.y,-fly_speed*1.5,fly_speed*1.5)	
+
 	if position.y<wallSpace.y:
 		position.y=wallSpace.y+5
 	if position.y>wallSpace.w:
@@ -201,12 +202,14 @@ func move_toward_target(delta: float) -> void:
 		velocity+=Vector2(randi_range(-130,130),randi_range(-130,130))
 		random_movement_timer=randf_range(0,random_movement_timer_max)
 	# Interpolate velocity for smoother turning
-	velocity = velocity.lerp(direction * fly_speed, delta * 4)  # Smooth turning
-	
+	if gothit==0:
+		velocity = velocity.lerp(direction * fly_speed, delta * 4)  # Smooth turning
+	else:
+		velocity = velocity.lerp(direction * fly_speed, delta/2) 
 	if byting>0:
 		random_movement_timer=0.1
 	if byting>0 and byting<(bytingMax-bytingCharge):
-		global_position += velocity * delta*1.8	
+		global_position += velocity * delta*2.2
 		
 	else:
 		random_movement_timer-=delta
@@ -250,8 +253,39 @@ func go_wild() -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if body:
 		if body.is_in_group("player") and health>0 and byting>0:
-			if player:
+			if player and laserPointToPlayer:
 				player.gotHit(1,laserPointToPlayer)
 			byting=0
 		if health<=0:
 			deadTimer+=30.0	
+		if not body.is_in_group("mosquito3"):
+			reflectCol()
+func reflectCol() -> void:
+	var raycasts = [$Rleft, $Rright, $Rup, $Rdown]
+	for raycast in raycasts:
+		raycast.enabled = true
+		raycast.force_raycast_update()
+	if $Rleft.is_colliding():
+		if velocity.x < 0:
+			velocity.x *= -1.0
+			position.x += 5
+	if $Rright.is_colliding():
+		if velocity.x > 0:
+			velocity.x *= -1.0
+			position.x -= 5
+	if $Rup.is_colliding():
+		if velocity.y < 0:
+			velocity.y *= -1.0
+			position.y += 5
+	if $Rdown.is_colliding():
+		if velocity.y > 0:
+			velocity.y *= -1.0
+			position.y -= 5
+	for raycast in raycasts:
+		raycast.enabled = false		
+			
+	byting = 0
+
+func _on_area_entered(area: Area2D) -> void:
+	if area and not area.is_in_group("mosquito"):
+		reflectCol()

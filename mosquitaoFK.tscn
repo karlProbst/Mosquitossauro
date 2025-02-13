@@ -1,0 +1,293 @@
+[gd_scene load_steps=12 format=3 uid="uid://c408m82c3taw3"]
+
+[ext_resource type="Texture2D" uid="uid://dq1r3rcxq0xib" path="res://Assets/Images/woodenmosquito.png" id="1_20txj"]
+[ext_resource type="Texture2D" uid="uid://4ivajidfjsfs" path="res://Assets/Images/headmosquito.png" id="2_o4mt4"]
+
+[sub_resource type="Animation" id="Animation_sr6k8"]
+resource_name = "still"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_exbf8"]
+_data = {
+"still": SubResource("Animation_sr6k8")
+}
+
+[sub_resource type="SkeletonModificationStack2D" id="SkeletonModificationStack2D_wd76x"]
+enabled = true
+modification_count = 1
+
+[sub_resource type="Gradient" id="Gradient_psb0j"]
+offsets = PackedFloat32Array(0.567568, 0.645646)
+colors = PackedColorArray(0, 0, 0, 0.854902, 0, 0, 0, 0)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_yy1y1"]
+frequency = 0.0254
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_jd02b"]
+width = 128
+height = 256
+seamless = true
+seamless_blend_skirt = 1.0
+color_ramp = SubResource("Gradient_psb0j")
+noise = SubResource("FastNoiseLite_yy1y1")
+
+[sub_resource type="Gradient" id="Gradient_jq21x"]
+offsets = PackedFloat32Array(0.993994)
+colors = PackedColorArray(0.101961, 0.0588235, 0.0352941, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_asmq3"]
+frequency = 0.0254
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_tjm46"]
+width = 128
+height = 256
+seamless = true
+seamless_blend_skirt = 1.0
+color_ramp = SubResource("Gradient_jq21x")
+noise = SubResource("FastNoiseLite_asmq3")
+
+[node name="Mosquitao" type="Area2D"]
+position = Vector2(-23, -42)
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_exbf8")
+}
+
+[node name="Skeleton2D" type="Skeleton2D" parent="."]
+modulate = Color(1, 0.254902, 0.254902, 0.156863)
+position = Vector2(1, -5)
+modification_stack = SubResource("SkeletonModificationStack2D_wd76x")
+
+[node name="Ombro" type="Bone2D" parent="Skeleton2D"]
+position = Vector2(2, 11)
+rotation = -0.14998
+rest = Transform2D(0.988774, -0.149418, 0.149418, 0.988774, 2, 11)
+
+[node name="Chest" type="Bone2D" parent="Skeleton2D/Ombro"]
+position = Vector2(81, 1)
+rotation = 0.0930366
+rest = Transform2D(0.995675, 0.0929024, -0.0929024, 0.995675, 81, 1)
+
+[node name="Ferrao" type="Bone2D" parent="Skeleton2D/Ombro/Chest"]
+position = Vector2(-4, 1)
+rotation = 1.77614
+rest = Transform2D(-0.203904, 0.978991, -0.978991, -0.203904, -4, 1)
+
+[node name="Bone2D" type="Bone2D" parent="Skeleton2D/Ombro/Chest/Ferrao"]
+position = Vector2(-1, -181)
+rest = Transform2D(1, 0, 0, 1, -1, -181)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Skeleton2D/Ombro/Chest/Ferrao"]
+remote_path = NodePath("../../../../../Body/Ferrao")
+
+[node name="LWing" type="Bone2D" parent="Skeleton2D/Ombro"]
+position = Vector2(9, -8)
+rotation = 1.43213
+rest = Transform2D(0.138222, 0.990401, -0.990401, 0.138222, 9, -8)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Skeleton2D/Ombro/LWing"]
+remote_path = NodePath("../../../../Body/Lwing")
+
+[node name="Bone2D" type="Bone2D" parent="Skeleton2D/Ombro/LWing"]
+position = Vector2(-1, -181)
+rest = Transform2D(1, 0, 0, 1, -1, -181)
+
+[node name="RWing" type="Bone2D" parent="Skeleton2D/Ombro"]
+position = Vector2(18, -6)
+rotation = 1.54384
+rest = Transform2D(0.026953, 0.999637, -0.999637, 0.026953, 18, -6)
+
+[node name="Bone2D" type="Bone2D" parent="Skeleton2D/Ombro/RWing"]
+position = Vector2(-2, -179)
+rest = Transform2D(1, 0, 0, 1, -2, -179)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Skeleton2D/Ombro/RWing"]
+remote_path = NodePath("../../../../Body/Rwing")
+
+[node name="Neck" type="Bone2D" parent="Skeleton2D/Ombro"]
+position = Vector2(-8, -7)
+rotation = 0.288882
+rest = Transform2D(0.958563, 0.284881, -0.284881, 0.958563, -8, -7)
+
+[node name="Head" type="Bone2D" parent="Skeleton2D/Ombro/Neck"]
+position = Vector2(-49, 41)
+rest = Transform2D(1, 0, 0, 1, -49, 41)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Skeleton2D/Ombro/Neck"]
+remote_path = NodePath("../../../../Body/Head")
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Skeleton2D/Ombro"]
+remote_path = NodePath("../../../Body/Chest")
+
+[node name="Body" type="Node2D" parent="."]
+position = Vector2(9, -167)
+metadata/_edit_group_ = true
+
+[node name="Lwing" type="Node2D" parent="Body"]
+modulate = Color(1, 1, 1, 0.643137)
+position = Vector2(1.70362, 163.745)
+rotation = 1.28215
+metadata/_edit_group_ = true
+
+[node name="Rwing" type="Polygon2D" parent="Body/Lwing"]
+position = Vector2(2, 1.52588e-05)
+rotation = 4.9538
+offset = Vector2(-26, -164)
+texture = SubResource("NoiseTexture2D_jd02b")
+polygon = PackedVector2Array(19.8734, 172.274, 64, 174, 131.333, 152.999, 202.772, 115.993, 41, 143, 9.01411, 162.784)
+uv = PackedVector2Array(92.4721, 222.942, 103.588, 180.204, 105.696, 62.9454, 74.8627, 21.3963, 68.389, 196.048, 80.8799, 231.522)
+
+[node name="Rwing2" type="Polygon2D" parent="Body/Lwing/Rwing"]
+show_behind_parent = true
+offset = Vector2(-26, -164)
+texture = SubResource("NoiseTexture2D_tjm46")
+polygon = PackedVector2Array(19.8734, 172.274, 64, 174, 131.333, 152.999, 202.772, 115.993, 41, 143, 9.01411, 162.784)
+uv = PackedVector2Array(92.4721, 222.942, 103.588, 180.204, 105.696, 62.9454, 74.8627, 21.3963, 68.389, 196.048, 80.8799, 231.522)
+
+[node name="Line2D" type="Line2D" parent="Body/Lwing/Rwing"]
+points = PackedVector2Array(-8.9668, -0.772369, 15.493, -16.7322, 175.69, -47.0967)
+width = 2.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="Line2D2" type="Line2D" parent="Body/Lwing/Rwing"]
+points = PackedVector2Array(-8.9668, -0.772369, 19.0492, -11.4074, 175.69, -47.0967)
+width = 2.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="Line2D3" type="Line2D" parent="Body/Lwing/Rwing"]
+points = PackedVector2Array(-8.9668, -0.772369, 28.4974, -4.57132, 175.69, -47.0967)
+width = 2.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="Line2D4" type="Line2D" parent="Body/Lwing/Rwing"]
+points = PackedVector2Array(-8.9668, -0.772369, 39.0278, 1.35422, 175.69, -47.0967)
+width = 2.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="Line2D5" type="Line2D" parent="Body/Lwing/Rwing"]
+points = PackedVector2Array(-8.9668, -0.772369, 44.5765, 6.85066, 175.69, -47.0967)
+width = 2.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="Ferrao" type="Node2D" parent="Body"]
+position = Vector2(70.3035, 163.112)
+rotation = 1.7192
+scale = Vector2(1, 1)
+metadata/_edit_group_ = true
+
+[node name="Rwing" type="Polygon2D" parent="Body/Ferrao"]
+position = Vector2(2, 1.52588e-05)
+rotation = 4.9538
+offset = Vector2(-26, -164)
+texture = SubResource("NoiseTexture2D_jd02b")
+polygon = PackedVector2Array(19.8734, 172.274, 64, 174, 131.333, 152.999, 202.772, 115.993, 41, 143, 9.01411, 162.784)
+uv = PackedVector2Array(92.4721, 222.942, 103.588, 180.204, 105.696, 62.9454, 74.8627, 21.3963, 68.389, 196.048, 80.8799, 231.522)
+
+[node name="Rwing2" type="Polygon2D" parent="Body/Ferrao/Rwing"]
+show_behind_parent = true
+offset = Vector2(-26, -164)
+texture = SubResource("NoiseTexture2D_tjm46")
+polygon = PackedVector2Array(19.8734, 172.274, 64, 174, 131.333, 152.999, 202.772, 115.993, 41, 143, 9.01411, 162.784)
+uv = PackedVector2Array(92.4721, 222.942, 103.588, 180.204, 105.696, 62.9454, 74.8627, 21.3963, 68.389, 196.048, 80.8799, 231.522)
+
+[node name="Line2D" type="Line2D" parent="Body/Ferrao/Rwing"]
+points = PackedVector2Array(-8.9668, -0.772369, 15.493, -16.7322, 175.69, -47.0967)
+width = 2.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="Line2D2" type="Line2D" parent="Body/Ferrao/Rwing"]
+points = PackedVector2Array(-8.9668, -0.772369, 19.0492, -11.4074, 175.69, -47.0967)
+width = 2.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="Line2D3" type="Line2D" parent="Body/Ferrao/Rwing"]
+points = PackedVector2Array(-8.9668, -0.772369, 28.4974, -4.57132, 175.69, -47.0967)
+width = 2.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="Line2D4" type="Line2D" parent="Body/Ferrao/Rwing"]
+points = PackedVector2Array(-8.9668, -0.772369, 39.0278, 1.35422, 175.69, -47.0967)
+width = 2.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="Line2D5" type="Line2D" parent="Body/Ferrao/Rwing"]
+points = PackedVector2Array(-8.9668, -0.772369, 44.5765, 6.85066, 175.69, -47.0967)
+width = 2.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="Rwing" type="Node2D" parent="Body"]
+modulate = Color(1, 1, 1, 0.572549)
+position = Vector2(10.9014, 164.378)
+rotation = 1.39386
+metadata/_edit_group_ = true
+
+[node name="Rwing" type="Polygon2D" parent="Body/Rwing"]
+position = Vector2(2, 1.52588e-05)
+rotation = 4.9538
+offset = Vector2(-26, -164)
+texture = SubResource("NoiseTexture2D_jd02b")
+polygon = PackedVector2Array(19.8734, 172.274, 64, 174, 131.333, 152.999, 202.772, 115.993, 41, 143, 9.01411, 162.784)
+uv = PackedVector2Array(92.4721, 222.942, 103.588, 180.204, 105.696, 62.9454, 74.8627, 21.3963, 68.389, 196.048, 80.8799, 231.522)
+
+[node name="Rwing2" type="Polygon2D" parent="Body/Rwing/Rwing"]
+show_behind_parent = true
+offset = Vector2(-26, -164)
+texture = SubResource("NoiseTexture2D_tjm46")
+polygon = PackedVector2Array(19.8734, 172.274, 64, 174, 131.333, 152.999, 202.772, 115.993, 41, 143, 9.01411, 162.784)
+uv = PackedVector2Array(92.4721, 222.942, 103.588, 180.204, 105.696, 62.9454, 74.8627, 21.3963, 68.389, 196.048, 80.8799, 231.522)
+
+[node name="Line2D" type="Line2D" parent="Body/Rwing/Rwing"]
+points = PackedVector2Array(-8.9668, -0.772369, 15.493, -16.7322, 175.69, -47.0967)
+width = 2.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="Line2D2" type="Line2D" parent="Body/Rwing/Rwing"]
+points = PackedVector2Array(-8.9668, -0.772369, 19.0492, -11.4074, 175.69, -47.0967)
+width = 2.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="Line2D3" type="Line2D" parent="Body/Rwing/Rwing"]
+points = PackedVector2Array(-8.9668, -0.772369, 28.4974, -4.57132, 175.69, -47.0967)
+width = 2.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="Line2D4" type="Line2D" parent="Body/Rwing/Rwing"]
+points = PackedVector2Array(-8.9668, -0.772369, 39.0278, 1.35422, 175.69, -47.0967)
+width = 2.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="Line2D5" type="Line2D" parent="Body/Rwing/Rwing"]
+points = PackedVector2Array(-8.9668, -0.772369, 44.5765, 6.85066, 175.69, -47.0967)
+width = 2.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="Chest" type="Node2D" parent="Body"]
+position = Vector2(-6, 173)
+rotation = -0.14998
+
+[node name="Woodenmosquito" type="Sprite2D" parent="Body/Chest"]
+self_modulate = Color(0.0569284, 0.0320319, 0.0148493, 1)
+position = Vector2(23, 26)
+rotation = -3.04475
+scale = Vector2(0.248857, -0.248857)
+skew = 0.264555
+texture = ExtResource("1_20txj")
+
+[node name="Head" type="Node2D" parent="Body"]
+position = Vector2(-14.9561, 167.274)
+rotation = 0.138902
+scale = Vector2(1, 1)
+
+[node name="Headmosquito" type="Sprite2D" parent="Body/Head"]
+self_modulate = Color(0.0470588, 0.0392157, 0.0117647, 1)
+position = Vector2(4, 3)
+rotation = -2.52834
+scale = Vector2(0.27488, -0.519917)
+skew = -0.160028
+texture = ExtResource("2_o4mt4")
+offset = Vector2(89.3325, 29.608)
+
+[node name="HeadTarget" type="Node2D" parent="."]
+position = Vector2(-140, 31)
+
+[node name="FerraoTarget" type="Node2D" parent="."]

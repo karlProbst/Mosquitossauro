@@ -1,8 +1,9 @@
-[gd_scene load_steps=26 format=3 uid="uid://cgqpj8agtgvq8"]
+[gd_scene load_steps=28 format=3 uid="uid://cgqpj8agtgvq8"]
 
 [ext_resource type="Texture2D" uid="uid://s8lquyphw24a" path="res://Assets/Images/OldMan.png" id="1_21wkb"]
 [ext_resource type="Texture2D" uid="uid://bk6gbxkv6slga" path="res://Assets/Images/Raqueteleletrica.png" id="3_1q0dw"]
 [ext_resource type="Texture2D" uid="uid://bxxvrx14bs383" path="res://Assets/Images/sbp.png" id="3_wuep8"]
+[ext_resource type="Texture2D" uid="uid://bdml8sfmq6ml" path="res://Assets/Images/shoes.png" id="4_atwui"]
 
 [sub_resource type="SkeletonModification2DCCDIK" id="SkeletonModification2DCCDIK_spsep"]
 target_nodepath = NodePath("../RHand")
@@ -119,7 +120,7 @@ modifications/5 = SubResource("SkeletonModification2DCCDIK_ydvba")
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uytlh"]
 radius = 31.9414
-height = 69.271
+height = 91.7562
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_x0e1q"]
 lifetime_randomness = 0.59
@@ -163,8 +164,12 @@ color = Color(0.552941, 1, 0, 1)
 alpha_curve = SubResource("CurveTexture_08jek")
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rs54l"]
-radius = 35.2076
-height = 155.623
+radius = 42.1246
+height = 195.612
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ffpbu"]
+radius = 19.6079
+height = 204.748
 
 [sub_resource type="Animation" id="Animation_x142q"]
 length = 0.001
@@ -442,26 +447,26 @@ uv = PackedVector2Array(106.827, 63.7184, 116.827, 72.7184, 127.827, 79.7184, 13
 
 [node name="LegL" type="Polygon2D" parent="Body"]
 position = Vector2(254.306, 420.618)
-rotation = -0.506965
-scale = Vector2(0.999995, 0.999995)
+rotation = -0.843075
+scale = Vector2(0.999997, 0.999997)
 offset = Vector2(-271, -435)
 texture = ExtResource("1_21wkb")
 polygon = PackedVector2Array(247, 442, 229, 496, 232, 528, 247, 542, 268, 530, 274, 507, 293, 431, 269, 417)
 uv = PackedVector2Array(83.3596, 257.683, 74.3596, 300.683, 72.5014, 340.255, 92.6744, 345.183, 117.36, 322.683, 112.36, 309.683, 102.36, 285.683, 94.3596, 269.683)
 
 [node name="LegEndL" type="Polygon2D" parent="Body"]
-position = Vector2(270.514, 515.708)
-rotation = -0.445966
-scale = Vector2(0.999995, 0.999995)
+position = Vector2(300.97, 505.042)
+rotation = -0.782075
+scale = Vector2(0.999997, 0.999997)
 offset = Vector2(-243, -521)
 texture = ExtResource("1_21wkb")
 polygon = PackedVector2Array(240, 504, 223, 515, 203, 592, 210, 598, 227, 595, 236, 588, 263, 536, 255, 512)
 uv = PackedVector2Array(85.932, 302.732, 68.932, 313.732, 48.932, 390.732, 55.932, 396.732, 72.932, 393.732, 81.932, 386.732, 108.932, 334.732, 100.932, 310.732)
 
 [node name="FeetL" type="Polygon2D" parent="Body"]
-position = Vector2(278.975, 593.685)
-rotation = -0.340243
-scale = Vector2(0.999995, 0.999995)
+position = Vector2(334.676, 575.865)
+rotation = -0.676352
+scale = Vector2(0.999997, 0.999997)
 offset = Vector2(-220, -595)
 texture = ExtResource("1_21wkb")
 polygon = PackedVector2Array(269, 603, 237, 594, 225, 588, 213, 588, 200, 597, 198, 614, 270, 616)
@@ -494,17 +499,17 @@ uv = PackedVector2Array(182.615, 177.824, 203.615, 188.824, 211.615, 170.824, 19
 
 [node name="LegR" type="Polygon2D" parent="Body"]
 position = Vector2(229.181, 406.415)
-rotation = 0.264607
-scale = Vector2(0.999993, 0.999993)
+rotation = 0.134742
+scale = Vector2(0.999997, 0.999997)
 offset = Vector2(-250, -419)
 texture = ExtResource("1_21wkb")
 polygon = PackedVector2Array(232, 435, 244, 450, 273, 518, 297, 526, 313, 512, 312, 491, 285, 420, 261, 408, 231, 413)
 uv = PackedVector2Array(77.168, 234.824, 89.168, 249.824, 118.168, 317.824, 142.168, 325.824, 158.168, 311.824, 157.168, 290.824, 130.168, 219.824, 103.168, 219.824, 76.168, 212.824)
 
 [node name="LegEndR" type="Polygon2D" parent="Body"]
-position = Vector2(249.7, 510.4)
-rotation = 1.35836
-scale = Vector2(0.999993, 0.999993)
+position = Vector2(262.993, 506.867)
+rotation = 0.132996
+scale = Vector2(0.999995, 0.999995)
 offset = Vector2(-293, -505)
 texture = ExtResource("1_21wkb")
 polygon = PackedVector2Array(289, 553, 321, 601, 333, 600, 344, 592, 344, 577, 315, 498, 286, 491, 275, 504, 271, 522)
@@ -512,7 +517,7 @@ uv = PackedVector2Array(135.113, 354.492, 167.113, 402.492, 179.113, 401.492, 19
 
 [node name="ArmR" type="Polygon2D" parent="Body"]
 position = Vector2(261, 301)
-rotation = -0.750706
+rotation = -0.750708
 scale = Vector2(1.00005, 1.00005)
 offset = Vector2(-246, -299)
 texture = ExtResource("1_21wkb")
@@ -521,8 +526,8 @@ uv = PackedVector2Array(74.615, 96.0362, 88.615, 84.0362, 103.615, 96.0362, 94.6
 
 [node name="ArmEndR" type="Polygon2D" parent="Body"]
 position = Vector2(274.193, 369.384)
-rotation = -0.977599
-scale = Vector2(1.00005, 1.00005)
+rotation = -0.977601
+scale = Vector2(1.00004, 1.00004)
 offset = Vector2(-213, -355)
 texture = ExtResource("1_21wkb")
 polygon = PackedVector2Array(196, 349, 215, 342, 224, 347, 225, 369, 209, 414, 196, 422, 187, 416)
@@ -530,7 +535,7 @@ uv = PackedVector2Array(38.9561, 148.271, 57.9561, 141.271, 66.9561, 146.271, 67
 
 [node name="HandR" type="Polygon2D" parent="Body"]
 position = Vector2(318.606, 416.212)
-rotation = -0.463647
+rotation = -0.463646
 scale = Vector2(1.00004, 1.00004)
 offset = Vector2(-199, -419)
 texture = ExtResource("1_21wkb")
@@ -538,7 +543,6 @@ polygon = PackedVector2Array(186, 418, 196, 411, 204, 415, 207, 424, 208, 446, 2
 uv = PackedVector2Array(31.7209, 218.377, 41.7209, 211.377, 49.7209, 215.377, 52.7209, 224.377, 53.7209, 246.377, 45.7209, 241.377, 37.7209, 249.377, 21.7209, 235.377)
 
 [node name="Raquete" type="Sprite2D" parent="Body/HandR"]
-visible = false
 show_behind_parent = true
 position = Vector2(-12.2349, 12.2069)
 rotation = 1.4854
@@ -547,6 +551,7 @@ texture = ExtResource("3_1q0dw")
 offset = Vector2(148.753, -147.14)
 
 [node name="RaqueteArea" type="Area2D" parent="Body/HandR/Raquete" groups=["raquete"]]
+visible = false
 position = Vector2(217.403, -257.496)
 rotation = -0.940348
 scale = Vector2(3.0208, 3.0208)
@@ -556,10 +561,10 @@ monitoring = false
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Body/HandR/Raquete/RaqueteArea" groups=["raquete"]]
-position = Vector2(-9.48262, -0.267557)
+position = Vector2(-18.7021, -2.99821)
 rotation = 1.75371
 shape = SubResource("CapsuleShape2D_uytlh")
-debug_color = Color(2.11775e-06, 0.506036, 0.699334, 0.42)
+debug_color = Color(0.648517, 0.00378211, 0.969408, 0.42)
 
 [node name="Sbp" type="Sprite2D" parent="Body/HandR"]
 visible = false
@@ -579,6 +584,7 @@ process_material = SubResource("ParticleProcessMaterial_x0e1q")
 position = Vector2(-6.43066, -154.938)
 rotation = -1.14013
 scale = Vector2(4.901, -4.901)
+emitting = false
 amount = 16
 process_material = SubResource("ParticleProcessMaterial_8x74t")
 preprocess = 0.32
@@ -589,7 +595,7 @@ local_coords = true
 target_position = Vector2(-139.794, 391.732)
 
 [node name="VenenoArea" type="Area2D" parent="Body/HandR/Sbp/Spray" groups=["veneno"]]
-position = Vector2(-30.7665, 81.3802)
+position = Vector2(-23.5797, 51.6021)
 collision_layer = 8
 collision_mask = 8
 monitoring = false
@@ -601,10 +607,40 @@ rotation = 0.26867
 shape = SubResource("CapsuleShape2D_rs54l")
 debug_color = Color(0, 0.649316, 0.148707, 0.42)
 
+[node name="Shoes" type="Sprite2D" parent="Body/HandR"]
+show_behind_parent = true
+position = Vector2(-7.77494, 20.1892)
+rotation = -2.62711
+scale = Vector2(0.150969, -0.150969)
+texture = ExtResource("4_atwui")
+offset = Vector2(-215.523, -49.4497)
+
+[node name="ShoesArea" type="Area2D" parent="Body/HandR/Shoes" groups=["shoe"]]
+position = Vector2(-578.031, -30.4739)
+rotation = 1.1972
+scale = Vector2(4.14238, 4.14238)
+collision_layer = 8
+collision_mask = 8
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Body/HandR/Shoes/ShoesArea" groups=["veneno"]]
+position = Vector2(28.6204, -77.3649)
+rotation = 0.26867
+shape = SubResource("CapsuleShape2D_ffpbu")
+debug_color = Color(0.621792, 0.352824, 1, 0.42)
+
+[node name="highlight" type="Sprite2D" parent="Body/HandR/Shoes"]
+modulate = Color(0.584314, 0.176471, 1, 1)
+show_behind_parent = true
+position = Vector2(-218.416, -75.383)
+scale = Vector2(1.18991, 1.24574)
+texture = ExtResource("4_atwui")
+
 [node name="FeetR" type="Polygon2D" parent="Body"]
-position = Vector2(177, 567)
-rotation = 1.1037
-scale = Vector2(0.999992, 0.999992)
+position = Vector2(291.634, 594.438)
+rotation = -0.121664
+scale = Vector2(0.999995, 0.999995)
 offset = Vector2(-337, -593)
 texture = ExtResource("1_21wkb")
 polygon = PackedVector2Array(321, 607, 328, 625, 392, 599, 383, 586, 353, 590, 335, 587, 323, 595)
@@ -654,10 +690,11 @@ rotation = 0.263868
 shape = SubResource("CapsuleShape2D_3ixwq")
 
 [node name="AreaChute" type="Area2D" parent="." groups=["chute"]]
+position = Vector2(256, 608)
 collision_layer = 0
 collision_mask = 0
 
 [node name="CChute" type="CollisionShape2D" parent="AreaChute" groups=["chute"]]
-position = Vector2(311, 520)
+position = Vector2(55, -72)
 rotation = -2.02039
 shape = SubResource("CapsuleShape2D_h4slm")

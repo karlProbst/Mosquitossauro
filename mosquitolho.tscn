@@ -5,31 +5,32 @@
 [ext_resource type="Texture2D" uid="uid://dhpykvpyl76ba" path="res://Assets/Images/Mosquitolhos.png" id="2_tpows"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0s3qd"]
-radius = 19.0
+radius = 22.0227
 
-[node name="Mosquitolho" type="Area2D"]
+[node name="Mosquitolho" type="Area2D" groups=["mosquito"]]
 position = Vector2(753, 381)
-collision_layer = 32
-collision_mask = 32
+collision_layer = 34
+collision_mask = 34
 script = ExtResource("1_ymr20")
 
 [node name="Polygon2D" type="Node2D" parent="."]
 
 [node name="MosquitoFerroBolado3" type="Sprite2D" parent="Polygon2D"]
 modulate = Color(0.485253, 0.433698, 1, 1)
-self_modulate = Color(1, 1, 1, 0.2)
+self_modulate = Color(1, 1, 1, 0.615686)
 position = Vector2(0, 17)
 scale = Vector2(0.2411, 0.2411)
 texture = ExtResource("2_q4hkg")
 
 [node name="MosquitoFerroBolado2" type="Sprite2D" parent="Polygon2D"]
 modulate = Color(1, 0, 0, 1)
-self_modulate = Color(1, 1, 1, 0.2)
+self_modulate = Color(1, 1, 1, 0.615686)
 position = Vector2(0, 15)
 scale = Vector2(0.2411, 0.2411)
 texture = ExtResource("2_q4hkg")
 
 [node name="MosquitoFerroBolado" type="Sprite2D" parent="Polygon2D"]
+modulate = Color(0.585698, 0.547276, 0.496314, 1)
 position = Vector2(0, 15)
 scale = Vector2(0.228606, 0.228606)
 texture = ExtResource("2_q4hkg")
@@ -57,41 +58,43 @@ hit_from_inside = true
 collide_with_areas = true
 
 [node name="Line2D" type="Line2D" parent="RayLaser"]
+rotation = -0.00273597
 points = PackedVector2Array(0, 0, 0, 0)
 width = 2.0
-default_color = Color(0.945098, 0, 0, 0.737255)
+default_color = Color(0.878431, 0, 0, 0.647059)
 
 [node name="Rleft" type="RayCast2D" parent="."]
-position = Vector2(-9, -7)
+position = Vector2(-10, -7)
+enabled = false
 target_position = Vector2(-18, 0)
-collision_mask = 3
+collision_mask = 34
 hit_from_inside = true
 collide_with_areas = true
 
 [node name="Rright" type="RayCast2D" parent="."]
-position = Vector2(6, -7)
-target_position = Vector2(18, 0)
-collision_mask = 3
+position = Vector2(7, -7)
+target_position = Vector2(19, 0)
+collision_mask = 34
 hit_from_inside = true
 collide_with_areas = true
 
 [node name="Rup" type="RayCast2D" parent="."]
-position = Vector2(-1, -13)
+position = Vector2(-1, -16)
 target_position = Vector2(0, -18)
-collision_mask = 3
+collision_mask = 34
 hit_from_inside = true
 collide_with_areas = true
 
 [node name="Rdown" type="RayCast2D" parent="."]
-position = Vector2(-1, -3)
+position = Vector2(-1, 2)
 target_position = Vector2(0, 18)
-collision_mask = 3
+collision_mask = 34
 hit_from_inside = true
 collide_with_areas = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 0)
+position = Vector2(-1, -7)
 shape = SubResource("CircleShape2D_0s3qd")
 
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="justDied" from="." to="." method="_on_just_died"]

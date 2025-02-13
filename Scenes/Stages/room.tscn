@@ -1,23 +1,26 @@
-[gd_scene load_steps=79 format=3 uid="uid://dpptp4pcbdk4m"]
+[gd_scene load_steps=80 format=3 uid="uid://dpptp4pcbdk4m"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/room.gd" id="1_h1msy"]
 [ext_resource type="PackedScene" uid="uid://cgqpj8agtgvq8" path="res://OldMan.tscn" id="1_ktbtg"]
 [ext_resource type="Texture2D" uid="uid://b848ckbsqy1bq" path="res://Assets/Images/Postenobg.png" id="1_o5shf"]
 [ext_resource type="Script" path="res://Assets/Scripts/old_man_char.gd" id="3_ni5k8"]
+[ext_resource type="PackedScene" uid="uid://1s822puixr7f" path="res://mosquitao.tscn" id="3_po874"]
 [ext_resource type="Texture2D" uid="uid://co2sr2be7w38q" path="res://Assets/Images/skada.png" id="3_vxrli"]
 [ext_resource type="Texture2D" uid="uid://bks80nk20gx02" path="res://Assets/Images/60s_wallpaper.jpg" id="3_wssqe"]
-[ext_resource type="Texture2D" uid="uid://4ivajidfjsfs" path="res://Assets/Images/headmosquito.png" id="4_1fm1m"]
 [ext_resource type="Script" path="res://Assets/Scripts/camera_2d.gd" id="4_kl6ap"]
 [ext_resource type="Script" path="res://Assets/Scripts/hit_marker.gd" id="4_r713j"]
 [ext_resource type="Texture2D" uid="uid://bh5ugjkr8p120" path="res://Assets/Images/book.png" id="6_6d42e"]
 [ext_resource type="PackedScene" uid="uid://bwwaepeq7v28a" path="res://Scenes/quadro_pombo.tscn" id="9_53vs6"]
 [ext_resource type="Texture2D" uid="uid://c8fs5v3dsbbi1" path="res://Assets/Images/Cabeceira.png" id="9_o16m6"]
 [ext_resource type="PackedScene" uid="uid://btsfhqfo5t12s" path="res://Scenes/generic_item.tscn" id="9_rqwgg"]
+[ext_resource type="Script" path="res://Assets/Scripts/PlatformControllerClass.gd" id="10_jrdoy"]
 [ext_resource type="PackedScene" uid="uid://iwu37tot0443" path="res://quadro.tscn" id="11_6ug3t"]
 [ext_resource type="Texture2D" uid="uid://dng8lul1c48gk" path="res://Assets/Images/switchzoado.png" id="11_n6u3n"]
 [ext_resource type="Texture2D" uid="uid://d2oh0joxccovm" path="res://Assets/Images/doorFront.png" id="12_4w8xd"]
 [ext_resource type="Texture2D" uid="uid://d26uspan7ojy5" path="res://Assets/Images/bookshelve.png" id="12_hnqea"]
+[ext_resource type="Texture2D" uid="uid://kbyuefpvnmbh" path="res://Assets/Images/lampadosa.png" id="14_no6ys"]
 [ext_resource type="PackedScene" uid="uid://n758tkgbuyac" path="res://PcShop.tscn" id="15_c3fcc"]
+[ext_resource type="Script" path="res://Scenes/Stages/bed.gd" id="20_cdwfs"]
 [ext_resource type="PackedScene" uid="uid://cny626vhx5bje" path="res://Scenes/box.tscn" id="23_6ky7u"]
 [ext_resource type="FontFile" uid="uid://d4exem1lhy0cg" path="res://Assets/Kumar_One,Lilita_One/Lilita_One/LilitaOne-Regular.ttf" id="24_hde51"]
 [ext_resource type="Script" path="res://Scenes/Stages/ui_canvas_layer.gd" id="24_k77dm"]
@@ -25,94 +28,8 @@
 [ext_resource type="Script" path="res://Assets/Scripts/boombox.gd" id="26_m15bd"]
 [ext_resource type="PackedScene" uid="uid://c7d3buqbvcuwx" path="res://Scenes/Almofada.tscn" id="26_mnank"]
 [ext_resource type="Texture2D" uid="uid://yut6yd8sr3rs" path="res://Assets/Images/boombox.png" id="27_g7hca"]
-[ext_resource type="Texture2D" uid="uid://dq1r3rcxq0xib" path="res://Assets/Images/woodenmosquito.png" id="27_jt6uk"]
 [ext_resource type="Texture2D" uid="uid://bqj2wo6tmkwq" path="res://Assets/Images/woodentile.jpg" id="28_sqfv7"]
 [ext_resource type="AudioStream" uid="uid://ch436ha1hbdi" path="res://Assets/Sound/paaa.wav" id="30_20r0s"]
-
-[sub_resource type="Animation" id="Animation_hjtbw"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-3.93279]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("..:skew")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("..:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(6.11068, 198.801)]
-}
-
-[sub_resource type="Animation" id="Animation_eoigx"]
-resource_name = "new_animation"
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.233333, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [-3.93279, -3.60268, -3.93279]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("..:skew")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.997174),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.0, 0.272271, 0.0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("..:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.997174),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(6.11068, 198.801), Vector2(6.11068, 198.801)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_vtq2r"]
-_data = {
-"RESET": SubResource("Animation_hjtbw"),
-"new_animation": SubResource("Animation_eoigx")
-}
 
 [sub_resource type="Gradient" id="Gradient_4tof4"]
 offsets = PackedFloat32Array(0, 0.987578)
@@ -162,7 +79,7 @@ color_ramp = SubResource("Gradient_6p8mu")
 noise = SubResource("FastNoiseLite_mffjp")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_66gmb"]
-size = Vector2(2742, 211)
+size = Vector2(2744, 211)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_87qyn"]
 size = Vector2(169.75, 371)
@@ -175,6 +92,9 @@ size = Vector2(2740, 146)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0xs6l"]
 size = Vector2(346.5, 755)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oph65"]
+size = Vector2(151, 41)
 
 [sub_resource type="Animation" id="Animation_2xoyg"]
 resource_name = "stairFalling"
@@ -228,7 +148,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ata6j"]
-size = Vector2(506.75, 89)
+size = Vector2(506.75, 86)
 
 [sub_resource type="Gradient" id="Gradient_0c4ow"]
 colors = PackedColorArray(0.304728, 0.28098, 0.253382, 1, 0.304728, 0.28098, 0.253382, 1)
@@ -268,30 +188,6 @@ gradient = SubResource("Gradient_0l2v1")
 friction = 0.74
 bounce = 0.39
 
-[sub_resource type="LabelSettings" id="LabelSettings_uylbh"]
-font = ExtResource("24_hde51")
-font_size = 128
-font_color = Color(0, 0, 0.0392157, 1)
-outline_size = 34
-shadow_size = 118
-shadow_color = Color(0, 0, 0, 0.235294)
-
-[sub_resource type="LabelSettings" id="LabelSettings_skbvq"]
-font = ExtResource("24_hde51")
-font_size = 128
-font_color = Color(0.492981, 0, 0.0405629, 1)
-outline_size = 34
-shadow_size = 118
-shadow_color = Color(0, 0, 0, 0.235294)
-
-[sub_resource type="LabelSettings" id="LabelSettings_0k0fs"]
-font = ExtResource("24_hde51")
-font_size = 128
-font_color = Color(0, 0.160784, 0.0862745, 1)
-outline_size = 34
-shadow_size = 118
-shadow_color = Color(0, 0, 0, 0.235294)
-
 [sub_resource type="Gradient" id="Gradient_n202o"]
 colors = PackedColorArray(0, 0, 0, 1, 0.0296289, 0.0273197, 0, 1)
 
@@ -329,6 +225,38 @@ normalize = false
 color_ramp = SubResource("Gradient_0hnmb")
 noise = SubResource("FastNoiseLite_5a5x0")
 
+[sub_resource type="LabelSettings" id="LabelSettings_uylbh"]
+font = ExtResource("24_hde51")
+font_size = 128
+font_color = Color(0, 0, 0.0392157, 1)
+outline_size = 34
+shadow_size = 118
+shadow_color = Color(0, 0, 0, 0.235294)
+
+[sub_resource type="LabelSettings" id="LabelSettings_skbvq"]
+font = ExtResource("24_hde51")
+font_size = 128
+font_color = Color(0.492981, 0, 0.0405629, 1)
+outline_size = 34
+shadow_size = 118
+shadow_color = Color(0, 0, 0, 0.235294)
+
+[sub_resource type="LabelSettings" id="LabelSettings_0k0fs"]
+font = ExtResource("24_hde51")
+font_size = 128
+font_color = Color(0, 0.160784, 0.0862745, 1)
+outline_size = 34
+shadow_size = 118
+shadow_color = Color(0, 0, 0, 0.235294)
+
+[sub_resource type="LabelSettings" id="LabelSettings_sktgl"]
+font = ExtResource("24_hde51")
+font_size = 115
+font_color = Color(0.121693, 0.164816, 0.426122, 1)
+outline_size = 17
+shadow_size = 118
+shadow_color = Color(0, 0, 0, 0.235294)
+
 [node name="Room" type="Node2D"]
 script = ExtResource("1_h1msy")
 
@@ -344,13 +272,13 @@ scale = Vector2(2.45472, 2.45472)
 texture = ExtResource("1_o5shf")
 metadata/_edit_group_ = true
 
-[node name="Polygon2D" type="Polygon2D" parent="Postenobg"]
+[node name="posteluz" type="Polygon2D" parent="Postenobg"]
 clip_children = 1
 position = Vector2(-515.333, -104.696)
 scale = Vector2(0.407378, 0.407378)
 polygon = PackedVector2Array(945, 769, 1467, 759, 1381, 438, 1338, 344, 1296, 337, 1264, 324, 1228, 330, 1169, 364, 1130, 434)
 
-[node name="Postenobg2" type="Sprite2D" parent="Postenobg/Polygon2D"]
+[node name="Postenobg2" type="Sprite2D" parent="Postenobg/posteluz"]
 self_modulate = Color(0.94073, 0.844503, 0.595004, 1)
 position = Vector2(1265, 257)
 scale = Vector2(2.45472, 2.45472)
@@ -364,38 +292,12 @@ offset_bottom = 298.0
 scale = Vector2(3.6724, 1)
 color = Color(0, 0, 0, 1)
 
-[node name="ColorRect2" type="ColorRect" parent="Postenobg"]
-offset_left = -119.0
-offset_top = 194.0
-offset_right = -114.0
-offset_bottom = 298.0
-scale = Vector2(3.6724, 1)
-color = Color(0, 0, 0, 1)
-
-[node name="Woodenmosquito" type="Sprite2D" parent="Postenobg"]
-modulate = Color(0, 0, 0, 1)
-position = Vector2(6.11068, 198.801)
-rotation = 3.23844
-scale = Vector2(0.248857, -0.248857)
-texture = ExtResource("27_jt6uk")
-
-[node name="Headmosquito" type="Sprite2D" parent="Postenobg/Woodenmosquito"]
-position = Vector2(146.921, -118.014)
-rotation = -3.93279
-scale = Vector2(-1.06522, -1.97972)
-skew = 0.394444
-texture = ExtResource("4_1fm1m")
-offset = Vector2(89.3325, 29.608)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Postenobg/Woodenmosquito/Headmosquito"]
-libraries = {
-"": SubResource("AnimationLibrary_vtq2r")
-}
-autoplay = "new_animation"
-speed_scale = 0.339
+[node name="Mosquitao" parent="Postenobg" instance=ExtResource("3_po874")]
+position = Vector2(-21.1837, 197.579)
 
 [node name="Polygon2D2" type="Polygon2D" parent="Postenobg"]
 clip_children = 2
+z_index = 1
 position = Vector2(-515.333, -104.696)
 scale = Vector2(0.407378, 0.407378)
 color = Color(0.830374, 0.487285, 0, 0.486275)
@@ -410,18 +312,18 @@ texture = ExtResource("1_o5shf")
 
 [node name="TextureRect2" type="TextureRect" parent="Postenobg"]
 show_behind_parent = true
-offset_left = -276.61
-offset_top = -129.546
-offset_right = 235.39
-offset_bottom = 382.454
+offset_left = -277.0
+offset_top = -130.0
+offset_right = 1139.0
+offset_bottom = 382.0
 texture = SubResource("GradientTexture2D_st06e")
 
 [node name="TextureRect" type="TextureRect" parent="Postenobg"]
 show_behind_parent = true
-offset_left = -276.61
-offset_top = -129.546
-offset_right = 235.39
-offset_bottom = 382.454
+offset_left = -277.0
+offset_top = -130.0
+offset_right = 1141.0
+offset_bottom = 382.0
 texture = SubResource("NoiseTexture2D_burie")
 
 [node name="Skada" type="Polygon2D" parent="Postenobg"]
@@ -432,7 +334,7 @@ polygon = PackedVector2Array(-36.2567, 631.029, -36.2567, 82.2904, -173.136, 125
 uv = PackedVector2Array(599.469, 859.613, 599.469, -137.502, 344.083, -134.541, 353.706, 141.572, 8.01024, 157.857, 87.9571, 875.898)
 
 [node name="TextureRect2" type="TextureRect" parent="."]
-self_modulate = Color(0.472403, 0.372755, 0.185772, 1)
+self_modulate = Color(0.943907, 0.89196, 0.819972, 1)
 offset_left = -1549.0
 offset_top = 13.0
 offset_right = 8687.0
@@ -478,7 +380,7 @@ offset_bottom = 778.0
 color = Color(0, 0, 0, 1)
 
 [node name="Bookshelve" type="Sprite2D" parent="AreaCena"]
-position = Vector2(-17, 496)
+position = Vector2(-23, 502)
 scale = Vector2(0.483316, 0.483316)
 texture = ExtResource("12_hnqea")
 
@@ -489,7 +391,7 @@ scale = Vector2(0.301886, 0.301886)
 texture = ExtResource("6_6d42e")
 
 [node name="ChaoCol" type="CollisionShape2D" parent="AreaCena"]
-position = Vector2(-524, 736.5)
+position = Vector2(-523, 736.5)
 shape = SubResource("RectangleShape2D_66gmb")
 
 [node name="JanelaDown" type="CollisionShape2D" parent="AreaCena"]
@@ -515,11 +417,17 @@ scale = Vector2(0.630693, 0.630693)
 [node name="QuadroPombo" parent="AreaCena" instance=ExtResource("9_53vs6")]
 position = Vector2(-439, 422)
 
-[node name="Cabeceira" type="Node2D" parent="AreaCena"]
-position = Vector2(-308, -7)
+[node name="Cabeceira" type="StaticBody2D" parent="AreaCena"]
+position = Vector2(-225, 520)
+collision_layer = 32
+collision_mask = 32
 metadata/_edit_group_ = true
 
+[node name="PlatformControllerClass" type="Node2D" parent="AreaCena/Cabeceira"]
+script = ExtResource("10_jrdoy")
+
 [node name="Polygon2D" type="Polygon2D" parent="AreaCena/Cabeceira"]
+position = Vector2(-89, -512)
 texture = ExtResource("9_o16m6")
 polygon = PackedVector2Array(30, 624, 31, 530, 12, 529, 12, 519, 28, 505, 135, 506, 164, 506, 163, 531, 143, 543, 141, 630, 27, 629)
 uv = PackedVector2Array(20.3665, 249.667, 21.3665, 155.667, 2.36646, 154.667, 2.36646, 144.667, 111.366, 144.667, 126.366, 133.667, 154.366, 131.667, 153.366, 156.667, 133.366, 168.667, 131.366, 255.667, 17.3665, 254.667)
@@ -531,14 +439,23 @@ scale = Vector2(0.968159, 0.968159)
 texture = ExtResource("9_o16m6")
 
 [node name="Polygon2D2" type="Polygon2D" parent="AreaCena/Cabeceira"]
+position = Vector2(-89, -512)
 texture = ExtResource("9_o16m6")
 polygon = PackedVector2Array(124, 513, 111, 504, 111, 445, 143, 440, 118, 393, 90, 393, 71, 441, 104, 444, 103, 505, 89, 513, 100, 518, 115, 518)
 uv = PackedVector2Array(115.728, 132.496, 102.728, 123.496, 102.728, 64.4958, 134.728, 59.4958, 109.728, 12.4958, 81.7282, 12.4958, 62.7282, 60.4958, 95.7282, 63.4958, 94.7282, 124.496, 80.7282, 132.496, 91.7282, 137.496, 106.728, 137.496)
 
 [node name="Polygon2D3" type="Polygon2D" parent="AreaCena/Cabeceira"]
+position = Vector2(-89, -512)
 texture = ExtResource("9_o16m6")
 polygon = PackedVector2Array(61, 517, 69, 509, 60, 508, 64, 483, 69, 495, 86, 473, 84, 444, 42, 438, 7, 463, 24, 490, 28, 507, 21, 509, 26, 518, 43, 521)
 uv = PackedVector2Array(51.0444, 140.801, 59.0444, 132.801, 50.0444, 131.801, 54.0444, 106.801, 59.0444, 118.801, 76.0444, 96.8008, 74.0444, 67.8008, 32.0444, 61.8008, -2.9556, 86.8008, 14.0444, 113.801, 18.0444, 130.801, 11.0444, 132.801, 16.0444, 141.801, 33.0444, 144.801)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaCena/Cabeceira"]
+position = Vector2(-0.5, 20.5)
+shape = SubResource("RectangleShape2D_oph65")
+
+[node name="Node2D" type="Node2D" parent="AreaCena/Cabeceira"]
+position = Vector2(-5, 0)
 
 [node name="QuadroStock" parent="AreaCena" instance=ExtResource("11_6ug3t")]
 position = Vector2(630, 464)
@@ -550,7 +467,6 @@ libraries = {
 
 [node name="tileWooden" type="Node2D" parent="AreaCena"]
 position = Vector2(-357, 636)
-scale = Vector2(1, 1)
 skew = 0.785398
 
 [node name="TextureRect" type="TextureRect" parent="AreaCena/tileWooden"]
@@ -562,7 +478,41 @@ offset_bottom = 168.0
 texture = ExtResource("28_sqfv7")
 stretch_mode = 1
 
-[node name="DoorFront" type="Sprite2D" parent="AreaCena"]
+[node name="Lampada" type="Node2D" parent="AreaCena"]
+position = Vector2(-230, 254)
+
+[node name="Lampadosa" type="Sprite2D" parent="AreaCena/Lampada"]
+position = Vector2(-67, -61)
+scale = Vector2(0.524653, 0.524653)
+texture = ExtResource("14_no6ys")
+
+[node name="Door" type="Node2D" parent="AreaCena"]
+
+[node name="Highlight" type="Node2D" parent="AreaCena/Door"]
+visible = false
+position = Vector2(-1326, 445)
+scale = Vector2(0.921119, 0.921119)
+
+[node name="DoorFront2" type="Sprite2D" parent="AreaCena/Door/Highlight"]
+modulate = Color(1, 0, 1, 1)
+position = Vector2(-18.4557, -33.6548)
+scale = Vector2(1.01425, 0.995825)
+texture = ExtResource("12_4w8xd")
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="AreaCena/Door/Highlight"]
+z_index = 1
+custom_minimum_size = Vector2(700, 500)
+offset_left = -99.8784
+offset_top = -96.6216
+offset_right = 600.122
+offset_bottom = 403.378
+scale = Vector2(0.453685, 0.453685)
+theme_override_font_sizes/normal_font_size = 70
+text = "Press   E  
+   Go to the Kitchen"
+tab_size = 6
+
+[node name="DoorFront" type="Sprite2D" parent="AreaCena/Door"]
 position = Vector2(-1341, 435)
 scale = Vector2(0.840544, 0.840544)
 texture = ExtResource("12_4w8xd")
@@ -611,8 +561,8 @@ collide_with_areas = true
 [node name="TrapMoskitao" type="AudioStreamPlayer2D" parent="Boombox"]
 position = Vector2(-8, 8)
 stream = ExtResource("26_5mjnb")
-volume_db = -4.522
 autoplay = true
+max_distance = 4000.0
 
 [node name="B5" type="Polygon2D" parent="Boombox"]
 scale = Vector2(0.853221, 0.853221)
@@ -662,11 +612,13 @@ stream = ExtResource("30_20r0s")
 
 [node name="Bed" type="StaticBody2D" parent="."]
 position = Vector2(-552, 587)
-collision_layer = 0
-collision_mask = 0
+collision_layer = 32
+collision_mask = 32
+script = ExtResource("20_cdwfs")
+metadata/_edit_group_ = true
 
 [node name="bedCol" type="CollisionShape2D" parent="Bed"]
-position = Vector2(0, -2.5)
+position = Vector2(0, -4)
 shape = SubResource("RectangleShape2D_ata6j")
 
 [node name="Bed" type="TextureRect" parent="Bed"]
@@ -794,43 +746,6 @@ physics_material_override = SubResource("PhysicsMaterial_xpj3a")
 
 [node name="Node2D" type="Node2D" parent="."]
 
-[node name="UICanvasLayer" type="CanvasLayer" parent="."]
-script = ExtResource("24_k77dm")
-
-[node name="HeartsAndKilled" type="Node2D" parent="UICanvasLayer"]
-metadata/_edit_lock_ = true
-
-[node name="HealthLabelBlack" type="Label" parent="UICanvasLayer/HeartsAndKilled"]
-visible = false
-offset_left = 34.0
-offset_top = 23.0
-offset_right = 1063.0
-offset_bottom = 171.0
-scale = Vector2(0.5, 0.5)
-text = "Health: s2"
-label_settings = SubResource("LabelSettings_uylbh")
-justification_flags = 160
-
-[node name="HealthLabel" type="Label" parent="UICanvasLayer/HeartsAndKilled"]
-offset_left = 34.0
-offset_top = 23.0
-offset_right = 1063.0
-offset_bottom = 171.0
-scale = Vector2(0.5, 0.5)
-text = "Health: s2"
-label_settings = SubResource("LabelSettings_skbvq")
-justification_flags = 160
-
-[node name="KilledLabel" type="Label" parent="UICanvasLayer/HeartsAndKilled"]
-offset_left = 34.0
-offset_top = 98.0
-offset_right = 647.0
-offset_bottom = 246.0
-scale = Vector2(0.5, 0.5)
-text = "killed: 0"
-label_settings = SubResource("LabelSettings_0k0fs")
-justification_flags = 160
-
 [node name="Foreground" type="Node2D" parent="."]
 
 [node name="TextureRect3" type="TextureRect" parent="Foreground"]
@@ -877,3 +792,50 @@ offset_bottom = 577.0
 rotation = 1.57079
 scale = Vector2(0.0400012, 1.28)
 texture = SubResource("NoiseTexture2D_r86jj")
+
+[node name="UICanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("24_k77dm")
+
+[node name="HeartsAndKilled" type="Node2D" parent="UICanvasLayer"]
+
+[node name="HealthLabelBlack" type="Label" parent="UICanvasLayer/HeartsAndKilled"]
+visible = false
+offset_left = 34.0
+offset_top = 23.0
+offset_right = 1063.0
+offset_bottom = 171.0
+scale = Vector2(0.5, 0.5)
+text = "Health: S2 S2 S2"
+label_settings = SubResource("LabelSettings_uylbh")
+justification_flags = 160
+
+[node name="HealthLabel" type="Label" parent="UICanvasLayer/HeartsAndKilled"]
+offset_left = 88.0
+offset_top = 21.0
+offset_right = 1117.0
+offset_bottom = 169.0
+scale = Vector2(0.5, 0.5)
+text = "Health: s2"
+label_settings = SubResource("LabelSettings_skbvq")
+justification_flags = 160
+
+[node name="KilledLabel" type="Label" parent="UICanvasLayer/HeartsAndKilled"]
+offset_left = 62.0
+offset_top = 100.0
+offset_right = 675.0
+offset_bottom = 248.0
+scale = Vector2(0.5, 0.5)
+text = "killed: 0"
+label_settings = SubResource("LabelSettings_0k0fs")
+justification_flags = 160
+
+[node name="ObjectiveLabel" type="Label" parent="UICanvasLayer"]
+layout_direction = 2
+offset_left = 697.0
+offset_top = 25.0
+offset_right = 4557.0
+offset_bottom = 158.0
+scale = Vector2(0.5, 0.5)
+label_settings = SubResource("LabelSettings_sktgl")
+autowrap_mode = 2
+justification_flags = 0

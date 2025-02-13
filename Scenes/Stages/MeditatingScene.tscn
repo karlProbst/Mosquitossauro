@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://bpn4f8nelblma"]
+[gd_scene load_steps=35 format=3 uid="uid://bpn4f8nelblma"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/intro_room_sequence.gd" id="1_3ufsf"]
 [ext_resource type="Texture2D" uid="uid://c1taohmi5g6wt" path="res://Assets/Images/OldManMeditating.png" id="1_512wq"]
@@ -9,6 +9,7 @@
 [ext_resource type="Shader" path="res://Scenes/Stages/MeditatingScene.gdshader" id="4_ypvnh"]
 [ext_resource type="Texture2D" uid="uid://l8hum32l42qm" path="res://Assets/Images/OlfFff.png" id="5_5f7cx"]
 [ext_resource type="Texture2D" uid="uid://cgtequ4u32pdl" path="res://Assets/Images/posteCapa.png" id="5_tthq0"]
+[ext_resource type="AudioStream" uid="uid://0hphpx85lxfu" path="res://Assets/Sound/oldmanrealizeultimateweapon.wav" id="6_3e6jw"]
 [ext_resource type="Texture2D" uid="uid://bhh66bh6vxn8p" path="res://Assets/Images/thinkBlubble.png" id="9_lryis"]
 [ext_resource type="Texture2D" uid="uid://cjxkjv0sqj4br" path="res://Assets/Images/tankDrawSimple.png" id="10_mpwub"]
 [ext_resource type="Texture2D" uid="uid://l4bg5kb480qb" path="res://Assets/Images/mosquitosimple.png" id="11_2eyy5"]
@@ -306,7 +307,7 @@ tracks/20/keys = {
 
 [sub_resource type="Animation" id="Animation_s6kql"]
 resource_name = "new_animation"
-length = 18.0
+length = 21.0
 tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -499,7 +500,7 @@ tracks/14/path = NodePath("Think/Mosquitotank:modulate")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/keys = {
-"times": PackedFloat32Array(13, 13.8667),
+"times": PackedFloat32Array(13, 13.9),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
@@ -511,10 +512,10 @@ tracks/15/path = NodePath("Nebula/Carina-nebula-nasa-esa-hubble:material:shader_
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/keys = {
-"times": PackedFloat32Array(0, 1.53333, 8.2, 13.1333, 13.9, 14.1667, 18),
+"times": PackedFloat32Array(0, 1.53333, 8.2, 13, 13.9, 14.1667, 18),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [-0.13, 0.0, -0.01, 0.012, -0.335, -0.735, -0.735]
+"values": [-0.13, 0.1, -0.01, 0.012, -0.335, -1.0, -2.0]
 }
 tracks/16/type = "value"
 tracks/16/imported = false
@@ -547,10 +548,10 @@ tracks/18/path = NodePath("Think/Mosquitotank:scale")
 tracks/18/interp = 1
 tracks/18/loop_wrap = true
 tracks/18/keys = {
-"times": PackedFloat32Array(13, 13.9, 16.2333),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(13, 13.9, 14.1667, 17.9333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(0.1, 0.1), Vector2(3.253, 3.253), Vector2(3.373, 3.373)]
+"values": [Vector2(0.1, 0.1), Vector2(3.253, 3.253), Vector2(3.373, 3.373), Vector2(3.713, 3.713)]
 }
 tracks/19/type = "value"
 tracks/19/imported = false
@@ -588,6 +589,21 @@ tracks/21/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/22/type = "audio"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("Oldmanrealizeultimateweapon")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("6_3e6jw")
+}],
+"times": PackedFloat32Array(0.0333333)
+}
+tracks/22/use_blend = true
 
 [sub_resource type="Animation" id="Animation_io506"]
 resource_name = "new_animation_2"
@@ -842,7 +858,7 @@ color = Color(0.47451, 1, 1, 1)
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.968421, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_c4mbj"]
+[sub_resource type="CurveTexture" id="CurveTexture_fjgq2"]
 width = 64
 curve = SubResource("Curve_v5otj")
 
@@ -851,7 +867,7 @@ max_value = 10.0
 _data = [Vector2(0, 3.78745), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_50i0h"]
+[sub_resource type="CurveTexture" id="CurveTexture_2quhv"]
 curve = SubResource("Curve_uc6dj")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wnm6v"]
@@ -865,12 +881,15 @@ direction = Vector3(0, 0, 0)
 initial_velocity_min = -10.0
 initial_velocity_max = 10.0
 gravity = Vector3(0, -30, 0)
-scale_curve = SubResource("CurveTexture_50i0h")
+scale_curve = SubResource("CurveTexture_2quhv")
 color = Color(0.705572, 0.00249936, 9.62615e-08, 0.631373)
-alpha_curve = SubResource("CurveTexture_c4mbj")
+alpha_curve = SubResource("CurveTexture_fjgq2")
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_3ufsf")
+
+[node name="Oldmanrealizeultimateweapon" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(279, 367.235)
 
 [node name="Wallpaper" type="Node2D" parent="."]
 
@@ -924,6 +943,53 @@ libraries = {
 "": SubResource("AnimationLibrary_cyhuh")
 }
 autoplay = "new_animation"
+speed_scale = 0.92
+
+[node name="Think" type="Node2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(355, 206)
+scale = Vector2(0.313796, 0.310646)
+
+[node name="Polygon2D" type="Polygon2D" parent="Think"]
+texture = ExtResource("9_lryis")
+polygon = PackedVector2Array(9.56042, 105.164, 430.215, 101.977, 433.402, -9.5603, 490.764, 25.4943, 621.422, 165.713, 576.807, 63.7356, 560.873, -28.681, 595.928, -478.017, -487.577, -519.445, -710.652, -191.207, -417.468, 63.7356)
+uv = PackedVector2Array(637.222, 616.688, 1057.88, 613.502, 1061.06, 527.458, 1102.49, 546.579, 1163.04, 546.579, 1207.66, 530.645, 1229.96, 470.096, 1223.59, 33.5076, 140.084, -7.92059, -82.9903, 320.318, 210.193, 575.26)
+
+[node name="Nomosquito" type="Sprite2D" parent="Think"]
+position = Vector2(203.954, -213.514)
+scale = Vector2(0.929595, 0.929595)
+texture = ExtResource("11_x14cf")
+
+[node name="TankDrawSimple" type="Sprite2D" parent="Think"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(-286.81, -245.382)
+scale = Vector2(0.382335, 0.382335)
+texture = ExtResource("10_mpwub")
+
+[node name="Mosquitosimple" type="Sprite2D" parent="Think"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(334.612, -277.25)
+scale = Vector2(0.844829, 0.844829)
+texture = ExtResource("11_2eyy5")
+
+[node name="PlusAwesome" type="Sprite2D" parent="Think"]
+modulate = Color(0.427451, 0.427451, 0.427451, 0)
+position = Vector2(82.8562, -251.756)
+scale = Vector2(0.820292, 0.820292)
+texture = ExtResource("12_8282l")
+
+[node name="Equalrights" type="Sprite2D" parent="Think"]
+modulate = Color(1, 1, 1, 0)
+z_index = 1
+position = Vector2(656.477, 277.25)
+scale = Vector2(1.02168, 1.02168)
+texture = ExtResource("13_4bxum")
+
+[node name="Mosquitotank" type="Sprite2D" parent="Think"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(-31.8678, -239.008)
+scale = Vector2(2.30257, 2.30257)
+texture = ExtResource("15_qdsk3")
 
 [node name="OldMan" type="CharacterBody2D" parent="."]
 
@@ -986,51 +1052,6 @@ offset_right = 295.0
 offset_bottom = 1.92e+07
 scale = Vector2(0.6, 1)
 texture = ExtResource("5_tthq0")
-
-[node name="Think" type="Node2D" parent="."]
-modulate = Color(1, 1, 1, 0)
-position = Vector2(355, 206)
-scale = Vector2(0.313796, 0.313796)
-
-[node name="Polygon2D" type="Polygon2D" parent="Think"]
-texture = ExtResource("9_lryis")
-polygon = PackedVector2Array(9.56042, 105.164, 430.215, 101.977, 433.402, -9.5603, 490.764, 25.4943, 621.422, 165.713, 576.807, 63.7356, 560.873, -28.681, 595.928, -478.017, -487.577, -519.445, -710.652, -191.207, -417.468, 63.7356)
-uv = PackedVector2Array(637.222, 616.688, 1057.88, 613.502, 1061.06, 527.458, 1102.49, 546.579, 1163.04, 546.579, 1207.66, 530.645, 1229.96, 470.096, 1223.59, 33.5076, 140.084, -7.92059, -82.9903, 320.318, 210.193, 575.26)
-
-[node name="Nomosquito" type="Sprite2D" parent="Think"]
-position = Vector2(203.954, -213.514)
-scale = Vector2(0.929595, 0.929595)
-texture = ExtResource("11_x14cf")
-
-[node name="TankDrawSimple" type="Sprite2D" parent="Think"]
-modulate = Color(1, 1, 1, 0)
-position = Vector2(-286.81, -245.382)
-scale = Vector2(0.382335, 0.382335)
-texture = ExtResource("10_mpwub")
-
-[node name="Mosquitosimple" type="Sprite2D" parent="Think"]
-modulate = Color(1, 1, 1, 0)
-position = Vector2(334.612, -277.25)
-scale = Vector2(0.844829, 0.844829)
-texture = ExtResource("11_2eyy5")
-
-[node name="PlusAwesome" type="Sprite2D" parent="Think"]
-modulate = Color(0.427451, 0.427451, 0.427451, 0)
-position = Vector2(82.8562, -251.756)
-scale = Vector2(0.820292, 0.820292)
-texture = ExtResource("12_8282l")
-
-[node name="Equalrights" type="Sprite2D" parent="Think"]
-modulate = Color(1, 1, 1, 0)
-position = Vector2(656.477, 277.25)
-scale = Vector2(1.02168, 1.02168)
-texture = ExtResource("13_4bxum")
-
-[node name="Mosquitotank" type="Sprite2D" parent="Think"]
-modulate = Color(1, 1, 1, 0)
-position = Vector2(-31.8678, -239.008)
-scale = Vector2(2.30257, 2.30257)
-texture = ExtResource("15_qdsk3")
 
 [node name="ThinkBlubble" type="Sprite2D" parent="."]
 visible = false

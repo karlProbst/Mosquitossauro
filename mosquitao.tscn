@@ -1,0 +1,634 @@
+[gd_scene load_steps=13 format=3 uid="uid://1s822puixr7f"]
+
+[ext_resource type="Texture2D" uid="uid://dq1r3rcxq0xib" path="res://Assets/Images/woodenmosquito.png" id="1_neia4"]
+[ext_resource type="Texture2D" uid="uid://4ivajidfjsfs" path="res://Assets/Images/headmosquito.png" id="2_du0di"]
+
+[sub_resource type="Gradient" id="Gradient_psb0j"]
+offsets = PackedFloat32Array(0.567568, 0.645646)
+colors = PackedColorArray(0, 0, 0, 0.854902, 0, 0, 0, 0)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_yy1y1"]
+frequency = 0.0254
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_jd02b"]
+width = 128
+height = 256
+seamless = true
+seamless_blend_skirt = 1.0
+color_ramp = SubResource("Gradient_psb0j")
+noise = SubResource("FastNoiseLite_yy1y1")
+
+[sub_resource type="Gradient" id="Gradient_jq21x"]
+offsets = PackedFloat32Array(0.993994)
+colors = PackedColorArray(0.101961, 0.0588235, 0.0352941, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_asmq3"]
+frequency = 0.0254
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_tjm46"]
+width = 128
+height = 256
+seamless = true
+seamless_blend_skirt = 1.0
+color_ramp = SubResource("Gradient_jq21x")
+noise = SubResource("FastNoiseLite_asmq3")
+
+[sub_resource type="Animation" id="Animation_gq6a0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body/Chest:skew")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body/Chest:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-17.609, -33.112)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Body/Head:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-36, -38.838)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Body/Head:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.0692139]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Body/Ferrao:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.75511]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Body/Ferrao:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(51, -43)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Body/Lwing:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-19.3403, -42.3669)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Body/Lwing:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.28215]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Body:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Body:rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Body:skew")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Body/Ferrao:scale")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_10gmd"]
+resource_name = "idle"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body/Chest:skew")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.274017]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body/Chest:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-25, -33), Vector2(-17.609, -33.112)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Body/Head:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-36, -38.838), Vector2(-25, -38)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Body/Head:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -0.0692139]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Body/Ferrao:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.73075, 1.75511]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Body/Ferrao:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(51, -43)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Body/Lwing:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-19.3403, -42.3669), Vector2(-15, -39)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Body/Lwing:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.266667, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.28215, 1.34895, 1.28215]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Body/Ferrao:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.233333, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.14, 1), Vector2(1, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Body:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_cs314"]
+resource_name = "startAttack"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body/Chest:skew")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.274017]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body/Chest:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-25, -33), Vector2(-17.609, -33.112)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Body/Head:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-36, -38.838), Vector2(-25, -38)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Body/Head:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -0.0692139]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Body/Ferrao:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.133333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.30045, 3.98154]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Body/Ferrao:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(69, -43), Vector2(63.2021, -29.1117)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Body/Lwing:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-19.3403, -42.3669), Vector2(-15, -39)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Body/Lwing:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.233333, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.506384, 2.00189, 0.671952]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Body:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.0666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2, 0), Vector2(-1.90735e-06, -71)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Body:rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.766667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.301942]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Body:skew")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Body/Ferrao:scale")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0.5, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.35, 1), Vector2(1.165, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ca5vk"]
+_data = {
+"RESET": SubResource("Animation_gq6a0"),
+"idle": SubResource("Animation_10gmd"),
+"startAttack": SubResource("Animation_cs314")
+}
+
+[node name="Mosquitao" type="Node2D"]
+
+[node name="Body" type="Node2D" parent="."]
+position = Vector2(2, 0)
+
+[node name="Lwing" type="Node2D" parent="Body"]
+modulate = Color(1, 1, 1, 0.643137)
+position = Vector2(-19.3403, -42.3669)
+rotation = 1.28215
+metadata/_edit_group_ = true
+
+[node name="Rwing" type="Polygon2D" parent="Body/Lwing"]
+position = Vector2(2, 1.52588e-05)
+rotation = 4.9538
+offset = Vector2(-26, -164)
+texture = SubResource("NoiseTexture2D_jd02b")
+polygon = PackedVector2Array(19.8734, 172.274, 64, 174, 131.333, 152.999, 202.772, 115.993, 41, 143, 9.01411, 162.784)
+uv = PackedVector2Array(92.4721, 222.942, 103.588, 180.204, 105.696, 62.9454, 74.8627, 21.3963, 68.389, 196.048, 80.8799, 231.522)
+
+[node name="Rwing2" type="Polygon2D" parent="Body/Lwing/Rwing"]
+show_behind_parent = true
+offset = Vector2(-26, -164)
+texture = SubResource("NoiseTexture2D_tjm46")
+polygon = PackedVector2Array(19.8734, 172.274, 64, 174, 131.333, 152.999, 202.772, 115.993, 41, 143, 9.01411, 162.784)
+uv = PackedVector2Array(92.4721, 222.942, 103.588, 180.204, 105.696, 62.9454, 74.8627, 21.3963, 68.389, 196.048, 80.8799, 231.522)
+
+[node name="Line2D" type="Line2D" parent="Body/Lwing/Rwing"]
+points = PackedVector2Array(-8.9668, -0.772369, 15.493, -16.7322, 175.69, -47.0967)
+width = 2.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="Line2D2" type="Line2D" parent="Body/Lwing/Rwing"]
+points = PackedVector2Array(-8.9668, -0.772369, 19.0492, -11.4074, 175.69, -47.0967)
+width = 2.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="Line2D3" type="Line2D" parent="Body/Lwing/Rwing"]
+points = PackedVector2Array(-8.9668, -0.772369, 28.4974, -4.57132, 175.69, -47.0967)
+width = 2.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="Line2D4" type="Line2D" parent="Body/Lwing/Rwing"]
+points = PackedVector2Array(-8.9668, -0.772369, 39.0278, 1.35422, 175.69, -47.0967)
+width = 2.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="Line2D5" type="Line2D" parent="Body/Lwing/Rwing"]
+points = PackedVector2Array(-8.9668, -0.772369, 44.5765, 6.85066, 175.69, -47.0967)
+width = 2.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="Rwing2" type="Node2D" parent="Body/Lwing"]
+modulate = Color(1, 1, 1, 0.572549)
+z_index = 1
+position = Vector2(-1.23825, -5.43486)
+rotation = 0.11171
+metadata/_edit_group_ = true
+
+[node name="Rwing" type="Polygon2D" parent="Body/Lwing/Rwing2"]
+position = Vector2(2, 1.52588e-05)
+rotation = 4.9538
+offset = Vector2(-26, -164)
+texture = SubResource("NoiseTexture2D_jd02b")
+polygon = PackedVector2Array(19.8734, 172.274, 64, 174, 131.333, 152.999, 202.772, 115.993, 41, 143, 9.01411, 162.784)
+uv = PackedVector2Array(92.4721, 222.942, 103.588, 180.204, 105.696, 62.9454, 74.8627, 21.3963, 68.389, 196.048, 80.8799, 231.522)
+
+[node name="Rwing2" type="Polygon2D" parent="Body/Lwing/Rwing2/Rwing"]
+show_behind_parent = true
+offset = Vector2(-26, -164)
+texture = SubResource("NoiseTexture2D_tjm46")
+polygon = PackedVector2Array(19.8734, 172.274, 64, 174, 131.333, 152.999, 202.772, 115.993, 41, 143, 9.01411, 162.784)
+uv = PackedVector2Array(92.4721, 222.942, 103.588, 180.204, 105.696, 62.9454, 74.8627, 21.3963, 68.389, 196.048, 80.8799, 231.522)
+
+[node name="Line2D" type="Line2D" parent="Body/Lwing/Rwing2/Rwing"]
+points = PackedVector2Array(-8.9668, -0.772369, 15.493, -16.7322, 175.69, -47.0967)
+width = 2.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="Line2D2" type="Line2D" parent="Body/Lwing/Rwing2/Rwing"]
+points = PackedVector2Array(-8.9668, -0.772369, 19.0492, -11.4074, 175.69, -47.0967)
+width = 2.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="Line2D3" type="Line2D" parent="Body/Lwing/Rwing2/Rwing"]
+points = PackedVector2Array(-8.9668, -0.772369, 28.4974, -4.57132, 175.69, -47.0967)
+width = 2.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="Line2D4" type="Line2D" parent="Body/Lwing/Rwing2/Rwing"]
+points = PackedVector2Array(-8.9668, -0.772369, 39.0278, 1.35422, 175.69, -47.0967)
+width = 2.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="Line2D5" type="Line2D" parent="Body/Lwing/Rwing2/Rwing"]
+points = PackedVector2Array(-8.9668, -0.772369, 44.5765, 6.85066, 175.69, -47.0967)
+width = 2.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="Ferrao" type="Node2D" parent="Body"]
+position = Vector2(51, -43)
+rotation = 1.75511
+metadata/_edit_group_ = true
+
+[node name="Rwing" type="Polygon2D" parent="Body/Ferrao"]
+position = Vector2(2, 1.52588e-05)
+rotation = 4.9538
+offset = Vector2(-26, -164)
+texture = SubResource("NoiseTexture2D_jd02b")
+polygon = PackedVector2Array(19.8734, 172.274, 64, 174, 131.333, 152.999, 202.772, 115.993, 41, 143, 9.01411, 162.784)
+uv = PackedVector2Array(92.4721, 222.942, 103.588, 180.204, 105.696, 62.9454, 74.8627, 21.3963, 68.389, 196.048, 80.8799, 231.522)
+
+[node name="Rwing2" type="Polygon2D" parent="Body/Ferrao/Rwing"]
+show_behind_parent = true
+offset = Vector2(-26, -164)
+texture = SubResource("NoiseTexture2D_tjm46")
+polygon = PackedVector2Array(19.8734, 172.274, 64, 174, 131.333, 152.999, 202.772, 115.993, 41, 143, 9.01411, 162.784)
+uv = PackedVector2Array(92.4721, 222.942, 103.588, 180.204, 105.696, 62.9454, 74.8627, 21.3963, 68.389, 196.048, 80.8799, 231.522)
+
+[node name="Line2D" type="Line2D" parent="Body/Ferrao/Rwing"]
+points = PackedVector2Array(-8.9668, -0.772369, 15.493, -16.7322, 175.69, -47.0967)
+width = 2.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="Line2D2" type="Line2D" parent="Body/Ferrao/Rwing"]
+points = PackedVector2Array(-8.9668, -0.772369, 19.0492, -11.4074, 175.69, -47.0967)
+width = 2.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="Line2D3" type="Line2D" parent="Body/Ferrao/Rwing"]
+points = PackedVector2Array(-8.9668, -0.772369, 28.4974, -4.57132, 175.69, -47.0967)
+width = 2.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="Line2D4" type="Line2D" parent="Body/Ferrao/Rwing"]
+points = PackedVector2Array(-8.9668, -0.772369, 39.0278, 1.35422, 175.69, -47.0967)
+width = 2.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="Line2D5" type="Line2D" parent="Body/Ferrao/Rwing"]
+points = PackedVector2Array(-8.9668, -0.772369, 44.5765, 6.85066, 175.69, -47.0967)
+width = 2.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="Chest" type="Node2D" parent="Body"]
+position = Vector2(-17.609, -33.112)
+rotation = -0.14998
+
+[node name="Woodenmosquito" type="Sprite2D" parent="Body/Chest"]
+self_modulate = Color(0.0569284, 0.0320319, 0.0148493, 1)
+position = Vector2(23, 26)
+rotation = -3.04475
+scale = Vector2(0.248857, -0.248857)
+skew = 0.264555
+texture = ExtResource("1_neia4")
+
+[node name="Head" type="Node2D" parent="Body"]
+position = Vector2(-36, -38.838)
+rotation = -0.0692139
+
+[node name="Headmosquito" type="Sprite2D" parent="Body/Head"]
+self_modulate = Color(0.0470588, 0.0392157, 0.0117647, 1)
+position = Vector2(4, 3)
+rotation = -2.52834
+scale = Vector2(0.27488, -0.519917)
+skew = -0.160028
+texture = ExtResource("2_du0di")
+offset = Vector2(89.3325, 29.608)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ca5vk")
+}
+autoplay = "idle"

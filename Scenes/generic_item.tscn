@@ -1,11 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://btsfhqfo5t12s"]
+[gd_scene load_steps=6 format=3 uid="uid://btsfhqfo5t12s"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/generic_item.gd" id="1_ivtwr"]
 [ext_resource type="Texture2D" uid="uid://bk6gbxkv6slga" path="res://Assets/Images/Raqueteleletrica.png" id="2_g2yhq"]
 [ext_resource type="Texture2D" uid="uid://bxxvrx14bs383" path="res://Assets/Images/sbp.png" id="3_n365s"]
+[ext_resource type="Texture2D" uid="uid://bdml8sfmq6ml" path="res://Assets/Images/shoes.png" id="4_yw0c7"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ipv2w"]
-radius = 46.0977
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5pc71"]
+radius = 20.0
+height = 114.0
 
 [node name="GenericItem" type="CharacterBody2D" groups=["item"]]
 position = Vector2(397, 542)
@@ -14,24 +16,27 @@ collision_mask = 10
 script = ExtResource("1_ivtwr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_ipv2w")
+rotation = -1.59535
+shape = SubResource("CapsuleShape2D_5pc71")
 
 [node name="Raqueteleletrica" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(4, 3)
+rotation = -0.719543
 scale = Vector2(0.279076, 0.279076)
 texture = ExtResource("2_g2yhq")
 
 [node name="highlight" type="Sprite2D" parent="Raqueteleletrica"]
-visible = false
 modulate = Color(0.427748, 0.000749685, 0.556739, 1)
 show_behind_parent = true
-position = Vector2(-3.02115, 9.06344)
-scale = Vector2(1.06137, 1.06137)
+position = Vector2(-9.11259, 15.8365)
+scale = Vector2(1.23833, 1.23833)
 texture = ExtResource("2_g2yhq")
 
 [node name="Sbp" type="Sprite2D" parent="."]
+visible = false
 show_behind_parent = true
-rotation = 3.14159
+rotation = 3.17556
 scale = Vector2(0.20404, -0.20404)
 texture = ExtResource("3_n365s")
 
@@ -39,11 +44,24 @@ texture = ExtResource("3_n365s")
 visible = false
 modulate = Color(0.711652, 0.263292, 3.85046e-07, 1)
 show_behind_parent = true
-scale = Vector2(1.15, 1.15)
+scale = Vector2(1.47269, 1.47269)
 texture = ExtResource("3_n365s")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
+visible = false
 position = Vector2(-25, -39)
 target_position = Vector2(47, 66)
 hit_from_inside = true
 collide_with_areas = true
+
+[node name="Shoes" type="Sprite2D" parent="."]
+position = Vector2(-5, 3.00001)
+rotation = -3.09852
+scale = Vector2(0.145388, 0.145388)
+texture = ExtResource("4_yw0c7")
+
+[node name="highlight" type="Sprite2D" parent="Shoes"]
+modulate = Color(0.584314, 0.176471, 1, 1)
+show_behind_parent = true
+scale = Vector2(1.25049, 1.25049)
+texture = ExtResource("4_yw0c7")

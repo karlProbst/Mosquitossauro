@@ -50,12 +50,15 @@ func _physics_process(delta: float) -> void:
 	
 func updateItem():
 	remove_from_group("raquete")
+	remove_from_group("almofada")
 	for c in get_children():
 		c.visible=false
 	match item:
 		"none":
 			queue_free()
-			# Add logic for no item
+		"sandal":
+			add_to_group("almofada")
+			$Shoes.visible=true
 		"spray":
 			$Sbp.visible=true
 			

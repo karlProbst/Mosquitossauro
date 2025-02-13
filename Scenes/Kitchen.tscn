@@ -1,7 +1,8 @@
-[gd_scene load_steps=34 format=3 uid="uid://ceb886glmyau8"]
+[gd_scene load_steps=41 format=3 uid="uid://ceb886glmyau8"]
 
 [ext_resource type="Texture2D" uid="uid://dimte65nrgafy" path="res://Assets/Images/kithcenmarmoretile.png" id="1_awwhe"]
 [ext_resource type="Texture2D" uid="uid://1m7phuoqd1m4" path="res://Assets/Images/kitchenwallpaper.jpeg" id="1_giqto"]
+[ext_resource type="Script" path="res://Scenes/kitchen.gd" id="1_r5w7l"]
 [ext_resource type="Texture2D" uid="uid://dng8lul1c48gk" path="res://Assets/Images/switchzoado.png" id="1_xuncx"]
 [ext_resource type="Texture2D" uid="uid://b32l0ctjgoy3r" path="res://Assets/Images/kitentiletile.png" id="2_87hvn"]
 [ext_resource type="Texture2D" uid="uid://d3rjkl01dogsr" path="res://Assets/Images/pipes-and-plumbing_2_-removebg-preview.png" id="2_vso0h"]
@@ -18,6 +19,9 @@
 [ext_resource type="Script" path="res://Assets/Scripts/camera_2d.gd" id="11_m83qx"]
 [ext_resource type="Texture2D" uid="uid://clnvr1eygavlj" path="res://Assets/Images/armarinhossorange.png" id="15_i3vcr"]
 [ext_resource type="Texture2D" uid="uid://dhhi82sg8exxj" path="res://Assets/Images/aramarin.png" id="16_me4sj"]
+[ext_resource type="Script" path="res://Assets/Scripts/hit_marker.gd" id="20_u40a6"]
+[ext_resource type="Script" path="res://Scenes/Stages/ui_canvas_layer.gd" id="21_6u2w6"]
+[ext_resource type="FontFile" uid="uid://d4exem1lhy0cg" path="res://Assets/Kumar_One,Lilita_One/Lilita_One/LilitaOne-Regular.ttf" id="22_dnytk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8debv"]
 size = Vector2(3484, 211)
@@ -76,7 +80,32 @@ normalize = false
 color_ramp = SubResource("Gradient_i2heb")
 noise = SubResource("FastNoiseLite_bpyox")
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="LabelSettings" id="LabelSettings_dmfr5"]
+font = ExtResource("22_dnytk")
+font_size = 128
+font_color = Color(0, 0, 0.0392157, 1)
+outline_size = 34
+shadow_size = 118
+shadow_color = Color(0, 0, 0, 0.235294)
+
+[sub_resource type="LabelSettings" id="LabelSettings_0vhis"]
+font = ExtResource("22_dnytk")
+font_size = 128
+font_color = Color(0.492981, 0, 0.0405629, 1)
+outline_size = 34
+shadow_size = 118
+shadow_color = Color(0, 0, 0, 0.235294)
+
+[sub_resource type="LabelSettings" id="LabelSettings_au55t"]
+font = ExtResource("22_dnytk")
+font_size = 128
+font_color = Color(0, 0.160784, 0.0862745, 1)
+outline_size = 34
+shadow_size = 118
+shadow_color = Color(0, 0, 0, 0.235294)
+
+[node name="Kitchen" type="Node2D"]
+script = ExtResource("1_r5w7l")
 
 [node name="wallpaper3" type="TextureRect" parent="."]
 texture_repeat = 3
@@ -90,11 +119,13 @@ expand_mode = 2
 stretch_mode = 1
 
 [node name="wallpaper" type="TextureRect" parent="."]
+modulate = Color(0.999998, 0.996683, 0.679044, 1)
+self_modulate = Color(0.761595, 0.704996, 0.612113, 1)
 texture_repeat = 3
-offset_left = 235.0
-offset_top = 14.0
-offset_right = 2663.0
-offset_bottom = 2442.0
+offset_left = -1655.0
+offset_top = 131.0
+offset_right = 1025.0
+offset_bottom = 1507.0
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("1_giqto")
 expand_mode = 2
@@ -104,7 +135,7 @@ stretch_mode = 1
 texture_repeat = 3
 offset_left = -2599.0
 offset_top = 563.0
-offset_right = 5180.0
+offset_right = 6846.0
 offset_bottom = 730.0
 scale = Vector2(0.364319, 0.364319)
 texture = ExtResource("2_87hvn")
@@ -219,7 +250,6 @@ texture = ExtResource("10_ttrcj")
 
 [node name="TileBregaBule" type="Node2D" parent="."]
 position = Vector2(-889, 631)
-scale = Vector2(1, 1)
 skew = 0.785398
 
 [node name="TextureRect" type="TextureRect" parent="TileBregaBule"]
@@ -235,10 +265,11 @@ stretch_mode = 1
 [node name="Cafeteira" parent="." instance=ExtResource("8_orqjb")]
 position = Vector2(722, 495)
 
-[node name="OldMan" parent="." groups=["player"] instance=ExtResource("9_ed1px")]
+[node name="OldMan" parent="." node_paths=PackedStringArray("hitMarker") groups=["player"] instance=ExtResource("9_ed1px")]
 position = Vector2(69, 146)
 scale = Vector2(0.8, 0.8)
 script = ExtResource("10_o4f74")
+hitMarker = NodePath("../HitMarker")
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("followNode")]
 position = Vector2(389, 275)
@@ -305,3 +336,85 @@ texture = SubResource("NoiseTexture2D_4hvhw")
 [node name="Aramarin" type="Sprite2D" parent="."]
 position = Vector2(-690, 83)
 texture = ExtResource("16_me4sj")
+
+[node name="HitMarker" type="Node2D" parent="."]
+modulate = Color(0.913725, 0.415686, 0.615686, 1)
+position = Vector2(845, 346)
+rotation = 0.803837
+script = ExtResource("20_u40a6")
+
+[node name="ColorRect" type="ColorRect" parent="HitMarker"]
+offset_left = -2.95636
+offset_top = 8.50531
+offset_right = 37.0436
+offset_bottom = 48.5053
+scale = Vector2(0.08, 0.479999)
+
+[node name="ColorRect3" type="ColorRect" parent="HitMarker"]
+offset_left = -2.95636
+offset_top = 8.50531
+offset_right = 37.0436
+offset_bottom = 48.5053
+scale = Vector2(0.08, 0.479999)
+
+[node name="ColorRect2" type="ColorRect" parent="HitMarker"]
+offset_left = -2.16815
+offset_top = -25.456
+offset_right = 37.8318
+offset_bottom = 14.544
+scale = Vector2(0.08, 0.479999)
+
+[node name="ColorRect4" type="ColorRect" parent="HitMarker"]
+offset_left = -29.4888
+offset_top = -38.5681
+offset_right = 10.5112
+offset_bottom = 1.43188
+rotation = -1.57472
+scale = Vector2(0.08, 0.479999)
+pivot_offset = Vector2(19.117, 38.3134)
+
+[node name="ColorRect5" type="ColorRect" parent="HitMarker"]
+offset_left = 6.51123
+offset_top = -38.5682
+offset_right = 46.5112
+offset_bottom = 1.43182
+rotation = -1.57472
+scale = Vector2(0.08, 0.479999)
+pivot_offset = Vector2(19.117, 38.3134)
+
+[node name="UICanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("21_6u2w6")
+
+[node name="HeartsAndKilled" type="Node2D" parent="UICanvasLayer"]
+metadata/_edit_lock_ = true
+
+[node name="HealthLabelBlack" type="Label" parent="UICanvasLayer/HeartsAndKilled"]
+visible = false
+offset_left = 34.0
+offset_top = 23.0
+offset_right = 1063.0
+offset_bottom = 171.0
+scale = Vector2(0.5, 0.5)
+text = "Health: s2"
+label_settings = SubResource("LabelSettings_dmfr5")
+justification_flags = 160
+
+[node name="HealthLabel" type="Label" parent="UICanvasLayer/HeartsAndKilled"]
+offset_left = 34.0
+offset_top = 23.0
+offset_right = 1063.0
+offset_bottom = 171.0
+scale = Vector2(0.5, 0.5)
+text = "Health: s2"
+label_settings = SubResource("LabelSettings_0vhis")
+justification_flags = 160
+
+[node name="KilledLabel" type="Label" parent="UICanvasLayer/HeartsAndKilled"]
+offset_left = 34.0
+offset_top = 98.0
+offset_right = 647.0
+offset_bottom = 246.0
+scale = Vector2(0.5, 0.5)
+text = "killed: 0"
+label_settings = SubResource("LabelSettings_au55t")
+justification_flags = 160
