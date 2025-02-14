@@ -1,0 +1,11 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://dv78debdfxakn"]
+
+[ext_resource type="FontFile" uid="uid://d4exem1lhy0cg" path="res://Assets/Kumar_One,Lilita_One/Lilita_One/LilitaOne-Regular.ttf" id="1_hvh28"]
+
+[resource]
+font = ExtResource("1_hvh28")
+font_size = 115
+font_color = Color(0.0758217, 0.107727, 0.302254, 1)
+outline_size = 17
+shadow_size = 118
+shadow_color = Color(0, 0, 0, 0.235294)

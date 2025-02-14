@@ -210,3 +210,5 @@ shopNode = NodePath("../../Shop")
 stream = ExtResource("7_ljwv0")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="buying" from="Area2D/ShopControllerClass" to="Shop" method="_on_shop_controller_class_buying"]
+[connection signal="stopbuying" from="Area2D/ShopControllerClass" to="Shop" method="_on_shop_controller_class_stopbuying"]

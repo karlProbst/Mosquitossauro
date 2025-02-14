@@ -43,6 +43,9 @@ func _unhandled_input(event):
 
 	if event.is_action_pressed("mute"):
 		toggle_main_bus_mute()
+	if event.is_action_pressed("pause"):
+		Engine.time_scale = 1.0 if Engine.time_scale == 0.0 else 0.0
+
 func dyingPlayer():
 	player.dead=true
 	player.crouch=10

@@ -1,6 +1,7 @@
-[gd_scene load_steps=28 format=3 uid="uid://cgqpj8agtgvq8"]
+[gd_scene load_steps=29 format=3 uid="uid://cgqpj8agtgvq8"]
 
 [ext_resource type="Texture2D" uid="uid://s8lquyphw24a" path="res://Assets/Images/OldMan.png" id="1_21wkb"]
+[ext_resource type="Texture2D" uid="uid://uy7kkta657w7" path="res://Assets/Images/tinfoil.png" id="2_46r6n"]
 [ext_resource type="Texture2D" uid="uid://bk6gbxkv6slga" path="res://Assets/Images/Raqueteleletrica.png" id="3_1q0dw"]
 [ext_resource type="Texture2D" uid="uid://bxxvrx14bs383" path="res://Assets/Images/sbp.png" id="3_wuep8"]
 [ext_resource type="Texture2D" uid="uid://bdml8sfmq6ml" path="res://Assets/Images/shoes.png" id="4_atwui"]
@@ -445,6 +446,12 @@ texture = ExtResource("1_21wkb")
 polygon = PackedVector2Array(260, 265, 265, 288, 274, 291, 288, 282, 290, 277, 305, 273, 320, 224, 270, 207, 250, 242)
 uv = PackedVector2Array(106.827, 63.7184, 116.827, 72.7184, 127.827, 79.7184, 134.827, 80.7184, 136.827, 75.7184, 151.827, 71.7184, 166.827, 22.7184, 116.827, 5.71837, 96.8269, 40.7184)
 
+[node name="Tinfoil" type="Sprite2D" parent="Body/Head"]
+position = Vector2(-1.85587, -67.6738)
+rotation = -0.40309
+scale = Vector2(0.506072, 0.556768)
+texture = ExtResource("2_46r6n")
+
 [node name="LegL" type="Polygon2D" parent="Body"]
 position = Vector2(254.306, 420.618)
 rotation = -0.843075
@@ -535,7 +542,7 @@ uv = PackedVector2Array(38.9561, 148.271, 57.9561, 141.271, 66.9561, 146.271, 67
 
 [node name="HandR" type="Polygon2D" parent="Body"]
 position = Vector2(318.606, 416.212)
-rotation = -0.463646
+rotation = -0.463647
 scale = Vector2(1.00004, 1.00004)
 offset = Vector2(-199, -419)
 texture = ExtResource("1_21wkb")

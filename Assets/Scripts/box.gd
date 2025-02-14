@@ -8,6 +8,8 @@ var spawner=Spawner.new()
 func _ready() -> void:
 	player=GlobalSingleton.getPlayer()
 func _process(_delta: float) -> void:
+	if global_position.y>5000:
+		queue_free()
 	if player:
 		if player.chutando==0:
 			lockchute=false

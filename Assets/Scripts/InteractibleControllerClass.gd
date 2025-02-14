@@ -8,9 +8,11 @@ class_name InteractibleControllerClass
 var defaultKickSound = preload("res://Assets/Sound/paaa.wav")
 @export var health:int=2
 signal destroyed
+signal tookDamage
 func _on_area_entered(area: Node) -> void:
-	if area.is_in_group("chute"):
+	if area.is_in_group("chute") or area.is_in_group("almofada"):
 		takeDamage()
+		
 
 func _ready() -> void:
 	if get_parent().has_signal("area_entered"):
@@ -25,6 +27,7 @@ func _ready() -> void:
 		animation_player_node = get_parent().get_node_or_null("AnimationPlayer")
 		
 func takeDamage(damage:int=1,_anim:String = "takeDamage") -> void:
+	
 	if health==-1:
 		playSound()
 		playAnimation()
@@ -33,6 +36,7 @@ func takeDamage(damage:int=1,_anim:String = "takeDamage") -> void:
 		removeHealth(damage)
 	if health>0:
 		playAnimation()
+	emit_signal("tookDamage")
 		
 func playAnimation(animStr:String="takeDamage"):
 	if animation_player_node:
@@ -49,9 +53,6 @@ func playSound(customSound=null)-> void:
 		elif audio_player_node.stream == null:
 			audio_player_node.stream = defaultKickSound
 		audio_player_node.play()
-	else:
-		print_debug("Warning: AudioStreamPlayer2D not found!")
-
 func removeNode():
 	var animPlayer = get_parent().get_node_or_null("AnimationPlayer")
 	if animPlayer and animPlayer.has_animation("destroy"):

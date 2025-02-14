@@ -1,9 +1,15 @@
-[gd_resource type="AudioBusLayout" load_steps=2 format=3 uid="uid://c6jwn3vhpb0ep"]
+[gd_resource type="AudioBusLayout" load_steps=3 format=3 uid="uid://c6jwn3vhpb0ep"]
 
 [sub_resource type="AudioEffectPhaser" id="AudioEffectPhaser_bve27"]
 resource_name = "Phaser"
 
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_8jp05"]
+resource_name = "Reverb"
+
 [resource]
+bus/0/mute = true
 bus/0/volume_db = 0.267241
 bus/0/effect/0/effect = SubResource("AudioEffectPhaser_bve27")
 bus/0/effect/0/enabled = false
+bus/0/effect/1/effect = SubResource("AudioEffectReverb_8jp05")
+bus/0/effect/1/enabled = false

@@ -1,0 +1,71 @@
+[gd_scene load_steps=2 format=3 uid="uid://d0uhpyv04c6jf"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/hit_marker.gd" id="1_sy1bp"]
+
+[node name="HitMarker" type="Node2D"]
+rotation = 0.785398
+script = ExtResource("1_sy1bp")
+
+[node name="Black" type="Node2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+scale = Vector2(0.3, 0.3)
+
+[node name="ColorRect" type="ColorRect" parent="Black"]
+offset_left = 12.0
+offset_top = -9.0
+offset_right = 76.0
+offset_bottom = 9.0
+
+[node name="ColorRect2" type="ColorRect" parent="Black"]
+offset_left = -76.0
+offset_top = -9.0
+offset_right = -12.0
+offset_bottom = 9.0
+
+[node name="ColorRect3" type="ColorRect" parent="Black"]
+offset_left = 19.0
+offset_top = -8.0
+offset_right = 83.0
+offset_bottom = 10.0
+rotation = 1.57079
+pivot_offset = Vector2(-15, 5)
+
+[node name="ColorRect4" type="ColorRect" parent="Black"]
+offset_left = -69.0
+offset_top = -8.0
+offset_right = -5.0
+offset_bottom = 10.0
+rotation = 1.57079
+pivot_offset = Vector2(73, 5)
+
+[node name="white" type="Node2D" parent="."]
+scale = Vector2(0.3, 0.3)
+metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="ColorRect" parent="white"]
+offset_left = 15.0
+offset_top = -6.0
+offset_right = 73.0
+offset_bottom = 6.0
+
+[node name="ColorRect2" type="ColorRect" parent="white"]
+offset_left = -73.0
+offset_top = -6.0
+offset_right = -15.0
+offset_bottom = 6.0
+
+[node name="ColorRect3" type="ColorRect" parent="white"]
+offset_left = 16.0
+offset_top = -5.0
+offset_right = 74.0
+offset_bottom = 7.0
+rotation = 1.57079
+pivot_offset = Vector2(-15, 5)
+
+[node name="ColorRect4" type="ColorRect" parent="white"]
+offset_left = -72.0
+offset_top = -5.0
+offset_right = -14.0
+offset_bottom = 7.0
+rotation = 1.57079
+pivot_offset = Vector2(73, 5)

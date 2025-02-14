@@ -65,7 +65,8 @@ func take_damage(damage:int=1) -> void:
 func is_colliding_with_chute(raycast: RayCast2D) -> bool:
 	if raycast.is_colliding():
 		var collider = raycast.get_collider()
-		if collider.is_in_group("chute"):
-			return true
+		if collider:
+			if collider.is_in_group("chute"):
+				return true
 	return false
-	
+		

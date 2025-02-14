@@ -243,6 +243,13 @@ texture = ExtResource("10_hjs40")
 polygon = PackedVector2Array(-1474, 617, -1474, 401, -1707, 404, -1703, 620)
 uv = PackedVector2Array(1029.16, 954.968, 1029.16, 548.391, 590.582, 554.038, 598.111, 960.615)
 
+[node name="bancada4" type="Polygon2D" parent="AreaCena/InanimatSprites"]
+position = Vector2(273, 178)
+scale = Vector2(0.734604, 0.734604)
+texture = ExtResource("10_hjs40")
+polygon = PackedVector2Array(-1474, 617, -1474, 401, -1707, 404, -1703, 620)
+uv = PackedVector2Array(1029.16, 954.968, 1029.16, 548.391, 590.582, 554.038, 598.111, 960.615)
+
 [node name="Microondas" type="Sprite2D" parent="."]
 position = Vector2(-1502, 410)
 scale = Vector2(0.197013, 0.197013)
@@ -263,10 +270,10 @@ texture = ExtResource("9_ka66d")
 stretch_mode = 1
 
 [node name="Cafeteira" parent="." instance=ExtResource("8_orqjb")]
-position = Vector2(722, 495)
+position = Vector2(-1202, 478)
 
 [node name="OldMan" parent="." node_paths=PackedStringArray("hitMarker") groups=["player"] instance=ExtResource("9_ed1px")]
-position = Vector2(69, 146)
+position = Vector2(-2639, 102)
 scale = Vector2(0.8, 0.8)
 script = ExtResource("10_o4f74")
 hitMarker = NodePath("../HitMarker")
@@ -281,11 +288,11 @@ followNode = NodePath("../OldMan")
 [node name="ColorRect" type="ColorRect" parent="Camera2D"]
 visible = false
 top_level = true
-offset_left = -1107.0
-offset_top = -354.0
-offset_right = 267.0
-offset_bottom = 514.0
-scale = Vector2(2.08123, 2.08123)
+offset_left = -4371.0
+offset_top = -337.0
+offset_right = -2997.0
+offset_bottom = 531.0
+scale = Vector2(5.28123, 2.08123)
 color = Color(0, 0, 0, 1)
 
 [node name="Bounds" type="Line2D" parent="."]

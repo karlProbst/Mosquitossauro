@@ -113,14 +113,14 @@ func _process(delta: float) -> void:
 			if floorbuffer>0:
 				velocity.x += input_direction.x * acceleration * delta
 				if input_direction.x>0 and velocity.x<-10:
-					velocity.x =20
+					velocity.x =50
 				if input_direction.x<0 and velocity.x>10:
-					velocity.x = -20
+					velocity.x = -50
 		if kickoff!=0 and crouch==0 and abs(velocity.x)<180:
 			if floorbuffer>0:
-				velocity.x += input_direction.x * acceleration * delta*20	
+				velocity.x += input_direction.x * acceleration * delta*30	
 			elif abs(velocity.x)<50:
-				velocity.x += input_direction.x * acceleration * delta*20*abs(kickoff)
+				velocity.x += input_direction.x * acceleration * delta*30*abs(kickoff)
 	else:
 		if crouch>0:
 			velocity.x = move_toward(velocity.x, 0, friction/4 * delta)
@@ -255,8 +255,8 @@ func _process(delta: float) -> void:
 	
 	if  currentItem=="raquete":
 		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-			if weightRot<12:
-				weightRot+=delta*4.5
+			if weightRot<9:
+				weightRot+=delta*3.2
 			if weightRot>1 and Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
 				var raquetePos = $Body/HandR/Raquete.global_position
 				var mousePos = get_global_mouse_position()
@@ -279,7 +279,8 @@ func _process(delta: float) -> void:
 
 			
 		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-			if weightRot==0:
+			if weightRot<2:
+				$Body/HandR/Shoes.rotation_degrees+=60
 				weightRot=4
 			if weightRot<15:
 				weightRot+=delta*20

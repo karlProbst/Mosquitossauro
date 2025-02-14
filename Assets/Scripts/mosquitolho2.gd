@@ -37,7 +37,7 @@ var agressivness = 1.0-randf_range(0.01,0.2)
 var cellingRounds=0
 var laserPointTo
 var laserPointToPlayer
-var deadTimer:float=0
+var deadTimer:float=30
 
 signal justDied
 func updateBounds():
@@ -64,10 +64,17 @@ func got_hit(damage):
 func _process(delta: float) -> void:
 	
 	
-	$Polygon2D.skew=velocity.x/(fly_speed*1.3)
-	$Polygon2D.scale.y=1+abs(velocity.y/(fly_speed*2.1))
-	$Polygon2D.scale.x=1-abs(velocity.y/(fly_speed*2.3))
-		
+	$Polygon2D.skew = velocity.x/(fly_speed*1.3)
+	$Polygon2D.scale.y = 1+abs(velocity.y/(fly_speed*2.1))
+	$Polygon2D.scale.x = 1-abs(velocity.y/(fly_speed*2.3))
+	$Polygon2D.skew = clampf($Polygon2D.skew,-0.5,0.5)
+	$Polygon2D.scale.x = clampf($Polygon2D.scale.x,0.5,2.0)
+	$Polygon2D.scale.y = clampf($Polygon2D.scale.y,0.5,2.0)
+
+	if gothit>0:
+		$Polygon2D.skew=0
+		$Polygon2D.scale.y=1
+		$Polygon2D.scale.x=1
 	if health>0:
 		pass
 	if health<=0:
@@ -104,18 +111,24 @@ func _process(delta: float) -> void:
 				byting=0
 				if gothit<=0:	
 					gothit=0.4
-					got_hit(2) 
+					got_hit(3) 
 					velocity.x=800
 					velocity.y=300
 			if col.is_in_group("almofada"):
+				var almovel=0
 				if col is RigidBody2D:
 					velocity=col.linear_velocity
+					if col.linear_velocity.length()>1:
+						almovel=1
 				if col is CharacterBody2D:
 					velocity=col.velocity
-			if col.is_in_group("almofada") and (position.y<wallSpace.y+50 or position.x<wallSpace.x+50 or position.x>wallSpace.z-50 or position.y>wallSpace.w-50):
-				got_hit(20)
-				stuck=true
-				position.y=wallSpace.y
+					if col.velocity.length()>1:
+						almovel=1
+				if almovel>0 and col.is_in_group("almofada") and (position.y<wallSpace.y+50 or position.x<wallSpace.x+50 or position.x>wallSpace.z-50 or position.y>wallSpace.w-50):
+					
+					got_hit(20)
+					stuck=true
+					position.y=wallSpace.y
 			if col.is_in_group("raquete"):
 				$Polygon2D.modulate = Color(0, 0, 0, 1) 
 				if health>0:
@@ -179,9 +192,9 @@ func _process(delta: float) -> void:
 		$RayLaser.enabled=false
 		$RayLaser/Line2D.set_point_position(1,Vector2.ZERO)
 		byting=0
-		deadTimer+=delta
+		deadTimer-=delta
 		
-		if deadTimer>=30:
+		if deadTimer<=0:
 			queue_free()
 			emit_signal("justDied")
 		
@@ -287,5 +300,5 @@ func reflectCol() -> void:
 	byting = 0
 
 func _on_area_entered(area: Area2D) -> void:
-	if area and not area.is_in_group("mosquito"):
+	if area and not area.is_in_group("mosquito") and gothit==0:
 		reflectCol()

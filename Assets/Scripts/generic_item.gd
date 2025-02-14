@@ -13,7 +13,8 @@ var highlightitem
 func _ready() -> void:
 	updateItem()
 func _physics_process(delta: float) -> void:
-	
+	if global_position.y>5000:
+		queue_free()
 	if highlight>0:
 		if highlightitem==null:
 			for c in get_children():

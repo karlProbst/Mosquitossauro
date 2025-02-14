@@ -7,6 +7,7 @@ var arrayOfMosquitos=[]
 var spawnedN:int=0
 var spawnTimer=30
 var stage= "killNMosquitoes"
+var stageProgress = "start"
 func _ready() -> void:
 	spawnMosquito(7)
 	GlobalSingleton.player=$OldMan
@@ -20,10 +21,11 @@ func _process(_delta: float) -> void:
 			spawnMosquito(8)
 			spawnTimer=27.5
 		spawnTimer-=_delta
-		if GlobalSingleton.killed>=30:
-			$Camera2D.toNextStage=true
-			if $Camera2D/ColorRect.modulate.a>=1:
-				get_tree().change_scene_to_packed(preload("res://Scenes/Stages/MeditatingScene.tscn"))
+		if stageProgress=="transition":
+			if GlobalSingleton.killed>=60:
+				$Camera2D.toNextStage=true
+				if $Camera2D/ColorRect.modulate.a>=1:
+					get_tree().change_scene_to_packed(preload("res://Scenes/Stages/MeditatingScene.tscn"))
 	if Input.is_action_pressed("spawnMosquitao"):
 		spawnMosquito(1)
 func killMosquito():

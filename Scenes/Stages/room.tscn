@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://co2sr2be7w38q" path="res://Assets/Images/skada.png" id="3_vxrli"]
 [ext_resource type="Texture2D" uid="uid://bks80nk20gx02" path="res://Assets/Images/60s_wallpaper.jpg" id="3_wssqe"]
 [ext_resource type="Script" path="res://Assets/Scripts/camera_2d.gd" id="4_kl6ap"]
-[ext_resource type="Script" path="res://Assets/Scripts/hit_marker.gd" id="4_r713j"]
 [ext_resource type="Texture2D" uid="uid://bh5ugjkr8p120" path="res://Assets/Images/book.png" id="6_6d42e"]
 [ext_resource type="PackedScene" uid="uid://bwwaepeq7v28a" path="res://Scenes/quadro_pombo.tscn" id="9_53vs6"]
 [ext_resource type="Texture2D" uid="uid://c8fs5v3dsbbi1" path="res://Assets/Images/Cabeceira.png" id="9_o16m6"]
@@ -25,6 +24,7 @@
 [ext_resource type="FontFile" uid="uid://d4exem1lhy0cg" path="res://Assets/Kumar_One,Lilita_One/Lilita_One/LilitaOne-Regular.ttf" id="24_hde51"]
 [ext_resource type="Script" path="res://Scenes/Stages/ui_canvas_layer.gd" id="24_k77dm"]
 [ext_resource type="AudioStream" uid="uid://dm7bbburr548w" path="res://Assets/Images/TrapMoskitao.mp3" id="26_5mjnb"]
+[ext_resource type="PackedScene" uid="uid://d0uhpyv04c6jf" path="res://hit_marker.tscn" id="26_gxbhk"]
 [ext_resource type="Script" path="res://Assets/Scripts/boombox.gd" id="26_m15bd"]
 [ext_resource type="PackedScene" uid="uid://c7d3buqbvcuwx" path="res://Scenes/Almofada.tscn" id="26_mnank"]
 [ext_resource type="Texture2D" uid="uid://yut6yd8sr3rs" path="res://Assets/Images/boombox.png" id="27_g7hca"]
@@ -681,57 +681,15 @@ followNode = NodePath("../OldMan")
 [node name="ColorRect" type="ColorRect" parent="Camera2D"]
 visible = false
 top_level = true
-offset_left = -1107.0
-offset_top = -354.0
-offset_right = 267.0
-offset_bottom = 514.0
-scale = Vector2(2.08123, 2.08123)
+offset_left = -2058.0
+offset_top = -358.0
+offset_right = -684.0
+offset_bottom = 510.0
+scale = Vector2(2.76123, 2.08123)
 color = Color(0, 0, 0, 1)
 
-[node name="HitMarker" type="Node2D" parent="."]
-modulate = Color(0.913725, 0.415686, 0.615686, 1)
-position = Vector2(845, 346)
-rotation = 0.803837
-script = ExtResource("4_r713j")
-
-[node name="ColorRect" type="ColorRect" parent="HitMarker"]
-offset_left = -2.95636
-offset_top = 8.50531
-offset_right = 37.0436
-offset_bottom = 48.5053
-scale = Vector2(0.08, 0.479999)
-
-[node name="ColorRect3" type="ColorRect" parent="HitMarker"]
-offset_left = -2.95636
-offset_top = 8.50531
-offset_right = 37.0436
-offset_bottom = 48.5053
-scale = Vector2(0.08, 0.479999)
-
-[node name="ColorRect2" type="ColorRect" parent="HitMarker"]
-offset_left = -2.16815
-offset_top = -25.456
-offset_right = 37.8318
-offset_bottom = 14.544
-scale = Vector2(0.08, 0.479999)
-
-[node name="ColorRect4" type="ColorRect" parent="HitMarker"]
-offset_left = -29.4888
-offset_top = -38.5681
-offset_right = 10.5112
-offset_bottom = 1.43188
-rotation = -1.57472
-scale = Vector2(0.08, 0.479999)
-pivot_offset = Vector2(19.117, 38.3134)
-
-[node name="ColorRect5" type="ColorRect" parent="HitMarker"]
-offset_left = 6.51123
-offset_top = -38.5682
-offset_right = 46.5112
-offset_bottom = 1.43182
-rotation = -1.57472
-scale = Vector2(0.08, 0.479999)
-pivot_offset = Vector2(19.117, 38.3134)
+[node name="HitMarker" parent="." instance=ExtResource("26_gxbhk")]
+position = Vector2(-57, 171)
 
 [node name="GenericItem" parent="." instance=ExtResource("9_rqwgg")]
 position = Vector2(776, 554)
@@ -739,7 +697,7 @@ collision_layer = 40
 collision_mask = 40
 
 [node name="Box" parent="." instance=ExtResource("23_6ky7u")]
-position = Vector2(-353, 413)
+position = Vector2(170, 458)
 collision_layer = 10
 collision_mask = 10
 physics_material_override = SubResource("PhysicsMaterial_xpj3a")
@@ -832,10 +790,11 @@ justification_flags = 160
 [node name="ObjectiveLabel" type="Label" parent="UICanvasLayer"]
 layout_direction = 2
 offset_left = 697.0
-offset_top = 25.0
+offset_top = 21.0
 offset_right = 4557.0
-offset_bottom = 158.0
+offset_bottom = 154.0
 scale = Vector2(0.5, 0.5)
+text = "."
 label_settings = SubResource("LabelSettings_sktgl")
 autowrap_mode = 2
 justification_flags = 0
