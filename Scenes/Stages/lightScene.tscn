@@ -466,20 +466,6 @@ position = Vector2(602, 301)
 scale = Vector2(0.396996, 0.396996)
 texture = ExtResource("1_eowge")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(338.041, 521.514)
-scale = Vector2(0.396996, 0.396996)
-zoom = Vector2(9, 9)
-
-[node name="ColorRect" type="ColorRect" parent="Camera2D"]
-modulate = Color(1, 1, 1, 0.65098)
-top_level = true
-offset_left = -30.0
-offset_top = -88.0
-offset_right = 1344.0
-offset_bottom = 780.0
-color = Color(0, 0, 0, 1)
-
 [node name="OldMan" type="CharacterBody2D" parent="."]
 position = Vector2(214, 357)
 scale = Vector2(0.396996, 0.396996)
@@ -654,7 +640,7 @@ metadata/_edit_group_ = true
 [node name="ArmL" type="Polygon2D" parent="OldMan/Body"]
 position = Vector2(155.486, 424.208)
 rotation = -2.32303
-scale = Vector2(0.999813, 0.999813)
+scale = Vector2(0.999809, 0.999809)
 offset = Vector2(-242.437, -303.264)
 texture = ExtResource("2_4tnmu")
 polygon = PackedVector2Array(227, 355, 255, 309, 255, 291, 236, 285, 206, 336, 212, 355)
@@ -662,8 +648,8 @@ uv = PackedVector2Array(72.1679, 159.801, 100.168, 113.801, 100.168, 95.8011, 81
 
 [node name="ArmEndL" type="Polygon2D" parent="OldMan/Body"]
 position = Vector2(201.94, 416.072)
-rotation = -0.342478
-scale = Vector2(0.999807, 0.999807)
+rotation = -0.342476
+scale = Vector2(0.999803, 0.999803)
 offset = Vector2(-290, -361)
 texture = ExtResource("2_4tnmu")
 polygon = PackedVector2Array(330, 355, 304, 351, 287, 351, 278, 359, 290, 374, 335, 378, 340, 365)
@@ -716,8 +702,8 @@ uv = PackedVector2Array(74.4672, 217.871, 105.434, 230.589, 130.317, 225.613, 14
 
 [node name="HandL" type="Polygon2D" parent="OldMan/Body"]
 position = Vector2(242.902, 408.898)
-rotation = -0.342478
-scale = Vector2(0.999807, 0.999807)
+rotation = -0.342476
+scale = Vector2(0.999803, 0.999803)
 offset = Vector2(-339, -371)
 texture = ExtResource("2_4tnmu")
 polygon = PackedVector2Array(338, 378, 359, 389, 367, 371, 348, 360, 337, 364, 333, 370)
@@ -743,26 +729,26 @@ uv = PackedVector2Array(135.113, 354.492, 167.113, 402.492, 179.113, 401.492, 19
 
 [node name="ArmR" type="Polygon2D" parent="OldMan/Body"]
 position = Vector2(152.533, 424.738)
-rotation = -2.57339
-scale = Vector2(0.999977, 0.999977)
+rotation = -2.57338
+scale = Vector2(0.999968, 0.999968)
 offset = Vector2(-246, -299)
 texture = ExtResource("2_4tnmu")
 polygon = PackedVector2Array(230, 294, 244, 282, 259, 294, 250, 318, 225, 366, 214, 368, 204, 357, 201, 347)
 uv = PackedVector2Array(74.615, 96.0362, 88.615, 84.0362, 103.615, 96.0362, 94.615, 120.036, 69.615, 168.036, 58.615, 170.036, 48.615, 159.036, 45.615, 149.036)
 
 [node name="ArmEndR" type="Polygon2D" parent="OldMan/Body"]
-position = Vector2(215.467, 394.919)
-rotation = -2.80436
-scale = Vector2(0.999977, 0.999977)
+position = Vector2(215.466, 394.918)
+rotation = -2.80435
+scale = Vector2(0.999967, 0.999967)
 offset = Vector2(-213, -355)
 texture = ExtResource("2_4tnmu")
 polygon = PackedVector2Array(196, 349, 215, 342, 224, 347, 225, 369, 209, 414, 196, 422, 187, 416)
 uv = PackedVector2Array(38.9561, 148.271, 57.9561, 141.271, 66.9561, 146.271, 67.9561, 168.271, 51.9561, 213.271, 38.9561, 221.271, 29.9561, 215.271)
 
 [node name="HandR" type="Polygon2D" parent="OldMan/Body"]
-position = Vector2(249.523, 340.1)
-rotation = -2.80436
-scale = Vector2(0.999975, 0.999975)
+position = Vector2(249.522, 340.101)
+rotation = -2.80435
+scale = Vector2(0.999967, 0.999967)
 offset = Vector2(-199, -419)
 texture = ExtResource("2_4tnmu")
 polygon = PackedVector2Array(186, 418, 196, 411, 204, 415, 207, 424, 208, 446, 200, 441, 192, 449, 176, 435)
@@ -957,6 +943,28 @@ rotation = 0.651868
 scale = Vector2(0.0960396, 0.0960396)
 texture = ExtResource("3_1lra6")
 
+[node name="Line2D" type="Line2D" parent="."]
+position = Vector2(245, -56.0016)
+rotation = 1.57079
+scale = Vector2(0.0400012, 1.28)
+points = PackedVector2Array(13724.6, -45.3098, 14199.6, -45.3097)
+width = 1.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+visible = false
+position = Vector2(338.041, 521.514)
+scale = Vector2(0.396996, 0.396996)
+zoom = Vector2(9, 9)
+
+[node name="ColorRect" type="ColorRect" parent="Camera2D"]
+modulate = Color(1, 1, 1, 0.65098)
+top_level = true
+offset_left = -30.0
+offset_top = -88.0
+offset_right = 1344.0
+offset_bottom = 780.0
+color = Color(0, 0, 0, 1)
+
 [node name="Cabeceira" type="Sprite2D" parent="."]
 modulate = Color(0.259294, 0.259294, 0.259294, 1)
 self_modulate = Color(1, 1, 1, 0)
@@ -992,13 +1000,6 @@ offset_right = 28.4954
 offset_bottom = -55.3493
 scale = Vector2(2.34534, 7.51705)
 flat = true
-
-[node name="Line2D" type="Line2D" parent="."]
-position = Vector2(245, -56.0016)
-rotation = 1.57079
-scale = Vector2(0.0400012, 1.28)
-points = PackedVector2Array(13724.6, -45.3098, 14199.6, -45.3097)
-width = 1.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

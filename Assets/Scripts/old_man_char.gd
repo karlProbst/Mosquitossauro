@@ -52,7 +52,8 @@ func _process(delta: float) -> void:
 			$Skeleton2D/Hip.rotation_degrees=originalhiprot
 			Engine.time_scale=1
 			initialtimesplit=0
-	$CShapeL.global_position=$Skeleton2D/Hip/LegL/LegEndL/ShoeL.global_position
+	if chutando==0:
+		$CShapeL.global_position=$Skeleton2D/Hip/LegL/LegEndL/ShoeL.global_position
 	$CShapeR.global_position=$Skeleton2D/Hip/LegR/LegEndR/ShoeR.global_position
 	# Update MaoTarget position to follow the mouse
 	if not dead:

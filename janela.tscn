@@ -1,0 +1,81 @@
+[gd_scene load_steps=7 format=3 uid="uid://qwysug5wqic5"]
+
+[ext_resource type="Script" path="res://janela.gd" id="1_t4s8j"]
+[ext_resource type="Script" path="res://Assets/Scripts/InteractibleControllerClass.gd" id="2_6nmmn"]
+[ext_resource type="Script" path="res://Assets/Scripts/HealthSpriteCyclerComponent.gd" id="3_2s7kc"]
+[ext_resource type="AudioStream" uid="uid://ch436ha1hbdi" path="res://Assets/Sound/paaa.wav" id="3_i8osm"]
+[ext_resource type="Texture2D" uid="uid://d31ee8hioyeva" path="res://Assets/Images/glassdoor.png" id="4_0mrps"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n6ydf"]
+size = Vector2(152, 459)
+
+[node name="Janela" type="StaticBody2D"]
+collision_layer = 9
+collision_mask = 9
+script = ExtResource("1_t4s8j")
+
+[node name="InteractibleControllerClass" type="Node" parent="." node_paths=PackedStringArray("audio_player_node")]
+script = ExtResource("2_6nmmn")
+audio_player_node = NodePath("../AudioStreamPlayer2D")
+health = 10
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_i8osm")
+pitch_scale = 0.8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(77, 143)
+shape = SubResource("RectangleShape2D_n6ydf")
+
+[node name="HealthSprites" type="Node2D" parent="."]
+
+[node name="5" type="Polygon2D" parent="HealthSprites"]
+texture = ExtResource("4_0mrps")
+polygon = PackedVector2Array(-9, 421, -13, 275, -17, 128, -21, -42, -21, -136, 45, -87, 75, -64, 80, 12, 75, 107, 77, 209, 79, 315, 80, 361, 41, 391)
+uv = PackedVector2Array(1.74236, 607.806, -3.35321, 421.818, -8.44878, 234.556, -13.5444, 17.9938, -13.5444, -101.752, 70.5326, -39.3314, 108.749, -10.0319, 115.119, 86.784, 108.749, 207.804, 111.297, 337.741, 113.845, 472.773, 115.119, 531.373, 65.437, 569.589)
+
+[node name="4" type="Polygon2D" parent="HealthSprites"]
+visible = false
+texture = ExtResource("4_0mrps")
+polygon = PackedVector2Array(-9, 421, -13, 275, -3, 131, -21, -42, -21, -136, 45, -87, 75, -64, 80, 12, 110, 118, 67, 221, 79, 315, 80, 361, 41, 391)
+uv = PackedVector2Array(1.74236, 607.806, -3.35321, 421.818, -8.44878, 234.556, -13.5444, 17.9938, -13.5444, -101.752, 70.5326, -39.3314, 108.749, -10.0319, 115.119, 86.784, 108.749, 207.804, 111.297, 337.741, 113.845, 472.773, 115.119, 531.373, 65.437, 569.589)
+
+[node name="3" type="Polygon2D" parent="HealthSprites"]
+visible = false
+texture = ExtResource("4_0mrps")
+polygon = PackedVector2Array(-9, 421, -13, 275, 15, 126, -21, -42, -21, -136, 45, -87, 74, -62, 97, 50, 110, 118, 49, 230, 79, 315, 80, 361, 41, 391)
+uv = PackedVector2Array(1.74236, 607.806, -3.35321, 421.818, -8.44878, 234.556, -13.5444, 17.9938, -13.5444, -101.752, 70.5326, -39.3314, 108.749, -10.0319, 115.119, 86.784, 108.749, 207.804, 111.297, 337.741, 113.845, 472.773, 115.119, 531.373, 65.437, 569.589)
+
+[node name="2" type="Polygon2D" parent="HealthSprites"]
+visible = false
+texture = ExtResource("4_0mrps")
+polygon = PackedVector2Array(-9, 421, 11, 271, -18, 67, 11, -40, -21, -136, 45, -87, 74, -62, 53, -52, 37, 107, 49, 266, 79, 315, 80, 361, 41, 391)
+uv = PackedVector2Array(1.74236, 607.806, -3.35321, 421.818, -8.44878, 234.556, -13.5444, 17.9938, -13.5444, -101.752, 70.5326, -39.3314, 108.749, -10.0319, 115.119, 86.784, 108.749, 207.804, 111.297, 337.741, 113.845, 472.773, 115.119, 531.373, 65.437, 569.589)
+
+[node name="1" type="Polygon2D" parent="HealthSprites"]
+visible = false
+texture = ExtResource("4_0mrps")
+polygon = PackedVector2Array(-54, 447, 11, 271, -3, 101, 11, -67, -21, -136, 45, -87, 74, -62, 70, 98, 14, 102, 79, 215, 79, 315, 80, 361, 41, 391)
+uv = PackedVector2Array(1.74236, 607.806, -3.35321, 421.818, -8.44878, 234.556, -13.5444, 17.9938, -13.5444, -101.752, 70.5326, -39.3314, 108.749, -10.0319, 115.119, 86.784, 108.749, 207.804, 111.297, 337.741, 113.845, 472.773, 115.119, 531.373, 65.437, 569.589)
+
+[node name="HealthSpriteCyclerComponent" type="Node" parent="."]
+script = ExtResource("3_2s7kc")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 9
+collision_mask = 9
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+visible = false
+position = Vector2(77, 226.5)
+shape = SubResource("RectangleShape2D_n6ydf")
+
+[node name="Glassdoor" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(34, 152)
+scale = Vector2(0.72, 1)
+texture = ExtResource("4_0mrps")
+
+[connection signal="destroyed" from="InteractibleControllerClass" to="." method="_on_interactible_controller_class_destroyed"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

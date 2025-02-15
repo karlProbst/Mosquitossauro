@@ -26,14 +26,13 @@ func _process(_delta: float) -> void:
 				get_node("UICanvasLayer").updateObjective("The swarm is relentless... Defeat 30 mosquitoes to survive!")
 				lockUpdateObjective=true
 			if spawnTimer<=0:
-				spawnMosquito(5)
-				spawnTimer=10.0
+				spawnMosquito(8)
+				spawnTimer=8.0
 			spawnTimer-=_delta
 			if GlobalSingleton.killed>=stage1MaxKills:
 				get_node("UICanvasLayer").updateObjective("You’ve cleared the area! Head to the door to complete your mission.")
 				stageProgress="done"
 		if stageProgress=="done":
-			killAllMosquitoes()
 			var doorh = get_node("AreaCena/Door/Highlight")
 			if GlobalSingleton.getPlayer().global_position.x<-1300:
 				doorh.visible=true
@@ -62,7 +61,7 @@ func spawnMosquito(n:int= 1):
 			var instMosquito = spawner.Instantiate(mosquito,Vector2(randi_range(-500,600),randi_range(150,600)),self)
 			instMosquito.fly_speed = 300.0+randi_range(0,200)
 			
-			instMosquito.scale.x=0.55+randf()/2
+			instMosquito.scale.x=0.45+randf()/2
 			instMosquito.scale.y=instMosquito.scale.x
 			instMosquito.connect("justDied",Callable(self,"_on_just_died"))
 			arrayOfMosquitos.append(instMosquito)

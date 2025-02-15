@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=3 uid="uid://dpptp4pcbdk4m"]
+[gd_scene load_steps=82 format=3 uid="uid://dpptp4pcbdk4m"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/room.gd" id="1_h1msy"]
 [ext_resource type="PackedScene" uid="uid://cgqpj8agtgvq8" path="res://OldMan.tscn" id="1_ktbtg"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://co2sr2be7w38q" path="res://Assets/Images/skada.png" id="3_vxrli"]
 [ext_resource type="Texture2D" uid="uid://bks80nk20gx02" path="res://Assets/Images/60s_wallpaper.jpg" id="3_wssqe"]
 [ext_resource type="Script" path="res://Assets/Scripts/camera_2d.gd" id="4_kl6ap"]
+[ext_resource type="Script" path="res://mosquitao.gd" id="4_qwp0r"]
 [ext_resource type="Texture2D" uid="uid://bh5ugjkr8p120" path="res://Assets/Images/book.png" id="6_6d42e"]
 [ext_resource type="PackedScene" uid="uid://bwwaepeq7v28a" path="res://Scenes/quadro_pombo.tscn" id="9_53vs6"]
 [ext_resource type="Texture2D" uid="uid://c8fs5v3dsbbi1" path="res://Assets/Images/Cabeceira.png" id="9_o16m6"]
@@ -19,17 +20,18 @@
 [ext_resource type="Texture2D" uid="uid://d26uspan7ojy5" path="res://Assets/Images/bookshelve.png" id="12_hnqea"]
 [ext_resource type="Texture2D" uid="uid://kbyuefpvnmbh" path="res://Assets/Images/lampadosa.png" id="14_no6ys"]
 [ext_resource type="PackedScene" uid="uid://n758tkgbuyac" path="res://PcShop.tscn" id="15_c3fcc"]
+[ext_resource type="AudioStream" uid="uid://bhpjsrwvj6rmq" path="res://Assets/Sound/Rexfrenético.mp3" id="18_w3i41"]
 [ext_resource type="Script" path="res://Scenes/Stages/bed.gd" id="20_cdwfs"]
 [ext_resource type="PackedScene" uid="uid://cny626vhx5bje" path="res://Scenes/box.tscn" id="23_6ky7u"]
 [ext_resource type="FontFile" uid="uid://d4exem1lhy0cg" path="res://Assets/Kumar_One,Lilita_One/Lilita_One/LilitaOne-Regular.ttf" id="24_hde51"]
 [ext_resource type="Script" path="res://Scenes/Stages/ui_canvas_layer.gd" id="24_k77dm"]
-[ext_resource type="AudioStream" uid="uid://dm7bbburr548w" path="res://Assets/Images/TrapMoskitao.mp3" id="26_5mjnb"]
 [ext_resource type="PackedScene" uid="uid://d0uhpyv04c6jf" path="res://hit_marker.tscn" id="26_gxbhk"]
 [ext_resource type="Script" path="res://Assets/Scripts/boombox.gd" id="26_m15bd"]
 [ext_resource type="PackedScene" uid="uid://c7d3buqbvcuwx" path="res://Scenes/Almofada.tscn" id="26_mnank"]
 [ext_resource type="Texture2D" uid="uid://yut6yd8sr3rs" path="res://Assets/Images/boombox.png" id="27_g7hca"]
 [ext_resource type="Texture2D" uid="uid://bqj2wo6tmkwq" path="res://Assets/Images/woodentile.jpg" id="28_sqfv7"]
 [ext_resource type="AudioStream" uid="uid://ch436ha1hbdi" path="res://Assets/Sound/paaa.wav" id="30_20r0s"]
+[ext_resource type="PackedScene" uid="uid://qwysug5wqic5" path="res://janela.tscn" id="31_mpvua"]
 
 [sub_resource type="Gradient" id="Gradient_4tof4"]
 offsets = PackedFloat32Array(0, 0.987578)
@@ -79,10 +81,10 @@ color_ramp = SubResource("Gradient_6p8mu")
 noise = SubResource("FastNoiseLite_mffjp")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_66gmb"]
-size = Vector2(2744, 211)
+size = Vector2(2987, 211)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_87qyn"]
-size = Vector2(169.75, 371)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ih65i"]
+size = Vector2(36, 282.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s7450"]
 size = Vector2(54.875, 390)
@@ -261,7 +263,7 @@ shadow_color = Color(0, 0, 0, 0.235294)
 script = ExtResource("1_h1msy")
 
 [node name="Bounds" type="Line2D" parent="."]
-points = PackedVector2Array(-1541, 8, -1545, 627, 854, 630, 860, -4)
+points = PackedVector2Array(-1541, 8, -1545, 627, 839, 634, 846, 21)
 closed = true
 default_color = Color(0, 0, 0, 1)
 
@@ -285,19 +287,21 @@ scale = Vector2(2.45472, 2.45472)
 texture = ExtResource("1_o5shf")
 
 [node name="ColorRect" type="ColorRect" parent="Postenobg"]
-offset_left = -119.0
+offset_left = -45.0
 offset_top = 197.0
-offset_right = -62.0
+offset_right = 41.0
 offset_bottom = 298.0
 scale = Vector2(3.6724, 1)
 color = Color(0, 0, 0, 1)
 
 [node name="Mosquitao" parent="Postenobg" instance=ExtResource("3_po874")]
-position = Vector2(-21.1837, 197.579)
+z_index = 1
+position = Vector2(26.4796, 202.467)
+script = ExtResource("4_qwp0r")
 
 [node name="Polygon2D2" type="Polygon2D" parent="Postenobg"]
 clip_children = 2
-z_index = 1
+z_index = 2
 position = Vector2(-515.333, -104.696)
 scale = Vector2(0.407378, 0.407378)
 color = Color(0.830374, 0.487285, 0, 0.486275)
@@ -328,7 +332,7 @@ texture = SubResource("NoiseTexture2D_burie")
 
 [node name="Skada" type="Polygon2D" parent="Postenobg"]
 modulate = Color(0.276604, 0.159615, 0.276931, 1)
-position = Vector2(20.7763, -125.065)
+position = Vector2(10.9993, -288.831)
 texture = ExtResource("3_vxrli")
 polygon = PackedVector2Array(-36.2567, 631.029, -36.2567, 82.2904, -173.136, 125.88, -171.506, 235.872, -361.752, 244.834, -317.755, 639.991)
 uv = PackedVector2Array(599.469, 859.613, 599.469, -137.502, 344.083, -134.541, 353.706, 141.572, 8.01024, 157.857, 87.9571, 875.898)
@@ -379,6 +383,19 @@ offset_right = 1347.0
 offset_bottom = 778.0
 color = Color(0, 0, 0, 1)
 
+[node name="chaofora" type="Node2D" parent="AreaCena"]
+position = Vector2(901, 668)
+scale = Vector2(1, 1)
+skew = 0.785398
+
+[node name="ColorRect2" type="ColorRect" parent="AreaCena/chaofora"]
+offset_left = -81.9998
+offset_top = -60.811
+offset_right = 565.0
+offset_bottom = 120.189
+scale = Vector2(0.440002, 1)
+color = Color(0, 0, 0, 1)
+
 [node name="Bookshelve" type="Sprite2D" parent="AreaCena"]
 position = Vector2(-23, 502)
 scale = Vector2(0.483316, 0.483316)
@@ -391,12 +408,12 @@ scale = Vector2(0.301886, 0.301886)
 texture = ExtResource("6_6d42e")
 
 [node name="ChaoCol" type="CollisionShape2D" parent="AreaCena"]
-position = Vector2(-523, 736.5)
+position = Vector2(-401.5, 736.5)
 shape = SubResource("RectangleShape2D_66gmb")
 
-[node name="JanelaDown" type="CollisionShape2D" parent="AreaCena"]
-position = Vector2(933.125, 657.5)
-shape = SubResource("RectangleShape2D_87qyn")
+[node name="JanelaDown2" type="CollisionShape2D" parent="AreaCena"]
+position = Vector2(1072, 687)
+shape = SubResource("RectangleShape2D_ih65i")
 
 [node name="JanelaUp" type="CollisionShape2D" parent="AreaCena"]
 position = Vector2(878.563, 22)
@@ -517,6 +534,14 @@ position = Vector2(-1341, 435)
 scale = Vector2(0.840544, 0.840544)
 texture = ExtResource("12_4w8xd")
 
+[node name="ColorRect" type="ColorRect" parent="AreaCena"]
+offset_left = 850.0
+offset_top = -28.0
+offset_right = 905.0
+offset_bottom = 627.0
+scale = Vector2(0.440002, 1)
+color = Color(0, 0, 0, 1)
+
 [node name="TablePc" parent="." instance=ExtResource("15_c3fcc")]
 position = Vector2(336, 512)
 
@@ -560,7 +585,7 @@ collide_with_areas = true
 
 [node name="TrapMoskitao" type="AudioStreamPlayer2D" parent="Boombox"]
 position = Vector2(-8, 8)
-stream = ExtResource("26_5mjnb")
+stream = ExtResource("18_w3i41")
 autoplay = true
 max_distance = 4000.0
 
@@ -692,9 +717,8 @@ color = Color(0, 0, 0, 1)
 position = Vector2(-57, 171)
 
 [node name="GenericItem" parent="." instance=ExtResource("9_rqwgg")]
-position = Vector2(776, 554)
-collision_layer = 40
-collision_mask = 40
+position = Vector2(985, 355)
+item = "raquete"
 
 [node name="Box" parent="." instance=ExtResource("23_6ky7u")]
 position = Vector2(170, 458)
@@ -706,15 +730,6 @@ physics_material_override = SubResource("PhysicsMaterial_xpj3a")
 
 [node name="Foreground" type="Node2D" parent="."]
 
-[node name="TextureRect3" type="TextureRect" parent="Foreground"]
-offset_left = 848.0
-offset_top = -89.0
-offset_right = 1573.0
-offset_bottom = 771.0
-rotation = 0.00212556
-scale = Vector2(0.0797912, 0.36)
-texture = SubResource("NoiseTexture2D_fa51q")
-
 [node name="TextureRect7" type="TextureRect" parent="Foreground"]
 offset_left = 874.0
 offset_top = 127.0
@@ -725,10 +740,12 @@ scale = Vector2(0.0435485, 0.212646)
 texture = SubResource("NoiseTexture2D_fa51q")
 
 [node name="TextureRect4" type="TextureRect" parent="Foreground"]
-offset_left = 848.0
-offset_top = 471.0
-offset_right = 1573.0
-offset_bottom = 1613.0
+show_behind_parent = true
+z_index = -1
+offset_left = 719.0
+offset_top = 625.0
+offset_right = 2533.0
+offset_bottom = 1767.0
 rotation = 0.00212556
 scale = Vector2(0.0797912, 0.36)
 texture = SubResource("NoiseTexture2D_fa51q")
@@ -750,6 +767,18 @@ offset_bottom = 577.0
 rotation = 1.57079
 scale = Vector2(0.0400012, 1.28)
 texture = SubResource("NoiseTexture2D_r86jj")
+
+[node name="parederight" type="Node2D" parent="Foreground"]
+position = Vector2(863, 4.99996)
+rotation = 1.5708
+scale = Vector2(2, 1)
+skew = 0.596903
+
+[node name="ColorRect" type="ColorRect" parent="Foreground/parederight"]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(3.16, 3.12)
+color = Color(0, 0, 0, 1)
 
 [node name="UICanvasLayer" type="CanvasLayer" parent="."]
 script = ExtResource("24_k77dm")
@@ -798,3 +827,10 @@ text = "."
 label_settings = SubResource("LabelSettings_sktgl")
 autowrap_mode = 2
 justification_flags = 0
+
+[node name="Janela" parent="." instance=ExtResource("31_mpvua")]
+position = Vector2(780, 249)
+scale = Vector2(0.99139, 1.31417)
+collision_layer = 41
+collision_mask = 41
+metadata/_edit_lock_ = true
