@@ -83,6 +83,7 @@ func _process(delta: float) -> void:
 			get_parent().killMosquito()
 			lockdead=true
 		if not stuck:
+			$Rdown.enabled=true
 			if $Rdown.is_colliding():
 				if $Rdown.get_collider():
 					if $Rdown.get_collider().is_in_group("Player"):
@@ -186,6 +187,15 @@ func _process(delta: float) -> void:
 			$RayLaser.enabled=false
 			byting=0
 			$RayLaser/Line2D.set_point_position(1,Vector2.ZERO)
+	
+		if position.y<wallSpace.y:
+			position.y=wallSpace.y+5
+		if position.y>wallSpace.w:
+			position.y=wallSpace.w-5
+		if position.x<wallSpace.x:
+			position.x=wallSpace.x+5
+		if position.x>wallSpace.z:
+			position.x=wallSpace.z-5
 	#DEAD
 	else:
 		
@@ -199,14 +209,7 @@ func _process(delta: float) -> void:
 			emit_signal("justDied")
 		
 
-	if position.y<wallSpace.y:
-		position.y=wallSpace.y+5
-	if position.y>wallSpace.w:
-		position.y=wallSpace.w-5
-	if position.x<wallSpace.x:
-		position.x=wallSpace.x+5
-	if position.x>wallSpace.z:
-		position.x=wallSpace.z-5
+
 func move_toward_target(delta: float) -> void:
 	# Compute the desired direction
 	var direction = (target_position - global_position).normalized()

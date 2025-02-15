@@ -3,15 +3,12 @@ extends Node2D
 
 var player
 func _process(delta: float) -> void:
-	print(player)
-	print(modulate.r)
-	
+
 	if not player:
 		player = GlobalSingleton.getPlayer()
 	else:
-		print(player.global_position.x-292)
 		if player.global_position.x-292>330:
-			modulate.r=lerpf(modulate.r,5,delta)
+			modulate.r=lerpf(modulate.r,5,delta*1.7)
 		elif modulate.r<5:
 			modulate.r=lerpf(modulate.r,1,delta*3)
 		if modulate.r>4.9 and $AnimationPlayer.current_animation=="idle":

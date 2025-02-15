@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://ceb886glmyau8"]
+[gd_scene load_steps=43 format=3 uid="uid://ceb886glmyau8"]
 
 [ext_resource type="Texture2D" uid="uid://dimte65nrgafy" path="res://Assets/Images/kithcenmarmoretile.png" id="1_awwhe"]
 [ext_resource type="Texture2D" uid="uid://1m7phuoqd1m4" path="res://Assets/Images/kitchenwallpaper.jpeg" id="1_giqto"]
@@ -22,6 +22,8 @@
 [ext_resource type="Script" path="res://Assets/Scripts/hit_marker.gd" id="20_u40a6"]
 [ext_resource type="Script" path="res://Scenes/Stages/ui_canvas_layer.gd" id="21_6u2w6"]
 [ext_resource type="FontFile" uid="uid://d4exem1lhy0cg" path="res://Assets/Kumar_One,Lilita_One/Lilita_One/LilitaOne-Regular.ttf" id="22_dnytk"]
+[ext_resource type="PackedScene" uid="uid://btsfhqfo5t12s" path="res://Scenes/generic_item.tscn" id="23_aayfw"]
+[ext_resource type="PackedScene" uid="uid://1s822puixr7f" path="res://mosquitao.tscn" id="24_py2e5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8debv"]
 size = Vector2(3484, 211)
@@ -104,7 +106,7 @@ outline_size = 34
 shadow_size = 118
 shadow_color = Color(0, 0, 0, 0.235294)
 
-[node name="Kitchen" type="Node2D"]
+[node name="Root" type="Node2D"]
 script = ExtResource("1_r5w7l")
 
 [node name="wallpaper3" type="TextureRect" parent="."]
@@ -124,7 +126,7 @@ self_modulate = Color(0.761595, 0.704996, 0.612113, 1)
 texture_repeat = 3
 offset_left = -1655.0
 offset_top = 131.0
-offset_right = 1025.0
+offset_right = 1693.0
 offset_bottom = 1507.0
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("1_giqto")
@@ -425,3 +427,10 @@ scale = Vector2(0.5, 0.5)
 text = "killed: 0"
 label_settings = SubResource("LabelSettings_au55t")
 justification_flags = 160
+
+[node name="GenericItem" parent="." instance=ExtResource("23_aayfw")]
+position = Vector2(-1312, 592)
+
+[node name="Mosquitao" parent="." instance=ExtResource("24_py2e5")]
+position = Vector2(234, 598)
+scale = Vector2(2.6, 2.6)

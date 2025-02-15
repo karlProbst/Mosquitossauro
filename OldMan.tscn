@@ -542,7 +542,7 @@ uv = PackedVector2Array(38.9561, 148.271, 57.9561, 141.271, 66.9561, 146.271, 67
 
 [node name="HandR" type="Polygon2D" parent="Body"]
 position = Vector2(318.606, 416.212)
-rotation = -0.463647
+rotation = -0.463646
 scale = Vector2(1.00004, 1.00004)
 offset = Vector2(-199, -419)
 texture = ExtResource("1_21wkb")
@@ -687,7 +687,7 @@ rotation = 1.51336
 shape = SubResource("CapsuleShape2D_cviee")
 
 [node name="CShapeR" type="CollisionShape2D" parent="." groups=["pe"]]
-position = Vector2(337, 350)
+position = Vector2(306, 453)
 rotation = 1.51336
 shape = SubResource("CapsuleShape2D_cviee")
 

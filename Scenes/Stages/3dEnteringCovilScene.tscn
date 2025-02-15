@@ -1,7 +1,6 @@
-[gd_scene load_steps=18 format=3 uid="uid://byqkyy0fqa62w"]
+[gd_scene load_steps=15 format=3 uid="uid://byqkyy0fqa62w"]
 
 [ext_resource type="Material" uid="uid://6t326i8nndda" path="res://Resources/wallbregamaterial.tres" id="1_u67um"]
-[ext_resource type="Texture2D" uid="uid://cgtequ4u32pdl" path="res://Assets/Images/posteCapa.png" id="2_4bvhg"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a8elf"]
 
@@ -33,13 +32,6 @@ albedo_texture = SubResource("CompressedTexture2D_8dh6o")
 [sub_resource type="PlaneMesh" id="PlaneMesh_jhtmp"]
 material = SubResource("StandardMaterial3D_b8etf")
 size = Vector2(4, 12)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nu31r"]
-albedo_texture = ExtResource("2_4bvhg")
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_8sb2w"]
-material = SubResource("StandardMaterial3D_nu31r")
-size = Vector2(1, 1)
 
 [sub_resource type="Animation" id="Animation_lh0gi"]
 resource_name = "Camerawalk"
@@ -148,10 +140,6 @@ mesh = SubResource("PlaneMesh_f6rbt")
 [node name="Wall4" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.91069e-15, -4.37114e-08, -1, -1, -4.37114e-08, 0, -4.37114e-08, 1, -4.37114e-08, 3.94448, 2, -4.66667)
 mesh = SubResource("PlaneMesh_jhtmp")
-
-[node name="Wall6" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 4.37114e-08, 4.37114e-08, 4.37114e-08, -4.37114e-08, -1, -4.37114e-08, 1, -4.37114e-08, -0.0555236, 1, -4.60312)
-mesh = SubResource("PlaneMesh_8sb2w")
 
 [node name="Wall5" type="MeshInstance3D" parent="."]
 transform = Transform3D(4.37114e-08, -1, 8.74228e-08, -1, -4.37114e-08, 0, 3.82137e-15, -8.74228e-08, -1, 9.94448, 2, 0.333333)

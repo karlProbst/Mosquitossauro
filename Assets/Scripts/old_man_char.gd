@@ -33,6 +33,8 @@ var bend_direction = 1
 
 func _ready() -> void:
 	GlobalSingleton.player=self
+	if GlobalSingleton.item!="":
+		currentItem=GlobalSingleton.getStoredItem()
 	updateItemOnHand(currentItem)
 	originalhiprot=$Skeleton2D/Hip.rotation_degrees
 	$Skeleton2D/Hip.rotation_degrees=-135
@@ -54,6 +56,8 @@ func _process(delta: float) -> void:
 			initialtimesplit=0
 	if chutando==0:
 		$CShapeL.global_position=$Skeleton2D/Hip/LegL/LegEndL/ShoeL.global_position
+	if $CShapeL.position.x>300:
+		$CShapeL.position.x=300
 	$CShapeR.global_position=$Skeleton2D/Hip/LegR/LegEndR/ShoeR.global_position
 	# Update MaoTarget position to follow the mouse
 	if not dead:

@@ -5,11 +5,20 @@ var killed
 
 var player:Node2D
 var camera:Node
+var item:String = ""
 func _ready():
 	
 	health = 3
 	killed = 0
-		
+func setStoredItem(str:String)->void:
+	item = str
+func getStoredItem()->String:
+	if item=="":
+		print_debug("No Item stored")
+	var tempItem=item
+	item=""
+	return tempItem
+
 func getPlayer():
 	if player:
 		if player.has_method("updateItemOnHand"):
@@ -25,13 +34,13 @@ func remove_hearts(count:int)->void:
 	if health<=0:
 		health = 0
 		dyingPlayer()
-	var ui =  get_tree().root.get_node("Room/UICanvasLayer")
+	var ui =  get_tree().root.get_node("Root/UICanvasLayer")
 	if ui:
 		ui.updateHealth(health)
 func add_kill(n:int=1):
 	killed+=n
 
-	var ui =  get_tree().root.get_node("Room/UICanvasLayer")
+	var ui =  get_tree().root.get_node("Root/UICanvasLayer")
 	if ui:
 		ui.updateKilled(killed)	
 		

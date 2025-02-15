@@ -30,7 +30,7 @@ func _process(_delta: float) -> void:
 				spawnTimer=8.0
 			spawnTimer-=_delta
 			if GlobalSingleton.killed>=stage1MaxKills:
-				get_node("UICanvasLayer").updateObjective("You’ve cleared the area! Head to the door to complete your mission.")
+				get_node("UICanvasLayer").updateObjective("I need water, got to the kitchen")
 				stageProgress="done"
 		if stageProgress=="done":
 			var doorh = get_node("AreaCena/Door/Highlight")
@@ -44,6 +44,7 @@ func _process(_delta: float) -> void:
 		if stageProgress=="transition":
 			$Camera2D.toNextStage=true
 			if $Camera2D/ColorRect.modulate.a>=1:
+				GlobalSingleton.setStoredItem(GlobalSingleton.getPlayer().currentItem)
 				get_tree().change_scene_to_packed(preload("res://Scenes/Kitchen.tscn"))
 	if Input.is_action_pressed("spawnMosquitao"):
 		spawnMosquito(1)

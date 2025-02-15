@@ -259,7 +259,7 @@ outline_size = 17
 shadow_size = 118
 shadow_color = Color(0, 0, 0, 0.235294)
 
-[node name="Room" type="Node2D"]
+[node name="Root" type="Node2D"]
 script = ExtResource("1_h1msy")
 
 [node name="Bounds" type="Line2D" parent="."]
@@ -385,7 +385,6 @@ color = Color(0, 0, 0, 1)
 
 [node name="chaofora" type="Node2D" parent="AreaCena"]
 position = Vector2(901, 668)
-scale = Vector2(1, 1)
 skew = 0.785398
 
 [node name="ColorRect2" type="ColorRect" parent="AreaCena/chaofora"]
