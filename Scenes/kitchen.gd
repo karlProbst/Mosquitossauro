@@ -36,8 +36,11 @@ func spawnMosquito(n:int= 1):
 		for i in range(n):
 			var instMosquito = spawner.Instantiate(mosquito,Vector2(randi_range(-500,600),randi_range(150,600)),self)
 			instMosquito.fly_speed = 400.0+randi_range(0,200)
-			instMosquito.scale.x=0.75+randf()/2
+			instMosquito.scale.x=0.65+randf()/1.7
 			instMosquito.scale.y=instMosquito.scale.x
+			instMosquito.health=int(6+(instMosquito.scale.x*5))
+			instMosquito.agressivness=0.88-randf_range(0.01,0.2)
+			instMosquito.agressivness=0.88-randf_range(0.01,0.2)
 			instMosquito.updateBounds()
 			arrayOfMosquitos.append(instMosquito)
 			spawnedN+=1

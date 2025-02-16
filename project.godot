@@ -27,6 +27,10 @@ window/size/viewport_height=720
 window/stretch/mode="viewport"
 window/stretch/scale=0.5
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/script-tabs/plugin.cfg")
+
 [global_group]
 
 veneno=""
@@ -38,6 +42,7 @@ player=""
 pe=""
 mosquito=""
 shoe=""
+ferrao=""
 
 [input]
 

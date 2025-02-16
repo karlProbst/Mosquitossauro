@@ -1,4 +1,4 @@
-[gd_scene load_steps=82 format=3 uid="uid://dpptp4pcbdk4m"]
+[gd_scene load_steps=81 format=3 uid="uid://dpptp4pcbdk4m"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/room.gd" id="1_h1msy"]
 [ext_resource type="PackedScene" uid="uid://cgqpj8agtgvq8" path="res://OldMan.tscn" id="1_ktbtg"]
@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://co2sr2be7w38q" path="res://Assets/Images/skada.png" id="3_vxrli"]
 [ext_resource type="Texture2D" uid="uid://bks80nk20gx02" path="res://Assets/Images/60s_wallpaper.jpg" id="3_wssqe"]
 [ext_resource type="Script" path="res://Assets/Scripts/camera_2d.gd" id="4_kl6ap"]
-[ext_resource type="Script" path="res://mosquitao.gd" id="4_qwp0r"]
 [ext_resource type="Texture2D" uid="uid://bh5ugjkr8p120" path="res://Assets/Images/book.png" id="6_6d42e"]
 [ext_resource type="PackedScene" uid="uid://bwwaepeq7v28a" path="res://Scenes/quadro_pombo.tscn" id="9_53vs6"]
 [ext_resource type="Texture2D" uid="uid://c8fs5v3dsbbi1" path="res://Assets/Images/Cabeceira.png" id="9_o16m6"]
@@ -287,17 +286,18 @@ scale = Vector2(2.45472, 2.45472)
 texture = ExtResource("1_o5shf")
 
 [node name="ColorRect" type="ColorRect" parent="Postenobg"]
+visible = false
 offset_left = -45.0
 offset_top = 197.0
 offset_right = 41.0
 offset_bottom = 298.0
 scale = Vector2(3.6724, 1)
 color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="Mosquitao" parent="Postenobg" instance=ExtResource("3_po874")]
 z_index = 1
-position = Vector2(26.4796, 202.467)
-script = ExtResource("4_qwp0r")
+position = Vector2(21.1837, 202.467)
 
 [node name="Polygon2D2" type="Polygon2D" parent="Postenobg"]
 clip_children = 2
@@ -561,8 +561,8 @@ uv = PackedVector2Array(10.0698, 144.574, 22.0698, 160.574, 61.0698, 163.574, 11
 
 [node name="Boombox" type="CharacterBody2D" parent="." node_paths=PackedStringArray("player")]
 position = Vector2(-998, 509)
-collision_layer = 4104
-collision_mask = 4104
+collision_layer = 4106
+collision_mask = 4106
 script = ExtResource("26_m15bd")
 player = NodePath("../OldMan")
 metadata/_edit_group_ = true

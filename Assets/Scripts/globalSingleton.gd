@@ -1,14 +1,15 @@
 extends Node
-
-var health
-var killed
+@export var max_health:int=6
+var health:int
+var killed:int
 
 var player:Node2D
 var camera:Node
 var item:String = ""
 func _ready():
-	
-	health = 3
+	initialize()
+func initialize():
+	health = max_health
 	killed = 0
 func setStoredItem(str:String)->void:
 	item = str
@@ -16,7 +17,7 @@ func getStoredItem()->String:
 	if item=="":
 		print_debug("No Item stored")
 	var tempItem=item
-	item=""
+	#item=""
 	return tempItem
 
 func getPlayer():
@@ -63,7 +64,7 @@ func dyingPlayer():
 	player.crouch=10
 	Engine.time_scale=0.1
 func deadPlayer():
-	_ready()
+	initialize()
 	player=null
 	get_tree().reload_current_scene()
 	
