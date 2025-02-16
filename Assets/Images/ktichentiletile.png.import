@@ -3,11 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://buurydoqxiw8a"
-valid=false
+path="res://.godot/imported/ktichentiletile.png-28a1bf07e57451ce89ba7972fd8a5979.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://Assets/Images/ktichentiletile.png"
+dest_files=["res://.godot/imported/ktichentiletile.png-28a1bf07e57451ce89ba7972fd8a5979.ctex"]
 
 [params]
 

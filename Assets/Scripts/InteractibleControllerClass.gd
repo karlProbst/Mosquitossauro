@@ -76,3 +76,7 @@ func removeHealth(damage:int=1):
 			get_parent().cairNoChao()
 		else:
 			removeNode()
+
+
+func _on_cafeteira_area_entered(area: Area2D) -> void:
+	pass # Replace with function body.

@@ -2,10 +2,12 @@ extends CharacterBody2D
 
 @onready var MaoTarget: Node2D= $RHand
 
-@export var max_speed: Vector2 = Vector2(500, 120)  # Max speed (X: horizontal, Y: vertical)
-@export var acceleration: float = 220.0           # Rate of acceleration
-@export var friction: float = 815.0               # Rate of deceleration
-@export var jump_force: float = 420.0              # Jumping force
+@export var max_speed: Vector2 = Vector2(500, 120) 
+var defaultmax_speed= max_speed 
+@export var acceleration: float = 220.0        
+var defaultacceleration: float = acceleration       
+@export var friction: float = 815.0          
+@export var jump_force: float = 420.0            
 @export var gravity: float = 1000.0      
 @export var hitMarker:Node2D           
 var time = 0
@@ -30,7 +32,7 @@ var hittedPos:Vector2 = Vector2.ZERO
 var dead = false
 var deadtimer=0.5
 var bend_direction = 1
-
+var caffeine=0
 func _ready() -> void:
 	GlobalSingleton.player=self
 	if GlobalSingleton.item!="":
@@ -46,6 +48,16 @@ func rotate_with_offset(node,rotation_angle: float, pivot_offset: Vector2):
 	node.position = rotated_offset+Vector2(239.705,398.253)
 	node.rotation =  rotation_angle
 func _process(delta: float) -> void:
+	if caffeine>1.2:
+		caffeine=1.2
+	if caffeine>0:
+		Engine.time_scale=1.0-(caffeine/2.3)
+		acceleration=defaultacceleration*(1+(caffeine*10))
+		max_speed=defaultmax_speed*(1+(caffeine*5))
+		caffeine-=delta/8
+	else:
+		acceleration=defaultacceleration
+		max_speed=defaultmax_speed
 	rotate_with_offset($CollisionChest,$Skeleton2D/Hip.rotation,Vector2(0,-60))
 	if initialtimesplit>0:
 		$Skeleton2D/Hip.rotation_degrees=lerp($Skeleton2D/Hip.rotation_degrees,originalhiprot,delta*3.5)

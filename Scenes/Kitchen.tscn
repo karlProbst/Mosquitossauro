@@ -272,7 +272,8 @@ texture = ExtResource("9_ka66d")
 stretch_mode = 1
 
 [node name="Cafeteira" parent="." instance=ExtResource("8_orqjb")]
-position = Vector2(-1202, 478)
+position = Vector2(-1218, 472)
+script = null
 
 [node name="OldMan" parent="." node_paths=PackedStringArray("hitMarker") groups=["player"] instance=ExtResource("9_ed1px")]
 position = Vector2(-2639, 102)

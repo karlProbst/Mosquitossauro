@@ -178,10 +178,11 @@ func _process(delta: float) -> void:
 			$RayLaser/Line2D.set_point_position(1, $RayLaser/Line2D.to_local(target_position))
 			rayLaser.target_position=rayLaser.to_local(target_position)
 			if rayLaser.is_colliding():
-				if rayLaser.get_collider().is_in_group("player"):
-					laserPointToPlayer= rayLaser.get_collision_point()
-				laserPointTo= rayLaser.get_collision_point()
-				$RayLaser/Line2D.set_point_position(1, $RayLaser/Line2D.to_local(laserPointTo))
+				if is_instance_valid(rayLaser):
+					if rayLaser.get_collider().is_in_group("player"):
+						laserPointToPlayer= rayLaser.get_collision_point()
+					laserPointTo= rayLaser.get_collision_point()
+					$RayLaser/Line2D.set_point_position(1, $RayLaser/Line2D.to_local(laserPointTo))
 				
 		else:
 			$RayLaser.enabled=false
@@ -189,12 +190,16 @@ func _process(delta: float) -> void:
 			$RayLaser/Line2D.set_point_position(1,Vector2.ZERO)
 	
 		if position.y<wallSpace.y:
+			byting=0
 			position.y=wallSpace.y+5
 		if position.y>wallSpace.w:
+			byting=0
 			position.y=wallSpace.w-5
 		if position.x<wallSpace.x:
+			byting=0
 			position.x=wallSpace.x+5
 		if position.x>wallSpace.z:
+			byting=0
 			position.x=wallSpace.z-5
 	#DEAD
 	else:

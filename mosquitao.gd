@@ -8,7 +8,7 @@ func _process(delta: float) -> void:
 		player = GlobalSingleton.getPlayer()
 	else:
 		if player.global_position.x-292>330:
-			modulate.r=lerpf(modulate.r,5,delta*1.7)
+			modulate.r=lerpf(modulate.r,5,delta*2.0)
 		elif modulate.r<5:
 			modulate.r=lerpf(modulate.r,1,delta*3)
 		if modulate.r>4.9 and $AnimationPlayer.current_animation=="idle":

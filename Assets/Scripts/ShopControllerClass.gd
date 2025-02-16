@@ -8,7 +8,7 @@ var state: States = States.UNACTIVE
 @onready var parent = get_parent()
 
 @export var shopNode:Node2D
-@onready var audio_player_node=get_parent().get_node("AudioStreamPlayer2D")
+@onready var audio_player_node
 signal buying
 signal stopbuying
 func connectCallable(nodeWithSignal,signalStr:String,funcStr:String,nodeConnectTo):
@@ -27,10 +27,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		get_parent().get_parent().get_node("Highlight").visible=true
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.is_in_group("player"):
-		state=States.UNACTIVE
-		emit_signal("stopbuying")
-		get_parent().get_parent().get_node("Highlight").visible=false
-		GlobalSingleton.getCamera().zoomOut()
+		toInactive()
 
 func _unhandled_input(event):
 	if event is InputEventKey:
@@ -47,7 +44,11 @@ func _unhandled_input(event):
 				GlobalSingleton.getCamera().zoomOut()
 #todo: add grandpa hand IK
 
-
+func toInactive():
+	state=States.UNACTIVE
+	emit_signal("stopbuying")
+	get_parent().get_parent().get_node("Highlight").visible=false
+	GlobalSingleton.getCamera().zoomOut()
 
 func playSound()-> void:
 	if audio_player_node:

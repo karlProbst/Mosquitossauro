@@ -165,8 +165,8 @@ color = Color(0.552941, 1, 0, 1)
 alpha_curve = SubResource("CurveTexture_08jek")
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rs54l"]
-radius = 42.1246
-height = 195.612
+radius = 49.3789
+height = 286.977
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ffpbu"]
 radius = 19.6079
@@ -454,8 +454,8 @@ texture = ExtResource("2_46r6n")
 
 [node name="LegL" type="Polygon2D" parent="Body"]
 position = Vector2(254.306, 420.618)
-rotation = -0.843075
-scale = Vector2(0.999997, 0.999997)
+rotation = -0.843076
+scale = Vector2(0.999996, 0.999996)
 offset = Vector2(-271, -435)
 texture = ExtResource("1_21wkb")
 polygon = PackedVector2Array(247, 442, 229, 496, 232, 528, 247, 542, 268, 530, 274, 507, 293, 431, 269, 417)
@@ -463,8 +463,8 @@ uv = PackedVector2Array(83.3596, 257.683, 74.3596, 300.683, 72.5014, 340.255, 92
 
 [node name="LegEndL" type="Polygon2D" parent="Body"]
 position = Vector2(300.97, 505.042)
-rotation = -0.782075
-scale = Vector2(0.999997, 0.999997)
+rotation = -0.782076
+scale = Vector2(0.999995, 0.999995)
 offset = Vector2(-243, -521)
 texture = ExtResource("1_21wkb")
 polygon = PackedVector2Array(240, 504, 223, 515, 203, 592, 210, 598, 227, 595, 236, 588, 263, 536, 255, 512)
@@ -472,8 +472,8 @@ uv = PackedVector2Array(85.932, 302.732, 68.932, 313.732, 48.932, 390.732, 55.93
 
 [node name="FeetL" type="Polygon2D" parent="Body"]
 position = Vector2(334.676, 575.865)
-rotation = -0.676352
-scale = Vector2(0.999997, 0.999997)
+rotation = -0.676353
+scale = Vector2(0.999995, 0.999995)
 offset = Vector2(-220, -595)
 texture = ExtResource("1_21wkb")
 polygon = PackedVector2Array(269, 603, 237, 594, 225, 588, 213, 588, 200, 597, 198, 614, 270, 616)
@@ -524,7 +524,7 @@ uv = PackedVector2Array(135.113, 354.492, 167.113, 402.492, 179.113, 401.492, 19
 
 [node name="ArmR" type="Polygon2D" parent="Body"]
 position = Vector2(261, 301)
-rotation = -0.750708
+rotation = -0.750706
 scale = Vector2(1.00005, 1.00005)
 offset = Vector2(-246, -299)
 texture = ExtResource("1_21wkb")
@@ -533,8 +533,8 @@ uv = PackedVector2Array(74.615, 96.0362, 88.615, 84.0362, 103.615, 96.0362, 94.6
 
 [node name="ArmEndR" type="Polygon2D" parent="Body"]
 position = Vector2(274.193, 369.384)
-rotation = -0.977601
-scale = Vector2(1.00004, 1.00004)
+rotation = -0.977599
+scale = Vector2(1.00005, 1.00005)
 offset = Vector2(-213, -355)
 texture = ExtResource("1_21wkb")
 polygon = PackedVector2Array(196, 349, 215, 342, 224, 347, 225, 369, 209, 414, 196, 422, 187, 416)

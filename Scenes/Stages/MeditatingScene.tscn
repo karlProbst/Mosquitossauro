@@ -1503,8 +1503,8 @@ texture = ExtResource("19_kete8")
 polygon = PackedVector2Array(45, 45, 80, 82, 98, 129, 99, 156, 176, 91, 121, -1)
 uv = PackedVector2Array(317.035, 114.367, 736.07, 557.346, 951.573, 1120.05, 963.546, 1443.3, 1284.91, 769.661, 640.29, -244.806)
 
-[connection signal="mouse_entered" from="UICanvasLayer/StartGameButton" to="UICanvasLayer" method="_on_start_game_button_mouse_entered"]
 [connection signal="mouse_entered" from="UICanvasLayer/StartGameButton" to="UICanvasLayer" method="_on_button_mouse_entered"]
+[connection signal="mouse_entered" from="UICanvasLayer/StartGameButton" to="UICanvasLayer" method="_on_start_game_button_mouse_entered"]
 [connection signal="mouse_exited" from="UICanvasLayer/StartGameButton" to="UICanvasLayer" method="_on_start_game_button_mouse_exited"]
 [connection signal="pressed" from="UICanvasLayer/StartGameButton" to="UICanvasLayer" method="_on_start_game_button_pressed"]
 [connection signal="mouse_entered" from="UICanvasLayer/ExitGameButton" to="UICanvasLayer" method="_on_exit_button_mouse_entered"]

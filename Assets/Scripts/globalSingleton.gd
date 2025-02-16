@@ -53,9 +53,12 @@ func _unhandled_input(event):
 	if event.is_action_pressed("mute"):
 		toggle_main_bus_mute()
 	if event.is_action_pressed("pause"):
+		if player:
+			player.caffeine=0
 		Engine.time_scale = 1.0 if Engine.time_scale == 0.0 else 0.0
 
 func dyingPlayer():
+	player.caffeine=0
 	player.dead=true
 	player.crouch=10
 	Engine.time_scale=0.1

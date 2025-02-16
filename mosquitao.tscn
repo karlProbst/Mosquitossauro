@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://1s822puixr7f"]
+[gd_scene load_steps=14 format=3 uid="uid://1s822puixr7f"]
 
 [ext_resource type="Texture2D" uid="uid://dq1r3rcxq0xib" path="res://Assets/Images/woodenmosquito.png" id="1_neia4"]
 [ext_resource type="Texture2D" uid="uid://4ivajidfjsfs" path="res://Assets/Images/headmosquito.png" id="2_du0di"]
@@ -32,6 +32,9 @@ seamless = true
 seamless_blend_skirt = 1.0
 color_ramp = SubResource("Gradient_jq21x")
 noise = SubResource("FastNoiseLite_asmq3")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o4hbh"]
+size = Vector2(20, 192.016)
 
 [sub_resource type="Animation" id="Animation_gq6a0"]
 length = 0.001
@@ -601,6 +604,12 @@ default_color = Color(0, 0, 0, 1)
 points = PackedVector2Array(-8.9668, -0.772369, 44.5765, 6.85066, 175.69, -47.0967)
 width = 2.0
 default_color = Color(0, 0, 0, 1)
+
+[node name="Area2D" type="Area2D" parent="Body/Ferrao"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Body/Ferrao/Area2D"]
+position = Vector2(-3.8147e-06, -86.0081)
+shape = SubResource("RectangleShape2D_o4hbh")
 
 [node name="Chest" type="Node2D" parent="Body"]
 position = Vector2(-17.609, -33.112)

@@ -18,8 +18,8 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if stage=="killNMosquitoes":
 		if spawnTimer<=0:
-			spawnMosquito(8)
-			spawnTimer=27.5
+			spawnMosquito(15)
+			spawnTimer=17.5
 		spawnTimer-=_delta
 		if stageProgress=="transition":
 			if GlobalSingleton.killed>=60:

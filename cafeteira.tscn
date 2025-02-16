@@ -1,16 +1,71 @@
-[gd_scene load_steps=5 format=3 uid="uid://sqfwx7nkl5d7"]
+[gd_scene load_steps=14 format=3 uid="uid://sqfwx7nkl5d7"]
 
-[ext_resource type="Script" path="res://cafeteira.gd" id="1_q05sb"]
+[ext_resource type="Script" path="res://cafeteira2.gd" id="1_ak7bi"]
 [ext_resource type="Texture2D" uid="uid://l6v5qqwn5kpk" path="res://Assets/Images/CoofeMaker.png" id="1_yjhbg"]
+[ext_resource type="Script" path="res://Assets/Scripts/InteractibleControllerClass.gd" id="2_82yp4"]
 [ext_resource type="AudioStream" uid="uid://c4w66706hsfve" path="res://Assets/Sound/tiririCafe.mp3" id="3_le3q7"]
 [ext_resource type="AudioStream" uid="uid://ch436ha1hbdi" path="res://Assets/Sound/paaa.wav" id="4_p2da4"]
+[ext_resource type="Script" path="res://cafeshop.gd" id="6_vh1k2"]
+[ext_resource type="Script" path="res://Assets/Scripts/HealthSpriteCyclerComponent.gd" id="7_ip8yv"]
+[ext_resource type="Script" path="res://Assets/Scripts/ShopControllerClass.gd" id="8_twqvb"]
 
-[node name="Cafeteira" type="Node2D"]
-script = ExtResource("1_q05sb")
+[sub_resource type="Animation" id="Animation_q4eum"]
+resource_name = "takeDamage"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:skew")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.966667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.204204, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_mltmn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:skew")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uy8o8"]
+_data = {
+"RESET": SubResource("Animation_mltmn"),
+"takeDamage": SubResource("Animation_q4eum")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2nihr"]
+size = Vector2(320, 37)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cacky"]
+radius = 117.038
+
+[node name="Cafeteira" type="Area2D"]
+position = Vector2(5, 0)
+collision_layer = 8
+collision_mask = 8
+script = ExtResource("1_ak7bi")
+
+[node name="InteractibleControllerClass" type="Node" parent="." node_paths=PackedStringArray("audio_player_node", "animation_player_node")]
+script = ExtResource("2_82yp4")
+audio_player_node = NodePath("../AudioStreamPlayer2D")
+animation_player_node = NodePath("../AnimationPlayer")
+health = 10
 
 [node name="Highlight" type="Node2D" parent="."]
 scale = Vector2(1.035, 1.035)
-skew = 0.010472
+skew = 0.0104719
 
 [node name="Polygon2D2" type="Polygon2D" parent="Highlight"]
 modulate = Color(0, 0, 1, 0.682353)
@@ -23,37 +78,32 @@ uv = PackedVector2Array(67.6987, 259.078, 18.5443, 224.669, 15.2673, 118.168, 23
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="Highlight"]
 custom_minimum_size = Vector2(500, 500)
-offset_left = -107.761
-offset_top = -339.149
-offset_right = 392.239
-offset_bottom = 160.851
+offset_left = -115.703
+offset_top = -359.44
+offset_right = 384.297
+offset_bottom = 140.56
 scale = Vector2(0.58, 0.58)
 theme_override_font_sizes/normal_font_size = 50
 text = "Press ENTER
 FOR CAFFEINE ☕
-(psst... only $20)\"
+Never SLeep Again!
 "
 tab_size = 6
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Highlight"]
 modulate = Color(0, 0, 0.8, 1)
 custom_minimum_size = Vector2(500, 500)
-offset_left = -105.761
-offset_top = -339.149
-offset_right = 394.239
-offset_bottom = 160.851
+offset_left = -113.703
+offset_top = -359.44
+offset_right = 386.297
+offset_bottom = 140.56
 scale = Vector2(0.58, 0.58)
 theme_override_font_sizes/normal_font_size = 50
 text = "Press ENTER
 FOR CAFFEINE ☕
-(psst... only $20)\"
+Never SLeep Again!
 "
 tab_size = 6
-
-[node name="Polygon2D" type="Polygon2D" parent="."]
-texture = ExtResource("1_yjhbg")
-polygon = PackedVector2Array(-50, -76, -80, -97, -82, -162, -77, -211, 6, -228, 84, -211, 91, -149, 87, -94, 53, -70, 54, -16, 56, -4, 49, 1, 25, 1, -43, 1, -58, -4, -47, -24, -44, -57)
-uv = PackedVector2Array(32.5337, 289.821, 8.13968, 260.548, 5.70027, 128.82, 13.0185, 1.97122, 166.701, 1.97122, 300.868, 1.97122, 305.747, 143.457, 295.989, 270.305, 286.231, 294.699, 281.353, 445.942, 293.55, 489.852, 276.474, 504.488, 208.171, 502.048, 52.0489, 504.488, 15.4579, 492.291, 42.2913, 443.503, 39.8519, 326.412)
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 position = Vector2(-88, -70)
@@ -67,7 +117,80 @@ stream = ExtResource("3_le3q7")
 volume_db = -1.726
 pitch_scale = 0.9
 
-[node name="Paaa" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_p2da4")
-volume_db = -5.895
-pitch_scale = 0.94
+
+[node name="Shop" type="Node2D" parent="."]
+script = ExtResource("6_vh1k2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_uy8o8")
+}
+
+[node name="HealthSpriteCyclerComponent" type="Node" parent="."]
+script = ExtResource("7_ip8yv")
+
+[node name="HealthSprites" type="Node2D" parent="."]
+
+[node name="7" type="Polygon2D" parent="HealthSprites"]
+texture = ExtResource("1_yjhbg")
+polygon = PackedVector2Array(-50, -76, -80, -97, -82, -162, -77, -211, 6, -228, 84, -211, 91, -149, 87, -94, 53, -70, 54, -16, 56, -4, 49, 1, 25, 1, -43, 1, -58, -4, -47, -24, -44, -57)
+uv = PackedVector2Array(32.5337, 289.821, 8.13968, 260.548, 5.70027, 128.82, 13.0185, 1.97122, 166.701, 1.97122, 300.868, 1.97122, 305.747, 143.457, 295.989, 270.305, 286.231, 294.699, 281.353, 445.942, 293.55, 489.852, 276.474, 504.488, 208.171, 502.048, 52.0489, 504.488, 15.4579, 492.291, 42.2913, 443.503, 39.8519, 326.412)
+
+[node name="6" type="Polygon2D" parent="HealthSprites"]
+visible = false
+texture = ExtResource("1_yjhbg")
+polygon = PackedVector2Array(-50, -76, -80, -97, -70, -156, -77, -211, 6, -228, 84, -211, 100, -151, 96, -98, 53, -70, 54, -16, 56, -4, 49, 1, 25, 1, -43, 1, -58, -4, -47, -24, -44, -57)
+uv = PackedVector2Array(32.5337, 289.821, 8.13968, 260.548, 5.70027, 128.82, 13.0185, 1.97122, 166.701, 1.97122, 300.868, 1.97122, 305.747, 143.457, 295.989, 270.305, 286.231, 294.699, 281.353, 445.942, 293.55, 489.852, 276.474, 504.488, 208.171, 502.048, 52.0489, 504.488, 15.4579, 492.291, 42.2913, 443.503, 39.8519, 326.412)
+
+[node name="5" type="Polygon2D" parent="HealthSprites"]
+visible = false
+texture = ExtResource("1_yjhbg")
+polygon = PackedVector2Array(-50, -76, -80, -97, -46, -138, -82, -181, -24, -230, 61, -201, 100, -151, 95, -92, 46, -80, 54, -16, 46, -6, 49, 1, 24, 3, -43, 1, -58, -4, -47, -24, -32, -45)
+uv = PackedVector2Array(32.5337, 289.821, 8.13968, 260.548, 5.70027, 128.82, 13.0185, 1.97122, 166.701, 1.97122, 300.868, 1.97122, 305.747, 143.457, 295.989, 270.305, 286.231, 294.699, 281.353, 445.942, 293.55, 489.852, 276.474, 504.488, 208.171, 502.048, 52.0489, 504.488, 15.4579, 492.291, 42.2913, 443.503, 39.8519, 326.412)
+
+[node name="4" type="Polygon2D" parent="HealthSprites"]
+visible = false
+texture = ExtResource("1_yjhbg")
+polygon = PackedVector2Array(-50, -76, -98, -90, -28, -120, -48, -162, -24, -230, 61, -201, 100, -151, 88, -117, 46, -80, 34, -33, 46, -6, 49, 1, 24, 3, -43, 1, -34, 1, -73, -38, -12, -60)
+uv = PackedVector2Array(32.5337, 289.821, 8.13968, 260.548, 5.70027, 128.82, 13.0185, 1.97122, 166.701, 1.97122, 300.868, 1.97122, 305.747, 143.457, 295.989, 270.305, 286.231, 294.699, 281.353, 445.942, 293.55, 489.852, 276.474, 504.488, 208.171, 502.048, 52.0489, 504.488, 15.4579, 492.291, 42.2913, 443.503, 39.8519, 326.412)
+
+[node name="3" type="Polygon2D" parent="HealthSprites"]
+visible = false
+texture = ExtResource("1_yjhbg")
+polygon = PackedVector2Array(-50, -76, -98, -90, -28, -120, -48, -162, -24, -230, 61, -201, 100, -151, 49, -155, 16, -111, 22, -34, 46, -6, 49, 1, 24, 3, -43, 1, -34, 1, -73, -38, -12, -60)
+uv = PackedVector2Array(32.5337, 289.821, 8.13968, 260.548, 5.70027, 128.82, 13.0185, 1.97122, 166.701, 1.97122, 300.868, 1.97122, 305.747, 143.457, 295.989, 270.305, 286.231, 294.699, 281.353, 445.942, 293.55, 489.852, 276.474, 504.488, 208.171, 502.048, 52.0489, 504.488, 15.4579, 492.291, 42.2913, 443.503, 39.8519, 326.412)
+
+[node name="2" type="Polygon2D" parent="HealthSprites"]
+visible = false
+texture = ExtResource("1_yjhbg")
+polygon = PackedVector2Array(-50, -76, -81, -57, -28, -120, -48, -162, -24, -230, 61, -201, 100, -151, 23, -169, -4, -106, 0, -28, 46, -6, 49, 1, 24, 3, -43, 1, -34, 1, -73, -38, -12, -60)
+uv = PackedVector2Array(32.5337, 289.821, 8.13968, 260.548, 5.70027, 128.82, 13.0185, 1.97122, 166.701, 1.97122, 300.868, 1.97122, 305.747, 143.457, 295.989, 270.305, 286.231, 294.699, 281.353, 445.942, 293.55, 489.852, 276.474, 504.488, 208.171, 502.048, 52.0489, 504.488, 15.4579, 492.291, 42.2913, 443.503, 39.8519, 326.412)
+
+[node name="1" type="Polygon2D" parent="HealthSprites"]
+visible = false
+texture = ExtResource("1_yjhbg")
+polygon = PackedVector2Array(-50, -76, -70, -44, -28, -120, -48, -162, -24, -230, 46, -167, 80, -81, -4, -165, 55, -41, -4, -14, 46, -6, 49, 1, 24, 3, -43, 1, -34, 1, -73, -38, -36, -22)
+uv = PackedVector2Array(32.5337, 289.821, 8.13968, 260.548, 5.70027, 128.82, 13.0185, 1.97122, 166.701, 1.97122, 300.868, 1.97122, 305.747, 143.457, 295.989, 270.305, 286.231, 294.699, 281.353, 445.942, 293.55, 489.852, 276.474, 504.488, 208.171, 502.048, 52.0489, 504.488, 15.4579, 492.291, 42.2913, 443.503, 39.8519, 326.412)
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 32
+
+[node name="ShopControllerClass" type="Node" parent="Area2D" node_paths=PackedStringArray("intClass", "shopNode")]
+script = ExtResource("8_twqvb")
+intClass = NodePath("../../InteractibleControllerClass")
+shopNode = NodePath("../../Shop")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1, 8.5)
+shape = SubResource("RectangleShape2D_2nihr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(6, -86)
+shape = SubResource("CircleShape2D_cacky")
+
+[connection signal="area_entered" from="." to="InteractibleControllerClass" method="_on_cafeteira_area_entered"]
+[connection signal="buying" from="Area2D/ShopControllerClass" to="Shop" method="_on_shop_controller_class_buying"]
+[connection signal="stopbuying" from="Area2D/ShopControllerClass" to="Shop" method="_on_shop_controller_class_stopbuying"]
